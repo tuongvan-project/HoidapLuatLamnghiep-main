@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Hỏi đáp Pháp luật Lâm nghiệp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #43a047;
+            --background-color: #f1f8e9;
+            --text-color: #433;
+            --correct-color: #4caf50;
+            --incorrect-color: #f44336;
+            --timer-color: #e57370;
+            --text-on-light-bg: #333;
+            --text-on-dark-bg: white;
+            /* Cỡ chữ co giãn (fluid typography) */
+            --font-size-sm: clamp(0.8rem, 1.5vw, 1rem);
+            --font-size-md: clamp(1rem, 2vw, 1.25rem);
+            --font-size-lg: clamp(1.15rem, 2.25vw, 1.5rem);
+            --font-size-xl: clamp(1rem, 3vw, 2rem);
+        }
+
+        /* --- Khai báo font chữ tùy chỉnh --- */
+        @font-face {
+            font-family: 'End';
+            src: url('End.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Result'; 
+            src: url('Result.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; 
+        }
+        @font-face {
+            font-family: 'Viettay'; 
+            src: url('Viettay.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; 
+        }
+        @font-face {
+            font-family: 'ViettayBold'; 
+            src: url('ViettayBold.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; 
+        }
+
+        #dim-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 14;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #dim-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #evaluation-text {
+            font-family: 'End', sans-serif;
+            color: black;
+            font-size: clamp(1rem, 4vw, 2rem);
+            width: 100%;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .letter-title {
+            font-family: 'ViettayBold', sans-serif;
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            font-weight: bold;
+            margin-bottom: 0rem;
+        }
+
+        .letter-body {
+            font-family: 'Viettay', sans-serif;  
+            font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+            line-height: 1.2;
+            white-space: pre-wrap;
+        }
+        .letter-body p {
+            margin-top: 0.2rem;
+            margin: 0; 
+            margin-bottom: 0.1rem; 
+        }
+        .letter-body p:first-child {
+            margin-top: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            background-image: url('Background.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            min-height: 100svh;
+            min-height: calc(var(--vh, 1vh) * 100);
+            overflow-y: auto;
+            position: relative;
+            padding-top: 1vh;
+        }
+
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 30;
+            background-image: url('Background0.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 1rem;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .start-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+                
+        .logo-container {
+            position: absolute;
+            top: 1vh;
+            left: 1vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 35;
+        }
+
+        .logo-container img {
+            width: clamp(60px, 10vw, 100px);
+            height: auto;
+            margin-bottom: 0.5vh;
+        }
+
+        .logo-container p {
+            font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+        }
+
+        .author-info {
+            position: absolute;
+            bottom: 0.5vh;
+            right: 1vw;
+            font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 35;
+            white-space: nowrap;
+        }
+                
+        .game-title-img {
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            animation: fadeInScale 2s ease-in-out forwards;
+            margin-bottom: 2rem;
+        }
+                
+        .start-btn {
+            background-color: #4caf50;
+            color: white;
+            font-size: var(--font-size-lg);
+            padding: 0.75em 2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 9px #388e3c;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInScale 2s ease-in-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .start-btn:hover {
+            background-color: #43a047;
+            box-shadow: 0 7px #388e3c;
+            transform: translateY(2px);
+        }
+
+        .start-btn:active {
+            background-color: #388e3c;
+            box-shadow: 2px 2px #388e3c;
+            transform: translateY(7px);
+        }
+
+        #mode-select-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 45;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(18px, 4vw, 42px);
+            overflow: visible;
+            background:
+                radial-gradient(circle at 50% 30%, rgba(255, 231, 166, 0.18), transparent 34%),
+                linear-gradient(180deg, rgba(28, 47, 25, 0.20), rgba(11, 24, 15, 0.55)),
+                url('Background0.jpg') center / cover no-repeat;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.45s ease;
+        }
+
+        #mode-select-screen.active {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mode-select-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(2px);
+        }
+
+        .mode-select-content {
+            position: relative;
+            z-index: 1;
+            width: min(94vw, 760px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(8px, 1.5vh, 16px);
+        }
+
+        .mode-select-heading {
+            margin: 0;
+            color: #fff8dc;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            line-height: 1.45;
+            text-align: center;
+            text-shadow: 0 4px 0 rgba(76, 45, 16, 0.8), 0 0 18px rgba(255, 214, 111, 0.28);
+            letter-spacing: 0.04em;
+        }
+
+        .mode-select-subtitle {
+            margin: 0 0 clamp(2px, 1vh, 8px);
+            color: #fff;
+            font-size: clamp(0.72rem, 1.7vw, 1rem);
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .mode-board {
+            position: relative;
+            width: min(43vw, 340px);
+            aspect-ratio: 1166 / 1225;
+            filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.35));
+            transform-origin: center bottom;
+        }
+        
+        .mode-board-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .mode-option {
+            position: absolute;
+            left: 14%;
+            width: 72%;
+            border: 0;
+            background: transparent;
+            color: #fffdf1;
+            cursor: pointer;
+            padding: clamp(16px, 3vw, 30px) clamp(20px, 4vw, 42px);
+            border-radius: 22px;
+            text-align: center;
+            transform: translateY(0) scale(1);
+            transition: transform 0.16s ease, filter 0.16s ease, background-color 0.16s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mode-option::after {
+            content: '';
+            position: absolute;
+            inset: 10% 7%;
+            border-radius: 24px;
+            background: rgba(255, 224, 132, 0.05);
+            box-shadow: inset 0 0 0 2px rgba(255, 246, 206, 0.10), 0 8px 18px rgba(74, 37, 10, 0.08);
+            opacity: 0;
+            transition: opacity 0.18s ease;
+            pointer-events: none;
+        }
+
+        .mode-option:hover {
+            transform: translateY(-3px) scale(1.015);
+            filter: brightness(1.06) saturate(1.04);
+        }
+
+        .mode-option:hover::after,
+        .mode-option:focus-visible::after {
+            opacity: 1;
+        }
+
+        .mode-option:focus-visible {
+            outline: 3px solid #ffe58a;
+            outline-offset: 4px;
+        }
+
+        .mode-option:active,
+        .mode-option.pressed {
+            transform: translateY(9px) scale(0.975);
+            filter: brightness(0.84) saturate(0.92);
+            transition-duration: 0.07s;
+        }
+
+        .mode-option.normal {
+            top: 7%;
+            height: 34%;
+        }
+
+        .mode-option.expert {
+            top: 41%;
+            height: 35%;
+        }
+
+        .mode-option-title {
+            position: relative;
+            z-index: 1;
+            display: block;
+            margin-bottom: clamp(5px, 1vh, 10px);
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.8rem, 2.8vw, 1.45rem);
+            line-height: 1.35;
+            text-shadow: 0 3px 0 rgba(89, 48, 12, 0.85), 0 0 8px rgba(255, 255, 255, 0.18);
+        }
+
+        .mode-option-description {
+            position: relative;
+            z-index: 1;
+            display: block;
+            font-size: clamp(0.65rem, 1.8vw, 0.95rem);
+            line-height: 1.5;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(68, 35, 9, 0.9);
+        }
+
+        .mode-select-back {
+            border: 0;
+            background: rgba(37, 65, 35, 0.82);
+            color: #fff8dc;
+            padding: 0.72rem 1.2rem;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: clamp(0.72rem, 1.7vw, 0.95rem);
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgba(18, 36, 17, 0.65), 0 8px 18px rgba(0, 0, 0, 0.2);
+            transition: transform 0.16s ease, filter 0.16s ease;
+        }
+
+        .mode-select-back:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        .mode-select-back:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 rgba(18, 36, 17, 0.65), 0 4px 10px rgba(0, 0, 0, 0.18);
+        }
+
+        /* --- Nút Quay Lại xuất hiện trước với hiệu ứng nảy nhẹ --- */
+        @keyframes modeBackIn {
+            0% {
+                opacity: 0;
+                transform: translateY(28px) scale(0.6);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-5px) scale(1.08);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* --- Bảng gỗ 2-modes (chứa nút Normal & Expert) chui vút lên từ vị trí nút Quay Lại --- */
+        @keyframes boardShootUpFromBack {
+            0% {
+                opacity: 0;
+                transform: translateY(110px) scale(0.08) rotate(-7deg);
+                transform-origin: center bottom;
+            }
+            25% {
+                opacity: 1;
+            }
+            65% {
+                transform: translateY(-16px) scale(1.06) rotate(2.5deg);
+                transform-origin: center bottom;
+            }
+            82% {
+                transform: translateY(5px) scale(0.98) rotate(-1deg);
+                transform-origin: center bottom;
+            }
+            94% {
+                transform: translateY(-2px) scale(1.01) rotate(0.4deg);
+                transform-origin: center bottom;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+                transform-origin: center bottom;
+            }
+        }
+
+        @keyframes modeHeadingIn {
+            from { opacity: 0; transform: translateY(-18px) scale(0.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* --- Trình tự kích hoạt Animation khi mở màn chọn chế độ --- */
+        /* 1. Tiêu đề hiện ra mượt mà */
+        #mode-select-screen.active .mode-select-heading {
+            animation: modeHeadingIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+        }
+
+        #mode-select-screen.active .mode-select-subtitle {
+            animation: modeHeadingIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+        }
+
+        /* 2. Nút Quay Lại xuất hiện đầu tiên */
+        #mode-select-screen.active .mode-select-back {
+            animation: modeBackIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+        }
+
+        /* 3. Bảng gỗ chui vút lên từ vị trí nút Quay Lại */
+        #mode-select-screen.active .mode-board {
+            animation: boardShootUpFromBack 0.82s cubic-bezier(0.25, 0.9, 0.35, 1) 0.38s both;
+        }
+
+        @media (max-width: 520px) {
+            #mode-select-screen { padding: 12px; }
+            .mode-select-heading { font-size: clamp(0.85rem, 4vw, 1.2rem); }
+            .mode-board { width: min(47vw, 300px); }
+            .mode-option { left: 11%; width: 78%; padding-left: 14px; padding-right: 14px; }
+            .mode-option.normal { top: 6%; height: 35%; }
+            .mode-option.expert { top: 41%; height: 36%; }
+            .mode-option-title { font-size: clamp(0.68rem, 3.6vw, 1rem); }
+            .mode-option-description { font-size: clamp(0.56rem, 2.5vw, 0.78rem); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #mode-select-screen,
+            .mode-option,
+            .mode-select-back { transition: none; }
+
+            #mode-select-screen.active .mode-select-heading,
+            #mode-select-screen.active .mode-select-subtitle,
+            #mode-select-screen.active .mode-board,
+            #mode-select-screen.active .mode-select-back {
+                animation: none;
+            }
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1vh 2vw 2vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+                
+        #clock-container {
+            position: absolute;
+            top: 0vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: clamp(80px, 12vw, 120px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock-frame {
+            width: 100%;
+            height: auto;
+        }
+
+        #timer-container {
+            position: absolute;
+            top: 56%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+                
+        #timer {
+            font-size: clamp(1rem, 3.5vw, 2rem);
+            font-weight: bold;
+            color: #ffc107;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+                
+        .exit-btn, .replay-btn {
+            position: absolute;
+            left: 1vw;
+            z-index: 25;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            width: clamp(40px, 8vw, 60px);
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .exit-btn {
+            bottom: 12vh;
+        }
+        .replay-btn {
+            bottom: 22vh;
+        }
+
+        .exit-btn img, .replay-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .exit-btn:hover, .replay-btn:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+            box-shadow: none;
+        }
+        .exit-btn:active, .replay-btn:active {
+            transform: scale(1.05);
+            background-color: transparent;
+            box-shadow: none;
+        }        
+
+        .quiz-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 12vh;
+            flex-grow: 1;
+        }
+                
+        .question-frame {
+            width: clamp(300px, 85vw, 900px);
+            min-height: 150px;
+            height: auto;
+            background-image: url('Cauhoi.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5% 8%;
+            margin-bottom: 2rem;
+        }        
+        .question-card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-color);
+            overflow-y: auto;
+        }
+
+        .question-text {
+            font-size: clamp(1rem, 3.5vw, 1.5rem);
+            font-weight: 600;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            padding: 0.5rem;
+        }
+
+        .answers {
+            width: clamp(300px, 90vw, 900px);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 0 1rem;
+        }
+                
+        @media (orientation: landscape) {
+            .answers {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+                
+        .answers.visible {
+            opacity: 1;
+        }
+                
+        .answer-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+            font-weight: 500;
+            width: 100%;
+            min-height: 72px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.2s, background-image 0.3s ease;
+            border: none;
+            background-image: url('Textbox.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .answer-btn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+                
+        .answer-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            filter: brightness(1.1);
+        }
+                
+        .answer-btn.correct {
+            background-image: url('Textbox_Correct.png');
+        }
+
+        .answer-btn.incorrect {
+            background-image: url('Textbox_Incorrect.png');
+        }
+                
+        .answer-btn.disabled { pointer-events: none; opacity: 0.8; }
+
+        .results-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 20;
+            animation: fadeIn 1s ease-in-out;
+        }
+                
+        .result-text {
+            font-family: 'Result', sans-serif; 
+            font-size: var(--font-size-lg);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .restart-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: var(--font-size-md);
+            margin-top: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .restart-btn:hover { background-color: var(--primary-color); }
+                
+        .chibi-assistant {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: clamp(150px, 20vw, 250px);
+            height: auto;
+            z-index: 15;
+            pointer-events: none;
+        }
+                
+        .chibi-assistant video { width: 100%; height: auto; display: block; }
+                
+        .next-btn {
+            position: fixed;  
+            bottom: calc(env(safe-area-inset-bottom) + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 999;  
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .next-btn img {
+            width: clamp(56px, 9vw, 90px);
+            height: auto;
+        }
+
+        .next-btn:hover { transform: translateX(-50%) scale(1.1); }
+
+        .overlay-answer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            width: clamp(300px, 80vw, 800px);
+            height: auto;
+            background-image: url('Dapan.png');
+            background-size: 100% 100%;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-color);
+            font-size: var(--font-size-lg);
+            font-weight: bold;
+            z-index: 15;
+            opacity: 0;
+            pointer-events: none;
+            padding: 4%;
+            overflow-y: auto;
+        }
+
+        .overlay-answer.active {
+            animation: zoomIn 0.5s ease-out forwards;
+            pointer-events: auto;
+        }
+
+        .overlay-text { 
+            white-space: pre-wrap; 
+            opacity: 0; 
+            line-height: 1.4;
+            font-size: clamp(1rem, 3.5vw, 1.5rem);
+        }
+
+        #score-board {
+            position: absolute;
+            top: 1vh;
+            right: 1vw;
+            width: clamp(95px, 20vw, 140px);
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+                
+        #score-board.active {
+            opacity: 1;
+        }
+
+        .score-board-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+                
+        .score-text-container {
+            position: absolute;
+            width: 100%;
+            top: 78%;
+            left: 43%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #correct-count {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.5rem, 1vw, 1.0rem);
+            font-weight: bold;
+            color: #007bff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            margin: 0.1em 0;
+        }
+
+        #incorrect-count {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.5rem, 1vw, 1.0rem);
+            font-weight: bold;
+            color: #dc3545;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            margin: 0.1em 0;
+        }
+
+        @keyframes fadeInScale {
+            0% { transform: scale(0.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -40%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        @keyframes zoomIn {
+            0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+            80% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+                
+        #overlay-explanation {
+            font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+            font-weight: normal; 
+            font-style: italic;
+            color: var(--text-color);
+            line-height: 1.5;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #overlay-answer-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+            height: 100%;
+            width: 100%;
+        }
+                
+        @media (max-width: 768px) {
+            .chibi-assistant {
+                width: 80px;
+            }
+            .question-frame {
+                height: auto;
+                min-height: 120px;
+                width: clamp(280px, 90vw, 600px);
+                padding: 5% 10%;
+                margin-bottom: 0.75rem;
+            }
+            .quiz-wrapper {
+                padding-top: 15vh;
+            }
+            #score-board {
+                top: 2vh;
+                width: clamp(100px, 25vw, 150px);
+            }
+            
+            .logo-container {
+                top: 2vh;
+            }
+            .overlay-answer {
+                width: clamp(300px, 90vw, 800px);
+                padding: 8% 5%;
+            }
+            .fade-out {
+                opacity: 0;
+                transition: opacity 0.5s ease-out;
+            }
+            .fade-in {
+                opacity: 1;
+                transition: opacity 0.5s ease-in;
+            }
+        }
+
+        #menu-container {
+            position: absolute;
+            bottom: 2vh;
+            left: 1vw;
+            z-index: 35;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: clamp(40px, 8vw, 60px);
+            height: auto;
+            transition: transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2; 
+        }
+        .menu-btn img {
+            width: 100%;
+            height: auto;
+        }
+        .menu-btn:hover { transform: scale(1.1); }
+
+        #menu-tray {
+            position: absolute;
+            left: 100%; 
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            height: auto; 
+            opacity: 0;
+            transform: translateX(-20%);
+            pointer-events: none;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        #menu-tray.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .menu-tray-img {
+            height: clamp(60px, 12vw, 85px);
+            width: auto;
+            display: block;
+        }
+
+        .menu-buttons-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-45%, -50%); 
+            display: flex;
+            gap: 2.5vw; 
+        }
+
+        .tray-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: clamp(25px, 4vw, 35px);
+            transition: transform 0.2s ease;
+        }
+        .tray-btn img {
+            width: 100%;
+            height: auto;
+        }
+        .tray-btn:hover { transform: scale(1.1); }
+
+        @keyframes unroll {
+            from {
+                clip-path: inset(0 0 100% 0);
+            }
+            to {
+                clip-path: inset(0 0 0% 0);
+            }
+        }
+
+        #about-me-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 40;
+            background-image: url('Aboutme.webp');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            aspect-ratio: 3 / 4;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        #about-me-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+            animation: unroll 1.5s ease-out forwards;
+        }
+
+        #about-me-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: auto;
+            padding: 2% 5%;
+            text-align: center;
+            color: #433;
+            overflow-y: auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0;
+            transition: opacity 0.5s ease; 
+        }
+
+        #end-screen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #end-screen-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        #end-screen-container {
+            width: 90%;
+            max-width: 700px;
+            height: auto;
+            position: relative;
+            background-image: url('End.webp');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 5% 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            animation: fadeInScale 1s ease-in-out;
+        }
+
+        .result-frame {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            position: relative;
+            padding: 0 5%;
+        }
+
+        .result-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('Sc.webp');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            min-height: 80px;
+            padding: 2% 10%;
+            margin-bottom: 1rem;
+        }
+
+        .result-text {
+            text-align: center;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .evaluation-box-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: clamp(250px, 80%, 400px);
+            height: auto;
+            background-image: url('Sc.webp');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            min-height: 80px;
+            padding: 2% 10%;
+            margin-bottom: 3rem;
+        }
+
+        #star-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            width: clamp(50px, 10vw, 70px);
+            height: auto;
+            margin: 0 5px;
+        }
+
+        #end-buttons-container {
+            position: absolute;
+            bottom: 5%;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        #end-replay-btn, #end-exit-btn {
+            font-size: var(--font-size-md);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px #388e3c;
+            font-weight: 700;
+        }
+
+        #end-replay-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+        }
+
+        #end-exit-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+
+        #end-replay-btn:hover {
+            background-color: #43a047;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #388e3c;
+        }
+
+        #end-exit-btn:hover {
+            background-color: #e53935;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #c62828;
+        }
+
+        #end-replay-btn:active, #end-exit-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #388e3c;
+        }
+
+        @media (min-width: 768px) {
+            .result-frame {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }   
+    </style>
+    <script src="questions.js"></script> 
+</head>
+<body>
+    <div id="dim-overlay"></div>
+
+    <div id="menu-container">
+        <button id="menu-button" class="menu-btn">
+            <img src="Menu.webp" alt="Menu Button">
+        </button>
+        <div id="menu-tray">
+            <img src="Khay.webp" alt="Menu Tray" class="menu-tray-img">
+            <div class="menu-buttons-container">
+                <button id="mute-button" class="tray-btn">
+                    <img id="mute-icon" src="Volume.webp" alt="Mute/Volume Button">
+                </button>
+                <button id="info-button" class="tray-btn">
+                    <img src="i.webp" alt="Info Button">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình bắt đầu -->
+    <div id="start-screen" class="start-screen">
+        <div class="logo-container">
+            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <p>CHI CỤC KIỂM LÂM</p>
+            <p>TỈNH TUYÊN QUANG</p>
+        </div>
+        <img src="Gametitle.png" alt="HỎI ĐÁP PHÁP LUẬT LÂM NGHIỆP" class="game-title-img">
+        <button id="start-button" class="start-btn">START</button>
+        <p class="author-info"><b>Game Design & Development by Phạm Tường Văn</b></p>
+        
+        <div id="about-me-overlay">
+            <div id="about-me-content">
+                <h2 class="letter-title">Thông điệp từ người phát triển</h2>
+                <div class="letter-body">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình chọn chế độ: xuất hiện sau khi nhấn START -->
+    <section id="mode-select-screen" aria-label="Chọn chế độ chơi">
+        <div class="mode-select-backdrop"></div>
+        <div class="mode-select-content">
+            <h2 class="mode-select-heading">CHỌN CHẾ ĐỘ CHƠI</h2>
+            <p class="mode-select-subtitle">Chọn tấm biển để bắt đầu hành trình của bạn</p>
+
+            <div class="mode-board">
+                <img src="2-modes.webp" alt="Bảng gỗ chọn chế độ chơi" class="mode-board-image">
+
+                <button type="button" class="mode-option normal" data-mode="normal" aria-label="Chọn chế độ Normal">
+                    <span class="mode-option-title">NORMAL</span>
+                    <span class="mode-option-description">Ôn luyện và làm quen với bộ câu hỏi</span>
+                </button>
+
+                <button type="button" class="mode-option expert" data-mode="expert" aria-label="Chọn chế độ Expert">
+                    <span class="mode-option-title">EXPERT</span>
+                    <span class="mode-option-description">Thử thách dành cho người đã nắm vững kiến thức</span>
+                </button>
+            </div>
+
+            <button type="button" id="mode-select-back" class="mode-select-back">← QUAY LẠI</button>
+        </div>
+    </section>
+
+    <div class="container" style="display: none;">
+        <div class="logo-container">
+            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <p>CHI CỤC KIỂM LÂM</p>
+            <p>TỈNH TUYÊN QUANG</p>
+        </div>
+        <p class="author-info"><b>Bản quyền © 2025 Phạm Tường Văn</b></p>
+        
+        <div id="clock-container">
+            <img src="Clock.webp" alt="Clock Frame" id="clock-frame">
+            <div id="timer-container">
+                <span id="timer"></span>
+            </div>
+        </div>
+
+        <button id="exit-button" class="exit-btn">
+            <img src="Home.webp" alt="Home Button">
+        </button>
+        <button id="replay-button" class="replay-btn" style="display: none;">
+            <img src="Replay.webp" alt="Replay Button">
+        </button>
+
+        <div id="score-board">
+            <img src="Count.png" alt="Score Board" class="score-board-frame">
+            <div class="score-text-container">
+                <p id="correct-count">Đ 0/20</p>
+                <p id="incorrect-count">S 0/20</p>
+            </div>
+        </div>
+
+        <div class="quiz-wrapper">
+            <div id="question-frame" class="question-frame">
+                <div id="question-card-container"></div>
+            </div>
+            <div id="answers-container"></div>
+        </div>
+
+        <div id="chibi-assistant" class="chibi-assistant">
+            <video id="chibi-video" muted playsinline></video>
+        </div>
+
+        <div class="overlay-answer" id="overlay-answer">
+            <div class="overlay-content" id="overlay-answer-content">
+                <h3 id="overlay-text"></h3>
+                <p id="overlay-explanation"></p>
+            </div>
+        </div>
+
+        <div id="results-container" class="results-container" style="display: none;">
+            <p id="result-text" class="result-text"></p>
+            <button id="restart-btn" class="restart-btn">Làm lại</button>
+        </div>
+        
+        <button id="next-button" class="next-btn" style="display: none;">
+            <img src="Arrow.png" alt="Next Question">
+        </button>
+    </div>
+
+    <div id="end-screen-overlay">
+        <div id="end-screen-container">
+            <div class="evaluation-box-top">
+                <span id="evaluation-text" class="result-text"></span>
+            </div>
+            <div id="star-rating"></div>
+            <div class="result-box">
+                <span id="final-stats-text" class="result-text"></span>
+            </div>
+            <div class="result-box">
+                <span id="avg-time-text" class="result-text"></span>
+            </div>
+            <button id="end-replay-btn" class="restart-btn">Chơi Lại</button>
+            <button id="end-exit-btn" class="restart-btn">Thoát</button>
+        </div>
+    </div>
+
+    <script>
+        const startScreen = document.getElementById('start-screen');
+        const startButton = document.getElementById('start-button');
+        const modeSelectScreen = document.getElementById('mode-select-screen');
+        const modeSelectBack = document.getElementById('mode-select-back');
+        const modeOptions = document.querySelectorAll('.mode-option');
+        const mainContainer = document.querySelector('.container');
+        const resultsContainer = document.getElementById('results-container');
+        const resultText = document.getElementById('result-text');
+        const restartBtn = document.getElementById('restart-btn');
+        const timerContainer = document.getElementById('timer-container');
+        const timerElement = document.getElementById('timer');
+        const exitButton = document.getElementById('exit-button');
+        const dimOverlay = document.getElementById('dim-overlay');
+        const replayButton = document.getElementById('replay-button');
+        const nextBtn = document.getElementById('next-button');
+        const overlayAnswer = document.getElementById('overlay-answer');
+        const overlayText = document.getElementById('overlay-text');
+        const chibiAssistant = document.getElementById('chibi-assistant');
+        const chibiVideo = document.getElementById('chibi-video');
+        const overlayExplanation = document.getElementById('overlay-explanation');
+       
+        // --- DOM Elements cho Quiz ---
+        const questionCardContainer = document.getElementById('question-card-container');
+        const answersContainer = document.getElementById('answers-container');
+        
+        // --- DOM Elements cho Bảng Điểm ---
+        const scoreBoard = document.getElementById('score-board');
+        const correctCountElement = document.getElementById('correct-count');
+        const incorrectCountElement = document.getElementById('incorrect-count');
+
+        // --- DOM Elements cho Menu ---
+        const menuButton = document.getElementById('menu-button');
+        const menuTray = document.getElementById('menu-tray');
+        const muteButton = document.getElementById('mute-button');
+        const muteIcon = document.getElementById('mute-icon');
+        const infoButton = document.getElementById('info-button');
+        const aboutMeOverlay = document.getElementById('about-me-overlay');
+        
+        // --- DOM Elements cho Màn hình Kết quả ---
+        const endScreenOverlay = document.getElementById('end-screen-overlay');
+        const endScreenContainer = document.getElementById('end-screen-container');
+        const evaluationText = document.getElementById('evaluation-text');
+        const starRating = document.getElementById('star-rating');
+        const finalStatsText = document.getElementById('final-stats-text');
+        const avgTimeText = document.getElementById('avg-time-text');
+        const endReplayBtn = document.getElementById('end-replay-btn');
+        const endExitBtn = document.getElementById('end-exit-btn');
+        
+        // --- Âm thanh ---
+        const themeMusic = new Audio('Theme.mp3');
+        const clickSound = new Audio('click.mp3');
+        const rightSound = new Audio('Right.mp3');
+        const falseSound = new Audio('False.mp3');
+        const tenSecondsSound = new Audio('10s.mp3');
+        const latGiaySound = new Audio('Latgiay.mp3'); 
+        
+        themeMusic.loop = true;
+        themeMusic.volume = 0.3;
+        rightSound.volume = 0.3;
+        falseSound.volume = 0.2;
+        tenSecondsSound.volume = 0.3;
+        latGiaySound.volume = 0.5;
+        clickSound.volume = 0.3;
+
+        // Catch global media promise rejections (e.g. missing or unsupported mp3/mp4 files in preview)
+        window.addEventListener('unhandledrejection', function(event) {
+            if (event.reason && (event.reason.name === 'NotSupportedError' || event.reason.name === 'NotAllowedError')) {
+                event.preventDefault();
+            }
+        });
+
+        // Safe play function for audio elements
+        function safePlaySound(audio, rewind = true) {
+            if (!audio) return;
+            try {
+                if (rewind) audio.currentTime = 0;
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.catch(err => {
+                        console.warn("Sound play prevented or file not supported:", err);
+                    });
+                }
+            } catch (e) {
+                console.warn("Sound play error:", e);
+            }
+        }
+        
+        const GAME_CONFIG = Object.freeze({
+            totalQuestions: 20,
+            questionTime: 60,
+            answerRevealDelay: 1500,
+            nextQuestionDelay: 1000,
+            answerAnimationDelay: 200,
+            questionTypingSpeed: 25,
+            answerTypingSpeed: 40,
+            explanationTypingSpeed: 20
+        });
+
+        const totalQuestions = GAME_CONFIG.totalQuestions;
+        let score = 0;
+        let currentQuestionIndex = 0;
+        let timerInterval = null;
+        let shuffledQuestions;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let totalTimeSpent = 0;
+        let timeStartPerQuestion = 0;
+        let timerDeadline = 0;
+        let timerWarningPlayed = false;
+        let typeWriterToken = 0;
+        let selectedMode = 'normal';
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function startQuiz(mode = selectedMode) {
+            selectedMode = mode;
+            stopTimer();
+            cancelTypeWriterEffects();
+            endScreenOverlay.classList.remove('active');
+            endScreenOverlay.style.display = 'none';
+
+            score = 0;
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+            totalTimeSpent = 0;
+            
+            resultsContainer.style.display = 'none';
+            timerContainer.style.display = 'block';
+            exitButton.style.display = 'block';
+            replayButton.style.display = 'block';
+            chibiAssistant.style.display = 'block';
+            nextBtn.style.display = 'none';
+            overlayAnswer.style.display = 'none';
+            overlayText.style.opacity = 0;
+            overlayExplanation.style.opacity = 0;
+            scoreBoard.classList.add('active');
+            updateScoreBoard();
+            
+            shuffledQuestions = shuffle([...questions]).slice(0, Math.min(totalQuestions, questions.length));
+            showNextQuestion();
+        }
+
+        function showNextQuestion() {
+            stopTimer();
+            cancelTypeWriterEffects();
+            if (currentQuestionIndex < shuffledQuestions.length) {
+                const q = shuffledQuestions[currentQuestionIndex];
+                
+                questionCardContainer.innerHTML = '';
+                answersContainer.innerHTML = '';
+
+                const questionElement = document.createElement('div');
+                questionElement.classList.add('question-card');
+                const questionTextElement = document.createElement('div');
+                questionTextElement.classList.add('question-text');
+                questionElement.appendChild(questionTextElement);
+                questionCardContainer.appendChild(questionElement);
+
+                const answersElement = document.createElement('div');
+                answersElement.classList.add('answers');
+                answersContainer.appendChild(answersElement);
+                
+                playChibiVideo('Ask.mp4');
+
+                typeWriterEffect(questionTextElement, `Câu ${currentQuestionIndex + 1}: ${q.question}`, () => {
+                    createAndShowAnswers(answersElement, q.options, q.correct);
+                }, GAME_CONFIG.questionTypingSpeed);
+                
+            } else {
+                showResults();
+            }
+        }
+
+        function createAndShowAnswers(answersElement, options, correctAnswerText) {
+            const answerLabels = ['A', 'B', 'C', 'D'];
+            const indexedOptions = options.map((text, originalIndex) => ({
+                id: String(originalIndex),
+                text
+            }));
+            const shuffledOptions = shuffle([...indexedOptions]);
+            const correctOption = indexedOptions.find(option => option.text === correctAnswerText);
+
+            answersElement.dataset.correctAnswerId = correctOption ? correctOption.id : '';
+            answersElement.innerHTML = shuffledOptions.map((option, index) => `
+                <button class="answer-btn" data-answer-id="${option.id}">${answerLabels[index]}. ${option.text}</button>
+            `).join('');
+
+            answersElement.classList.add('visible');
+            const answerButtons = Array.from(answersElement.children);
+            let delay = 0;
+            answerButtons.forEach((btn, index) => {
+                setTimeout(() => {
+                    if (!btn.isConnected) return;
+                    btn.classList.add('show');
+                    if (index === answerButtons.length - 1 && answersElement.isConnected) {
+                        answerButtons.forEach(b => b.addEventListener('click', handleAnswer, { once: true }));
+                        startTimer();
+                    }
+                }, delay);
+                delay += GAME_CONFIG.answerAnimationDelay;
+            });
+        }
+        
+        function cancelTypeWriterEffects() {
+            typeWriterToken++;
+        }
+
+        function typeWriterEffect(element, text, callback, speed = GAME_CONFIG.questionTypingSpeed) {
+            const token = ++typeWriterToken;
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (token !== typeWriterToken || !element.isConnected) return;
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else if (callback && token === typeWriterToken) {
+                    callback();
+                }
+            }
+            type();
+        }
+
+        function stopTimer() {
+            if (timerInterval !== null) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            timerDeadline = 0;
+            timerWarningPlayed = false;
+        }
+
+        function startTimer() {
+            stopTimer();
+            const questionTime = GAME_CONFIG.questionTime;
+            timeStartPerQuestion = Date.now();
+            timerDeadline = timeStartPerQuestion + questionTime * 1000;
+            timerWarningPlayed = false;
+            timerElement.textContent = questionTime;
+            timerElement.style.color = '#ffc107';
+
+            timerInterval = setInterval(() => {
+                const remainingMs = Math.max(0, timerDeadline - Date.now());
+                const timeLeft = Math.ceil(remainingMs / 1000);
+                timerElement.textContent = timeLeft;
+
+                if (timeLeft <= 10) {
+                    if (timeLeft === 10 && !timerWarningPlayed) {
+                        timerWarningPlayed = true;
+                        safePlaySound(tenSecondsSound, false);
+                    }
+                    timerElement.style.color = 'var(--incorrect-color)';
+                }
+
+                if (remainingMs <= 0) {
+                    stopTimer();
+                    totalTimeSpent += questionTime;
+                    handleAnswerTimeout();
+                }
+            }, 200);
+        }
+
+        function updateScoreBoard() {
+            correctCountElement.textContent = `Đ ${correctAnswers}/${totalQuestions}`;
+            incorrectCountElement.textContent = `S ${incorrectAnswers}/${totalQuestions}`;
+        }
+
+        function handleAnswer(event) {
+            stopTimer();
+            const timeEndPerQuestion = Date.now();
+            const timeSpent = Math.min(GAME_CONFIG.questionTime, (timeEndPerQuestion - timeStartPerQuestion) / 1000);
+            totalTimeSpent += timeSpent;
+            const selectedBtn = event.currentTarget;
+            const parentAnswers = selectedBtn.closest('.answers');
+            const correctAnswerId = parentAnswers.dataset.correctAnswerId;
+
+            Array.from(parentAnswers.children).forEach(btn => {
+                btn.classList.add('disabled');
+            });
+
+            const selectedAnswerId = selectedBtn.dataset.answerId;
+            if (selectedAnswerId === correctAnswerId) {
+                selectedBtn.classList.add('correct');
+                correctAnswers++;
+                safePlaySound(rightSound);
+                playChibiVideo('True.mp4');
+                nextBtn.style.display = 'block';
+            } else {
+                selectedBtn.classList.add('incorrect');
+                incorrectAnswers++;
+                safePlaySound(falseSound);
+                playChibiVideo('Sad.mp4');
+
+                Array.from(parentAnswers.children).forEach(btn => {
+                    if (btn.dataset.answerId === correctAnswerId) {
+                        btn.classList.add('correct');
+                    }
+                });
+
+                setTimeout(() => {
+                    showCorrectAnswerOverlay(shuffledQuestions[currentQuestionIndex].correct);
+                }, GAME_CONFIG.answerRevealDelay);
+            }
+            updateScoreBoard();
+        }
+
+        function handleAnswerTimeout() {
+            stopTimer();
+            const currentAnswers = answersContainer.querySelector('.answers');
+            if (!currentAnswers) return;
+
+            incorrectAnswers++;
+            updateScoreBoard();
+            
+            const correctAnswerId = currentAnswers.dataset.correctAnswerId;
+            const correctAnswerText = shuffledQuestions[currentQuestionIndex].correct;
+            
+            Array.from(currentAnswers.children).forEach(btn => {
+                btn.classList.add('disabled');
+                if (btn.dataset.answerId === correctAnswerId) {
+                    btn.classList.add('correct');
+                }
+            });
+            playChibiVideo('Sad.mp4');
+            showCorrectAnswerOverlay(correctAnswerText);
+        }
+
+        function showCorrectAnswerOverlay(correctAnswerText) {
+            cancelTypeWriterEffects();
+            dimOverlay.classList.add('active');
+            safePlaySound(latGiaySound);
+    
+            const currentQuestion = shuffledQuestions[currentQuestionIndex];
+            const explanationText = currentQuestion.explanation;
+
+            overlayAnswer.style.display = 'flex';
+            overlayAnswer.classList.add('active');
+
+            overlayAnswer.addEventListener('animationend', () => {
+                overlayText.style.opacity = 1;
+                typeWriterEffect(overlayText, `Đáp án đúng là:\n${correctAnswerText}`, () => {
+                    if (explanationText) {
+                        overlayExplanation.style.opacity = 1;
+                        typeWriterEffect(overlayExplanation, explanationText, () => {
+                            nextBtn.style.display = 'block';
+                        }, GAME_CONFIG.explanationTypingSpeed);
+                    } else {
+                        nextBtn.style.display = 'block';
+                    }
+                }, GAME_CONFIG.answerTypingSpeed);
+            }, { once: true });
+        }
+
+        function showResults() {
+            questionCardContainer.innerHTML = '';
+            answersContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
+            timerContainer.style.display = 'none';
+            exitButton.style.display = 'none';
+            replayButton.style.display = 'none';
+            chibiAssistant.style.display = 'none';
+            overlayAnswer.style.display = 'none';
+            nextBtn.style.display = 'none';
+            scoreBoard.classList.remove('active');
+        
+            endScreenOverlay.style.display = 'flex';
+            setTimeout(() => endScreenOverlay.classList.add('active'), 50);
+
+            displayEvaluation();
+            displayStars();
+            displayFinalStats();
+            displayAvgTime();
+        }
+        
+        function resetGame() {
+            stopTimer();
+            cancelTypeWriterEffects();
+            modeSelectScreen.classList.remove('active');
+            modeSelectScreen.style.display = 'none';
+            mainContainer.style.display = 'none';
+            startScreen.classList.remove('hidden');
+            scoreBoard.classList.remove('active');
+            replayButton.style.display = 'none';
+            themeMusic.pause();
+            themeMusic.currentTime = 0;
+        }
+
+        startButton.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            startScreen.classList.add('hidden');
+            modeSelectScreen.style.display = 'flex';
+            requestAnimationFrame(() => modeSelectScreen.classList.add('active'));
+
+            if (themeMusic.paused) {
+                safePlaySound(themeMusic, false);
+            }
+        });
+
+        modeOptions.forEach(option => {
+            const pressOn = () => option.classList.add('pressed');
+            const pressOff = () => option.classList.remove('pressed');
+
+            option.addEventListener('pointerdown', pressOn);
+            option.addEventListener('pointerup', pressOff);
+            option.addEventListener('pointercancel', pressOff);
+            option.addEventListener('pointerleave', pressOff);
+
+            option.addEventListener('click', () => {
+                safePlaySound(clickSound);
+                option.classList.add('pressed');
+
+                const mode = option.dataset.mode || 'normal';
+                selectedMode = mode;
+
+                setTimeout(() => {
+                    option.classList.remove('pressed');
+                    modeSelectScreen.classList.remove('active');
+                    setTimeout(() => {
+                        modeSelectScreen.style.display = 'none';
+                        mainContainer.style.display = 'flex';
+                        startQuiz(mode);
+                    }, 280);
+                }, 100);
+            });
+        });
+
+        modeSelectBack.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            modeSelectScreen.classList.remove('active');
+            setTimeout(() => {
+                modeSelectScreen.style.display = 'none';
+                startScreen.classList.remove('hidden');
+            }, 280);
+        });
+        
+        exitButton.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            resetGame();
+        });
+        
+        replayButton.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            startQuiz();
+        });
+
+        restartBtn.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            startQuiz();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            nextBtn.style.display = 'none';
+            dimOverlay.classList.remove('active');
+            
+            overlayAnswer.classList.remove('active');
+            overlayText.style.opacity = 0;
+            overlayText.textContent = '';
+            overlayExplanation.style.opacity = 0;
+            overlayExplanation.textContent = '';
+            
+            const quizWrapper = document.querySelector('.quiz-wrapper');
+            quizWrapper.classList.add('fade-out');
+
+            setTimeout(() => {
+                quizWrapper.classList.remove('fade-out');
+                quizWrapper.style.opacity = 1;
+
+                currentQuestionIndex++;
+                showNextQuestion();
+            }, 1000);
+        });
+
+        endReplayBtn.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            endScreenOverlay.classList.remove('active');
+            
+            setTimeout(() => {
+                endScreenOverlay.style.display = 'none';
+                startQuiz();
+            }, 1000); 
+        });
+
+        endExitBtn.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            endScreenOverlay.classList.remove('active');
+            
+            setTimeout(() => {
+                endScreenOverlay.style.display = 'none';
+                resetGame();
+            }, 1000);
+        });
+
+        function playChibiVideo(videoSrc) {
+            try {
+                chibiVideo.playbackRate = 1.0;
+                chibiVideo.onended = null;
+                chibiVideo.loop = false;
+
+                if (chibiVideo.getAttribute('src') !== videoSrc) {
+                    chibiVideo.src = videoSrc;
+                }
+
+                if (videoSrc === 'Ask.mp4') {
+                    chibiVideo.onended = () => {
+                        playChibiVideo('Wait.mp4');
+                    };
+                } else if (videoSrc === 'Wait.mp4') {
+                    chibiVideo.loop = true;
+                    chibiVideo.playbackRate = 0.6;
+                } else if (videoSrc === 'True.mp4' || videoSrc === 'Sad.mp4') {
+                    chibiVideo.onended = () => {
+                        playChibiVideo('Wait2.mp4');
+                    };
+                } else if (videoSrc === 'Wait2.mp4') {
+                    chibiVideo.loop = true;
+                }
+
+                const playPromise = chibiVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => console.warn("Cannot play chibi video source:", e));
+                }
+            } catch (e) {
+                console.warn("Video play exception:", e);
+            }
+        }
+
+        chibiVideo.addEventListener('error', (e) => {
+            console.warn("Chibi video resource error caught safely:", e);
+        });
+
+        function setRealVh() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setRealVh();
+        window.addEventListener('resize', setRealVh);
+        window.addEventListener('orientationchange', setRealVh);
+        
+        menuButton.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            menuTray.classList.toggle('active');
+            if (!menuTray.classList.contains('active')) {
+                aboutMeOverlay.classList.remove('active');
+            }
+        });
+
+        muteButton.addEventListener('click', () => {
+            if (themeMusic.muted === false) {
+                themeMusic.muted = true;
+                rightSound.muted = true;
+                falseSound.muted = true;
+                tenSecondsSound.muted = true;
+                latGiaySound.muted = true;
+                clickSound.muted = true;
+                muteIcon.src = 'Mute.webp';
+            } else {
+                themeMusic.muted = false;
+                rightSound.muted = false;
+                falseSound.muted = false;
+                tenSecondsSound.muted = false;
+                latGiaySound.muted = false;
+                clickSound.muted = false;
+                muteIcon.src = 'Volume.webp';
+                safePlaySound(clickSound);
+            }
+        });
+
+        infoButton.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            const isAlreadyActive = aboutMeOverlay.classList.contains('active');
+            const contentContainer = aboutMeOverlay.querySelector('#about-me-content');
+            const titleElement = aboutMeOverlay.querySelector('.letter-title');
+
+            if (isAlreadyActive) {
+                aboutMeOverlay.classList.remove('active');
+                aboutMeOverlay.style.animation = 'none';
+                contentContainer.style.opacity = '0';
+            } else {
+                titleElement.textContent = '';
+                
+                const originalTitle = "Thông điệp từ người phát triển";
+                const originalBodies = [
+                    "Chào các đồng nghiệp Kiểm lâm và những người yêu rừng!",
+                    "Dự án này không chỉ là một công cụ giải trí mà còn là tâm huyết của tôi, một Kiểm lâm viên, với mong muốn tạo ra một phương tiện học tập mới mẻ và thú vị.",
+                    "Qua mỗi câu hỏi, tôi hy vọng chúng ta có thể củng cố và trau dồi kiến thức về pháp luật về Lâm nghiệp, một hành trang không thể thiếu trong công tác bảo vệ và phát triển rừng.",
+                    "Chúc các bạn có những giây phút thư giãn và học hỏi thật hiệu quả./.",
+                    "Trân trọng,\nPhạm Tường Văn"
+                ];
+
+                aboutMeOverlay.style.animation = '';
+                aboutMeOverlay.classList.add('active');
+                safePlaySound(latGiaySound);
+
+                aboutMeOverlay.addEventListener('animationend', () => {
+                    contentContainer.style.opacity = '1';
+                    const bodyParagraphs = contentContainer.querySelectorAll('.letter-body p');
+                    
+                    let pIndex = 0;
+                    const typeNextParagraph = () => {
+                        if (pIndex < originalBodies.length) {
+                            typeWriterEffect(bodyParagraphs[pIndex], originalBodies[pIndex], typeNextParagraph, 20);
+                            pIndex++;
+                        }
+                    };
+                    
+                    typeWriterEffect(titleElement, originalTitle, typeNextParagraph, 50);
+                    
+                }, { once: true });
+            }
+        });
+
+        function displayEvaluation() {
+            let evaluation = '';
+            if (correctAnswers <= 3) {
+                evaluation = 'HỌC LẠI NGAY';
+            } else if (correctAnswers >= 4 && correctAnswers <= 7) {
+                evaluation = 'PHẢI HỌC THÊM';
+            } else if (correctAnswers >= 8 && correctAnswers <= 11) {
+                evaluation = 'TẠM ỔN ĐẤY';
+            } else if (correctAnswers >= 12 && correctAnswers <= 15) {
+                evaluation = 'GẦN BẰNG KIỂM LÂM';
+            } else if (correctAnswers >= 16 && correctAnswers <= 19) {
+                evaluation = 'CHUYÊN GIA LUẬT RỪNG';
+            } else if (correctAnswers === 20) {
+                evaluation = 'XUẤT SẮC';
+            }
+            evaluationText.textContent = evaluation;
+        }
+
+        function displayStars() {
+            let starCount = 0;
+            if (correctAnswers >= 4) starCount = 1;
+            if (correctAnswers >= 8) starCount = 2;
+            if (correctAnswers >= 12) starCount = 3;
+            if (correctAnswers >= 16) starCount = 4;
+            if (correctAnswers >= 20) starCount = 5;
+
+            starRating.innerHTML = '';
+            for (let i = 0; i < 5; i++) {
+                const starImg = document.createElement('img');
+                starImg.classList.add('star');
+                if (i < starCount) {
+                    starImg.src = '1.webp';
+                    starImg.alt = 'Filled Star';
+                } else {
+                    starImg.src = '0.webp';
+                    starImg.alt = 'Empty Star';
+                }
+                starRating.appendChild(starImg);
+            }
+        }
+
+        function displayFinalStats() {
+            finalStatsText.textContent = `Đúng: ${correctAnswers}/${totalQuestions}\nSai: ${incorrectAnswers}/${totalQuestions}`;
+        }
+
+        function displayAvgTime() {
+            const avgTime = (totalTimeSpent / totalQuestions).toFixed(1);
+            avgTimeText.textContent = `Thời gian trung bình:\n${avgTime}s/câu`;
+        }
+        
+        function testEndScreen(correct, incorrect, totalTime) {
+            correctAnswers = correct;
+            incorrectAnswers = incorrect;
+            totalTimeSpent = totalTime;
+            showResults();
+        }
+    </script>
+</body>
+</html>

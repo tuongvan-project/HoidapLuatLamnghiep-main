@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Hỏi đáp Pháp luật Lâm nghiệp</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="Viettay.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="ViettayBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="End.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Result.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Background0.jpg" as="image">
+    <link rel="preload" href="Background.webp" as="image">
+
+    <link rel="stylesheet" href="style.css?v=6">
+    <script src="questions.js"></script>
+</head>
+<body>
+    <div id="dim-overlay"></div>
+
+    <div id="menu-container">
+        <button id="menu-button" class="menu-btn" aria-label="Menu cài đặt">
+            <img src="Menu.webp" alt="Menu Button">
+        </button>
+        <div id="menu-tray">
+            <img src="Khay.webp" alt="Menu Tray" class="menu-tray-img">
+            <div class="menu-buttons-container">
+                <button id="mute-button" class="tray-btn" aria-label="Bật/Tắt âm thanh">
+                    <img id="mute-icon" src="Volume.webp" alt="Mute/Volume Button">
+                </button>
+                <button id="info-button" class="tray-btn" aria-label="Thông tin tác giả">
+                    <img src="i.webp" alt="Info Button">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="start-screen" class="start-screen">
+        <div class="logo-container">
+            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <p>CHI CỤC KIỂM LÂM</p>
+            <p>TỈNH TUYÊN QUANG</p>
+        </div>
+        <img src="Gametitle.png" alt="HỎI ĐÁP PHÁP LUẬT LÂM NGHIỆP" class="game-title-img">
+        <button id="start-button" class="start-btn">START</button>
+        <p class="author-info"><b>Game Design & Development by Phạm Tường Văn</b></p>
+        
+        <div id="about-me-overlay">
+            <div id="about-me-content">
+                <h2 class="letter-title">Thông điệp từ người phát triển</h2>
+                <div class="letter-body">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="mode-select-screen" aria-label="Chọn chế độ chơi">
+        <div class="mode-select-backdrop"></div>
+        <div class="mode-select-content">
+            <h2 class="mode-select-heading">CHỌN CHẾ ĐỘ CHƠI</h2>
+            <p class="mode-select-subtitle">Chọn tấm biển để bắt đầu hành trình của bạn</p>
+
+            <div class="mode-board">
+                <img src="2-modes.webp" alt="Bảng gỗ chọn chế độ chơi" class="mode-board-image">
+
+                <button type="button" class="mode-option dan" data-mode="dan" aria-label="Chọn chế độ Nhân dân">
+                    <span class="mode-option-title">NHÂN DÂN</span>
+                    <span class="mode-option-description">Tuyên truyền, phổ biến pháp luật bảo vệ rừng</span>
+                </button>
+
+                <button type="button" class="mode-option kiemlam" data-mode="kiemlam" aria-label="Chọn chế độ Kiểm lâm">
+                    <span class="mode-option-title">KIỂM LÂM</span>
+                    <span class="mode-option-description">Kiểm tra kiến thức chuyên ngành Kiểm lâm</span>
+                </button>
+            </div>
+
+            <button type="button" id="mode-select-back" class="mode-select-back">← QUAY LẠI</button>
+        </div>
+    </section>
+
+    <main class="container" style="display: none;">
+        <div class="logo-container">
+            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <p>CHI CỤC KIỂM LÂM</p>
+            <p>TỈNH TUYÊN QUANG</p>
+        </div>
+        <p class="author-info"><b>Bản quyền © 2026 Phạm Tường Văn</b></p>
+        
+        <div id="clock-container">
+            <img src="Clock.webp" alt="Clock Frame" id="clock-frame">
+            <div id="timer-container">
+                <span id="timer"></span>
+            </div>
+        </div>
+
+        <button id="exit-button" class="exit-btn" aria-label="Về trang chủ">
+            <img src="Home.webp" alt="Home Button">
+        </button>
+        <button id="replay-button" class="replay-btn" style="display: none;" aria-label="Chơi lại">
+            <img src="Replay.webp" alt="Replay Button">
+        </button>
+
+        <div id="score-board">
+            <img src="Count.png" alt="Score Board" class="score-board-frame">
+            <div class="score-text-container">
+                <p id="correct-count">Đ 0/20</p>
+                <p id="incorrect-count">S 0/20</p>
+            </div>
+        </div>
+
+        <div class="quiz-wrapper">
+            <div id="question-frame" class="question-frame">
+                <div id="question-card-container"></div>
+            </div>
+            <div id="answers-container"></div>
+        </div>
+
+        <div id="chibi-assistant" class="chibi-assistant">
+            <video id="chibi-video" muted playsinline></video>
+        </div>
+
+        <div class="overlay-answer" id="overlay-answer">
+            <div class="overlay-content" id="overlay-answer-content">
+                <h3 id="overlay-text"></h3>
+                <p id="overlay-explanation"></p>
+            </div>
+        </div>
+
+        <div id="results-container" class="results-container" style="display: none;">
+            <p id="result-text" class="result-text"></p>
+            <button id="restart-btn" class="restart-btn">Làm lại</button>
+        </div>
+        
+        <button id="next-button" class="next-btn" style="display: none;" aria-label="Câu tiếp theo">
+            <img src="Arrow.png" alt="Next Question">
+        </button>
+    </main>
+
+    <div id="end-screen-overlay">
+        <div id="end-screen-container">
+            <div class="evaluation-box-top">
+                <span id="evaluation-text" class="result-text"></span>
+            </div>
+            <div id="star-rating"></div>
+            <div class="result-box">
+                <span id="final-stats-text" class="result-text"></span>
+            </div>
+            <div class="result-box">
+                <span id="avg-time-text" class="result-text"></span>
+            </div>
+            <button id="end-replay-btn" class="restart-btn">Chơi Lại</button>
+            <button id="end-exit-btn" class="restart-btn">Thoát</button>
+        </div>
+    </div>
+
+    <script src="game.js?v=4"></script>
+</body>
+</html>
