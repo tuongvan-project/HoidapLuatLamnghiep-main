@@ -3,6 +3,10 @@ const startButton = document.getElementById('start-button');
 const modeSelectScreen = document.getElementById('mode-select-screen');
 const modeSelectBack = document.getElementById('mode-select-back');
 const modeOptions = document.querySelectorAll('.mode-option');
+const danTopicScreen = document.getElementById('dan-topic-screen');
+const danTopicBack = document.getElementById('dan-topic-back');
+const danTopicCards = document.querySelectorAll('.dan-topic-card');
+const activeModeBadge = document.getElementById('active-mode-badge');
 const mainContainer = document.querySelector('.container');
 const resultsContainer = document.getElementById('results-container');
 const resultText = document.getElementById('result-text');
@@ -106,31 +110,52 @@ let timerDeadline = 0;
 let timerWarningPlayed = false;
 let typeWriterToken = 0;
 let activeTypewriterTimeout = null;
-let selectedMode = 'dan';
+let selectedMode = 'dan_tonghop';
+
+const MODE_NAMES = {
+    'kiemlam': 'Chế độ: Kiểm lâm',
+    'expert': 'Chế độ: Kiểm lâm',
+    'dan_tonghop': 'Nhân dân: Tổng hợp (240 câu)',
+    'dan': 'Nhân dân: Tổng hợp',
+    'normal': 'Nhân dân: Tổng hợp',
+    'dan_churung': 'Nhân dân: Chủ rừng',
+    'dan_cbls': 'Nhân dân: Nguồn gốc lâm sản',
+    'dan_dvr': 'Nhân dân: Nuôi động vật rừng'
+};
 
 function getQuestionsForMode(mode) {
-    if (!Array.isArray(questions) || questions.length === 0) return [];
+    const klPool = window.questions_KL || (typeof questions_KL !== 'undefined' ? questions_KL : []);
+    const chuRungPool = window.question_ChuRung || (typeof question_ChuRung !== 'undefined' ? question_ChuRung : []);
+    const cblsPool = window.question_CBLS || (typeof question_CBLS !== 'undefined' ? question_CBLS : []);
+    const dvrPool = window.question_DVR || (typeof question_DVR !== 'undefined' ? question_DVR : []);
 
-    if (mode === 'dan' || mode === 'normal') {
-        const danQuestions = questions.filter(q => {
-            if (q.modes && Array.isArray(q.modes)) return q.modes.includes('dan');
-            if (q.mode) return q.mode === 'dan' || q.mode === 'all';
-            return false;
-        });
-        if (danQuestions.length >= 10) return danQuestions;
-        // Bộ câu hỏi tuyên truyền, phổ biến pháp luật lâm nghiệp cho Nhân dân (từ câu 46 đến 79)
-        return questions.length > 45 ? questions.slice(45) : questions;
-    } else if (mode === 'kiemlam' || mode === 'expert') {
-        const klQuestions = questions.filter(q => {
-            if (q.modes && Array.isArray(q.modes)) return q.modes.includes('kiemlam');
-            if (q.mode) return q.mode === 'kiemlam' || q.mode === 'all';
-            return false;
-        });
-        if (klQuestions.length >= 10) return klQuestions;
-        // Kiểm tra kiến thức chuyên ngành Kiểm lâm: toàn bộ câu hỏi chuyên môn và pháp luật
-        return questions;
+    switch (mode) {
+        case 'kiemlam':
+        case 'expert':
+            // 1. Chế độ Kiểm lâm: questions_KL + question_ChuRung + question_DVR + question_CBLS
+            return [...klPool, ...chuRungPool, ...dvrPool, ...cblsPool];
+
+        case 'dan_tonghop':
+        case 'dan':
+        case 'normal':
+            // 2. Chế độ Nhân dân - Tổng hợp: cả 3 bộ câu hỏi: question_ChuRung, question_DVR, question_CBLS
+            return [...chuRungPool, ...dvrPool, ...cblsPool];
+
+        case 'dan_churung':
+            // Chế độ Nhân dân - Chủ rừng: question_ChuRung
+            return [...chuRungPool];
+
+        case 'dan_cbls':
+            // Chế độ Nhân dân - Truy xuất nguồn gốc lâm sản: question_CBLS
+            return [...cblsPool];
+
+        case 'dan_dvr':
+            // Chế độ Nhân dân - Nuôi động vật rừng: question_DVR
+            return [...dvrPool];
+
+        default:
+            return [...chuRungPool, ...dvrPool, ...cblsPool];
     }
-    return questions;
 }
 
 function shuffle(array) {
@@ -148,6 +173,10 @@ function startQuiz(mode = selectedMode) {
     cancelTypeWriterEffects();
     endScreenOverlay.classList.remove('active');
     endScreenOverlay.style.display = 'none';
+
+    if (activeModeBadge) {
+        activeModeBadge.textContent = MODE_NAMES[selectedMode] || 'Hỏi đáp pháp luật';
+    }
 
     score = 0;
     currentQuestionIndex = 0;
@@ -504,6 +533,10 @@ function resetGame() {
     cancelTypeWriterEffects();
     modeSelectScreen.classList.remove('active');
     modeSelectScreen.style.display = 'none';
+    if (danTopicScreen) {
+        danTopicScreen.classList.remove('active');
+        danTopicScreen.style.display = 'none';
+    }
     mainContainer.style.display = 'none';
     startScreen.classList.remove('hidden');
     scoreBoard.classList.remove('active');
@@ -622,19 +655,78 @@ modeOptions.forEach(option => {
         option.classList.add('pressed');
 
         const mode = option.dataset.mode || 'dan';
-        selectedMode = mode;
 
+        if (mode === 'dan') {
+            // Chuyển sang màn hình chọn 4 chuyên đề Nhân dân
+            setTimeout(() => {
+                option.classList.remove('pressed');
+                modeSelectScreen.classList.remove('active');
+                setTimeout(() => {
+                    modeSelectScreen.style.display = 'none';
+                    if (danTopicScreen) {
+                        danTopicScreen.style.display = 'flex';
+                        requestAnimationFrame(() => danTopicScreen.classList.add('active'));
+                    }
+                }, 280);
+            }, 100);
+            return;
+        }
+
+        // Chế độ Kiểm lâm: bắt đầu luôn với bộ câu hỏi Kiểm lâm tổng hợp (340 câu)
+        selectedMode = 'kiemlam';
         setTimeout(() => {
             option.classList.remove('pressed');
             modeSelectScreen.classList.remove('active');
             setTimeout(() => {
                 modeSelectScreen.style.display = 'none';
                 mainContainer.style.display = 'flex';
-                startQuiz(mode);
+                startQuiz('kiemlam');
             }, 280);
         }, 100);
     });
 });
+
+if (danTopicCards) {
+    danTopicCards.forEach(card => {
+        const pressOn = () => card.classList.add('pressed');
+        const pressOff = () => card.classList.remove('pressed');
+
+        card.addEventListener('pointerdown', pressOn);
+        card.addEventListener('pointerup', pressOff);
+        card.addEventListener('pointercancel', pressOff);
+        card.addEventListener('pointerleave', pressOff);
+
+        card.addEventListener('click', () => {
+            safePlaySound(clickSound);
+            card.classList.add('pressed');
+
+            const submode = card.dataset.submode || 'dan_tonghop';
+            selectedMode = submode;
+
+            setTimeout(() => {
+                card.classList.remove('pressed');
+                if (danTopicScreen) danTopicScreen.classList.remove('active');
+                setTimeout(() => {
+                    if (danTopicScreen) danTopicScreen.style.display = 'none';
+                    mainContainer.style.display = 'flex';
+                    startQuiz(submode);
+                }, 280);
+            }, 100);
+        });
+    });
+}
+
+if (danTopicBack) {
+    danTopicBack.addEventListener('click', () => {
+        safePlaySound(clickSound);
+        if (danTopicScreen) danTopicScreen.classList.remove('active');
+        setTimeout(() => {
+            if (danTopicScreen) danTopicScreen.style.display = 'none';
+            modeSelectScreen.style.display = 'flex';
+            requestAnimationFrame(() => modeSelectScreen.classList.add('active'));
+        }, 280);
+    });
+}
 
 modeSelectBack.addEventListener('click', () => {
     safePlaySound(clickSound);
