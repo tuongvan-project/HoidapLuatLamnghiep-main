@@ -319,8 +319,27 @@ body {
 .answer-btn.incorrect { background-image: url('Textbox_Incorrect.png'); }
 .answer-btn.disabled { pointer-events: none; opacity: 0.8; }
 
-.chibi-assistant { position: fixed; bottom: 0; right: 0; width: clamp(150px, 20vw, 250px); height: auto; z-index: 15; pointer-events: none; }
-.chibi-assistant video { width: 100%; height: auto; display: block; }
+.chibi-assistant {
+    position: fixed; bottom: 0; right: 0;
+    width: clamp(140px, 16vw, 220px);
+    aspect-ratio: 2 / 3;
+    z-index: 15; pointer-events: none;
+    overflow: hidden;
+}
+.chibi-assistant video,
+.chibi-clip {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+}
+.chibi-clip.active {
+    opacity: 1;
+}
         
 .next-btn {
     position: fixed; bottom: calc(env(safe-area-inset-bottom) + 12px); left: 50%; transform: translateX(-50%);
@@ -329,15 +348,28 @@ body {
 .next-btn img { width: clamp(56px, 9vw, 90px); height: auto; }
 .next-btn:hover { transform: translateX(-50%) scale(1.1); }
 
+@keyframes unrollHorizontal {
+    0% {
+        clip-path: inset(0 50% 0 50%);
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        clip-path: inset(0 0% 0 0%);
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
 .overlay-answer {
-    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.1);
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
     width: clamp(300px, 80vw, 800px); height: auto; background-image: url('Dapan.png');
     background-size: 100% 100%; background-position: center; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center; color: var(--text-color);
     font-size: var(--font-size-lg); font-weight: bold; z-index: 15; opacity: 0; pointer-events: none;
-    padding: 4%; overflow-y: auto; will-change: transform, opacity;
+    padding: 4%; overflow: hidden; will-change: clip-path, opacity, transform;
 }
-.overlay-answer.active { animation: zoomIn 0.5s ease-out forwards; pointer-events: auto; }
+.overlay-answer.active { animation: unrollHorizontal 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; pointer-events: auto; }
 .overlay-text, #overlay-text { white-space: pre-wrap; opacity: 0; line-height: 1.4; font-size: clamp(1rem, 3.5vw, 1.5rem); }
 #overlay-explanation { font-size: clamp(0.8rem, 2.5vw, 1.1rem); font-weight: normal; font-style: italic; color: var(--text-color); line-height: 1.5; margin-top: 10px; opacity: 0; transition: opacity 1s; }
 #overlay-answer-content { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5%; height: 100%; width: 100%; }
@@ -456,7 +488,12 @@ body {
 @keyframes zoomIn { 0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; } 80% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
 
 @media (max-width: 768px) {
-    .chibi-assistant { width: 80px; }
+    .chibi-assistant {
+        width: clamp(80px, 22vw, 120px);
+        aspect-ratio: 2 / 3;
+        bottom: 0;
+        right: 0;
+    }
     .quiz-wrapper { padding-top: 14vh; }
     #score-board { top: 2vh; width: clamp(100px, 25vw, 150px); }
     .logo-container { top: 2vh; }
@@ -493,19 +530,25 @@ body {
         line-height: 1.25;
     }
 
-    /* Cuộn giấy đáp án trên màn hình dọc điện thoại */
+    /* Cuộn giấy đáp án trên màn hình dọc điện thoại - co giãn linh hoạt theo lượng chữ */
     .overlay-answer {
-        width: min(94vw, 440px);
-        min-height: 48vh;
-        max-height: 74vh;
-        padding: 15% 12% 16% 12%;
+        width: min(92vw, 440px);
+        height: auto;
+        min-height: clamp(120px, 18vh, 155px);
+        max-height: 75vh;
+        padding: clamp(26px, 5.5vh, 40px) clamp(30px, 11vw, 48px);
         box-sizing: border-box;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: min-height 0.3s ease-out, height 0.3s ease-out;
     }
     #overlay-answer-content {
         padding: 2px 4px;
-        height: 100%;
-        max-height: 100%;
+        height: auto;
+        max-height: calc(75vh - clamp(48px, 10vh, 76px));
         width: 100%;
         box-sizing: border-box;
         overflow-y: auto;
@@ -516,6 +559,7 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        transition: height 0.3s ease-out;
     }
     #overlay-answer-content::-webkit-scrollbar {
         width: 4px;
@@ -525,11 +569,7 @@ body {
         border-radius: 999px;
     }
 
-    /* Co giãn động cuộn giấy và cỡ chữ theo độ dài đáp án */
-    .overlay-answer.ans-short {
-        min-height: 40vh;
-        max-height: 56vh;
-    }
+    /* Tự động tối ưu cỡ chữ theo độ dài đáp án (không ép cuộn giấy to sẵn từ đầu) */
     .overlay-answer.ans-short .overlay-text,
     .overlay-answer.ans-short #overlay-text {
         font-size: clamp(0.92rem, 3.8vw, 1.15rem);
@@ -541,10 +581,6 @@ body {
         margin-top: 8px;
     }
 
-    .overlay-answer.ans-medium {
-        min-height: 48vh;
-        max-height: 64vh;
-    }
     .overlay-answer.ans-medium .overlay-text,
     .overlay-answer.ans-medium #overlay-text {
         font-size: clamp(0.84rem, 3.4vw, 1.02rem);
@@ -556,10 +592,6 @@ body {
         margin-top: 8px;
     }
 
-    .overlay-answer.ans-long {
-        min-height: 58vh;
-        max-height: 72vh;
-    }
     .overlay-answer.ans-long .overlay-text,
     .overlay-answer.ans-long #overlay-text {
         font-size: clamp(0.76rem, 2.9vw, 0.90rem);
@@ -571,10 +603,6 @@ body {
         margin-top: 6px;
     }
 
-    .overlay-answer.ans-extra-long {
-        min-height: 66vh;
-        max-height: 78vh;
-    }
     .overlay-answer.ans-extra-long .overlay-text,
     .overlay-answer.ans-extra-long #overlay-text {
         font-size: clamp(0.70rem, 2.6vw, 0.82rem);

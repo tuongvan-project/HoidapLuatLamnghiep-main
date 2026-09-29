@@ -16,7 +16,7 @@
     <link rel="preload" href="Background0.jpg" as="image">
     <link rel="preload" href="Background.webp" as="image">
 
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=11">
     <script src="questions.js"></script>
 </head>
 <body>
@@ -125,7 +125,11 @@
         </div>
 
         <div id="chibi-assistant" class="chibi-assistant">
-            <video id="chibi-video" muted playsinline></video>
+            <video class="chibi-clip" id="chibi-ask" src="Ask.mp4" muted playsinline preload="auto"></video>
+            <video class="chibi-clip" id="chibi-wait" src="Wait.mp4" muted playsinline preload="auto" loop></video>
+            <video class="chibi-clip" id="chibi-true" src="True.mp4" muted playsinline preload="auto"></video>
+            <video class="chibi-clip" id="chibi-sad" src="Sad.mp4" muted playsinline preload="auto"></video>
+            <video class="chibi-clip" id="chibi-wait2" src="Wait2.mp4" muted playsinline preload="auto" loop></video>
         </div>
 
         <div class="overlay-answer" id="overlay-answer">
@@ -162,6 +166,6 @@
         </div>
     </div>
 
-    <script src="game.js?v=7"></script>
+    <script src="game.js?v=8"></script>
 </body>
 </html>

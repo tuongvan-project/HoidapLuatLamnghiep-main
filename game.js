@@ -16,7 +16,15 @@ const nextBtn = document.getElementById('next-button');
 const overlayAnswer = document.getElementById('overlay-answer');
 const overlayText = document.getElementById('overlay-text');
 const chibiAssistant = document.getElementById('chibi-assistant');
-const chibiVideo = document.getElementById('chibi-video');
+const chibiClips = {
+    'Ask.mp4': document.getElementById('chibi-ask'),
+    'Wait.mp4': document.getElementById('chibi-wait'),
+    'True.mp4': document.getElementById('chibi-true'),
+    'Sad.mp4': document.getElementById('chibi-sad'),
+    'Wait2.mp4': document.getElementById('chibi-wait2')
+};
+let activeChibiClip = null;
+let chibiTransitionTimeout = null;
 const overlayExplanation = document.getElementById('overlay-explanation');
 const questionCardContainer = document.getElementById('question-card-container');
 const answersContainer = document.getElementById('answers-container');
@@ -394,10 +402,19 @@ function showCorrectAnswerOverlay(correctAnswerText) {
         overlayAnswer.classList.add('ans-short');
     }
 
+    overlayAnswer.classList.remove('active');
+    overlayText.style.opacity = '0';
+    overlayText.textContent = '';
+    overlayExplanation.style.opacity = '0';
+    overlayExplanation.textContent = '';
     overlayAnswer.style.display = 'flex';
+
+    // Force reflow để kích hoạt lại animation unrollHorizontal mở từ giữa sang hai bên
+    void overlayAnswer.offsetWidth;
     overlayAnswer.classList.add('active');
 
-    overlayAnswer.addEventListener('animationend', () => {
+    const handleUnrollEnd = () => {
+        overlayAnswer.removeEventListener('animationend', handleUnrollEnd);
         overlayText.style.opacity = '1';
         typeWriterEffect(overlayText, `Đáp án đúng là:\n${correctAnswerText}`, () => {
             if (explanationText) {
@@ -409,10 +426,13 @@ function showCorrectAnswerOverlay(correctAnswerText) {
                 nextBtn.style.display = 'block';
             }
         }, GAME_CONFIG.answerTypingSpeed);
-    }, { once: true });
+    };
+
+    overlayAnswer.addEventListener('animationend', handleUnrollEnd);
 }
 
 function showResults() {
+    pauseChibiVideos();
     questionCardContainer.innerHTML = '';
     answersContainer.innerHTML = '';
     resultsContainer.style.display = 'none';
@@ -479,6 +499,7 @@ function displayAvgTime() {
 }
 
 function resetGame() {
+    pauseChibiVideos();
     stopTimer();
     cancelTypeWriterEffects();
     modeSelectScreen.classList.remove('active');
@@ -491,38 +512,81 @@ function resetGame() {
     themeMusic.currentTime = 0;
 }
 
+function pauseChibiVideos() {
+    if (chibiTransitionTimeout) {
+        clearTimeout(chibiTransitionTimeout);
+        chibiTransitionTimeout = null;
+    }
+    Object.values(chibiClips).forEach(clip => {
+        if (clip) {
+            clip.classList.remove('active');
+            try { clip.pause(); } catch (_) {}
+        }
+    });
+    activeChibiClip = null;
+}
+
 function playChibiVideo(videoSrc) {
     try {
-        chibiVideo.playbackRate = 1.0;
-        chibiVideo.onended = null;
-        chibiVideo.loop = false;
+        const nextClip = chibiClips[videoSrc];
+        if (!nextClip) return;
 
-        if (chibiVideo.getAttribute('src') !== videoSrc) {
-            chibiVideo.src = videoSrc;
+        // Nếu clip đang phát chính là clip này và đang chạy thì không ngắt
+        if (activeChibiClip === nextClip && !nextClip.paused) {
+            return;
         }
+
+        const prevClip = activeChibiClip;
+        activeChibiClip = nextClip;
+
+        // Thiết lập trạng thái và vòng lặp
+        nextClip.playbackRate = 1.0;
+        nextClip.onended = null;
 
         if (videoSrc === 'Ask.mp4') {
-            chibiVideo.onended = () => { playChibiVideo('Wait.mp4'); };
+            nextClip.loop = false;
+            nextClip.onended = () => { playChibiVideo('Wait.mp4'); };
         } else if (videoSrc === 'Wait.mp4') {
-            chibiVideo.loop = true;
-            chibiVideo.playbackRate = 0.6;
+            nextClip.loop = true;
+            nextClip.playbackRate = 0.6;
         } else if (videoSrc === 'True.mp4' || videoSrc === 'Sad.mp4') {
-            chibiVideo.onended = () => { playChibiVideo('Wait2.mp4'); };
+            nextClip.loop = false;
+            nextClip.onended = () => { playChibiVideo('Wait2.mp4'); };
         } else if (videoSrc === 'Wait2.mp4') {
-            chibiVideo.loop = true;
+            nextClip.loop = true;
         }
 
-        const playPromise = chibiVideo.play();
+        try {
+            nextClip.currentTime = 0;
+        } catch (_) {}
+
+        const playPromise = nextClip.play();
         if (playPromise !== undefined) {
-            playPromise.catch(e => console.warn("Cannot play chibi video source:", e));
+            playPromise.catch(e => console.warn("Chibi clip play error:", videoSrc, e));
+        }
+
+        // Hiện clip mới
+        nextClip.classList.add('active');
+
+        // Giữ clip cũ thêm 70ms để clip mới vẽ khung hình đầu tiên, loại bỏ hoàn toàn gián đoạn/chớp đen
+        if (prevClip && prevClip !== nextClip) {
+            if (chibiTransitionTimeout) clearTimeout(chibiTransitionTimeout);
+            chibiTransitionTimeout = setTimeout(() => {
+                prevClip.classList.remove('active');
+                try { prevClip.pause(); } catch (_) {}
+            }, 70);
         }
     } catch (e) {
         console.warn("Video play exception:", e);
     }
 }
 
-chibiVideo.addEventListener('error', (e) => {
-    console.warn("Chibi video resource error caught safely:", e);
+Object.values(chibiClips).forEach(clip => {
+    if (clip) {
+        clip.addEventListener('error', (e) => {
+            console.warn("Chibi video resource error caught safely:", e);
+        });
+    }
 });
 
 function setRealVh() {
