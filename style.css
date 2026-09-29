@@ -338,7 +338,7 @@ body {
     padding: 4%; overflow-y: auto; will-change: transform, opacity;
 }
 .overlay-answer.active { animation: zoomIn 0.5s ease-out forwards; pointer-events: auto; }
-.overlay-text { white-space: pre-wrap; opacity: 0; line-height: 1.4; font-size: clamp(1rem, 3.5vw, 1.5rem); }
+.overlay-text, #overlay-text { white-space: pre-wrap; opacity: 0; line-height: 1.4; font-size: clamp(1rem, 3.5vw, 1.5rem); }
 #overlay-explanation { font-size: clamp(0.8rem, 2.5vw, 1.1rem); font-weight: normal; font-style: italic; color: var(--text-color); line-height: 1.5; margin-top: 10px; opacity: 0; transition: opacity 1s; }
 #overlay-answer-content { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5%; height: 100%; width: 100%; }
 
@@ -457,12 +457,139 @@ body {
 
 @media (max-width: 768px) {
     .chibi-assistant { width: 80px; }
-    .question-frame { height: auto; min-height: 120px; width: clamp(280px, 90vw, 600px); padding: 5% 10%; margin-bottom: 0.75rem; }
-    .quiz-wrapper { padding-top: 15vh; }
+    .quiz-wrapper { padding-top: 14vh; }
     #score-board { top: 2vh; width: clamp(100px, 25vw, 150px); }
     .logo-container { top: 2vh; }
-    .overlay-answer { width: clamp(300px, 90vw, 800px); padding: 8% 5%; }
     .fade-out { opacity: 0; transition: opacity 0.5s ease-out; }
     .fade-in { opacity: 1; transition: opacity 0.5s ease-in; }
+
+    /* Khung câu hỏi trên điện thoại */
+    .question-frame {
+        height: auto;
+        min-height: 120px;
+        width: clamp(280px, 94vw, 560px);
+        padding: 5% 9%;
+        margin-bottom: 0.6rem;
+    }
+    .question-card {
+        max-height: 25vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+    .q-short .question-text {
+        font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+        line-height: 1.38;
+    }
+    .q-medium .question-text {
+        font-size: clamp(0.85rem, 3.2vw, 1.00rem);
+        line-height: 1.34;
+    }
+    .q-long .question-text {
+        font-size: clamp(0.75rem, 2.8vw, 0.88rem);
+        line-height: 1.30;
+    }
+    .q-extra-long .question-text {
+        font-size: clamp(0.68rem, 2.4vw, 0.78rem);
+        line-height: 1.25;
+    }
+
+    /* Cuộn giấy đáp án trên màn hình dọc điện thoại */
+    .overlay-answer {
+        width: min(94vw, 440px);
+        min-height: 48vh;
+        max-height: 74vh;
+        padding: 15% 12% 16% 12%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    #overlay-answer-content {
+        padding: 2px 4px;
+        height: 100%;
+        max-height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(90, 45, 15, 0.35) transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #overlay-answer-content::-webkit-scrollbar {
+        width: 4px;
+    }
+    #overlay-answer-content::-webkit-scrollbar-thumb {
+        background: rgba(90, 45, 15, 0.35);
+        border-radius: 999px;
+    }
+
+    /* Co giãn động cuộn giấy và cỡ chữ theo độ dài đáp án */
+    .overlay-answer.ans-short {
+        min-height: 40vh;
+        max-height: 56vh;
+    }
+    .overlay-answer.ans-short .overlay-text,
+    .overlay-answer.ans-short #overlay-text {
+        font-size: clamp(0.92rem, 3.8vw, 1.15rem);
+        line-height: 1.36;
+    }
+    .overlay-answer.ans-short #overlay-explanation {
+        font-size: clamp(0.80rem, 3.0vw, 0.95rem);
+        line-height: 1.38;
+        margin-top: 8px;
+    }
+
+    .overlay-answer.ans-medium {
+        min-height: 48vh;
+        max-height: 64vh;
+    }
+    .overlay-answer.ans-medium .overlay-text,
+    .overlay-answer.ans-medium #overlay-text {
+        font-size: clamp(0.84rem, 3.4vw, 1.02rem);
+        line-height: 1.32;
+    }
+    .overlay-answer.ans-medium #overlay-explanation {
+        font-size: clamp(0.74rem, 2.7vw, 0.86rem);
+        line-height: 1.34;
+        margin-top: 8px;
+    }
+
+    .overlay-answer.ans-long {
+        min-height: 58vh;
+        max-height: 72vh;
+    }
+    .overlay-answer.ans-long .overlay-text,
+    .overlay-answer.ans-long #overlay-text {
+        font-size: clamp(0.76rem, 2.9vw, 0.90rem);
+        line-height: 1.28;
+    }
+    .overlay-answer.ans-long #overlay-explanation {
+        font-size: clamp(0.68rem, 2.4vw, 0.78rem);
+        line-height: 1.30;
+        margin-top: 6px;
+    }
+
+    .overlay-answer.ans-extra-long {
+        min-height: 66vh;
+        max-height: 78vh;
+    }
+    .overlay-answer.ans-extra-long .overlay-text,
+    .overlay-answer.ans-extra-long #overlay-text {
+        font-size: clamp(0.70rem, 2.6vw, 0.82rem);
+        line-height: 1.24;
+    }
+    .overlay-answer.ans-extra-long #overlay-explanation {
+        font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+        line-height: 1.26;
+        margin-top: 6px;
+    }
+
+    /* Đảm bảo nút Next không đè lên cuộn giấy */
+    .next-btn {
+        bottom: calc(env(safe-area-inset-bottom) + 10px);
+        z-index: 1000;
+    }
 }
 @media (min-width: 768px) { .result-frame { grid-template-columns: repeat(2, 1fr); } }

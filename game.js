@@ -176,6 +176,19 @@ function showNextQuestion() {
 
         const questionElement = document.createElement('div');
         questionElement.classList.add('question-card');
+
+        // Phân loại độ dài câu hỏi để tự động tối ưu cỡ chữ trên điện thoại
+        const qLen = (q.question || '').length;
+        if (qLen > 180) {
+            questionElement.classList.add('q-extra-long');
+        } else if (qLen > 100) {
+            questionElement.classList.add('q-long');
+        } else if (qLen > 55) {
+            questionElement.classList.add('q-medium');
+        } else {
+            questionElement.classList.add('q-short');
+        }
+
         const questionTextElement = document.createElement('div');
         questionTextElement.classList.add('question-text');
         questionElement.appendChild(questionTextElement);
@@ -364,6 +377,22 @@ function showCorrectAnswerOverlay(correctAnswerText) {
 
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     const explanationText = currentQuestion.explanation;
+
+    // Phân loại độ dài để tự động co giãn kích thước cuộn giấy và cỡ chữ trên mobile
+    const ansLen = (correctAnswerText || '').length;
+    const expLen = (explanationText || '').length;
+    const totalLen = ansLen + expLen;
+
+    overlayAnswer.classList.remove('ans-short', 'ans-medium', 'ans-long', 'ans-extra-long');
+    if (totalLen > 220 || ansLen > 90) {
+        overlayAnswer.classList.add('ans-extra-long');
+    } else if (totalLen > 120 || ansLen > 50) {
+        overlayAnswer.classList.add('ans-long');
+    } else if (totalLen > 60 || ansLen > 30) {
+        overlayAnswer.classList.add('ans-medium');
+    } else {
+        overlayAnswer.classList.add('ans-short');
+    }
 
     overlayAnswer.style.display = 'flex';
     overlayAnswer.classList.add('active');
