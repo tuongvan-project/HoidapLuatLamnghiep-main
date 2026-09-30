@@ -16,14 +16,21 @@
     <link rel="preload" href="Result.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="Background0.jpg" as="image">
     <link rel="preload" href="Background.webp" as="image">
+    <link rel="preload" href="Backgroundv.png" as="image">
+    <link rel="preload" href="Hanging Wooden Board.webp" as="image">
 
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
     <script src="questions_KL.js"></script>
     <script src="question_ChuRung.js"></script>
     <script src="question_CBLS.js"></script>
     <script src="question_DVR.js"></script>
 </head>
 <body>
+    <div id="game-bg-container" class="game-bg-container">
+        <div id="game-bg-layer-1" class="game-bg-layer"></div>
+        <div id="game-bg-layer-2" class="game-bg-layer"></div>
+    </div>
+
     <div id="dim-overlay"></div>
 
     <div id="menu-container">
@@ -101,7 +108,6 @@
                 <button type="button" class="dan-topic-card" data-submode="dan_tonghop" aria-label="Chuyên đề Tổng hợp">
                     <div class="dan-topic-header">
                         <span class="dan-topic-title">TỔNG HỢP</span>
-                        <span class="dan-topic-badge">240 CÂU</span>
                     </div>
                     <span class="dan-topic-description">Bao gồm cả 3 bộ câu hỏi: Chủ rừng, Nguồn gốc lâm sản & Nuôi động vật rừng</span>
                 </button>
@@ -109,7 +115,6 @@
                 <button type="button" class="dan-topic-card" data-submode="dan_churung" aria-label="Chuyên đề Chủ rừng">
                     <div class="dan-topic-header">
                         <span class="dan-topic-title">CHỦ RỪNG</span>
-                        <span class="dan-topic-badge">100 CÂU</span>
                     </div>
                     <span class="dan-topic-description">Bộ câu hỏi dành cho Chủ rừng: quyền, nghĩa vụ, khai thác, phòng cháy & bảo vệ rừng</span>
                 </button>
@@ -117,7 +122,6 @@
                 <button type="button" class="dan-topic-card" data-submode="dan_cbls" aria-label="Chuyên đề Truy xuất nguồn gốc lâm sản">
                     <div class="dan-topic-header">
                         <span class="dan-topic-title">TRUY XUẤT NGUỒN GỐC LÂM SẢN</span>
-                        <span class="dan-topic-badge">70 CÂU</span>
                     </div>
                     <span class="dan-topic-description">Bộ câu hỏi cho các đối tượng khai thác, vận chuyển, mua bán kinh doanh, chế biến lâm sản</span>
                 </button>
@@ -125,7 +129,6 @@
                 <button type="button" class="dan-topic-card" data-submode="dan_dvr" aria-label="Chuyên đề Nuôi động vật rừng">
                     <div class="dan-topic-header">
                         <span class="dan-topic-title">NUÔI ĐỘNG VẬT RỪNG</span>
-                        <span class="dan-topic-badge">70 CÂU</span>
                     </div>
                     <span class="dan-topic-description">Bộ câu hỏi cho các cơ sở nuôi, mua bán, vận chuyển động vật rừng & thực thi CITES</span>
                 </button>
@@ -136,12 +139,12 @@
     </section>
 
     <main class="container" style="display: none;">
-        <div class="logo-container">
+        <div class="logo-container in-game-logo">
             <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
             <p>CHI CỤC KIỂM LÂM</p>
             <p>TỈNH TUYÊN QUANG</p>
+            <div id="active-mode-badge" class="active-mode-badge">Kiểm lâm</div>
         </div>
-        <div id="active-mode-badge" class="active-mode-badge">Kiểm lâm</div>
         <p class="author-info"><b>Bản quyền © 2026 Phạm Tường Văn</b></p>
         
         <div id="clock-container">
@@ -159,7 +162,7 @@
         </button>
 
         <div id="score-board">
-            <img src="Count.png" alt="Score Board" class="score-board-frame">
+            <img src="Hanging Wooden Board.webp" alt="Score Board" class="score-board-frame">
             <div class="score-text-container">
                 <p id="correct-count">Đ 0/20</p>
                 <p id="incorrect-count">S 0/20</p>
@@ -215,6 +218,6 @@
         </div>
     </div>
 
-    <script src="game.js?v=8"></script>
+    <script src="game.js?v=9"></script>
 </body>
 </html>

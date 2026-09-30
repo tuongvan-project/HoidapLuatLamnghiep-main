@@ -50,6 +50,37 @@ const avgTimeText = document.getElementById('avg-time-text');
 const endReplayBtn = document.getElementById('end-replay-btn');
 const endExitBtn = document.getElementById('end-exit-btn');
 
+const GAME_BACKGROUNDS = ['Background.webp', 'Backgroundv.png'];
+const gameBgContainer = document.getElementById('game-bg-container');
+const gameBgLayer1 = document.getElementById('game-bg-layer-1');
+const gameBgLayer2 = document.getElementById('game-bg-layer-2');
+let activeBgLayer = 1;
+let currentBgIndex = 0;
+
+function switchGameBackground(bgIndex, smooth = true) {
+    if (!gameBgLayer1 || !gameBgLayer2) return;
+    const targetIdx = ((bgIndex % GAME_BACKGROUNDS.length) + GAME_BACKGROUNDS.length) % GAME_BACKGROUNDS.length;
+    const nextImage = GAME_BACKGROUNDS[targetIdx];
+    currentBgIndex = targetIdx;
+
+    const currentLayer = activeBgLayer === 1 ? gameBgLayer1 : gameBgLayer2;
+    const nextLayer = activeBgLayer === 1 ? gameBgLayer2 : gameBgLayer1;
+
+    if (!smooth) {
+        currentLayer.style.backgroundImage = `url('${nextImage}')`;
+        currentLayer.classList.add('visible');
+        nextLayer.classList.remove('visible');
+        return;
+    }
+
+    nextLayer.style.backgroundImage = `url('${nextImage}')`;
+    requestAnimationFrame(() => {
+        nextLayer.classList.add('visible');
+        currentLayer.classList.remove('visible');
+        activeBgLayer = activeBgLayer === 1 ? 2 : 1;
+    });
+}
+
 const themeMusic = new Audio('Theme.mp3');
 const clickSound = new Audio('click.mp3');
 const rightSound = new Audio('Right.mp3');
@@ -115,7 +146,7 @@ let selectedMode = 'dan_tonghop';
 const MODE_NAMES = {
     'kiemlam': 'Chế độ: Kiểm lâm',
     'expert': 'Chế độ: Kiểm lâm',
-    'dan_tonghop': 'Nhân dân: Tổng hợp (240 câu)',
+    'dan_tonghop': 'Nhân dân: Tổng hợp',
     'dan': 'Nhân dân: Tổng hợp',
     'normal': 'Nhân dân: Tổng hợp',
     'dan_churung': 'Nhân dân: Chủ rừng',
@@ -196,6 +227,11 @@ function startQuiz(mode = selectedMode) {
     scoreBoard.classList.add('active');
     updateScoreBoard();
 
+    if (gameBgContainer) {
+        gameBgContainer.classList.add('active');
+        switchGameBackground(0, false);
+    }
+
     const pool = getQuestionsForMode(selectedMode);
     shuffledQuestions = shuffle([...pool]).slice(0, Math.min(totalQuestions, pool.length));
     showNextQuestion();
@@ -204,6 +240,12 @@ function startQuiz(mode = selectedMode) {
 function showNextQuestion() {
     stopTimer();
     cancelTypeWriterEffects();
+
+    // Chuyển background êm ái sau mỗi 5 câu (câu 1-5, câu 6-10, câu 11-15, câu 16-20)
+    const targetBgIndex = Math.floor(currentQuestionIndex / 5) % GAME_BACKGROUNDS.length;
+    if (targetBgIndex !== currentBgIndex) {
+        switchGameBackground(targetBgIndex, true);
+    }
 
     if (currentQuestionIndex < shuffledQuestions.length) {
         const q = shuffledQuestions[currentQuestionIndex];
@@ -538,6 +580,9 @@ function resetGame() {
         danTopicScreen.style.display = 'none';
     }
     mainContainer.style.display = 'none';
+    if (gameBgContainer) {
+        gameBgContainer.classList.remove('active');
+    }
     startScreen.classList.remove('hidden');
     scoreBoard.classList.remove('active');
     replayButton.style.display = 'none';
