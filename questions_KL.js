@@ -1,9 +1,6 @@
 /**
  * BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT VÀ NGHIỆP VỤ KIỂM LÂM (100 CÂU)
- * Cấu trúc: 1 đáp án đúng + 3 đáp án bẫy thực tế (4 options)
- * Đã tích hợp 30% câu hỏi khó và các đáp án bẫy pháp lý nghiệp vụ sâu sắc
- * Căn cứ: Luật Lâm nghiệp, Nghị định 146/2026/NĐ-CP, Nghị định 156/2018/NĐ-CP,
- * Thông tư 26/2022/TT-BNNPTNT, Thông tư 16/2025/TT-BNNMT, Bộ luật Hình sự, Luật XLVPHC.
+ * Đã chuẩn hóa: Loại bỏ điều khoản trong options, bổ sung 100% căn cứ pháp lý trong explanation
  */
 const questions_KL = [
   {
@@ -180,7 +177,7 @@ const questions_KL = [
       "Tự ý phát dọn hiện trường để kiểm tra xem cây rừng bị chặt hạ có mọc lại chồi non hay không"
     ],
     "correct": "Báo cáo ngay Chủ tịch UBND cấp xã và Hạt trưởng Hạt Kiểm lâm; lập biên bản kiểm tra ban đầu, bảo vệ hiện trường và phối hợp các lực lượng liên quan ngăn chặn ngay hành vi",
-    "explanation": "Quy chế làm việc của Kiểm lâm địa bàn: Phải lập tức báo cáo cấp ủy, chính quyền cấp xã và lãnh đạo Hạt Kiểm lâm, lập hồ sơ ban đầu, bảo vệ hiện trường phục vụ khám nghiệm."
+    "explanation": "Căn cứ Điều 10 Thông tư số 26/2022/TT-BNNPTNT và Quy chế phối hợp công tác của Kiểm lâm địa bàn: Khi phát hiện vi phạm, Kiểm lâm địa bàn phải lập tức báo cáo cấp ủy, chính quyền cấp xã và lãnh đạo Hạt Kiểm lâm, lập hồ sơ ban đầu và bảo vệ hiện trường."
   },
   {
     "question": "Biên bản vi phạm hành chính trong lĩnh vực lâm nghiệp lập không có sự chứng kiến hoặc không có chữ ký của người vi phạm có giá trị pháp lý không?",
@@ -224,7 +221,7 @@ const questions_KL = [
       "Chỉ khi cây rừng đã bị khô chết hoàn toàn trên 100% diện tích"
     ],
     "correct": "Tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại lớn hơn 50% diện tích lô rừng",
-    "explanation": "Theo Tiêu chuẩn quốc gia và Hướng dẫn chuyên môn điều tra sâu bệnh hại rừng: Mức nhẹ (<25%), mức trung bình (25-50%), mức nặng (>50% tán lá hoặc số cây bị hại)."
+    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Quyết định số 1334/QĐ-SNNMT: Tỷ lệ tán lá hoặc số cây bị hại lớn hơn 50% diện tích lô rừng được phân cấp mức độ hại Nặng."
   },
   {
     "question": "Công chức Kiểm lâm khi thực hiện nhiệm vụ tuần tra rừng được sử dụng vũ khí quân dụng và công cụ hỗ trợ trong trường hợp nào?",
@@ -235,7 +232,7 @@ const questions_KL = [
       "Chỉ cần có thẻ công chức Kiểm lâm là được toàn quyền sử dụng súng không cần giấy phép"
     ],
     "correct": "Đã được tập huấn, cấp Giấy phép sử dụng vũ khí/chứng chỉ chuyên môn và chỉ nổ súng phòng vệ chính đáng theo đúng quy định của Luật Quản lý, sử dụng vũ khí, vật liệu nổ",
-    "explanation": "Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ quy định Kiểm lâm chỉ được sử dụng vũ khí khi có giấy phép, bảo đảm đúng điều kiện phòng vệ và quy định pháp luật."
+    "explanation": "Căn cứ Điều 22, Điều 23 Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ năm 2017 (sửa đổi, bổ sung năm 2024) và Điều 107 Luật Lâm nghiệp năm 2017 quy định Kiểm lâm được trang bị, sử dụng vũ khí quân dụng và công cụ hỗ trợ khi thi hành công vụ theo đúng quy định."
   },
   {
     "question": "Thời hạn và hình thức yêu cầu giải trình trực tiếp đối với cá nhân, tổ chức vi phạm hành chính có mức phạt tiền lớn trong lâm nghiệp được quy định ra sao?",
@@ -274,7 +271,7 @@ const questions_KL = [
     "question": "Hành vi khai thác gỗ rừng tự nhiên vượt quá 10% chỉ tiêu sản lượng ghi trong Giấy phép khai thác hợp pháp bị xử lý về hành vi nào?",
     "options": [
       "Hành vi khai thác rừng trái quy định của pháp luật (vi phạm quy chế khai thác) đối với phần sản lượng vượt chỉ tiêu",
-      "Hành vi trộm cắp tài sản công dân theo Bộ luật Hình sự",
+      "Hành vi trộm cắp tài sản của tổ chức, cá nhân",
       "Không bị xử lý vì đã có giấy phép khai thác ban đầu",
       "Được tự động cộng dồn sản lượng vào đợt khai thác của năm sau"
     ],
@@ -290,7 +287,7 @@ const questions_KL = [
       "Đội trưởng Đội Kiểm lâm cơ động và PCCCR"
     ],
     "correct": "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
-    "explanation": "Chi cục trưởng Chi cục Kiểm lâm tỉnh là người đứng đầu cơ quan Kiểm lâm địa phương, có thẩm quyền điều động nhân lực, phương tiện giữa các Hạt Kiểm lâm và Đội cơ động trong tỉnh."
+    "explanation": "Căn cứ Khoản 3 Điều 103 Luật Lâm nghiệp năm 2017 và Quy định chức năng, nhiệm vụ của Chi cục Kiểm lâm: Chi cục trưởng Chi cục Kiểm lâm tỉnh có thẩm quyền điều động nhân lực, phương tiện giữa các Hạt Kiểm lâm và Đội cơ động trên phạm vi toàn tỉnh."
   },
   {
     "question": "Khi lập hồ sơ xử phạt vi phạm hành chính, việc xác định giá trị tang vật vi phạm để làm căn cứ xác định khung tiền phạt và thẩm quyền xử phạt do ai thực hiện?",
@@ -312,7 +309,7 @@ const questions_KL = [
       "Chỉ được quyền làm đơn xin cứu xét gửi Chủ tịch Hội Nông dân tỉnh"
     ],
     "correct": "Khiếu nại lần đầu đến Hạt trưởng Hạt Kiểm lâm hoặc khởi kiện vụ án hành chính tại Tòa án nhân dân theo Luật Tố tụng hành chính",
-    "explanation": "Luật Khiếu nại và Luật Tố tụng hành chính quy định công dân có quyền khiếu nại lần đầu đến người ra quyết định hoặc khởi kiện thẳng ra Tòa án nhân dân."
+    "explanation": "Căn cứ Điều 7 Luật Khiếu nại năm 2011 và Điều 31 Luật Tố tụng hành chính năm 2015: Người bị xử phạt có quyền khiếu nại lần đầu đến người đã ra quyết định hoặc khởi kiện vụ án hành chính tại Tòa án nhân dân có thẩm quyền."
   },
   {
     "question": "Trách nhiệm của công chức Kiểm lâm khi phát hiện dấu hiệu tội phạm hình sự trong quá trình thi hành công vụ kiểm tra lâm luật là gì?",
@@ -330,11 +327,11 @@ const questions_KL = [
     "options": [
       "Bao che, hợp thức hóa hồ sơ lâm sản bất hợp pháp, dung túng người phá rừng hoặc nhận tiền/lợi ích vật chất của đối tượng kiểm tra",
       "Yêu cầu lái xe xuất trình đầy đủ bảng kê lâm sản hợp lệ trước khi cho xe tiếp tục lưu thông",
-      "Lập biên bản vi phạm hành chính đối với người thân quen vi phạm pháp luật lâm nghiệp",
+      "Lập biên bản vi phạm hành chính đối với hành vi vi phạm pháp luật lâm nghiệp",
       "Báo cáo trung thực số liệu cháy rừng lên cấp ủy và chính quyền địa phương"
     ],
     "correct": "Bao che, hợp thức hóa hồ sơ lâm sản bất hợp pháp, dung túng người phá rừng hoặc nhận tiền/lợi ích vật chất của đối tượng kiểm tra",
-    "explanation": "Luật Cán bộ, công chức và Luật Phòng chống tham nhũng nghiêm cấm hành vi lợi dụng chức vụ bao che, hợp thức hóa lâm sản lậu, nhận hối lộ dưới mọi hình thức."
+    "explanation": "Căn cứ Điều 18 Luật Cán bộ, công chức năm 2008 và Điều 20 Luật Phòng, chống tham nhũng năm 2018: Nghiêm cấm công chức bao che, hợp thức hóa hồ sơ vi phạm, dung túng người phá rừng hoặc nhận tiền, lợi ích vật chất của đối tượng kiểm tra."
   },
   {
     "question": "Cơ quan nào có thẩm quyền quyết định chủ trương chuyển mục đích sử dụng rừng sang mục đích khác đối với dự án trên địa bàn tỉnh?",
@@ -425,26 +422,26 @@ const questions_KL = [
     "explanation": "Điều 3 Quyết định số 1334/QĐ-SNNMT quy định Phòng Quản lý, bảo vệ rừng và Bảo tồn thiên nhiên chủ trì tham mưu thực hiện công tác quản lý, bảo vệ rừng, bảo tồn đa dạng sinh học và PCCCR."
   },
   {
-    "question": "Hành vi vận chuyển lâm sản trái pháp luật bị xử phạt theo điều khoản nào của Nghị định 146/2026/NĐ-CP?",
+    "question": "Hành vi vận chuyển lâm sản trái pháp luật (gỗ tròn, gỗ xẻ không có hồ sơ hợp pháp) bị xử phạt mức tiền tối đa đối với cá nhân lên tới bao nhiêu theo Nghị định số 146/2026/NĐ-CP?",
     "options": [
-      "Điều 25 Nghị định 146/2026/NĐ-CP",
-      "Điều 15 Nghị định 146/2026/NĐ-CP",
-      "Điều 18 Nghị định 146/2026/NĐ-CP",
-      "Điều 28 Nghị định 146/2026/NĐ-CP"
+      "Lên đến 500.000.000 đồng",
+      "Lên đến 250.000.000 đồng",
+      "Lên đến 150.000.000 đồng",
+      "Lên đến 50.000.000 đồng"
     ],
-    "correct": "Điều 25 Nghị định 146/2026/NĐ-CP",
-    "explanation": "Điều 25 Nghị định 146/2026/NĐ-CP quy định chi tiết về hình thức, mức phạt tiền và biện pháp khắc phục hậu quả đối với hành vi vận chuyển lâm sản trái pháp luật."
+    "correct": "Lên đến 500.000.000 đồng",
+    "explanation": "Căn cứ Khoản 13 Điều 25 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với hành vi vận chuyển lâm sản trái pháp luật của cá nhân lên đến 500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)."
   },
   {
-    "question": "Hành vi vi phạm quy định về phòng cháy và chữa cháy rừng gây cháy rừng bị xử phạt theo điều nào của Nghị định 146/2026/NĐ-CP?",
+    "question": "Theo Nghị định số 146/2026/NĐ-CP, hành vi vi phạm quy định về phòng cháy và chữa cháy rừng gây cháy rừng bị áp dụng mức phạt tiền tối đa đối với cá nhân là bao nhiêu?",
     "options": [
-      "Điều 10",
-      "Điều 16",
-      "Điều 20",
-      "Điều 23"
+      "Phạt tiền tối đa đến 500.000.000 đồng",
+      "Phạt tiền tối đa đến 250.000.000 đồng",
+      "Phạt tiền tối đa đến 100.000.000 đồng",
+      "Phạt tiền tối đa đến 50.000.000 đồng"
     ],
-    "correct": "Điều 20",
-    "explanation": "Điều 20 Nghị định 146/2026/NĐ-CP quy định xử phạt đối với hành vi vi phạm các quy định pháp luật về phòng cháy và chữa cháy rừng gây cháy rừng."
+    "correct": "Phạt tiền tối đa đến 500.000.000 đồng",
+    "explanation": "Căn cứ Khoản 11 Điều 16 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền cao nhất đối với cá nhân có hành vi vi phạm quy định về PCCC rừng gây cháy rừng lên đến 500.000.000 đồng."
   },
   {
     "question": "Khai thác trái phép rừng sản xuất là rừng tự nhiên đối với gỗ thông thường từ khối lượng bao nhiêu m3 thì bị truy cứu TNHS theo Điều 232 BLHS?",
@@ -491,15 +488,15 @@ const questions_KL = [
     "explanation": "Điểm k Khoản 1 Điều 232 Bộ luật Hình sự quy định tàng trữ, vận chuyển, chế biến, mua bán trái phép từ 1,5 m3 đến dưới 03 m3 gỗ thuộc Danh mục Nhóm IA hoặc ưu tiên bảo vệ thì bị xử lý hình sự."
   },
   {
-    "question": "Hành vi săn bắt, giết, nuôi nhốt, vận chuyển động vật hoang dã thuộc Danh mục loài nguy cấp, quý, hiếm ưu tiên bảo vệ bị truy cứu TNHS theo điều nào?",
+    "question": "Hành vi săn bắt, giết, nuôi nhốt, vận chuyển động vật hoang dã thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự về tội danh nào sau đây?",
     "options": [
-      "Điều 232 Bộ luật Hình sự",
-      "Điều 234 Bộ luật Hình sự",
-      "Điều 244 Bộ luật Hình sự",
-      "Điều 245 Bộ luật Hình sự"
+      "Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm",
+      "Tội vi phạm quy định về bảo vệ động vật hoang dã",
+      "Tội vi phạm quy định về khai thác, bảo vệ rừng và quản lý lâm sản",
+      "Tội hủy hoại nguồn lợi thủy sản"
     ],
-    "correct": "Điều 244 Bộ luật Hình sự",
-    "explanation": "Điều 244 Bộ luật Hình sự quy định Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (loài ưu tiên bảo vệ hoặc Nhóm IB). Điều 234 áp dụng đối với loài hoang dã thuộc Nhóm IIB hoặc thông thường."
+    "correct": "Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm",
+    "explanation": "Căn cứ Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định về Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (loài ưu tiên bảo vệ hoặc Nhóm IB)."
   },
   {
     "question": "Hành vi săn bắt, nuôi nhốt trái phép cá thể động vật thuộc lớp thú thuộc Danh mục Nhóm IB từ bao nhiêu cá thể thì bị khởi tố theo Điều 244 BLHS?",
@@ -587,7 +584,7 @@ const questions_KL = [
       "Không thuộc thành phần Ban Chỉ huy"
     ],
     "correct": "Phó Trưởng ban Thường trực hoặc ủy viên tham mưu nghiệp vụ",
-    "explanation": "Quy định tổ chức PCCCR cơ sở nêu rõ Kiểm lâm địa bàn tham gia Ban Chỉ huy cấp xã với vai trò Phó ban hoặc ủy viên thường trực tham mưu kỹ thuật, nghiệp vụ BVR và PCCCR."
+    "explanation": "Căn cứ Điều 43 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Kiểm lâm địa bàn tham gia Ban Chỉ huy cấp xã với vai trò Phó ban hoặc ủy viên thường trực tham mưu kỹ thuật, nghiệp vụ BVR và PCCCR."
   },
   {
     "question": "Khi xảy ra cháy rừng trên địa bàn xã, Chủ tịch UBND cấp xã có thẩm quyền huy động lực lượng nào?",
@@ -609,7 +606,7 @@ const questions_KL = [
       "Kiểm lâm tại chỗ, phương án tại chỗ, thiết bị tại chỗ, dự toán tại chỗ"
     ],
     "correct": "Chỉ huy tại chỗ, lực lượng tại chỗ, phương tiện tại chỗ, hậu cần tại chỗ",
-    "explanation": "Hướng dẫn 230/HD-CCKL và Nghị định 156/2018/NĐ-CP quy định công tác chữa cháy rừng phải thực hiện triệt để theo phương châm 4 tại chỗ: chỉ huy, lực lượng, phương tiện và hậu cần tại chỗ."
+    "explanation": "Căn cứ Khoản 1 Điều 44 Nghị định số 156/2018/NĐ-CP và Mục II Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm quy định phương châm '4 tại chỗ' gồm: chỉ huy tại chỗ, lực lượng tại chỗ, phương tiện tại chỗ và hậu cần tại chỗ."
   },
   {
     "question": "Diễn tập phòng cháy, chữa cháy rừng cấp xã theo hướng dẫn nghiệp vụ gồm những nội dung nào?",
@@ -620,7 +617,7 @@ const questions_KL = [
       "Chỉ kiểm tra bảo dưỡng máy thổi gió và cưa xăng"
     ],
     "correct": "Diễn tập vận hành cơ chế tại hội trường và diễn tập thực binh tại hiện trường",
-    "explanation": "Mục II.2 Hướng dẫn 230/HD-CCKL quy định diễn tập PCCCR cấp xã gồm 2 phần: Diễn tập vận hành cơ chế (tại hội trường UBND xã) và Diễn tập thực binh (tại khu vực rừng giả định)."
+    "explanation": "Căn cứ Điều 43 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang: Diễn tập PCCCR cấp xã gồm 2 phần: Diễn tập vận hành cơ chế và Diễn tập thực binh."
   },
   {
     "question": "Trách nhiệm của UBND cấp xã trong công tác theo dõi diễn biến rừng hàng năm là gì?",
@@ -631,7 +628,7 @@ const questions_KL = [
       "Chỉ thống kê diện tích rừng trồng mới"
     ],
     "correct": "Tiếp nhận thông tin biến động từ chủ rừng, phối hợp Kiểm lâm xác minh và xác nhận hồ sơ",
-    "explanation": "Thông tư 16/2025/TT-BNNMT quy định UBND cấp xã tiếp nhận báo cáo biến động rừng của chủ rừng, phối hợp Kiểm lâm địa bàn kiểm tra thực địa và xác nhận kết quả biến động rừng trên địa bàn."
+    "explanation": "Căn cứ Điều 19 Thông tư số 16/2025/TT-BNNMT quy định UBND cấp xã có trách nhiệm tiếp nhận báo cáo biến động rừng của chủ rừng, phối hợp Kiểm lâm địa bàn kiểm tra thực địa và xác nhận kết quả biến động rừng trên địa bàn."
   },
   {
     "question": "Khi tiếp nhận thông tin về động vật hoang dã đi lạc, bị thương, UBND cấp xã phải lập biên bản trong thời hạn bao lâu?",
@@ -697,7 +694,7 @@ const questions_KL = [
       "Hóa đơn mua sắm trang thiết bị văn phòng xã"
     ],
     "correct": "Bản đồ hiện trạng rừng, sổ theo dõi diễn biến rừng và danh sách các chủ rừng trên địa bàn",
-    "explanation": "Thông tư 16/2025/TT-BNNMT quy định UBND cấp xã lưu trữ hồ sơ theo dõi rừng gồm bản đồ hiện trạng rừng, cơ sở dữ liệu diễn biến rừng và danh bạ quản lý các chủ rừng trên địa bàn."
+    "explanation": "Căn cứ Điều 20 Thông tư số 16/2025/TT-BNNMT quy định hồ sơ quản lý rừng cấp xã gồm: Bản đồ hiện trạng rừng, cơ sở dữ liệu diễn biến rừng và danh bạ quản lý các chủ rừng trên địa bàn xã."
   },
   {
     "question": "Chủ tịch UBND cấp xã có thẩm quyền áp dụng biện pháp khắc phục hậu quả nào theo NĐ 146/2026/NĐ-CP?",
@@ -719,7 +716,7 @@ const questions_KL = [
       "Ban Quản lý dự án lâm nghiệp"
     ],
     "correct": "Ủy ban nhân dân cấp xã nơi có rừng tranh chấp",
-    "explanation": "Luật Lâm nghiệp và Luật Đất đai quy định Nhà nước khuyến khích hòa giải tranh chấp đất rừng ở cơ sở; UBND cấp xã có trách nhiệm chủ trì tổ chức việc hòa giải tranh chấp."
+    "explanation": "Căn cứ Khoản 2 Điều 102 Luật Lâm nghiệp năm 2017 và Điều 202 Luật Đất đai năm 2013 (Điều 235 Luật Đất đai năm 2024): UBND cấp xã có trách nhiệm chủ trì, phối hợp hòa giải các tranh chấp về quyền sử dụng rừng, đất lâm nghiệp ở cơ sở."
   },
   {
     "question": "Nguyên tắc cơ bản trong công tác phòng, chống sâu bệnh hại rừng theo Hướng dẫn 230/HD-CCKL là gì?",
@@ -730,7 +727,7 @@ const questions_KL = [
       "Đốt dọn toàn bộ diện tích rừng bị sâu bệnh tấn công"
     ],
     "correct": "Phòng là chính, diệt trừ kịp thời; ưu tiên biện pháp sinh học, hạn chế thuốc hóa học độc hại",
-    "explanation": "Mục I.2 Hướng dẫn 230/HD-CCKL quy định nguyên tắc: Phòng là chính, phát hiện sớm, diệt trừ kịp thời; ưu tiên biện pháp sinh học, cơ giới, hạn chế tối đa sử dụng thuốc hóa học độc hại."
+    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017 và Mục I.2 Hướng dẫn số 230/HD-CCKL: Nguyên tắc phòng trừ sinh vật hại rừng là 'phòng là chính, phát hiện sớm, diệt trừ kịp thời; ưu tiên biện pháp sinh học, hạn chế thuốc hóa học'."
   },
   {
     "question": "Công thức tính tỷ lệ cây bị sâu, bệnh hại (P%) trong điều tra rừng theo Hướng dẫn 230/HD-CCKL là gì?",
@@ -741,7 +738,7 @@ const questions_KL = [
       "P% = (n + N) / 2"
     ],
     "correct": "P% = (n / N) x 100 (với n: số cây bị hại; N: tổng số cây điều tra)",
-    "explanation": "Mục I.4 Hướng dẫn 230/HD-CCKL quy định tỷ lệ cây bị hại tính theo công thức P% = (n/N) * 100, trong đó n là số cây bị hại trên ô tiêu chuẩn, N là tổng số cây điều tra."
+    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Hướng dẫn số 230/HD-CCKL: Công thức tính tỷ lệ cây bị hại P% = (n/N) * 100, trong đó n là số cây bị hại trên ô tiêu chuẩn, N là tổng số cây điều tra."
   },
   {
     "question": "Theo mức độ phân cấp tỷ lệ cây bị hại (P%), mức độ hại 'Nặng' được xác định khi nào?",
@@ -752,7 +749,7 @@ const questions_KL = [
       "P% lớn hơn 50%"
     ],
     "correct": "P% lớn hơn 50%",
-    "explanation": "Hướng dẫn kỹ thuật điều tra sâu bệnh hại rừng quy định mức độ bị hại: Nhẹ (P < 25%), Trung bình (25% <= P <= 50%), Nặng (P > 50%)."
+    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Hướng dẫn số 230/HD-CCKL: Phân cấp mức độ bị hại: Nhẹ (P < 25%), Trung bình (25% <= P <= 50%), Nặng (P > 50% số cây hoặc tán lá bị hại)."
   },
   {
     "question": "Khi phát hiện dịch sâu bệnh hại rừng bùng phát có nguy cơ lây lan diện rộng, cơ quan Kiểm lâm phải làm gì?",
@@ -763,40 +760,40 @@ const questions_KL = [
       "Yêu cầu chủ rừng chặt trắng toàn bộ diện tích rừng xung quanh"
     ],
     "correct": "Báo cáo ngay cho Sở NN&MT, UBND cấp huyện/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
-    "explanation": "Mục I.5 Hướng dẫn 230/HD-CCKL yêu cầu khi phát sinh ổ dịch có nguy cơ lây lan, đơn vị phải báo cáo ngay cơ quan quản lý cấp trên và cơ quan BVTV chuyên ngành để khoanh vùng xử lý."
+    "explanation": "Căn cứ Khoản 3 Điều 61 Luật Lâm nghiệp năm 2017 và Mục I.5 Hướng dẫn số 230/HD-CCKL: Khi dịch bùng phát, cơ quan Kiểm lâm phải báo cáo ngay cơ quan chuyên ngành BVTV và UBND cấp trên để khoanh vùng công bố dịch và xử lý."
   },
   {
     "question": "Thời kỳ điều tra định kỳ sâu bệnh hại rừng trong năm thường được bố trí vào giai đoạn nào?",
     "options": [
-      "Chỉ điều tra vào mùa đông khi cây rụng lá",
       "Vào các giai đoạn sinh trưởng nhạy cảm của cây rừng và thời kỳ cao điểm phát sinh sâu bệnh",
-      "Chỉ điều tra sau khi đã khai thác rừng xong",
-      "Bất kỳ ngày nào không có lịch tuần tra"
+      "Vào những ngày mưa bão ngập lụt kéo dài",
+      "Chỉ điều tra vào dịp nghỉ Tết âm lịch",
+      "Chỉ điều tra khi cây rừng đã bị trụi hoàn toàn lá"
     ],
     "correct": "Vào các giai đoạn sinh trưởng nhạy cảm của cây rừng và thời kỳ cao điểm phát sinh sâu bệnh",
-    "explanation": "Hướng dẫn điều tra sâu bệnh quy định điều tra vào các thời kỳ xung yếu khi cây ra lộc non, thời tiết giao mùa thuận lợi cho sâu bệnh hại phát sinh."
+    "explanation": "Căn cứ Tiêu chuẩn quốc gia TCVN 11570:2016 và Hướng dẫn số 230/HD-CCKL: Thời kỳ điều tra sâu bệnh hại rừng bố trí vào các giai đoạn sinh trưởng nhạy cảm của cây và cao điểm dịch bệnh."
   },
   {
     "question": "Hồ sơ nghiệm thu kết quả công tác tuyên truyền bảo vệ rừng cấp xã bắt buộc phải có tài liệu nào?",
     "options": [
-      "Kế hoạch tuyên truyền, biên bản họp thôn, danh sách hộ dân ký cam kết BVR & PCCCR",
-      "Chỉ cần một bài viết đăng trên trang facebook cá nhân",
-      "Biên lai thu tiền tham gia họp thôn của các hộ dân",
-      "Hợp đồng thuê địa điểm họp của doanh nghiệp"
+      "Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết bảo vệ rừng của các hộ gia đình",
+      "Biên lai nộp tiền thuế sử dụng đất phi nông nghiệp",
+      "Hợp đồng thuê hội trường của doanh nghiệp",
+      "Bản photocopy căn cước công dân của toàn bộ người dân trong thôn"
     ],
-    "correct": "Kế hoạch tuyên truyền, biên bản họp thôn, danh sách hộ dân ký cam kết BVR & PCCCR",
-    "explanation": "Mục I.4 (Tuyên truyền) Hướng dẫn 230/HD-CCKL quy định hồ sơ gồm: Kế hoạch tuyên truyền, giấy mời/biên bản họp thôn, danh sách ký cam kết BVR&PCCCR có chữ ký của từng hộ gia đình."
+    "correct": "Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết bảo vệ rừng của các hộ gia đình",
+    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Hồ sơ nghiệm thu công tác tuyên truyền BVR gồm Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết BVR&PCCCR."
   },
   {
     "question": "Hình thức tuyên truyền pháp luật lâm nghiệp nào sau đây mang lại hiệu quả trực tiếp nhất tại thôn bản?",
     "options": [
-      "Họp trực tiếp người dân tại nhà văn hóa thôn, phát thanh xã và ký cam kết BVR tới từng hộ",
-      "Chỉ gửi văn bản quy phạm pháp luật qua đường bưu điện cho Trưởng thôn",
-      "Đăng tải toàn văn các Nghị định lên cổng thông tin điện tử của tỉnh",
-      "In tờ rơi bằng tiếng nước ngoài rải tại bìa rừng"
+      "Họp thôn, tuyên truyền miệng kết hợp hệ thống loa truyền thanh cơ sở và ký cam kết trực tiếp từng hộ gia đình",
+      "Đăng tải toàn văn các văn bản quy phạm pháp luật lên cổng thông tin điện tử của tỉnh",
+      "Gửi công văn hành chính qua đường bưu điện đến từng gia đình",
+      "Tổ chức hội thảo khoa học quốc tế tại trung tâm tỉnh lỵ"
     ],
-    "correct": "Họp trực tiếp người dân tại nhà văn hóa thôn, phát thanh xã và ký cam kết BVR tới từng hộ",
-    "explanation": "Mục I.2 Hướng dẫn 230/HD-CCKL xác định hình thức tuyên truyền cơ sở hiệu quả nhất là họp thôn, tuyên truyền miệng kết hợp hệ thống loa truyền thanh xã/thôn và ký cam kết trực tiếp."
+    "correct": "Họp thôn, tuyên truyền miệng kết hợp hệ thống loa truyền thanh cơ sở và ký cam kết trực tiếp từng hộ gia đình",
+    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Hướng dẫn số 230/HD-CCKL: Hình thức tuyên truyền hiệu quả nhất là họp thôn, tuyên truyền miệng kết hợp loa truyền thanh và ký cam kết trực tiếp."
   },
   {
     "question": "Văn bản chỉ đạo quan trọng của Ban Bí thư về tăng cường lãnh đạo đối với công tác QLBV&PTR là văn bản nào?",
@@ -807,7 +804,7 @@ const questions_KL = [
       "Thông báo số 05 của Hội Nông dân"
     ],
     "correct": "Chỉ thị số 13-CT/TW và Kết luận số 61-KL/TW của Ban Bí thư",
-    "explanation": "Mục I.1.1 Hướng dẫn 230/HD-CCKL nhấn mạnh trọng tâm tuyên truyền thực hiện Chỉ thị 13-CT/TW ngày 12/01/2017 và Kết luận 61-KL/TW ngày 17/8/2023 của Ban Bí thư Trung ương Đảng."
+    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017, Chỉ thị số 13-CT/TW ngày 12/01/2017 và Kết luận số 61-KL/TW ngày 17/8/2023 của Ban Bí thư Trung ương Đảng về tăng cường sự lãnh đạo của Đảng đối với công tác QLBV&PTR."
   },
   {
     "question": "Nội dung quy ước, hương ước bảo vệ rừng của thôn, bản do cộng đồng dân cư xây dựng không được trái với điều gì?",
@@ -818,7 +815,7 @@ const questions_KL = [
       "Mong muốn của các doanh nghiệp thu mua gỗ"
     ],
     "correct": "Quy định của pháp luật và chuẩn mực đạo đức, phong tục tập quán tốt đẹp",
-    "explanation": "Luật Lâm nghiệp quy định quy ước bảo vệ rừng của cộng đồng thôn bản do cộng đồng xây dựng, không được trái với các quy định pháp luật hiện hành và thuần phong mỹ tục."
+    "explanation": "Căn cứ Điều 10 Luật Lâm nghiệp năm 2017 quy định hương ước, quy ước bảo vệ rừng của cộng đồng dân cư thôn do cộng đồng xây dựng, không được trái với quy định của pháp luật và đạo đức xã hội."
   },
   {
     "question": "Trách nhiệm của Kiểm lâm địa bàn đối với quy ước bảo vệ rừng thôn, bản là gì?",
@@ -829,7 +826,7 @@ const questions_KL = [
       "Ký duyệt ban hành quy ước thay cho Ủy ban nhân dân xã"
     ],
     "correct": "Tham mưu UBND xã hướng dẫn thôn bản xây dựng, rà soát và giám sát thực hiện quy ước BVR",
-    "explanation": "Kiểm lâm địa bàn có nhiệm vụ hướng dẫn cộng đồng dân cư rà soát, lồng ghép nội dung BVR, PCCCR vào hương ước, quy ước thôn bản đúng quy định pháp luật."
+    "explanation": "Căn cứ Điều 104 Luật Lâm nghiệp năm 2017 và Quy chế Kiểm lâm địa bàn: Kiểm lâm địa bàn có nhiệm vụ hướng dẫn cộng đồng dân cư rà soát, lồng ghép nội dung bảo vệ rừng, PCCCR vào quy ước thôn bản đúng quy định pháp luật."
   },
   {
     "question": "Khi đo chiều dài lóng gỗ tròn theo Phụ lục I Thông tư 26/2022/TT-BNNPTNT, vị trí đo được xác định như thế nào?",
@@ -983,18 +980,18 @@ const questions_KL = [
       "Giá vé tham quan chuồng trại"
     ],
     "correct": "Quy cách chuồng trại bảo đảm an toàn cho người và ngăn ngừa động vật thoát ra ngoài",
-    "explanation": "Thông tư 85/2025/TT-BNNMT quy định chuồng, trại nuôi động vật rừng phải phù hợp với đặc tính sinh học của loài, đảm bảo an toàn cho con người và không để vật nuôi thoát ra môi trường tự nhiên."
+    "explanation": "Căn cứ Khoản 1 Điều 24 Thông tư số 85/2025/TT-BNNMT quy định chuồng trại nuôi động vật rừng phải phù hợp đặc tính sinh học của loài, bảo đảm an toàn tuyệt đối cho con người và ngăn ngừa động vật thoát ra môi trường tự nhiên."
   },
   {
     "question": "Chủ cơ sở nuôi động vật rừng bắt buộc phải lập và lưu giữ loại sổ theo dõi nào?",
     "options": [
-      "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II Thông tư 85/2025",
-      "Sổ thu chi tài chính cá nhân",
-      "Sổ chấm công công nhân hàng ngày",
-      "Sổ ghi chép ý kiến khách tham quan"
+      "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II",
+      "Sổ thu chi tài chính nội bộ của gia đình",
+      "Sổ hộ khẩu điện tử trên ứng dụng di động",
+      "Sổ chấm công lao động hàng ngày"
     ],
-    "correct": "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II Thông tư 85/2025",
-    "explanation": "Khoản 2 Điều 24 và Điều 25 Thông tư 85/2025/TT-BNNMT quy định chủ cơ sở nuôi phải lập, cập nhật thường xuyên Sổ theo dõi hoạt động nuôi theo Mẫu số 10 Phụ lục II."
+    "correct": "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II",
+    "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT quy định: Tổ chức, cá nhân nuôi động vật rừng thông thường phải thực hiện việc ghi chép Sổ theo dõi theo Mẫu số 10 Phụ lục II ban hành kèm theo Thông tư."
   },
   {
     "question": "Khi cá thể động vật rừng nguy cấp, quý, hiếm trong trại nuôi bị chết, chủ cơ sở phải xử lý thế nào?",
@@ -1005,7 +1002,7 @@ const questions_KL = [
       "Tự tiêu hủy mà không cần ghi chép sổ sách"
     ],
     "correct": "Lập biên bản và thông báo cho cơ quan Kiểm lâm sở tại hoặc UBND xã để phối hợp xử lý",
-    "explanation": "Thông tư 85/2025/TT-BNNMT quy định trường hợp động vật quý hiếm chết, cơ sở phải lập biên bản xác nhận, cập nhật sổ theo dõi và thông báo cơ quan Kiểm lâm để giám sát xử lý."
+    "explanation": "Căn cứ Khoản 3 Điều 14 Nghị định số 06/2019/NĐ-CP và Thông tư số 85/2025/TT-BNNMT: Khi động vật quý hiếm chết, cơ sở phải lập biên bản, cập nhật sổ theo dõi và thông báo cơ quan Kiểm lâm sở tại để kiểm tra, giám sát xử lý."
   },
   {
     "question": "Biện pháp đánh dấu mẫu vật nào thường được áp dụng đối với cá thể động vật rừng nguy cấp, quý, hiếm lớp thú?",
@@ -1027,7 +1024,7 @@ const questions_KL = [
       "Chỉ cần giấy xác nhận của Hội Nông dân xã"
     ],
     "correct": "Có mã số cơ sở nuôi hợp pháp, con giống có nguồn gốc F2 trở đi và lập bảng kê lâm sản theo quy định",
-    "explanation": "Thông tư 85/2025/TT-BNNMT quy định việc thương mại loài CITES hoặc loài quý hiếm phải từ cơ sở được cấp mã số, chứng minh nguồn gốc hợp pháp (sinh sản thế hệ F2 trở đi) và lập hồ sơ lâm sản."
+    "explanation": "Căn cứ Khoản 2 Điều 14 Nghị định số 06/2019/NĐ-CP (sửa đổi bởi NĐ 84/2021/NĐ-CP) và Thông tư số 85/2025/TT-BNNMT: Xuất bán động vật hoang dã phải từ cơ sở có mã số hợp pháp, nguồn gốc chứng minh sinh sản từ thế hệ F2 trở đi và có Bảng kê lâm sản."
   },
   {
     "question": "Cơ sở dữ liệu gốc để thực hiện theo dõi diễn biến rừng hàng năm là nguồn dữ liệu nào?",
@@ -1038,7 +1035,7 @@ const questions_KL = [
       "Số liệu ước tính của Ban Quản lý rừng"
     ],
     "correct": "Kết quả kiểm kê rừng tích hợp trên Cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề",
-    "explanation": "Mục V.1.2 Hướng dẫn 230/HD-CCKL quy định: Sử dụng kết quả kiểm kê rừng tích hợp tại Dữ liệu trung tâm làm dữ liệu gốc; dữ liệu công bố năm trước là cơ sở thực hiện theo dõi diễn biến năm sau."
+    "explanation": "Căn cứ Khoản 1 Điều 17 Thông tư số 16/2025/TT-BNNMT và Mục V.1.2 Hướng dẫn số 230/HD-CCKL: Sử dụng kết quả kiểm kê rừng tích hợp tại cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề làm dữ liệu gốc theo dõi diễn biến."
   },
   {
     "question": "Phần mềm chuẩn được ngành Kiểm lâm sử dụng để cập nhật diễn biến diện tích rừng là phần mềm nào?",
@@ -1049,7 +1046,7 @@ const questions_KL = [
       "Phần mềm quản lý nhân sự công chức"
     ],
     "correct": "Phần mềm FRMS (Forest Resource Monitoring System) do Cục Lâm nghiệp và Kiểm lâm ban hành",
-    "explanation": "Hướng dẫn 230/HD-CCKL và Thông tư 16/2025/TT-BNNMT quy định thống nhất sử dụng phần mềm cập nhật diễn biến rừng FRMS do Cục Lâm nghiệp và Kiểm lâm ban hành."
+    "explanation": "Căn cứ Điều 18 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Ngành Kiểm lâm thống nhất ứng dụng phần mềm Cập nhật diễn biến rừng (FRMS) do Cục Lâm nghiệp và Kiểm lâm ban hành."
   },
   {
     "question": "Thiết bị kỹ thuật nào sau đây là công cụ chính của Kiểm lâm địa bàn khi điều tra biến động rừng ngoài thực địa?",
@@ -1060,7 +1057,7 @@ const questions_KL = [
       "La bàn cầm tay không có chức năng lưu tọa độ"
     ],
     "correct": "Máy định vị vệ tinh GPS hoặc máy tính bảng chuyên dụng cài đặt phần mềm bản đồ định vị",
-    "explanation": "Mục V.1.2 Hướng dẫn 230/HD-CCKL quy định Kiểm lâm sử dụng thiết bị đo vẽ gồm: máy tính, máy định vị GPS, máy tính bảng, máy bay không người lái (UAV) để khoanh vẽ lô rừng biến động."
+    "explanation": "Căn cứ Điều 18 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Thiết bị phục vụ điều tra biến động rừng gồm máy định vị vệ tinh GPS, máy tính bảng, máy tính và thiết bị bay không người lái (UAV)."
   },
   {
     "question": "Nguyên nhân nào sau đây làm TĂNG diện tích rừng trong công tác theo dõi diễn biến rừng hàng năm?",
@@ -1071,7 +1068,7 @@ const questions_KL = [
       "Cháy rừng gây thiệt hại hoàn toàn thảm thực vật"
     ],
     "correct": "Trồng mới rừng trên đất chưa có rừng hoặc khoanh nuôi tái sinh đạt tiêu chí thành rừng",
-    "explanation": "Mục V.2 Hướng dẫn 230/HD-CCKL phân loại nguyên nhân tăng rừng: do trồng mới rừng, do khoanh nuôi phục hồi tự nhiên đạt tiêu chí rừng, hoặc diện tích rừng điều chỉnh ngoài quy hoạch vào."
+    "explanation": "Căn cứ Khoản 1 Điều 15 Thông tư số 16/2025/TT-BNNMT và Mục V.2 Hướng dẫn số 230/HD-CCKL: Nguyên nhân tăng diện tích rừng gồm trồng mới rừng, khoanh nuôi tái sinh tự nhiên đạt tiêu chí rừng, hoặc điều chỉnh diện tích rừng ngoài quy hoạch vào."
   },
   {
     "question": "Chủ rừng có trách nhiệm gì khi diện tích rừng của mình có biến động (do khai thác, trồng mới, cháy rừng)?",
@@ -1082,7 +1079,7 @@ const questions_KL = [
       "Chỉ báo cáo khi chuẩn bị bán đất rừng"
     ],
     "correct": "Báo cáo bằng văn bản hoặc trực tiếp cho Kiểm lâm địa bàn hoặc UBND cấp xã để kiểm tra cập nhật",
-    "explanation": "Luật Lâm nghiệp và Thông tư 16 quy định chủ rừng có trách nhiệm thông báo, báo cáo biến động rừng cho Kiểm lâm địa bàn hoặc UBND xã để tổ chức xác minh và cập nhật hồ sơ."
+    "explanation": "Căn cứ Điều 19 Thông tư số 16/2025/TT-BNNMT quy định chủ rừng có trách nhiệm thông báo biến động diện tích rừng (do khai thác, trồng mới, cháy, sâu bệnh) cho Kiểm lâm địa bàn hoặc UBND cấp xã trong thời hạn 15 ngày."
   },
   {
     "question": "Ai có thẩm quyền phê duyệt và công bố số liệu hiện trạng rừng cấp tỉnh hàng năm?",
@@ -1093,7 +1090,7 @@ const questions_KL = [
       "Cục trưởng Cục Thống kê tỉnh"
     ],
     "correct": "Chủ tịch Ủy ban nhân dân cấp tỉnh",
-    "explanation": "Thông tư 16/2025/TT-BNNMT quy định Chủ tịch UBND cấp tỉnh phê duyệt và công bố hiện trạng rừng cấp tỉnh hàng năm trên cơ sở kết quả theo dõi diễn biến rừng do Sở NN&MT trình."
+    "explanation": "Căn cứ Khoản 3 Điều 21 Thông tư số 16/2025/TT-BNNMT quy định Chủ tịch UBND cấp tỉnh phê duyệt và ban hành quyết định công bố hiện trạng rừng cấp tỉnh hàng năm trên cơ sở báo cáo do Sở Nông nghiệp và Môi trường trình."
   },
   {
     "question": "Thời hạn Chủ tịch UBND cấp tỉnh công bố số liệu hiện trạng rừng hàng năm chậm nhất là ngày nào?",
@@ -1104,7 +1101,6 @@ const questions_KL = [
       "Ngày 30 tháng 9 của năm sau liền kề"
     ],
     "correct": "Trước ngày 31 tháng 3 của năm sau liền kề",
-    "explanation": "Thông tư 16/2025/TT-BNNMT quy định UBND cấp tỉnh hoàn thành việc phê duyệt và công bố hiện trạng rừng của địa phương trước ngày 31 tháng 3 của năm sau liền kề."
+    "explanation": "Căn cứ Điểm c Khoản 3 Điều 21 Thông tư số 16/2025/TT-BNNMT quy định UBND cấp tỉnh hoàn thành việc phê duyệt và công bố hiện trạng rừng của địa phương trước ngày 31 tháng 3 của năm sau liền kề."
   }
 ];
-if (typeof window !== 'undefined') window.questions_KL = questions_KL;
