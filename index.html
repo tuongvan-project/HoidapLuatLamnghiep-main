@@ -18,8 +18,12 @@
     <link rel="preload" href="Background.webp" as="image">
     <link rel="preload" href="Backgroundv.png" as="image">
     <link rel="preload" href="Hanging Wooden Board.webp" as="image">
+    <link rel="preload" href="guide_chibi.png" as="image">
+    <link rel="preload" href="guide_chibi_hair.png" as="image">
+    <link rel="preload" href="chibi_eyes_closed.png" as="image">
+    <link rel="preload" href="chibi_mouth_smile.png" as="image">
 
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=18">
     <script src="questions_KL.js"></script>
     <script src="question_ChuRung.js"></script>
     <script src="question_CBLS.js"></script>
@@ -95,6 +99,38 @@
             </div>
 
             <button type="button" id="mode-select-back" class="mode-select-back">← QUAY LẠI</button>
+        </div>
+
+        <!-- Trợ lý hướng dẫn Chibi Kiểm lâm -->
+        <div id="mode-chibi-guide" class="mode-chibi-guide" aria-label="Trợ lý Kiểm lâm hướng dẫn">
+            <!-- Khung chat phong cách truyện tranh -->
+            <div id="chibi-speech-bubble" class="chibi-speech-bubble">
+                <button type="button" id="chibi-bubble-close" class="chibi-bubble-close" aria-label="Đóng lời thoại">✕</button>
+                <div class="speech-tail"></div>
+                <div class="speech-header">
+                    <span class="speech-avatar-dot"></span>
+                    <span class="speech-title">Trợ lý Kiểm lâm</span>
+                    <span class="speech-badge">Hướng dẫn</span>
+                </div>
+                <div id="speech-text" class="speech-text"></div>
+                <div class="speech-footer">
+                    <span class="speech-tip">Chạm vào khung để bỏ qua</span>
+                </div>
+            </div>
+
+            <!-- Nhân vật chibi với các layer hoạt ảnh chân thực -->
+            <div id="chibi-character" class="chibi-character mouth-smile" role="button" tabindex="0" title="Chạm vào em để nghe hướng dẫn lại nhé!">
+                <!-- Thân chính: Tư thế đứng ôm sổ Kiểm lâm -->
+                <img src="guide_chibi.png" alt="Trợ lý Kiểm lâm" class="chibi-sprite chibi-body-base">
+                <!-- Thân phụ: Tư thế giơ tay vuốt tóc duyên dáng -->
+                <img src="guide_chibi_hair.png" alt="Trợ lý Kiểm lâm vuốt tóc" class="chibi-sprite chibi-body-hair" aria-hidden="true">
+
+                <!-- Layer chớp mắt cong chuẩn anime (tự nhiên 100%) -->
+                <img src="chibi_eyes_closed.png" alt="" class="chibi-sprite chibi-layer-eyes" aria-hidden="true">
+
+                <!-- Layer miệng cười mỉm thanh lịch (phủ lên miệng gốc khi cần) -->
+                <img src="chibi_mouth_smile.png" alt="" class="chibi-sprite chibi-layer-mouth" aria-hidden="true">
+            </div>
         </div>
     </section>
 
@@ -218,6 +254,6 @@
         </div>
     </div>
 
-    <script src="game.js?v=9"></script>
+    <script src="game.js?v=15"></script>
 </body>
 </html>

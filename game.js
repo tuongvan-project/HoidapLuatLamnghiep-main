@@ -7,6 +7,11 @@ const danTopicScreen = document.getElementById('dan-topic-screen');
 const danTopicBack = document.getElementById('dan-topic-back');
 const danTopicCards = document.querySelectorAll('.dan-topic-card');
 const activeModeBadge = document.getElementById('active-mode-badge');
+const modeChibiGuide = document.getElementById('mode-chibi-guide');
+const chibiCharacter = document.getElementById('chibi-character');
+const chibiSpeechBubble = document.getElementById('chibi-speech-bubble');
+const speechText = document.getElementById('speech-text');
+const chibiBubbleClose = document.getElementById('chibi-bubble-close');
 const mainContainer = document.querySelector('.container');
 const resultsContainer = document.getElementById('results-container');
 const resultText = document.getElementById('result-text');
@@ -573,6 +578,8 @@ function resetGame() {
     pauseChibiVideos();
     stopTimer();
     cancelTypeWriterEffects();
+    stopChibiBlinkLoop();
+    hideChibiSpeechBubble(true);
     modeSelectScreen.classList.remove('active');
     modeSelectScreen.style.display = 'none';
     if (danTopicScreen) {
@@ -679,7 +686,12 @@ startButton.addEventListener('click', () => {
     safePlaySound(clickSound);
     startScreen.classList.add('hidden');
     modeSelectScreen.style.display = 'flex';
-    requestAnimationFrame(() => modeSelectScreen.classList.add('active'));
+    requestAnimationFrame(() => {
+        modeSelectScreen.classList.add('active');
+        setTimeout(() => {
+            playChibiGuideGreeting();
+        }, 120);
+    });
 
     if (themeMusic.paused) {
         safePlaySound(themeMusic, false);
@@ -698,6 +710,9 @@ modeOptions.forEach(option => {
     option.addEventListener('click', () => {
         safePlaySound(clickSound);
         option.classList.add('pressed');
+        stopChibiBlinkLoop();
+        stopChibiIdleActionLoop();
+        hideChibiSpeechBubble(true);
 
         const mode = option.dataset.mode || 'dan';
 
@@ -768,19 +783,261 @@ if (danTopicBack) {
         setTimeout(() => {
             if (danTopicScreen) danTopicScreen.style.display = 'none';
             modeSelectScreen.style.display = 'flex';
-            requestAnimationFrame(() => modeSelectScreen.classList.add('active'));
+            requestAnimationFrame(() => {
+                modeSelectScreen.classList.add('active');
+                setTimeout(() => playChibiGuideGreeting(), 80);
+            });
         }, 280);
     });
 }
 
 modeSelectBack.addEventListener('click', () => {
     safePlaySound(clickSound);
+    stopChibiBlinkLoop();
+    stopChibiIdleActionLoop();
+    hideChibiSpeechBubble(true);
     modeSelectScreen.classList.remove('active');
     setTimeout(() => {
         modeSelectScreen.style.display = 'none';
         startScreen.classList.remove('hidden');
     }, 280);
 });
+
+// ==========================================================================
+// CHIBI GUIDE ASSISTANT AT MODE SELECTION SCREEN (MULTI-POSE & FACIAL RIG)
+// ==========================================================================
+let chibiBlinkTimeout = null;
+let chibiSpeechTimeout = null;
+let chibiBubbleHideTimeout = null;
+let chibiIdleActionTimeout = null;
+let isChibiSpeaking = false;
+let speechFullHtml = '';
+
+function setChibiMouthState(state) {
+    if (!chibiCharacter) return;
+    chibiCharacter.classList.remove('mouth-original', 'mouth-smile', 'mouth-talking');
+    if (state === 'original') {
+        chibiCharacter.classList.add('mouth-original'); // Miệng cười gốc rạng rỡ 100%
+    } else if (state === 'talking') {
+        chibiCharacter.classList.add('mouth-talking');  // Miệng chớp mấp máy nói
+    } else {
+        chibiCharacter.classList.add('mouth-smile');    // Miệng cười mỉm thanh lịch
+    }
+}
+
+function startChibiBlinkLoop() {
+    stopChibiBlinkLoop();
+    if (!chibiCharacter) return;
+
+    function scheduleBlink() {
+        const delay = Math.random() * 2400 + 2600; // 2.6s - 5.0s
+        chibiBlinkTimeout = setTimeout(() => {
+            if (!modeSelectScreen.classList.contains('active')) return;
+            triggerChibiBlink(() => {
+                // 25% cơ hội chớp mắt kép tự nhiên
+                if (Math.random() < 0.25) {
+                    setTimeout(() => {
+                        triggerChibiBlink(scheduleBlink);
+                    }, 140);
+                } else {
+                    scheduleBlink();
+                }
+            });
+        }, delay);
+    }
+    scheduleBlink();
+}
+
+function stopChibiBlinkLoop() {
+    if (chibiBlinkTimeout) {
+        clearTimeout(chibiBlinkTimeout);
+        chibiBlinkTimeout = null;
+    }
+}
+
+function triggerChibiBlink(callback) {
+    if (!chibiCharacter) return;
+    chibiCharacter.classList.add('blinking');
+    setTimeout(() => {
+        chibiCharacter.classList.remove('blinking');
+        if (callback) callback();
+    }, 150);
+}
+
+function startChibiIdleActionLoop() {
+    stopChibiIdleActionLoop();
+
+    function scheduleIdleAction() {
+        // Cứ mỗi 5.5s - 8.5s thực hiện 1 cử chỉ sinh động
+        const delay = Math.random() * 3000 + 5500;
+        chibiIdleActionTimeout = setTimeout(() => {
+            if (!modeSelectScreen.classList.contains('active')) return;
+            if (isChibiSpeaking) {
+                scheduleIdleAction();
+                return;
+            }
+
+            // 50% quay đầu ngẫu nhiên, 50% giơ tay vuốt tóc
+            if (Math.random() < 0.5) {
+                // Cử chỉ quay đầu / nghiêng đầu
+                chibiCharacter.classList.add('turning-head');
+                triggerChibiBlink();
+                setTimeout(() => {
+                    chibiCharacter.classList.remove('turning-head');
+                    scheduleIdleAction();
+                }, 1600);
+            } else {
+                // Cử chỉ giơ tay vuốt tóc duyên dáng
+                chibiCharacter.classList.add('touching-hair');
+                setChibiMouthState('smile');
+                triggerChibiBlink();
+                setTimeout(() => {
+                    chibiCharacter.classList.remove('touching-hair');
+                    // Thi thoảng chuyển sang miệng cười gốc rạng rỡ
+                    if (Math.random() < 0.5) {
+                        setChibiMouthState('original');
+                    }
+                    scheduleIdleAction();
+                }, 2600);
+            }
+        }, delay);
+    }
+    scheduleIdleAction();
+}
+
+function stopChibiIdleActionLoop() {
+    if (chibiIdleActionTimeout) {
+        clearTimeout(chibiIdleActionTimeout);
+        chibiIdleActionTimeout = null;
+    }
+    if (chibiCharacter) {
+        chibiCharacter.classList.remove('turning-head', 'touching-hair');
+    }
+}
+
+function hideChibiSpeechBubble(immediate = false) {
+    console.log('TRACE_HIDE_BUBBLE immediate=' + immediate, new Error().stack);
+    if (!chibiSpeechBubble) return;
+    if (chibiBubbleHideTimeout) {
+        clearTimeout(chibiBubbleHideTimeout);
+        chibiBubbleHideTimeout = null;
+    }
+    if (chibiSpeechTimeout) {
+        clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = null;
+    }
+    isChibiSpeaking = false;
+    setChibiMouthState('smile');
+
+    if (modeChibiGuide) {
+        modeChibiGuide.classList.add('bubble-hidden');
+    }
+
+    if (immediate) {
+        chibiSpeechBubble.classList.remove('active', 'closing');
+        return;
+    }
+
+    chibiSpeechBubble.classList.add('closing');
+    setTimeout(() => {
+        chibiSpeechBubble.classList.remove('active', 'closing');
+    }, 350);
+}
+
+function playChibiGuideGreeting() {
+        if (!chibiCharacter || !chibiSpeechBubble || !speechText) return;
+
+    // Reset trạng thái
+    hideChibiSpeechBubble(true);
+    if (modeChibiGuide) {
+        modeChibiGuide.classList.remove('bubble-hidden');
+    }
+    chibiCharacter.classList.remove('ready', 'turning-head', 'touching-hair');
+    setChibiMouthState('smile');
+
+    // Chớp mắt chào ban đầu sau khi xoay đầu về phía màn hình
+    setTimeout(() => {
+        if (!modeSelectScreen.classList.contains('active')) return;
+        chibiCharacter.classList.add('ready');
+        triggerChibiBlink();
+    }, 600);
+
+    // Kích hoạt chu kỳ chớp mắt và cử chỉ nhàn rỗi (idle actions)
+    startChibiBlinkLoop();
+    startChibiIdleActionLoop();
+
+    // Hiển thị khung chat truyện tranh sau 380ms
+    setTimeout(() => {
+        console.log('TRACE_TIMEOUT_SHOW_BUBBLE modeActive=' + modeSelectScreen.classList.contains('active'));
+        if (!modeSelectScreen.classList.contains('active')) return;
+
+        chibiSpeechBubble.classList.remove('closing');
+        chibiSpeechBubble.classList.add('active');
+        safePlaySound(latGiaySound);
+
+        const speechLines = [
+            "Chào bạn! Em là <strong>trợ lý Kiểm lâm</strong> 👋",
+            "Mời bạn chọn chế độ chơi phù hợp:",
+            "🌲 <strong>Chế độ Nhân dân</strong>: Tìm hiểu luật bảo vệ rừng, nguồn gốc lâm sản và thủ tục nuôi động vật rừng.",
+            "⭐ <strong>Chế độ Kiểm lâm</strong>: Thử thách kiến thức chuyên môn, nghiệp vụ xử lý của Kiểm lâm viên.",
+            "Hãy chạm vào tấm biển gỗ để bắt đầu nhé!"
+        ];
+
+        speechFullHtml = speechLines.join("<br><br>");
+        speechText.innerHTML = speechFullHtml;
+        isChibiSpeaking = true;
+        setChibiMouthState('talking'); // Miệng bắt đầu chớp mấp máy nói nhịp nhàng
+
+        // Khẩu hình nói mấp máy trong 3.2s rồi chuyển về mỉm cười nhẹ chuyên nghiệp
+        if (chibiSpeechTimeout) clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = setTimeout(() => {
+            finishChibiSpeaking();
+        }, 3200);
+    }, 380);
+}
+
+function finishChibiSpeaking() {
+    isChibiSpeaking = false;
+    if (chibiSpeechTimeout) {
+        clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = null;
+    }
+    if (speechText && speechFullHtml) {
+        speechText.innerHTML = speechFullHtml;
+    }
+    if (chibiCharacter) {
+        setChibiMouthState('smile'); // Miệng chuyển về mỉm cười nhẹ chuyên nghiệp
+        triggerChibiBlink();
+    }
+}
+
+// Bấm vào khung chat: hoàn thành chữ ngay hoặc đóng lại nếu đã xong
+if (chibiSpeechBubble) {
+    chibiSpeechBubble.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isChibiSpeaking) {
+            finishChibiSpeaking();
+        } else {
+            hideChibiSpeechBubble(false);
+        }
+    });
+}
+
+if (chibiBubbleClose) {
+    chibiBubbleClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideChibiSpeechBubble(false);
+    });
+}
+
+// Chạm vào nhân vật Chibi để nghe hướng dẫn lại
+if (chibiCharacter) {
+    chibiCharacter.addEventListener('click', (e) => {
+        e.stopPropagation();
+        safePlaySound(clickSound);
+        playChibiGuideGreeting();
+    });
+}
 
 exitButton.addEventListener('click', () => { safePlaySound(clickSound); resetGame(); });
 replayButton.addEventListener('click', () => { safePlaySound(clickSound); startQuiz(); });
