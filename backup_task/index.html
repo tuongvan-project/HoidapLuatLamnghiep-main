@@ -18,7 +18,6 @@
     <link rel="preload" href="Background.webp" as="image">
     <link rel="preload" href="Backgroundv.png" as="image">
         <link rel="preload" href="Hanging Wooden Board.webp" as="image">
-    <link rel="preload" href="bubblechat.webp" as="image">
     <link rel="preload" href="Dungchoi.webp" as="image">
     <link rel="preload" href="X.webp" as="image">
     <link rel="preload" href="V.webp" as="image">
@@ -27,7 +26,7 @@
     <link rel="preload" href="chibi_eyes_closed.png" as="image">
     <link rel="preload" href="chibi_mouth_smile.png" as="image">
 
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=18">
     <script src="questions_KL.js"></script>
     <script src="question_ChuRung.js"></script>
     <script src="question_CBLS.js"></script>
@@ -93,10 +92,12 @@
 
                 <button type="button" class="mode-option dan" data-mode="dan" aria-label="Chọn chế độ Nhân dân">
                     <span class="mode-option-title">NHÂN DÂN</span>
+                    <span class="mode-option-description">Tuyên truyền, phổ biến pháp luật bảo vệ rừng</span>
                 </button>
 
                 <button type="button" class="mode-option kiemlam" data-mode="kiemlam" aria-label="Chọn chế độ Kiểm lâm">
                     <span class="mode-option-title">KIỂM LÂM</span>
+                    <span class="mode-option-description">Kiểm tra kiến thức chuyên ngành Kiểm lâm</span>
                 </button>
             </div>
 
@@ -108,7 +109,16 @@
             <!-- Khung chat phong cách truyện tranh -->
             <div id="chibi-speech-bubble" class="chibi-speech-bubble">
                 <button type="button" id="chibi-bubble-close" class="chibi-bubble-close" aria-label="Đóng lời thoại">✕</button>
+                <div class="speech-tail"></div>
+                <div class="speech-header">
+                    <span class="speech-avatar-dot"></span>
+                    <span class="speech-title">Trợ lý Kiểm lâm</span>
+                    <span class="speech-badge">Hướng dẫn</span>
+                </div>
                 <div id="speech-text" class="speech-text"></div>
+                <div class="speech-footer">
+                    <span class="speech-tip">Chạm vào khung để bỏ qua</span>
+                </div>
             </div>
 
             <!-- Nhân vật chibi với các layer hoạt ảnh chân thực -->
@@ -131,35 +141,35 @@
         <div class="mode-select-backdrop"></div>
         <div class="mode-select-content dan-topics-content">
             <h2 class="mode-select-heading">CHẾ ĐỘ NHÂN DÂN</h2>
-            <p class="mode-select-subtitle">Chọn nhóm đối tượng phù hợp để tìm hiểu pháp luật lâm nghiệp</p>
+            <p class="mode-select-subtitle">Chọn chuyên đề tìm hiểu pháp luật lâm nghiệp</p>
 
             <div class="dan-topics-grid">
-                <button type="button" class="dan-topic-card" data-submode="dan_churung" aria-label="Chuyên đề Chủ rừng">
-                    <div class="dan-topic-header">
-                        <span class="dan-topic-title">CHỦ RỪNG</span>
-                    </div>
-                    <span class="dan-topic-description">Dành cho các tổ chức, hộ gia đình, cá nhân và cộng đồng dân cư quản lý, bảo vệ và sử dụng rừng</span>
-                </button>
-
-                <button type="button" class="dan-topic-card" data-submode="dan_cbls" aria-label="Chuyên đề Kinh doanh, chế biến lâm sản">
-                    <div class="dan-topic-header">
-                        <span class="dan-topic-title">KINH DOANH, CHẾ BIẾN LÂM SẢN</span>
-                    </div>
-                    <span class="dan-topic-description">Dành cho các tổ chức, cá nhân hoạt động trong lĩnh vực kinh doanh, mua bán, vận chuyển và chế biến lâm sản</span>
-                </button>
-
-                <button type="button" class="dan-topic-card" data-submode="dan_dvr" aria-label="Chuyên đề Cơ sở nuôi động vật rừng">
-                    <div class="dan-topic-header">
-                        <span class="dan-topic-title">CƠ SỞ NUÔI ĐỘNG VẬT RỪNG</span>
-                    </div>
-                    <span class="dan-topic-description">Dành cho các tổ chức, cá nhân có hoạt động nuôi động vật rừng, quản lý loài và điều kiện nuôi</span>
-                </button>
-
                 <button type="button" class="dan-topic-card" data-submode="dan_tonghop" aria-label="Chuyên đề Tổng hợp">
                     <div class="dan-topic-header">
                         <span class="dan-topic-title">TỔNG HỢP</span>
                     </div>
-                    <span class="dan-topic-description">Bộ câu hỏi tổng hợp bao gồm cả 3 lĩnh vực cùng những kiến thức pháp luật lâm nghiệp chung</span>
+                    <span class="dan-topic-description">Bao gồm cả 3 bộ câu hỏi: Chủ rừng, Nguồn gốc lâm sản & Nuôi động vật rừng</span>
+                </button>
+
+                <button type="button" class="dan-topic-card" data-submode="dan_churung" aria-label="Chuyên đề Chủ rừng">
+                    <div class="dan-topic-header">
+                        <span class="dan-topic-title">CHỦ RỪNG</span>
+                    </div>
+                    <span class="dan-topic-description">Bộ câu hỏi dành cho Chủ rừng: quyền, nghĩa vụ, khai thác, phòng cháy & bảo vệ rừng</span>
+                </button>
+
+                <button type="button" class="dan-topic-card" data-submode="dan_cbls" aria-label="Chuyên đề Truy xuất nguồn gốc lâm sản">
+                    <div class="dan-topic-header">
+                        <span class="dan-topic-title">TRUY XUẤT NGUỒN GỐC LÂM SẢN</span>
+                    </div>
+                    <span class="dan-topic-description">Bộ câu hỏi cho các đối tượng khai thác, vận chuyển, mua bán kinh doanh, chế biến lâm sản</span>
+                </button>
+
+                <button type="button" class="dan-topic-card" data-submode="dan_dvr" aria-label="Chuyên đề Nuôi động vật rừng">
+                    <div class="dan-topic-header">
+                        <span class="dan-topic-title">NUÔI ĐỘNG VẬT RỪNG</span>
+                    </div>
+                    <span class="dan-topic-description">Bộ câu hỏi cho các cơ sở nuôi, mua bán, vận chuyển động vật rừng & thực thi CITES</span>
                 </button>
             </div>
 
@@ -265,6 +275,6 @@
         </div>
     </div>
 
-    <script src="game.js?v=24"></script>
+    <script src="game.js?v=15"></script>
 </body>
 </html>

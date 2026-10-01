@@ -162,8 +162,8 @@ const MODE_NAMES = {
     'dan': 'Nhân dân: Tổng hợp',
     'normal': 'Nhân dân: Tổng hợp',
     'dan_churung': 'Nhân dân: Chủ rừng',
-    'dan_cbls': 'Nhân dân: Kinh doanh, CBLS',
-    'dan_dvr': 'Nhân dân: Cơ sở nuôi ĐVR'
+    'dan_cbls': 'Nhân dân: Nguồn gốc lâm sản',
+    'dan_dvr': 'Nhân dân: Nuôi động vật rừng'
 };
 
 function getQuestionsForMode(mode) {
@@ -738,7 +738,7 @@ startButton.addEventListener('click', () => {
     requestAnimationFrame(() => {
         modeSelectScreen.classList.add('active');
         setTimeout(() => {
-            playModeSelectionDialogueTour();
+            playChibiGuideGreeting();
         }, 120);
     });
 
@@ -766,7 +766,7 @@ modeOptions.forEach(option => {
         const mode = option.dataset.mode || 'dan';
 
         if (mode === 'dan') {
-            // Chuyển sang màn hình chọn 4 nhóm đối tượng Nhân dân
+            // Chuyển sang màn hình chọn 4 chuyên đề Nhân dân
             setTimeout(() => {
                 option.classList.remove('pressed');
                 modeSelectScreen.classList.remove('active');
@@ -774,19 +774,14 @@ modeOptions.forEach(option => {
                     modeSelectScreen.style.display = 'none';
                     if (danTopicScreen) {
                         danTopicScreen.style.display = 'flex';
-                        requestAnimationFrame(() => {
-                            danTopicScreen.classList.add('active');
-                            setTimeout(() => {
-                                playDanTopicDialogueTour();
-                            }, 120);
-                        });
+                        requestAnimationFrame(() => danTopicScreen.classList.add('active'));
                     }
                 }, 280);
             }, 100);
             return;
         }
 
-        // Chế độ Kiểm lâm: chuyển trực tiếp vào câu hỏi Kiểm lâm tổng hợp
+        // Chế độ Kiểm lâm: bắt đầu luôn với bộ câu hỏi Kiểm lâm tổng hợp (340 câu)
         selectedMode = 'kiemlam';
         setTimeout(() => {
             option.classList.remove('pressed');
@@ -813,9 +808,6 @@ if (danTopicCards) {
         card.addEventListener('click', () => {
             safePlaySound(clickSound);
             card.classList.add('pressed');
-            stopChibiBlinkLoop();
-            stopChibiIdleActionLoop();
-            hideChibiSpeechBubble(true);
 
             const submode = card.dataset.submode || 'dan_tonghop';
             selectedMode = submode;
@@ -836,17 +828,13 @@ if (danTopicCards) {
 if (danTopicBack) {
     danTopicBack.addEventListener('click', () => {
         safePlaySound(clickSound);
-        stopChibiBlinkLoop();
-        stopChibiIdleActionLoop();
-        hideChibiSpeechBubble(true);
-
         if (danTopicScreen) danTopicScreen.classList.remove('active');
         setTimeout(() => {
             if (danTopicScreen) danTopicScreen.style.display = 'none';
             modeSelectScreen.style.display = 'flex';
             requestAnimationFrame(() => {
                 modeSelectScreen.classList.add('active');
-                setTimeout(() => playModeSelectionDialogueTour(), 120);
+                setTimeout(() => playChibiGuideGreeting(), 80);
             });
         }, 280);
     });
@@ -865,73 +853,24 @@ modeSelectBack.addEventListener('click', () => {
 });
 
 // ==========================================================================
-// HỆ THỐNG TRỢ LÝ NỮ KIỂM LÂM & BONG BÓNG CHAT BUBBLECHAT.WEBP
+// CHIBI GUIDE ASSISTANT AT MODE SELECTION SCREEN (MULTI-POSE & FACIAL RIG)
 // ==========================================================================
-
 let chibiBlinkTimeout = null;
+let chibiSpeechTimeout = null;
+let chibiBubbleHideTimeout = null;
 let chibiIdleActionTimeout = null;
-let chibiDialogueToken = 0;
-let chibiTypewriterTimeout = null;
-let chibiStepDelayTimeout = null;
 let isChibiSpeaking = false;
-let isChibiTyping = false;
-let currentDialogueQueue = [];
-let currentDialogueIndex = 0;
-let currentHighlightedCard = null;
-let activeChibiScreen = 'mode'; // 'mode' hoặc 'dan_topic'
-
-// Nội dung hội thoại chuẩn theo yêu cầu:
-// Màn hình chọn chế độ chơi:
-const MODE_SELECTION_DIALOGUES = [
-    {
-        id: 'mode_greeting',
-        text: "👋 Chào bạn! Mình là nữ Kiểm lâm viên, thuộc Chi cục Kiểm lâm Tuyên Quang.\n\nRất vui được đón bạn đến với thế giới rừng xanh và cùng trải nghiệm những câu hỏi thú vị trong lĩnh vực lâm nghiệp.\n\nTrò chơi có trải nghiệm tốt nhất khi chơi trên máy tính, Laptop và nhớ bật âm thanh lên để thư giãn nhé! 😊",
-        pauseAfter: 2800
-    },
-    {
-        id: 'mode_intro',
-        text: "Đầu tiên, mời bạn chọn chế độ chơi phù hợp:\n\nChế độ NHÂN DÂN: Nơi mọi người dân với những vai trò khác nhau trong xã hội tìm hiểu các quy định của pháp luật về lĩnh vực lâm nghiệp.\n\nChế độ KIỂM LÂM: Thử thách và kiểm tra kiến thức chuyên môn, nghiệp vụ của cán bộ Kiểm lâm và nhân viên bảo vệ rừng chuyên trách.",
-        pauseAfter: 0
-    }
-];
-
-// Màn hình chọn nhóm đối tượng Nhân dân:
-const DAN_TOPIC_DIALOGUES = [
-    {
-        id: 'dan_churung',
-        submode: 'dan_churung',
-        text: "CHỦ RỪNG: Dành cho các tổ chức, hộ gia đình, cá nhân và cộng đồng dân cư có liên quan đến hoạt động quản lý, bảo vệ và sử dụng rừng. Cùng tìm hiểu các quyền, nghĩa vụ và quy định pháp luật về quản lý, bảo vệ, phát triển và sử dụng rừng.",
-        pauseAfter: 2400
-    },
-    {
-        id: 'dan_cbls',
-        submode: 'dan_cbls',
-        text: "KINH DOANH, CHẾ BIẾN LÂM SẢN: Dành cho các tổ chức, cá nhân hoạt động trong lĩnh vực kinh doanh, mua bán, vận chuyển và chế biến lâm sản. Cùng tìm hiểu các quy định pháp luật liên quan đến nguồn gốc lâm sản, hồ sơ lâm sản và trách nhiệm trong hoạt động kinh doanh, chế biến lâm sản.",
-        pauseAfter: 2400
-    },
-    {
-        id: 'dan_dvr',
-        submode: 'dan_dvr',
-        text: "CƠ SỞ NUÔI ĐỘNG VẬT RỪNG: Dành cho các tổ chức, cá nhân có hoạt động nuôi động vật rừng. Cùng tìm hiểu các quy định về quản lý loài, nguồn gốc động vật, hồ sơ, điều kiện nuôi và trách nhiệm của cơ sở trong quá trình nuôi, chăm sóc và quản lý động vật rừng theo quy định pháp luật.",
-        pauseAfter: 2400
-    },
-    {
-        id: 'dan_tonghop',
-        submode: 'dan_tonghop',
-        text: "TỔNG HỢP: Bạn muốn thử sức với nhiều nội dung khác nhau? Hãy chọn phần này để trả lời các câu hỏi tổng hợp về lĩnh vực lâm nghiệp, bao gồm các nội dung dành cho chủ rừng, kinh doanh và chế biến lâm sản, cơ sở nuôi động vật rừng cùng những kiến thức pháp luật lâm nghiệp chung.",
-        pauseAfter: 0
-    }
-];
+let speechFullHtml = '';
 
 function setChibiMouthState(state) {
     if (!chibiCharacter) return;
     chibiCharacter.classList.remove('mouth-original', 'mouth-smile', 'mouth-talking');
     if (state === 'original') {
-        chibiCharacter.classList.add('mouth-original');
+        chibiCharacter.classList.add('mouth-original'); // Miệng cười gốc rạng rỡ 100%
     } else if (state === 'talking') {
-        chibiCharacter.classList.add('mouth-talking');
+        chibiCharacter.classList.add('mouth-talking');  // Miệng chớp mấp máy nói
     } else {
-        chibiCharacter.classList.add('mouth-smile');
+        chibiCharacter.classList.add('mouth-smile');    // Miệng cười mỉm thanh lịch
     }
 }
 
@@ -940,14 +879,15 @@ function startChibiBlinkLoop() {
     if (!chibiCharacter) return;
 
     function scheduleBlink() {
-        const delay = Math.random() * 2400 + 2600;
+        const delay = Math.random() * 2400 + 2600; // 2.6s - 5.0s
         chibiBlinkTimeout = setTimeout(() => {
-            const isScreenActive = (modeSelectScreen && modeSelectScreen.classList.contains('active')) ||
-                                  (danTopicScreen && danTopicScreen.classList.contains('active'));
-            if (!isScreenActive) return;
+            if (!modeSelectScreen.classList.contains('active')) return;
             triggerChibiBlink(() => {
+                // 25% cơ hội chớp mắt kép tự nhiên
                 if (Math.random() < 0.25) {
-                    setTimeout(() => triggerChibiBlink(scheduleBlink), 140);
+                    setTimeout(() => {
+                        triggerChibiBlink(scheduleBlink);
+                    }, 140);
                 } else {
                     scheduleBlink();
                 }
@@ -977,17 +917,18 @@ function startChibiIdleActionLoop() {
     stopChibiIdleActionLoop();
 
     function scheduleIdleAction() {
+        // Cứ mỗi 5.5s - 8.5s thực hiện 1 cử chỉ sinh động
         const delay = Math.random() * 3000 + 5500;
         chibiIdleActionTimeout = setTimeout(() => {
-            const isScreenActive = (modeSelectScreen && modeSelectScreen.classList.contains('active')) ||
-                                  (danTopicScreen && danTopicScreen.classList.contains('active'));
-            if (!isScreenActive) return;
-            if (isChibiSpeaking || isChibiTyping) {
+            if (!modeSelectScreen.classList.contains('active')) return;
+            if (isChibiSpeaking) {
                 scheduleIdleAction();
                 return;
             }
 
+            // 50% quay đầu ngẫu nhiên, 50% giơ tay vuốt tóc
             if (Math.random() < 0.5) {
+                // Cử chỉ quay đầu / nghiêng đầu
                 chibiCharacter.classList.add('turning-head');
                 triggerChibiBlink();
                 setTimeout(() => {
@@ -995,11 +936,16 @@ function startChibiIdleActionLoop() {
                     scheduleIdleAction();
                 }, 1600);
             } else {
+                // Cử chỉ giơ tay vuốt tóc duyên dáng
                 chibiCharacter.classList.add('touching-hair');
                 setChibiMouthState('smile');
                 triggerChibiBlink();
                 setTimeout(() => {
                     chibiCharacter.classList.remove('touching-hair');
+                    // Thi thoảng chuyển sang miệng cười gốc rạng rỡ
+                    if (Math.random() < 0.5) {
+                        setChibiMouthState('original');
+                    }
                     scheduleIdleAction();
                 }, 2600);
             }
@@ -1018,112 +964,20 @@ function stopChibiIdleActionLoop() {
     }
 }
 
-function attachAssistantToScreen(screenType) {
-    if (!modeChibiGuide) return;
-    const targetParent = screenType === 'dan_topic' ? danTopicScreen : modeSelectScreen;
-    if (targetParent && modeChibiGuide.parentElement !== targetParent) {
-        targetParent.appendChild(modeChibiGuide);
-    }
-}
-
-function updateBubbleSize(text) {
-    if (!chibiSpeechBubble) return;
-    const len = text ? text.length : 0;
-    const vw = window.innerWidth;
-
-    let targetW, targetH, targetFontSize, targetLineHeight;
-
-    if (vw <= 580) {
-        // Mobile portrait
-        targetW = Math.min(Math.round(vw * 0.94), 350);
-        if (len <= 190) {
-            targetH = 230;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.28';
-        } else if (len <= 260) {
-            targetH = 265;
-            targetFontSize = '0.74rem';
-            targetLineHeight = '1.25';
-        } else {
-            targetH = 310;
-            targetFontSize = '0.71rem';
-            targetLineHeight = '1.23';
-        }
-    } else if (vw <= 850) {
-        // Tablet
-        targetW = Math.min(Math.round(vw * 0.54), 430);
-        if (len <= 190) {
-            targetH = 255;
-            targetFontSize = '0.82rem';
-            targetLineHeight = '1.30';
-        } else if (len <= 260) {
-            targetH = 295;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.27';
-        } else {
-            targetH = 350;
-            targetFontSize = '0.75rem';
-            targetLineHeight = '1.25';
-        }
-    } else {
-        // Desktop (> 850px)
-        if (len <= 190) {
-            targetW = 440;
-            targetH = 275;
-            targetFontSize = '0.85rem';
-            targetLineHeight = '1.32';
-        } else if (len <= 260) {
-            targetW = 480;
-            targetH = 320;
-            targetFontSize = '0.81rem';
-            targetLineHeight = '1.28';
-        } else {
-            targetW = 510;
-            targetH = 370;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.26';
-        }
-    }
-
-    chibiSpeechBubble.style.setProperty('--bubble-w', targetW + 'px');
-    chibiSpeechBubble.style.setProperty('--bubble-h', targetH + 'px');
-    chibiSpeechBubble.style.setProperty('--bubble-font-size', targetFontSize);
-    chibiSpeechBubble.style.setProperty('--bubble-line-height', targetLineHeight);
-}
-
-function ensureBubbleFitsText() {
-    if (!chibiSpeechBubble || !speechText) return;
-    if (speechText.scrollHeight > speechText.clientHeight + 2) {
-        const overflowDiff = speechText.scrollHeight - speechText.clientHeight;
-        const currentH = parseInt(chibiSpeechBubble.style.getPropertyValue('--bubble-h')) || 280;
-        const neededExpansion = Math.round(overflowDiff * 1.7) + 12;
-        const newH = Math.min(currentH + neededExpansion, Math.round(window.innerHeight * 0.74));
-        chibiSpeechBubble.style.setProperty('--bubble-h', newH + 'px');
-    }
-}
-
-function stopChibiDialogue() {
-    chibiDialogueToken++;
-    if (chibiTypewriterTimeout) {
-        clearTimeout(chibiTypewriterTimeout);
-        chibiTypewriterTimeout = null;
-    }
-    if (chibiStepDelayTimeout) {
-        clearTimeout(chibiStepDelayTimeout);
-        chibiStepDelayTimeout = null;
-    }
-    isChibiTyping = false;
-    isChibiSpeaking = false;
-    if (currentHighlightedCard) {
-        currentHighlightedCard.classList.remove('highlighted');
-        currentHighlightedCard = null;
-    }
-    setChibiMouthState('smile');
-}
-
 function hideChibiSpeechBubble(immediate = false) {
-    stopChibiDialogue();
+    console.log('TRACE_HIDE_BUBBLE immediate=' + immediate, new Error().stack);
     if (!chibiSpeechBubble) return;
+    if (chibiBubbleHideTimeout) {
+        clearTimeout(chibiBubbleHideTimeout);
+        chibiBubbleHideTimeout = null;
+    }
+    if (chibiSpeechTimeout) {
+        clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = null;
+    }
+    isChibiSpeaking = false;
+    setChibiMouthState('smile');
+
     if (modeChibiGuide) {
         modeChibiGuide.classList.add('bubble-hidden');
     }
@@ -1136,234 +990,103 @@ function hideChibiSpeechBubble(immediate = false) {
     chibiSpeechBubble.classList.add('closing');
     setTimeout(() => {
         chibiSpeechBubble.classList.remove('active', 'closing');
-    }, 320);
+    }, 350);
 }
 
-function typeChibiDialogue(text, onComplete) {
-    if (!speechText) return;
+function playChibiGuideGreeting() {
+        if (!chibiCharacter || !chibiSpeechBubble || !speechText) return;
 
-    chibiDialogueToken++;
-    const token = chibiDialogueToken;
-
-    if (chibiTypewriterTimeout) {
-        clearTimeout(chibiTypewriterTimeout);
-        chibiTypewriterTimeout = null;
-    }
-
-    isChibiTyping = true;
-    isChibiSpeaking = true;
-    setChibiMouthState('talking');
-
-    speechText.textContent = '';
-    updateBubbleSize(text);
-
-    let charIdx = 0;
-    const speed = 20; // 20ms mỗi ký tự chạy mượt mà
-
-    function typeNextChar() {
-        if (token !== chibiDialogueToken) return;
-
-        if (charIdx < text.length) {
-            speechText.textContent += text.charAt(charIdx);
-            charIdx++;
-            chibiTypewriterTimeout = setTimeout(typeNextChar, speed);
-        } else {
-            isChibiTyping = false;
-            isChibiSpeaking = false;
-            setChibiMouthState('smile');
-            ensureBubbleFitsText();
-            triggerChibiBlink();
-            if (onComplete && token === chibiDialogueToken) {
-                onComplete();
-            }
-        }
-    }
-
-    typeNextChar();
-}
-
-function advanceDialogueStep(nextIndex) {
-    if (chibiStepDelayTimeout) {
-        clearTimeout(chibiStepDelayTimeout);
-        chibiStepDelayTimeout = null;
-    }
-
-    // Xóa toàn bộ nội dung cũ trước khi chạy chữ mới, không để lại chữ hay chồng chữ
-    if (speechText) {
-        speechText.textContent = '';
-    }
-
-    if (currentHighlightedCard) {
-        currentHighlightedCard.classList.remove('highlighted');
-        currentHighlightedCard = null;
-    }
-
-    if (nextIndex >= currentDialogueQueue.length) {
-        return;
-    }
-
-    currentDialogueIndex = nextIndex;
-    const item = currentDialogueQueue[nextIndex];
-
-    // Gắn nổi bật vào nút lựa chọn tương ứng
-    if (item.submode) {
-        const card = document.querySelector(`.dan-topic-card[data-submode="${item.submode}"]`);
-        if (card) {
-            card.classList.add('highlighted');
-            currentHighlightedCard = card;
-        }
-    }
-
-    typeChibiDialogue(item.text, () => {
-        if (item.pauseAfter > 0 && currentDialogueIndex + 1 < currentDialogueQueue.length) {
-            chibiStepDelayTimeout = setTimeout(() => {
-                advanceDialogueStep(currentDialogueIndex + 1);
-            }, item.pauseAfter);
-        }
-    });
-}
-
-function startDialogueQueue(queue, screenType = 'mode') {
-    activeChibiScreen = screenType;
-    currentDialogueQueue = queue;
-    currentDialogueIndex = 0;
-
-    stopChibiDialogue();
-    attachAssistantToScreen(screenType);
-
+    // Reset trạng thái
+    hideChibiSpeechBubble(true);
     if (modeChibiGuide) {
         modeChibiGuide.classList.remove('bubble-hidden');
     }
-    if (chibiSpeechBubble) {
-        chibiSpeechBubble.classList.remove('closing');
-        chibiSpeechBubble.classList.add('active');
-        safePlaySound(latGiaySound);
-    }
+    chibiCharacter.classList.remove('ready', 'turning-head', 'touching-hair');
+    setChibiMouthState('smile');
 
+    // Chớp mắt chào ban đầu sau khi xoay đầu về phía màn hình
+    setTimeout(() => {
+        if (!modeSelectScreen.classList.contains('active')) return;
+        chibiCharacter.classList.add('ready');
+        triggerChibiBlink();
+    }, 600);
+
+    // Kích hoạt chu kỳ chớp mắt và cử chỉ nhàn rỗi (idle actions)
     startChibiBlinkLoop();
     startChibiIdleActionLoop();
 
-    advanceDialogueStep(0);
+    // Hiển thị khung chat truyện tranh sau 380ms
+    setTimeout(() => {
+        console.log('TRACE_TIMEOUT_SHOW_BUBBLE modeActive=' + modeSelectScreen.classList.contains('active'));
+        if (!modeSelectScreen.classList.contains('active')) return;
+
+        chibiSpeechBubble.classList.remove('closing');
+        chibiSpeechBubble.classList.add('active');
+        safePlaySound(latGiaySound);
+
+        const speechLines = [
+            "Chào bạn! Em là <strong>trợ lý Kiểm lâm</strong> 👋",
+            "Mời bạn chọn chế độ chơi phù hợp:",
+            "🌲 <strong>Chế độ Nhân dân</strong>: Tìm hiểu luật bảo vệ rừng, nguồn gốc lâm sản và thủ tục nuôi động vật rừng.",
+            "⭐ <strong>Chế độ Kiểm lâm</strong>: Thử thách kiến thức chuyên môn, nghiệp vụ xử lý của Kiểm lâm viên.",
+            "Hãy chạm vào tấm biển gỗ để bắt đầu nhé!"
+        ];
+
+        speechFullHtml = speechLines.join("<br><br>");
+        speechText.innerHTML = speechFullHtml;
+        isChibiSpeaking = true;
+        setChibiMouthState('talking'); // Miệng bắt đầu chớp mấp máy nói nhịp nhàng
+
+        // Khẩu hình nói mấp máy trong 3.2s rồi chuyển về mỉm cười nhẹ chuyên nghiệp
+        if (chibiSpeechTimeout) clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = setTimeout(() => {
+            finishChibiSpeaking();
+        }, 3200);
+    }, 380);
 }
 
-function skipOrCompleteDialogue() {
-    if (!currentDialogueQueue || currentDialogueQueue.length === 0) return;
-    const currentItem = currentDialogueQueue[currentDialogueIndex];
-    if (!currentItem) return;
-
-    if (isChibiTyping) {
-        // Đang chạy chữ: bấm vào hiển thị ngay toàn bộ nội dung của lượt này
-        chibiDialogueToken++;
-        if (chibiTypewriterTimeout) {
-            clearTimeout(chibiTypewriterTimeout);
-            chibiTypewriterTimeout = null;
-        }
-        speechText.textContent = currentItem.text;
-        isChibiTyping = false;
-        isChibiSpeaking = false;
-        setChibiMouthState('smile');
-        ensureBubbleFitsText();
+function finishChibiSpeaking() {
+    isChibiSpeaking = false;
+    if (chibiSpeechTimeout) {
+        clearTimeout(chibiSpeechTimeout);
+        chibiSpeechTimeout = null;
+    }
+    if (speechText && speechFullHtml) {
+        speechText.innerHTML = speechFullHtml;
+    }
+    if (chibiCharacter) {
+        setChibiMouthState('smile'); // Miệng chuyển về mỉm cười nhẹ chuyên nghiệp
         triggerChibiBlink();
-
-        if (chibiStepDelayTimeout) {
-            clearTimeout(chibiStepDelayTimeout);
-            chibiStepDelayTimeout = null;
-        }
-        if (currentItem.pauseAfter > 0 && currentDialogueIndex + 1 < currentDialogueQueue.length) {
-            chibiStepDelayTimeout = setTimeout(() => {
-                advanceDialogueStep(currentDialogueIndex + 1);
-            }, currentItem.pauseAfter);
-        }
-    } else {
-        // Đã hiển thị đủ: bấm tiếp chuyển ngay sang đoạn tiếp theo
-        if (chibiStepDelayTimeout) {
-            clearTimeout(chibiStepDelayTimeout);
-            chibiStepDelayTimeout = null;
-        }
-        if (currentDialogueIndex + 1 < currentDialogueQueue.length) {
-            advanceDialogueStep(currentDialogueIndex + 1);
-        } else {
-            hideChibiSpeechBubble(false);
-        }
     }
 }
 
-function playModeSelectionDialogueTour() {
-    if (!chibiCharacter || !chibiSpeechBubble || !speechText) return;
-    hideChibiSpeechBubble(true);
-    attachAssistantToScreen('mode');
-
-    chibiCharacter.classList.remove('ready', 'turning-head', 'touching-hair');
-    setChibiMouthState('smile');
-
-    setTimeout(() => {
-        if (!modeSelectScreen.classList.contains('active')) return;
-        chibiCharacter.classList.add('ready');
-        triggerChibiBlink();
-    }, 450);
-
-    setTimeout(() => {
-        if (!modeSelectScreen.classList.contains('active')) return;
-        startDialogueQueue(MODE_SELECTION_DIALOGUES, 'mode');
-    }, 350);
-}
-
-function playDanTopicDialogueTour() {
-    if (!chibiCharacter || !chibiSpeechBubble || !speechText) return;
-    hideChibiSpeechBubble(true);
-    attachAssistantToScreen('dan_topic');
-
-    chibiCharacter.classList.remove('ready', 'turning-head', 'touching-hair');
-    setChibiMouthState('smile');
-
-    setTimeout(() => {
-        if (!danTopicScreen.classList.contains('active')) return;
-        chibiCharacter.classList.add('ready');
-        triggerChibiBlink();
-    }, 450);
-
-    setTimeout(() => {
-        if (!danTopicScreen.classList.contains('active')) return;
-        startDialogueQueue(DAN_TOPIC_DIALOGUES, 'dan_topic');
-    }, 350);
-}
-
-// Giữ lại hàm tương thích ngược nếu có chỗ gọi
-function playChibiGuideGreeting() {
-    playModeSelectionDialogueTour();
-}
-
-// Bấm vào khung bong bóng chat: hoàn thành chữ ngay hoặc chuyển sang đoạn tiếp theo
+// Bấm vào khung chat: hoàn thành chữ ngay hoặc đóng lại nếu đã xong
 if (chibiSpeechBubble) {
     chibiSpeechBubble.addEventListener('click', (e) => {
         e.stopPropagation();
-        safePlaySound(clickSound);
-        skipOrCompleteDialogue();
+        if (isChibiSpeaking) {
+            finishChibiSpeaking();
+        } else {
+            hideChibiSpeechBubble(false);
+        }
     });
 }
 
-// Nút đóng khung thoại
 if (chibiBubbleClose) {
     chibiBubbleClose.addEventListener('click', (e) => {
         e.stopPropagation();
-        safePlaySound(clickSound);
         hideChibiSpeechBubble(false);
     });
 }
 
-// Chạm vào nhân vật Chibi để nghe hướng dẫn lại theo đúng màn hình hiện tại
+// Chạm vào nhân vật Chibi để nghe hướng dẫn lại
 if (chibiCharacter) {
     chibiCharacter.addEventListener('click', (e) => {
         e.stopPropagation();
         safePlaySound(clickSound);
-        if (danTopicScreen && danTopicScreen.classList.contains('active')) {
-            playDanTopicDialogueTour();
-        } else {
-            playModeSelectionDialogueTour();
-        }
+        playChibiGuideGreeting();
     });
 }
-
 
 exitButton.addEventListener('click', () => {
     safePlaySound(clickSound);
