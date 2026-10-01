@@ -290,7 +290,7 @@ const question_DVR = [
     "explanation": "Căn cứ Phụ lục II Công ước CITES và Nghị định số 06/2019/NĐ-CP: Phụ lục II CITES gồm những loài chưa bị đe dọa tuyệt chủng nhưng cần kiểm soát việc buôn bán quốc tế để tránh bị tuyệt chủng."
   },
   {
-    "question": "Khi chủ cơ sở nuôi thay đổi địa điểm chuồng nuôi sang xã/huyện khác thì phải làm gì?",
+    "question": "Khi chủ cơ sở nuôi thay đổi địa điểm chuồng nuôi sang xã/tỉnh khác thì phải làm gì?",
     "options": [
       "Làm thủ tục đề nghị điều chỉnh thông tin hoặc cấp đổi mã số cơ sở nuôi với Cơ quan Kiểm lâm quản lý",
       "Tự ý vận chuyển đàn thú đi ban đêm và giữ nguyên mã số cũ không báo ai",

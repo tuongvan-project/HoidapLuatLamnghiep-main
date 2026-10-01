@@ -96,8 +96,8 @@ const questions_KL = [
     "options": [
       "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
       "Khởi tố bị can, bắt tạm giam người phạm tội trong thời hạn 03 tháng để điều tra độc lập",
-      "Chỉ được lập biên bản vi phạm rồi chuyển ngay cho Công an cấp huyện trong 24 giờ mà không được khởi tố vụ án",
-      "Chuyển thẳng hồ sơ sang Tòa án nhân dân cấp huyện để mở phiên tòa xét xử sơ thẩm"
+      "Chỉ được lập biên bản vi phạm rồi chuyển ngay cho Công an cấp xã, cấp tỉnh trong 24 giờ mà không được khởi tố vụ án",
+      "Chuyển thẳng hồ sơ sang Tòa án nhân dân khu vực để mở phiên tòa xét xử sơ thẩm"
     ],
     "correct": "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
     "explanation": "Theo Điều 157 và Điều 164 Bộ luật Tố tụng hình sự, Cục Kiểm lâm, Chi cục Kiểm lâm, Hạt Kiểm lâm có quyền khởi tố vụ án đối với tội ít nghiêm trọng quả tang, thực hiện hoạt động điều tra ban đầu và chuyển hồ sơ trong 07 ngày."
@@ -279,11 +279,11 @@ const questions_KL = [
     "explanation": "Khai thác vượt chỉ tiêu/sản lượng cho phép trong hồ sơ cấp phép cấu thành hành vi khai thác rừng trái quy định của Nhà nước theo Điều 13 Nghị định 146/2026/NĐ-CP."
   },
   {
-    "question": "Quy định về thẩm quyền điều động lực lượng Kiểm lâm phối hợp liên huyện trong phạm vi một tỉnh thuộc về ai?",
+    "question": "Quy định về thẩm quyền điều động lực lượng Kiểm lâm phối hợp liên khu vực trong phạm vi một tỉnh thuộc về ai?",
     "options": [
       "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
       "Hạt trưởng Hạt Kiểm lâm nơi xảy ra vụ việc phức tạp",
-      "Chủ tịch Ủy ban nhân dân cấp huyện nơi cần tăng cường",
+      "Chủ tịch Ủy ban nhân dân cấp xã nơi cần tăng cường",
       "Đội trưởng Đội Kiểm lâm cơ động và PCCCR"
     ],
     "correct": "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
@@ -339,7 +339,7 @@ const questions_KL = [
       "Hội đồng nhân dân cấp tỉnh",
       "Chi cục Kiểm lâm cấp tỉnh",
       "Giám đốc Sở Nông nghiệp và Môi trường",
-      "Chủ tịch UBND cấp huyện"
+      "Chủ tịch UBND cấp xã"
     ],
     "correct": "Hội đồng nhân dân cấp tỉnh",
     "explanation": "Điều 20 Luật Lâm nghiệp (sửa đổi) và Nghị định 156/2018/NĐ-CP (hợp nhất) quy định HĐND cấp tỉnh có thẩm quyền quyết định chủ trương chuyển mục đích sử dụng rừng sang mục đích khác trên địa bàn."
@@ -754,12 +754,12 @@ const questions_KL = [
   {
     "question": "Khi phát hiện dịch sâu bệnh hại rừng bùng phát có nguy cơ lây lan diện rộng, cơ quan Kiểm lâm phải làm gì?",
     "options": [
-      "Báo cáo ngay cho Sở NN&MT, UBND cấp huyện/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
+      "Báo cáo ngay cho Sở NN&MT, UBND cấp xã/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
       "Tự ý mua thuốc bảo vệ thực vật cấm để phun dập dịch",
       "Chờ dịch bệnh tự thoái trào sau mùa mưa",
       "Yêu cầu chủ rừng chặt trắng toàn bộ diện tích rừng xung quanh"
     ],
-    "correct": "Báo cáo ngay cho Sở NN&MT, UBND cấp huyện/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
+    "correct": "Báo cáo ngay cho Sở NN&MT, UBND cấp xã/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
     "explanation": "Căn cứ Khoản 3 Điều 61 Luật Lâm nghiệp năm 2017 và Mục I.5 Hướng dẫn số 230/HD-CCKL: Khi dịch bùng phát, cơ quan Kiểm lâm phải báo cáo ngay cơ quan chuyên ngành BVTV và UBND cấp trên để khoanh vùng công bố dịch và xử lý."
   },
   {

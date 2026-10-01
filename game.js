@@ -885,7 +885,7 @@ let activeChibiScreen = 'mode'; // 'mode' hoặc 'dan_topic'
 const MODE_SELECTION_DIALOGUES = [
     {
         id: 'mode_greeting',
-        text: "👋 Chào bạn! Mình là nữ Kiểm lâm viên, thuộc Chi cục Kiểm lâm Tuyên Quang.\n\nRất vui được đón bạn đến với thế giới rừng xanh và cùng trải nghiệm những câu hỏi thú vị trong lĩnh vực lâm nghiệp.\n\nTrò chơi có trải nghiệm tốt nhất khi chơi trên máy tính, Laptop và nhớ bật âm thanh lên để thư giãn nhé! 😊",
+        text: "👋 Chào bạn! Mình là nữ Kiểm lâm viên AI, thuộc Chi cục Kiểm lâm Tuyên Quang.\n\nRất vui được đón bạn đến với thế giới rừng xanh và cùng trải nghiệm những câu hỏi thú vị trong lĩnh vực lâm nghiệp.\n\nTrò chơi có trải nghiệm tốt nhất khi chơi trên máy tính, Laptop và nhớ bật âm thanh lên để thư giãn nhé! 😊",
         pauseAfter: 2800
     },
     {

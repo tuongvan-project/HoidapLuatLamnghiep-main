@@ -29,7 +29,7 @@ const question_CBLS = [
     "question": "Trường hợp nào cơ quan Kiểm lâm BẮT BUỘC phải tiến hành kiểm tra thực tế lâm sản trước khi ký xác nhận Bảng kê lâm sản?",
     "options": [
       "Có thông tin phản ánh hoặc dấu hiệu nghi vấn lâm sản không đúng nguồn gốc, chủng loại, số lượng; hoặc lâm sản thuộc loài nguy cấp quý hiếm cần xác minh",
-      "Bắt buộc đối với 100% tất cả các chuyến hàng gỗ rừng trồng xuất bán ra khỏi huyện",
+      "Bắt buộc đối với 100% tất cả các chuyến hàng gỗ rừng trồng xuất bán ra khỏi xã",
       "Chỉ kiểm tra khi chủ lâm sản không nộp đủ tiền lệ phí xác nhận hồ sơ",
       "Chỉ kiểm tra khi phương tiện chở hàng bị hỏng dọc đường cần cứu hộ"
     ],
@@ -349,7 +349,7 @@ const question_CBLS = [
     "options": [
       "Cơ quan quản lý CITES Việt Nam (thuộc Cục Lâm nghiệp và Kiểm lâm)",
       "Ủy ban nhân dân cấp xã nơi đặt xưởng gỗ",
-      "Hạt Kiểm lâm huyện",
+      "Hạt Kiểm lâm khu vực",
       "Chi cục Hải quan cửa khẩu"
     ],
     "correct": "Cơ quan quản lý CITES Việt Nam (thuộc Cục Lâm nghiệp và Kiểm lâm)",
@@ -866,7 +866,7 @@ const question_CBLS = [
     "options": [
       "Văn bản hoặc Quyết định xử lý cây của cấp có thẩm quyền phê duyệt dự án kèm Bảng kê lâm sản hợp lệ khi lưu thông",
       "Chỉ cần hợp đồng trúng thầu thi công xây lắp hồ chứa nước",
-      "Chỉ cần nộp tiền thuế tài nguyên tại kho bạc huyện",
+      "Chỉ cần nộp tiền thuế tài nguyên tại kho bạc khu vực",
       "Không cần giấy tờ gì vì cây nằm trong lòng hồ sắp bị ngập nước"
     ],
     "correct": "Văn bản hoặc Quyết định xử lý cây của cấp có thẩm quyền phê duyệt dự án kèm Bảng kê lâm sản hợp lệ khi lưu thông",
