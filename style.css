@@ -1346,7 +1346,7 @@ body {
         height: clamp(130px, 48vh, 185px);
     }
     .chibi-speech-bubble {
-        bottom: clamp(100px, 36vh, 150px);
+        bottom: clamp(195px, 68vh, 240px);
         right: clamp(40px, 6vw, 90px);
         --bubble-w: min(360px, 45vw);
         --bubble-h: 190px;
