@@ -83,13 +83,13 @@ const question_CBLS = [
   {
     "question": "Hành vi tàng trữ gỗ quý hiếm Nhóm IA không có hồ sơ nguồn gốc hợp pháp tại kho xưởng cưa xẻ với khối lượng tối thiểu bao nhiêu thì bị khởi tố hình sự theo Điều 232 BLHS?",
     "options": [
-      "Từ 1,5 m³ gỗ tròn (hoặc từ 1,0 m³ gỗ xẻ) trở lên là bị phạt tù từ 1 năm đến 5 năm",
+      "Từ 1,5 m³ gỗ trở lên (khung hình phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm)",
       "Từ 10 m³ gỗ tròn trở lên mới cấu thành tội phạm hình sự",
       "Từ 50 m³ gỗ tròn trở lên mới bị xử lý hình sự",
       "Không bao giờ bị đi tù nếu tàng trữ gỗ trong khuôn viên đất ở của gia đình"
     ],
-    "correct": "Từ 1,5 m³ gỗ tròn (hoặc từ 1,0 m³ gỗ xẻ) trở lên là bị phạt tù từ 1 năm đến 5 năm",
-    "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015: Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 1,5 m³ đến dưới 03 m³ gỗ thuộc Danh mục loài nguy cấp, quý, hiếm Nhóm IA bị truy cứu trách nhiệm hình sự (phạt tiền từ 50 - 300 triệu đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm)."
+    "correct": "Từ 1,5 m³ gỗ trở lên (khung hình phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm)",
+    "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015: Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 1,5 m³ đến dưới 03 m³ gỗ thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ hoặc Nhóm IA bị truy cứu trách nhiệm hình sự với khung hình phạt tiền từ 50 đến 300 triệu đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm."
   },
   {
     "question": "Đối với gỗ thông thường (không thuộc loài nguy cấp, quý, hiếm), hành vi vận chuyển trái pháp luật đạt khối lượng tối thiểu bao nhiêu thì bị truy cứu trách nhiệm hình sự theo Điều 232 BLHS?",
@@ -689,12 +689,12 @@ const question_CBLS = [
     "question": "Tàng trữ, vận chuyển, buôn bán gỗ thông thường trái phép từ bao nhiêu m3 thì bị TRUY CỨU TRÁCH NHIỆM HÌNH SỰ (đi tù)?",
     "options": [
       "Từ 5 m3 trở lên (gỗ tròn) trong mọi trường hợp",
-      "Từ 20 m3 trở lên (gỗ tròn rừng tự nhiên) hoặc từ 40 m3 (rừng trồng) đã cấu thành tội phạm hình sự",
+      "Từ 20 m3 trở lên (khung phạt tù từ 06 tháng đến 03 năm)",
       "Phải từ 100 m3 trở lên mới cấu thành tội phạm hình sự",
       "Gỗ thông thường không bao giờ bị xử lý hình sự mà chỉ phạt tiền"
     ],
-    "correct": "Từ 20 m3 trở lên (gỗ tròn rừng tự nhiên) hoặc từ 40 m3 (rừng trồng) đã cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015: Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 20 m³ đến dưới 40 m³ gỗ thực vật rừng thông thường bị truy cứu trách nhiệm hình sự với khung hình phạt tù từ 06 tháng đến 03 năm."
+    "correct": "Từ 20 m3 trở lên (khung phạt tù từ 06 tháng đến 03 năm)",
+    "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015: Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 20 m³ đến dưới 40 m³ gỗ thực vật rừng thông thường bị truy cứu trách nhiệm hình sự với khung hình phạt tù từ 06 tháng đến 03 năm; điều luật không phân biệt nguồn gốc rừng tự nhiên hay rừng trồng đối với hành vi tàng trữ, vận chuyển, mua bán."
   },
   {
     "question": "Tàng trữ, buôn bán trái phép gỗ quý hiếm Nhóm IA từ khối lượng bao nhiêu m3 thì bị phạt tù theo Điều 232 BLHS?",

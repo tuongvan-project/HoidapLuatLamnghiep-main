@@ -690,15 +690,15 @@ const question_DVR = [
     "explanation": "Căn cứ Điểm c Khoản 4 và Điểm đ Khoản 9 Điều 19 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi quảng cáo để kinh doanh thực vật rừng, động vật rừng và sản phẩm của chúng không có nguồn gốc hợp pháp; buộc gỡ bỏ, xóa nội dung quảng cáo trên không gian mạng."
   },
   {
-    "question": "Theo Điều 244 Bộ luật Hình sự, hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép tối thiểu bao nhiêu cá thể lớp thú thuộc Nhóm IB hoặc Danh mục nguy cấp ưu tiên bảo vệ là bị đi tù?",
+    "question": "Theo Điều 244 Bộ luật Hình sự, hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật rừng thuộc Danh mục loài nguy cấp, quý, hiếm Nhóm IB (lớp thú) mà không thuộc Danh mục loài ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự (khung 1 đến 5 năm tù) khi có số lượng tối thiểu là bao nhiêu cá thể?",
     "options": [
-      "Chỉ từ 01 cá thể lớp thú là đã đủ yếu tố bị truy cứu trách nhiệm hình sự (phạt tù từ 1 đến 5 năm)",
-      "Phải từ 5 cá thể trở lên mới bị xử lý hình sự",
-      "Phải từ 10 cá thể trở lên mới bị khởi tố",
-      "Bao nhiêu cá thể cũng chỉ bị xử phạt vi phạm hành chính"
+      "Từ 03 cá thể đến 07 cá thể lớp thú",
+      "Chỉ từ 01 cá thể lớp thú",
+      "Từ 10 cá thể lớp thú trở lên",
+      "Chỉ xử phạt vi phạm hành chính, không phân biệt số lượng cá thể"
     ],
-    "correct": "Chỉ từ 01 cá thể lớp thú là đã đủ yếu tố bị truy cứu trách nhiệm hình sự (phạt tù từ 1 đến 5 năm)",
-    "explanation": "Điểm a Khoản 1 Điều 244 Bộ luật Hình sự: Tàng trữ, nuôi, nhốt, buôn bán chỉ từ 01 cá thể lớp thú Nhóm IB hoặc Danh mục loài ưu tiên bảo vệ là bị truy cứu hình sự (khung 1 đến 5 năm tù)."
+    "correct": "Từ 03 cá thể đến 07 cá thể lớp thú",
+    "explanation": "Căn cứ Điểm d Khoản 1 Điều 244 Bộ luật Hình sự (sửa đổi, bổ sung năm 2017): Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục Nhóm IB (hoặc Phụ lục I CITES) mà không thuộc Danh mục loài ưu tiên bảo vệ thì đối với động vật có số lượng từ 03 cá thể đến 07 cá thể lớp thú bị phạt tiền từ 500 triệu đến 2 tỷ đồng hoặc phạt tù từ 01 năm đến 05 năm (trường hợp thuộc Danh mục loài ưu tiên bảo vệ thì mới áp dụng từ 01 cá thể theo Điểm a Khoản 1 Điều 244)."
   },
   {
     "question": "Hành vi tàng trữ, buôn bán trái phép bao nhiêu kilôgam (kg) ngà voi thì bị truy cứu trách nhiệm hình sự theo Điều 244 BLHS?",
