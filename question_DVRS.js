@@ -6,7 +6,7 @@
  * - Nghị định số 146/2026/NĐ-CP ngày 06/5/2026
  * - Bộ luật Hình sự (sửa đổi, bổ sung 2017)
  */
-const question_DVR = [
+const question_DVRS = [
   {
     "question": "Theo Công ước CITES và Thông tư số 85/2025/TT-BNNMT, điều kiện bắt buộc để một cơ sở nuôi được phép xuất khẩu thương mại mẫu vật động vật thuộc Phụ lục I CITES là gì?",
     "options": [
