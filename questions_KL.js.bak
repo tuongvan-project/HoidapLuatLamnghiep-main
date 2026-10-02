@@ -17,35 +17,35 @@ const questions_KL = [
   {
     "question": "Theo Nghị định 146/2026/NĐ-CP, Trạm trưởng Trạm Kiểm lâm có thẩm quyền xử phạt và tịch thu tang vật đối với cá nhân vi phạm như thế nào?",
     "options": [
-      "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 200.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
-      "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC không giới hạn giá trị",
-      "Phạt tiền đến 50.000.000 đồng; tịch thu tang vật có giá trị không quá 100.000.000 đồng",
-      "Phạt tiền đến 150.000.000 đồng; áp dụng biện pháp tước quyền sử dụng giấy phép khai thác"
+      "Phạt tiền đến 100.000.000 đồng và có quyền tịch thu tang vật, phương tiện vi phạm hành chính",
+      "Phạt tiền đến 100.000.000 đồng nhưng chỉ được tịch thu tang vật có giá trị không quá 100.000.000 đồng",
+      "Phạt tiền đến 50.000.000 đồng và tịch thu tang vật có giá trị không quá 2 lần mức phạt tiền",
+      "Phạt tiền đến 150.000.000 đồng và áp dụng biện pháp tước quyền sử dụng giấy phép khai thác"
     ],
-    "correct": "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 200.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
-    "explanation": "Điểm b, Điểm c Khoản 2 Điều 29 Nghị định 146/2026/NĐ-CP quy định Trạm trưởng Trạm Kiểm lâm có quyền phạt tiền đến 100.000.000 đồng và tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 02 lần mức tiền phạt thẩm quyền (đến 200.000.000 đồng)."
+    "correct": "Phạt tiền đến 100.000.000 đồng và có quyền tịch thu tang vật, phương tiện vi phạm hành chính",
+    "explanation": "Điểm b, Điểm c Khoản 2 Điều 29 Nghị định số 146/2026/NĐ-CP: Trạm trưởng Trạm Kiểm lâm có quyền phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện vi phạm hành chính có giá trị không vượt quá 02 lần mức tiền phạt quy định tại điểm b (tức không vượt quá 200.000.000 đồng)"
   },
   {
     "question": "Thẩm quyền xử phạt của Hạt trưởng Hạt Kiểm lâm và Đội trưởng Đội Kiểm lâm cơ động và PCCCR theo Nghị định 146/2026/NĐ-CP được quy định như thế nào đối với cá nhân?",
     "options": [
-      "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
-      "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật không giới hạn giá trị; Tước quyền sử dụng chứng chỉ hành nghề/giấy phép có thời hạn",
+      "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng",
       "Phạt tiền đến 250.000.000 đồng; Tịch thu toàn bộ tang vật; Đình chỉ hoạt động cơ sở chế biến gỗ vĩnh viễn",
-      "Phạt tiền đến 100.000.000 đồng; Tịch thu tang vật có giá trị không vượt quá 200.000.000 đồng"
+      "Phạt tiền đến 100.000.000 đồng; Tịch thu tang vật có giá trị không vượt quá 300.000.000 đồng",
+      "Phạt tiền đến 200.000.000 đồng; Tịch thu tang vật nhưng không có quyền tước giấy phép/chứng chỉ"
     ],
-    "correct": "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
-    "explanation": "Khoản 3 Điều 29 Nghị định 146/2026/NĐ-CP: Hạt trưởng Hạt Kiểm lâm, Đội trưởng Đội Kiểm lâm cơ động và PCCCR được phạt tiền đến 150.000.000 đồng; tịch thu tang vật, phương tiện có giá trị không vượt quá 02 lần mức tiền phạt (đến 300.000.000 đồng); áp dụng biện pháp khắc phục hậu quả; không có quyền tước giấy phép/chứng chỉ hành nghề."
+    "correct": "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng",
+    "explanation": "Khoản 3 Điều 29 Nghị định số 146/2026/NĐ-CP: Hạt trưởng Hạt Kiểm lâm có quyền phạt cảnh cáo; phạt tiền đến 150.000.000 đồng; tịch thu tang vật, phương tiện có giá trị không vượt quá 02 lần mức tiền phạt thẩm quyền (tức đến 300.000.000 đồng); áp dụng biện pháp khắc phục hậu quả."
   },
   {
     "question": "Thẩm quyền xử phạt của Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh theo Nghị định 146/2026/NĐ-CP đối với cá nhân và tổ chức được quy định như thế nào?",
     "options": [
       "Phạt tiền đến 250.000.000 đồng đối với cá nhân (đến 500.000.000 đồng đối với tổ chức); Tịch thu tang vật, phương tiện VPHC; Đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng",
       "Phạt tiền đến 500.000.000 đồng đối với cá nhân (đến 1.000.000.000 đồng đối với tổ chức); Tịch thu toàn bộ tang vật, phương tiện VPHC",
-      "Phạt tiền đến 150.000.000 đồng đối với cá nhân (đến 300.000.000 đồng đối với tổ chức); Tước chứng chỉ hành nghề vĩnh viễn",
+      "Phạt tiền đến 150.000.000 đồng đối với cá nhân (đến 300.000.000 đồng đối với tổ chức); Không có quyền tước giấy phép",
       "Phạt tiền đến 200.000.000 đồng đối với cá nhân; Chỉ được tịch thu tang vật có giá trị dưới 500 triệu đồng"
     ],
     "correct": "Phạt tiền đến 250.000.000 đồng đối với cá nhân (đến 500.000.000 đồng đối với tổ chức); Tịch thu tang vật, phương tiện VPHC; Đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng",
-    "explanation": "Khoản 4 Điều 29 Nghị định 146/2026/NĐ-CP: Chi cục trưởng có quyền phạt tiền đến 250.000.000 đồng đối với cá nhân (500.000.000 đồng đối với tổ chức); tịch thu tang vật, phương tiện VPHC; đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng; áp dụng biện pháp khắc phục hậu quả."
+    "explanation": "Khoản 4 Điều 29 Nghị định số 146/2026/NĐ-CP: Chi cục trưởng có quyền phạt tiền đến 250.000.000 đồng đối với cá nhân; tịch thu tang vật, phương tiện VPHC; đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng."
   },
   {
     "question": "Theo Nghị định 146/2026/NĐ-CP, Chủ tịch Ủy ban nhân dân cấp xã có thẩm quyền phạt tiền đối với cá nhân vi phạm trong lĩnh vực lâm nghiệp tối đa là bao nhiêu?",
@@ -89,10 +89,10 @@ const questions_KL = [
       "Trong thời hạn 07 ngày làm việc để hoàn thiện chứng cứ"
     ],
     "correct": "Trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính",
-    "explanation": "Khoản 4 Điều 12 Nghị định số 118/2021/NĐ-CP: Trường hợp vượt thẩm quyền, việc chuyển biên bản vi phạm hành chính và các tài liệu khác cho người có thẩm quyền xử phạt phải được thực hiện trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản (vùng sâu, xa không quá 03 ngày làm việc)."
+    "explanation": "Điều 58 Luật Xử lý vi phạm hành chính: Trường hợp vượt thẩm quyền, người lập biên bản phải chuyển hồ sơ cho người có thẩm quyền xử phạt trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản."
   },
   {
-    "question": "Theo Điều 164 Bộ luật Tố tụng hình sự, khi phát hiện tội phạm lâm nghiệp quả tang thuộc tội ít nghiêm trọng, Hạt trưởng Hạt Kiểm lâm có thẩm quyền tố tụng như thế nào?",
+    "question": "Theo Điều 157 Bộ luật Tố tụng hình sự, khi phát hiện tội phạm lâm nghiệp quả tang thuộc tội ít nghiêm trọng, Hạt trưởng Hạt Kiểm lâm có thẩm quyền tố tụng như thế nào?",
     "options": [
       "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
       "Khởi tố bị can, bắt tạm giam người phạm tội trong thời hạn 03 tháng để điều tra độc lập",
@@ -100,7 +100,7 @@ const questions_KL = [
       "Chuyển thẳng hồ sơ sang Tòa án nhân dân khu vực để mở phiên tòa xét xử sơ thẩm"
     ],
     "correct": "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
-    "explanation": "Theo Khoản 1 Điều 164 Bộ luật Tố tụng hình sự năm 2015, Cục Kiểm lâm, Chi cục Kiểm lâm, Hạt Kiểm lâm có quyền khởi tố vụ án hình sự đối với tội ít nghiêm trọng quả tang, thực hiện hoạt động điều tra ban đầu và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày."
+    "explanation": "Theo Điều 157 và Điều 164 Bộ luật Tố tụng hình sự, Cục Kiểm lâm, Chi cục Kiểm lâm, Hạt Kiểm lâm có quyền khởi tố vụ án đối với tội ít nghiêm trọng quả tang, thực hiện hoạt động điều tra ban đầu và chuyển hồ sơ trong 07 ngày."
   },
   {
     "question": "Việc tạm giữ tang vật, phương tiện vi phạm hành chính theo thủ tục hành chính trong lĩnh vực lâm nghiệp chỉ được áp dụng trong những trường hợp nào?",
@@ -122,7 +122,7 @@ const questions_KL = [
       "Quy đổi toàn bộ khúc gỗ sang đơn vị ster (khối xếp gióng) để tính thể tích thương phẩm"
     ],
     "correct": "Tính tổng thể tích toàn bộ khúc gỗ tròn theo công thức hình trụ, sau đó trừ đi thể tích phần ruột rỗng (tính theo đường kính và chiều sâu của phần rỗng)",
-    "explanation": "Khoản 2 Điều 4 và Phụ lục I Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư 84/2025/TT-BNNMT): Ghi nhận khối lượng phần rỗng ruột, mục để xác định và khấu trừ thể tích phần rỗng ruột khỏi thể tích khúc gỗ nguyên."
+    "explanation": "Phụ lục I Thông tư 26/2022/TT-BNNPTNT hướng dẫn: Thể tích gỗ tròn rỗng ruột bằng thể tích khúc gỗ nguyên trừ đi thể tích phần rỗng ruột hình trụ tương ứng."
   },
   {
     "question": "Khi kiểm tra lâm sản trên phương tiện giao thông đường bộ đang lưu thông, tổ công tác Kiểm lâm phải tuân thủ điều kiện pháp lý nào sau đây?",
@@ -133,7 +133,7 @@ const questions_KL = [
       "Chỉ được dừng phương tiện khi xe đã đi vào khuôn viên của Hạt Kiểm lâm hoặc Trạm Kiểm lâm"
     ],
     "correct": "Phải có Quyết định dừng phương tiện/Kế hoạch tuần tra được cấp có thẩm quyền phê duyệt; công chức mặc trang phục, đeo số hiệu Kiểm lâm và xuất trình thẻ",
-    "explanation": "Khoản 2 Điều 104 Luật Lâm nghiệp 2017 và Nghị định số 01/2019/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Việc dừng phương tiện kiểm tra lâm sản phải có quyết định/kế hoạch tuần tra được người có thẩm quyền phê duyệt, thực hiện đúng lễ tiết tác phong, trang phục, số hiệu Kiểm lâm."
+    "explanation": "Điều 89 Luật Lâm nghiệp và quy chế tuần tra kiểm soát quy định việc dừng phương tiện kiểm tra lâm sản phải có quyết định/kế hoạch phê duyệt của người có thẩm quyền, đúng lễ tiết tác phong."
   },
   {
     "question": "Thời hạn hoàn thành việc kiểm tra thực tế lâm sản và xác nhận Bảng kê lâm sản của Cơ quan Kiểm lâm sở tại (trường hợp phải kiểm tra thực tế) là bao lâu?",
@@ -144,7 +144,7 @@ const questions_KL = [
       "Trong vòng 24 giờ kể từ thời điểm chủ lâm sản tập kết đủ hàng hóa"
     ],
     "correct": "Không quá 03 ngày làm việc kể từ ngày nhận được hồ sơ đề nghị hợp lệ",
-    "explanation": "Điểm c Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư 84/2025/TT-BNNMT, hợp nhất tại VBHN 04/VBHN-BNNMT): Trường hợp cần xác minh nguồn gốc lâm sản có nhiều nội dung phức tạp, thời hạn hoàn thành xác minh và xác nhận tối đa không quá 03 ngày làm việc."
+    "explanation": "Khoản 3 Điều 6 Thông tư 26/2022/TT-BNNPTNT: Trường hợp phải kiểm tra thực tế lâm sản, thời hạn hoàn thành kiểm tra và xác nhận tối đa không quá 03 ngày làm việc."
   },
   {
     "question": "Để được cơ quan Kiểm lâm xếp loại Doanh nghiệp chế biến và xuất khẩu gỗ Nhóm I theo Nghị định 102/2020/NĐ-CP, doanh nghiệp phải đáp ứng tiêu chuẩn cốt lõi nào?",
@@ -158,15 +158,15 @@ const questions_KL = [
     "explanation": "Điều 12, 13 Nghị định 102/2020/NĐ-CP quy định tiêu chí Doanh nghiệp Nhóm I: Hoạt động tối thiểu 02 năm, tuân thủ pháp luật, thực hiện trách nhiệm giải trình nguồn gốc gỗ hợp pháp."
   },
   {
-    "question": "Theo Nghị định 156/2018/NĐ-CP (sửa đổi bởi Nghị định 91/2024/NĐ-CP và Nghị định 42/2026/NĐ-CP), Phương án phòng cháy và chữa cháy rừng do chủ rừng là tổ chức lập phải gửi đến cơ quan nào để tham gia ý kiến?",
+    "question": "Theo quy định hiện hành, cơ quan nào có thẩm quyền phê duyệt Phương án phòng cháy và chữa cháy rừng của chủ rừng nhóm II là tổ chức trên địa bàn tỉnh?",
     "options": [
-      "Cơ quan Kiểm lâm sở tại và Công an cấp xã",
-      "Cơ quan Cảnh sát PCCC&CNCH cấp tỉnh và UBND cấp tỉnh",
-      "Sở Tài chính và Sở Kế hoạch và Đầu tư",
-      "Ủy ban Mặt trận Tổ quốc xã và Ban Chỉ huy quân sự huyện"
+      "Sở Nông nghiệp và Môi trường (hoặc Chi cục Kiểm lâm theo phân cấp, ủy quyền) sau khi có ý kiến thẩm duyệt của cơ quan Cảnh sát PCCC&CNCH",
+      "Chủ tịch Ủy ban nhân dân cấp xã nơi chủ rừng đóng trụ sở chính",
+      "Hạt trưởng Hạt Kiểm lâm sở tại nơi có diện tích rừng",
+      "Chủ rừng tự ban hành và không cần gửi cơ quan nhà nước nào phê duyệt"
     ],
-    "correct": "Cơ quan Kiểm lâm sở tại và Công an cấp xã",
-    "explanation": "Khoản 2 Điều 45 Nghị định số 156/2018/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 91/2024/NĐ-CP và Nghị định 42/2026/NĐ-CP): Phương án phòng cháy và chữa cháy rừng do tổ chức lập phải gửi đến cơ quan Kiểm lâm sở tại, Công an cấp xã tham gia ý kiến; chủ rừng tự phê duyệt và tổ chức thực hiện phương án."
+    "correct": "Sở Nông nghiệp và Môi trường (hoặc Chi cục Kiểm lâm theo phân cấp, ủy quyền) sau khi có ý kiến thẩm duyệt của cơ quan Cảnh sát PCCC&CNCH",
+    "explanation": "Điều 45 Nghị định 156/2018/NĐ-CP: Phương án PCCCR của chủ rừng là tổ chức do Sở Nông nghiệp và Phát triển nông thôn phê duyệt sau khi có văn bản tham gia ý kiến của cơ quan Cảnh sát PCCC."
   },
   {
     "question": "Khi phát hiện hành vi phá rừng tự nhiên với quy mô diện tích lớn, trách nhiệm đầu tiên của Kiểm lâm địa bàn là gì?",
@@ -177,7 +177,7 @@ const questions_KL = [
       "Tự ý phát dọn hiện trường để kiểm tra xem cây rừng bị chặt hạ có mọc lại chồi non hay không"
     ],
     "correct": "Báo cáo ngay Chủ tịch UBND cấp xã và Hạt trưởng Hạt Kiểm lâm; lập biên bản kiểm tra ban đầu, bảo vệ hiện trường và phối hợp các lực lượng liên quan ngăn chặn ngay hành vi",
-    "explanation": "Căn cứ Điều 104 Luật Lâm nghiệp năm 2017, Nghị định số 01/2019/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP) và Quy chế Kiểm lâm địa bàn: Khi phát hiện vi phạm, Kiểm lâm địa bàn phải lập tức báo cáo Chủ tịch UBND cấp xã và lãnh đạo Hạt Kiểm lâm, lập hồ sơ ban đầu và bảo vệ hiện trường."
+    "explanation": "Căn cứ Điều 10 Thông tư số 26/2022/TT-BNNPTNT và Quy chế phối hợp công tác của Kiểm lâm địa bàn: Khi phát hiện vi phạm, Kiểm lâm địa bàn phải lập tức báo cáo cấp ủy, chính quyền cấp xã và lãnh đạo Hạt Kiểm lâm, lập hồ sơ ban đầu và bảo vệ hiện trường."
   },
   {
     "question": "Biên bản vi phạm hành chính trong lĩnh vực lâm nghiệp lập không có sự chứng kiến hoặc không có chữ ký của người vi phạm có giá trị pháp lý không?",
@@ -193,13 +193,13 @@ const questions_KL = [
   {
     "question": "Thời điểm chốt số liệu theo dõi diễn biến rừng hàng năm và thời hạn Ủy ban nhân dân cấp tỉnh công bố hiện trạng rừng là khi nào?",
     "options": [
-      "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau",
-      "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 31 tháng 3 năm sau",
-      "Chốt số liệu vào ngày 30 tháng 6 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 31 tháng 8",
-      "Chốt số liệu vào ngày 15 tháng 01 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 30 tháng 4"
+      "Chốt số liệu vào ngày 31 tháng 12 hàng năm; công bố hiện trạng rừng cấp tỉnh trước ngày 31 tháng 3 năm sau",
+      "Chốt số liệu vào ngày 30 tháng 6 hàng năm; công bố hiện trạng rừng trước ngày 31 tháng 8",
+      "Chốt số liệu vào ngày 15 tháng 01 hàng năm; công bố hiện trạng rừng trước ngày 30 tháng 4",
+      "Thời điểm do từng Hạt Kiểm lâm tự quyết định theo mùa vụ trồng rừng"
     ],
-    "correct": "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau",
-    "explanation": "Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT quy định thời điểm chốt số liệu diễn biến rừng là 31/12 và Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng cấp tỉnh trước ngày 28 tháng 02 năm sau (hạn trước 31/3 là thời hạn Bộ NN&MT công bố toàn quốc)."
+    "correct": "Chốt số liệu vào ngày 31 tháng 12 hàng năm; công bố hiện trạng rừng cấp tỉnh trước ngày 31 tháng 3 năm sau",
+    "explanation": "Thông tư số 16/2025/TT-BNNMT quy định thời điểm chốt số liệu diễn biến rừng là 31/12 và UBND tỉnh công bố hiện trạng rừng toàn tỉnh trước ngày 31/3 năm liền kề."
   },
   {
     "question": "Xử lý tang vật là cá thể động vật rừng còn sống tạm giữ trong các vụ vi phạm hành chính phải tuân thủ nguyên tắc cấp bách nào?",
@@ -210,7 +210,7 @@ const questions_KL = [
       "Thả ngay vào bất kỳ khu rừng nào gần trụ sở Hạt Kiểm lâm mà không cần kiểm dịch thú y"
     ],
     "correct": "Phải bàn giao ngay cho cơ quan Thú y hoặc Trung tâm cứu hộ động vật hoang dã để chăm sóc, cứu hộ kịp thời; lập biên bản bàn giao chặt chẽ",
-    "explanation": "Khoản 2 Điều 6 Nghị định số 146/2026/NĐ-CP và Thông tư số 85/2025/TT-BNNMT: Động vật rừng sống phải được ưu tiên xử lý cứu hộ kịp thời, bàn giao ngay cho cơ sở cứu hộ/thú y hoặc cơ sở nuôi hợp pháp để chăm sóc, tránh bị chết hoặc tổn hại."
+    "explanation": "Điều 33 Nghị định 146/2026/NĐ-CP: Động vật rừng sống phải được ưu tiên bàn giao ngay cho cơ sở cứu hộ/thú y để tránh bị chết, tổn thương trong thời gian chờ xử lý."
   },
   {
     "question": "Phương pháp điều tra sâu bệnh hại rừng xác định diện tích rừng bị hại ở mức 'nặng' khi tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại đạt ngưỡng nào?",
@@ -232,7 +232,7 @@ const questions_KL = [
       "Chỉ cần có thẻ công chức Kiểm lâm là được toàn quyền sử dụng súng không cần giấy phép"
     ],
     "correct": "Đã được tập huấn, cấp Giấy phép sử dụng vũ khí/chứng chỉ chuyên môn và chỉ nổ súng phòng vệ chính đáng theo đúng quy định của Luật Quản lý, sử dụng vũ khí, vật liệu nổ",
-    "explanation": "Căn cứ Điều 22, Điều 23 Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ năm 2017 (sửa đổi, bổ sung năm 2024), Điểm c Khoản 2 Điều 104 và Điểm a Khoản 1 Điều 106 Luật Lâm nghiệp năm 2017: Kiểm lâm được trang bị, sử dụng vũ khí, công cụ hỗ trợ khi thi hành công vụ theo đúng quy định."
+    "explanation": "Căn cứ Điều 22, Điều 23 Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ năm 2017 (sửa đổi, bổ sung năm 2024) và Điều 107 Luật Lâm nghiệp năm 2017 quy định Kiểm lâm được trang bị, sử dụng vũ khí quân dụng và công cụ hỗ trợ khi thi hành công vụ theo đúng quy định."
   },
   {
     "question": "Thời hạn và hình thức yêu cầu giải trình trực tiếp đối với cá nhân, tổ chức vi phạm hành chính có mức phạt tiền lớn trong lâm nghiệp được quy định ra sao?",
@@ -265,7 +265,7 @@ const questions_KL = [
       "Không áp dụng thời hiệu xử phạt vi phạm hành chính đối với rừng tự nhiên"
     ],
     "correct": "Thời hiệu là 01 năm; riêng hành vi phá rừng, khai thác rừng, tàng trữ, buôn bán lâm sản trái phép qua biên giới thời hiệu là 02 năm",
-    "explanation": "Điều 6 Luật Xử lý vi phạm hành chính và Điều 5 Nghị định số 146/2026/NĐ-CP: Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 01 năm; riêng các hành vi vi phạm về quản lý rừng, phát triển rừng, sử dụng rừng, bảo vệ rừng, lâm sản thì thời hiệu xử phạt là 02 năm."
+    "explanation": "Điều 6 Luật Xử lý vi phạm hành chính và Điều 4 Nghị định 146/2026/NĐ-CP: Thời hiệu xử phạt thông thường là 01 năm; riêng các vi phạm về quản lý rừng, bảo vệ rừng, lâm sản thời hiệu là 02 năm."
   },
   {
     "question": "Hành vi khai thác gỗ rừng tự nhiên vượt quá 10% chỉ tiêu sản lượng ghi trong Giấy phép khai thác hợp pháp bị xử lý về hành vi nào?",
@@ -276,7 +276,7 @@ const questions_KL = [
       "Được tự động cộng dồn sản lượng vào đợt khai thác của năm sau"
     ],
     "correct": "Hành vi khai thác rừng trái quy định của pháp luật (vi phạm quy chế khai thác) đối với phần sản lượng vượt chỉ tiêu",
-    "explanation": "Khai thác vượt chỉ tiêu, sản lượng cho phép cấu thành hành vi khai thác rừng tự nhiên trái pháp luật theo Điều 16 (hoặc Điều 14, 15) Nghị định số 146/2026/NĐ-CP đối với phần sản lượng khai thác vượt chỉ tiêu."
+    "explanation": "Khai thác vượt chỉ tiêu/sản lượng cho phép trong hồ sơ cấp phép cấu thành hành vi khai thác rừng trái quy định của Nhà nước theo Điều 13 Nghị định 146/2026/NĐ-CP."
   },
   {
     "question": "Quy định về thẩm quyền điều động lực lượng Kiểm lâm phối hợp liên khu vực trong phạm vi một tỉnh thuộc về ai?",
@@ -287,7 +287,7 @@ const questions_KL = [
       "Đội trưởng Đội Kiểm lâm cơ động và PCCCR"
     ],
     "correct": "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
-    "explanation": "Căn cứ Điều 105 Luật Lâm nghiệp năm 2017, Nghị định số 01/2019/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP) và Quyết định số 1334/QĐ-SNNMT: Chi cục trưởng Chi cục Kiểm lâm tỉnh có thẩm quyền điều động nhân lực, phương tiện giữa các Hạt Kiểm lâm và Đội cơ động trên phạm vi toàn tỉnh."
+    "explanation": "Căn cứ Khoản 3 Điều 103 Luật Lâm nghiệp năm 2017 và Quy định chức năng, nhiệm vụ của Chi cục Kiểm lâm: Chi cục trưởng Chi cục Kiểm lâm tỉnh có thẩm quyền điều động nhân lực, phương tiện giữa các Hạt Kiểm lâm và Đội cơ động trên phạm vi toàn tỉnh."
   },
   {
     "question": "Khi lập hồ sơ xử phạt vi phạm hành chính, việc xác định giá trị tang vật vi phạm để làm căn cứ xác định khung tiền phạt và thẩm quyền xử phạt do ai thực hiện?",
@@ -375,7 +375,7 @@ const questions_KL = [
       "Chỉ được dừng phương tiện trong phạm vi rừng đặc dụng"
     ],
     "correct": "Khi có dấu hiệu phương tiện vận chuyển lâm sản trái pháp luật",
-    "explanation": "Khoản 2 Điều 104 Luật Lâm nghiệp năm 2017 và Nghị định số 01/2019/NĐ-CP: Kiểm lâm có quyền dừng, kiểm tra phương tiện giao thông vận tải khi có căn cứ, dấu hiệu vận chuyển lâm sản trái pháp luật để kiểm tra, xử lý theo quy định."
+    "explanation": "Điểm d Khoản 2 Điều 104 Luật Lâm nghiệp quy định Kiểm lâm có quyền dừng phương tiện giao thông vận tải có dấu hiệu vận chuyển lâm sản trái pháp luật để kiểm tra, xử lý theo thẩm quyền."
   },
   {
     "question": "Kiểm lâm được trang bị, quản lý và sử dụng vũ khí, công cụ hỗ trợ theo quy định của văn bản nào?",
@@ -430,7 +430,7 @@ const questions_KL = [
       "Lên đến 50.000.000 đồng"
     ],
     "correct": "Lên đến 500.000.000 đồng",
-    "explanation": "Căn cứ Khoản 20 Điều 25 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với hành vi vận chuyển lâm sản trái pháp luật của cá nhân lên đến 500.000.000 đồng (đối với tổ chức vi phạm gấp 02 lần là 1.000.000.000 đồng)."
+    "explanation": "Căn cứ Khoản 13 Điều 25 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với hành vi vận chuyển lâm sản trái pháp luật của cá nhân lên đến 500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)."
   },
   {
     "question": "Theo Nghị định số 146/2026/NĐ-CP, hành vi vi phạm quy định về phòng cháy và chữa cháy rừng gây cháy rừng bị áp dụng mức phạt tiền tối đa đối với cá nhân là bao nhiêu?",
@@ -441,7 +441,7 @@ const questions_KL = [
       "Phạt tiền tối đa đến 50.000.000 đồng"
     ],
     "correct": "Phạt tiền tối đa đến 500.000.000 đồng",
-    "explanation": "Căn cứ Khoản 11 Điều 20 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền cao nhất đối với cá nhân có hành vi vi phạm quy định về PCCC rừng gây cháy rừng lên đến 500.000.000 đồng (tổ chức vi phạm là 1.000.000.000 đồng)."
+    "explanation": "Căn cứ Khoản 11 Điều 16 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền cao nhất đối với cá nhân có hành vi vi phạm quy định về PCCC rừng gây cháy rừng lên đến 500.000.000 đồng."
   },
   {
     "question": "Khai thác trái phép rừng sản xuất là rừng tự nhiên đối với gỗ thông thường từ khối lượng bao nhiêu m3 thì bị truy cứu TNHS theo Điều 232 BLHS?",
@@ -518,7 +518,7 @@ const questions_KL = [
       "Chỉ được khởi tố khi có sự đồng ý của Ủy ban nhân dân xã"
     ],
     "correct": "Khi phát hiện hành vi phạm tội quả tang trong phạm vi quản lý của mình",
-    "explanation": "Khoản 1 Điều 164 Bộ luật Tố tụng hình sự năm 2015 quy định cơ quan Kiểm lâm khi phát hiện hành vi phạm tội thuộc thẩm quyền (tội ít nghiêm trọng quả tang, chứng cứ rõ ràng) có quyền khởi tố vụ án hình sự và tiến hành hoạt động điều tra ban đầu trong thời hạn 07 ngày."
+    "explanation": "Điều 110 Bộ luật Tố tụng hình sự quy định cơ quan Kiểm lâm khi thực hiện nhiệm vụ mà phát hiện hành vi phạm tội thuộc thẩm quyền thì có quyền khởi tố vụ án hình sự và tiến hành hoạt động điều tra ban đầu."
   },
   {
     "question": "Theo Luật Xử lý VPHC, cá nhân vi phạm có quyền giải trình trực tiếp hoặc bằng văn bản khi mức phạt tiền tối đa của khung phạt là bao nhiêu?",
@@ -573,7 +573,7 @@ const questions_KL = [
       "Chỉ huy trưởng Ban Chỉ huy Quân sự xã"
     ],
     "correct": "Chủ tịch Ủy ban nhân dân cấp xã",
-    "explanation": "Căn cứ Điều 49, 51 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL: Chủ tịch UBND cấp xã là Trưởng ban Ban Chỉ huy PCCCR cấp xã, chịu trách nhiệm toàn diện về chỉ đạo công tác PCCCR trên địa bàn."
+    "explanation": "Theo quy định tại Điều 48 Nghị định 156/2018/NĐ-CP, Chủ tịch UBND cấp xã là Trưởng ban Chỉ huy PCCCR cấp xã, chịu trách nhiệm toàn diện về công tác PCCCR trên địa bàn."
   },
   {
     "question": "Trong Ban Chỉ huy PCCCR cấp xã, Kiểm lâm địa bàn thường đảm nhiệm vai trò gì?",
@@ -584,7 +584,7 @@ const questions_KL = [
       "Không thuộc thành phần Ban Chỉ huy"
     ],
     "correct": "Phó Trưởng ban Thường trực hoặc ủy viên tham mưu nghiệp vụ",
-    "explanation": "Căn cứ Điều 49, 51 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Kiểm lâm địa bàn tham gia Ban Chỉ huy cấp xã với vai trò Phó ban hoặc ủy viên thường trực tham mưu kỹ thuật, nghiệp vụ BVR và PCCCR."
+    "explanation": "Căn cứ Điều 43 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Kiểm lâm địa bàn tham gia Ban Chỉ huy cấp xã với vai trò Phó ban hoặc ủy viên thường trực tham mưu kỹ thuật, nghiệp vụ BVR và PCCCR."
   },
   {
     "question": "Khi xảy ra cháy rừng trên địa bàn xã, Chủ tịch UBND cấp xã có thẩm quyền huy động lực lượng nào?",
@@ -595,7 +595,7 @@ const questions_KL = [
       "Phải chờ lệnh của Chủ tịch UBND cấp tỉnh mới được huy động"
     ],
     "correct": "Lực lượng dân quân, công an xã, nhân dân và phương tiện trên địa bàn",
-    "explanation": "Khoản 5 Điều 51 Nghị định số 156/2018/NĐ-CP và Điều 32 Luật Phòng cháy và chữa cháy: Chủ tịch UBND cấp xã có quyền huy động lực lượng, phương tiện tại chỗ của các cơ quan, tổ chức, hộ gia đình, cá nhân trên địa bàn để chữa cháy rừng."
+    "explanation": "Khoản 2 Điều 53 Nghị định 156/2018/NĐ-CP quy định Chủ tịch UBND cấp xã có quyền huy động lực lượng, phương tiện tại chỗ của các cơ quan, tổ chức, hộ gia đình, cá nhân trên địa bàn để chữa cháy."
   },
   {
     "question": "Phương châm '4 tại chỗ' trong công tác phòng cháy, chữa cháy rừng cấp xã gồm những yếu tố nào?",
@@ -617,7 +617,7 @@ const questions_KL = [
       "Chỉ kiểm tra bảo dưỡng máy thổi gió và cưa xăng"
     ],
     "correct": "Diễn tập vận hành cơ chế tại hội trường và diễn tập thực binh tại hiện trường",
-    "explanation": "Căn cứ Điều 49 Nghị định số 156/2018/NĐ-CP và Mục II Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang: Diễn tập PCCCR cấp xã gồm 2 phần: Diễn tập vận hành cơ chế tại hội trường và Diễn tập thực binh tại hiện trường."
+    "explanation": "Căn cứ Điều 43 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang: Diễn tập PCCCR cấp xã gồm 2 phần: Diễn tập vận hành cơ chế và Diễn tập thực binh."
   },
   {
     "question": "Trách nhiệm của UBND cấp xã trong công tác theo dõi diễn biến rừng hàng năm là gì?",
@@ -639,7 +639,7 @@ const questions_KL = [
       "Trong thời hạn 07 ngày làm việc"
     ],
     "correct": "Trong thời hạn 01 ngày làm việc kể từ khi nhận được thông tin",
-    "explanation": "Điểm b Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT quy định trong thời hạn 01 ngày làm việc kể từ khi nhận được thông tin, UBND cấp xã tổ chức kiểm tra, tiếp nhận và lập Biên bản giao nhận động vật."
+    "explanation": "Điểm b Khoản 3 Điều 8 Thông tư 85/2025/TT-BNNMT quy định trong 01 ngày làm việc kể từ khi nhận được thông tin, UBND cấp xã tổ chức kiểm tra, tiếp nhận và lập biên bản giao nhận động vật."
   },
   {
     "question": "Thời hạn UBND cấp xã thông báo công khai để xác minh chủ sở hữu hợp pháp của động vật đi lạc là bao lâu?",
@@ -650,7 +650,7 @@ const questions_KL = [
       "30 ngày"
     ],
     "correct": "05 ngày làm việc",
-    "explanation": "Điểm b Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT quy định thời hạn thông báo công khai tại trụ sở cơ quan và trên phương tiện thông tin đại chúng để xác minh chủ sở hữu hợp pháp là 05 ngày làm việc."
+    "explanation": "Điểm b Khoản 3 Điều 8 Thông tư 85/2025/TT-BNNMT quy định thời hạn thông báo công khai tại trụ sở và trên phương tiện truyền thanh để xác minh chủ sở hữu hợp pháp là 05 ngày làm việc."
   },
   {
     "question": "Chủ tịch UBND cấp xã có thẩm quyền phê duyệt Phương án khai thác rừng trong trường hợp nào?",
@@ -661,7 +661,7 @@ const questions_KL = [
       "Khai thác tận thu khoáng sản trong rừng phòng hộ"
     ],
     "correct": "Khai thác rừng trồng của hộ gia đình, cá nhân, cộng đồng dân cư trên địa bàn",
-    "explanation": "Điểm c Khoản 3 Điều 6 Thông tư số 26/2025/TT-BNNMT (hoặc VBHN số 04/VBHN-BNNMT): Chủ tịch UBND cấp xã phê duyệt phương án khai thác của HGĐ, cá nhân, cộng đồng dân cư đối với các trường hợp thuộc Khoản 2 Điều 6 (rừng phòng hộ là rừng trồng hoặc rừng trồng do Nhà nước đại diện chủ sở hữu)."
+    "explanation": "Điểm c Khoản 3 Điều 6 Thông tư 26/2022/TT-BNNPTNT (hợp nhất) quy định Chủ tịch UBND cấp xã phê duyệt phương án khai thác gỗ rừng trồng của HGĐ, cá nhân, cộng đồng dân cư."
   },
   {
     "question": "Kiểm lâm địa bàn có trách nhiệm tham mưu cho UBND cấp xã nội dung nào sau đây?",
@@ -694,7 +694,7 @@ const questions_KL = [
       "Hóa đơn mua sắm trang thiết bị văn phòng xã"
     ],
     "correct": "Bản đồ hiện trạng rừng, sổ theo dõi diễn biến rừng và danh sách các chủ rừng trên địa bàn",
-    "explanation": "Căn cứ Điểm c Khoản 5 Điều 19 Thông tư số 16/2025/TT-BNNMT quy định dữ liệu, kết quả theo dõi diễn biến rừng dạng giấy của cấp xã được quản lý, lưu trữ tại UBND cấp xã và Hạt Kiểm lâm."
+    "explanation": "Căn cứ Điều 20 Thông tư số 16/2025/TT-BNNMT quy định hồ sơ quản lý rừng cấp xã gồm: Bản đồ hiện trạng rừng, cơ sở dữ liệu diễn biến rừng và danh bạ quản lý các chủ rừng trên địa bàn xã."
   },
   {
     "question": "Chủ tịch UBND cấp xã có thẩm quyền áp dụng biện pháp khắc phục hậu quả nào theo NĐ 146/2026/NĐ-CP?",
@@ -815,7 +815,7 @@ const questions_KL = [
       "Mong muốn của các doanh nghiệp thu mua gỗ"
     ],
     "correct": "Quy định của pháp luật và chuẩn mực đạo đức, phong tục tập quán tốt đẹp",
-    "explanation": "Căn cứ Điểm b Khoản 2 Điều 86 và Điểm d Khoản 3 Điều 102 Luật Lâm nghiệp năm 2017 quy định hương ước, quy ước bảo vệ và phát triển rừng do cộng đồng xây dựng, không được trái với quy định của pháp luật và đạo đức xã hội."
+    "explanation": "Căn cứ Điều 10 Luật Lâm nghiệp năm 2017 quy định hương ước, quy ước bảo vệ rừng của cộng đồng dân cư thôn do cộng đồng xây dựng, không được trái với quy định của pháp luật và đạo đức xã hội."
   },
   {
     "question": "Trách nhiệm của Kiểm lâm địa bàn đối với quy ước bảo vệ rừng thôn, bản là gì?",
@@ -829,7 +829,7 @@ const questions_KL = [
     "explanation": "Căn cứ Điều 104 Luật Lâm nghiệp năm 2017 và Quy chế Kiểm lâm địa bàn: Kiểm lâm địa bàn có nhiệm vụ hướng dẫn cộng đồng dân cư rà soát, lồng ghép nội dung bảo vệ rừng, PCCCR vào quy ước thôn bản đúng quy định pháp luật."
   },
   {
-    "question": "Khi đo chiều dài lóng gỗ tròn theo Phụ lục I Thông tư số 26/2025/TT-BNNMT, vị trí đo được xác định như thế nào?",
+    "question": "Khi đo chiều dài lóng gỗ tròn theo Phụ lục I Thông tư 26/2022/TT-BNNPTNT, vị trí đo được xác định như thế nào?",
     "options": [
       "Đo khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ",
       "Đo khoảng cách dài nhất bao gồm cả phần dập nát",
@@ -837,7 +837,7 @@ const questions_KL = [
       "Ước lượng bằng mắt thường rồi làm tròn mét"
     ],
     "correct": "Đo khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ",
-    "explanation": "Điểm a Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: Chiều dài là khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ; đơn vị tính là mét, lấy 2 số thập phân."
+    "explanation": "Điểm a Khoản 1 Phụ lục I Thông tư 26/2022/TT-BNNPTNT quy định: Chiều dài là khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ; đơn vị tính là mét, lấy 2 số thập phân."
   },
   {
     "question": "Phương pháp xác định đường kính mỗi đầu lóng gỗ tròn được quy định như thế nào?",
@@ -848,10 +848,10 @@ const questions_KL = [
       "Lấy đường kính ở vị trí chính giữa khúc gỗ"
     ],
     "correct": "Đo ở 2 vị trí lớn nhất và nhỏ nhất (trừ vỏ cây), sau đó tính trung bình cộng",
-    "explanation": "Điểm b Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: mỗi đầu lóng gỗ đo ở 2 vị trí có đường kính lớn nhất và nhỏ nhất (trừ vỏ cây), tính trị số trung bình cộng để xác định đường kính đầu đó."
+    "explanation": "Điểm b Khoản 1 Phụ lục I Thông tư 26 quy định: mỗi đầu lóng gỗ đo ở 2 vị trí có đường kính lớn nhất và nhỏ nhất (trừ vỏ cây), tính trị số trung bình cộng để xác định đường kính đầu đó."
   },
   {
-    "question": "Công thức tính thể tích (V) của lóng gỗ tròn, gỗ đẽo hình trụ tròn theo Thông tư số 26/2025/TT-BNNMT là gì?",
+    "question": "Công thức tính thể tích (V) của lóng gỗ tròn, gỗ đẽo hình trụ tròn theo Thông tư 26 là gì?",
     "options": [
       "V = (π / 4) x (Dtb)^2 x l",
       "V = π x Dtb x l",
@@ -859,7 +859,7 @@ const questions_KL = [
       "V = (π / 2) x (Dtb)^2 x l"
     ],
     "correct": "V = (π / 4) x (Dtb)^2 x l",
-    "explanation": "Điểm c Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích gỗ tròn tính theo công thức: V = (π / 4) * (Dtb)^2 * l; thể tích V tính bằng m3, lấy số nguyên và 3 số thập phân."
+    "explanation": "Điểm c Khoản 1 Phụ lục I Thông tư 26 quy định thể tích gỗ tròn tính theo công thức: V = (π / 4) * (Dtb)^2 * l; thể tích V tính bằng m3, lấy số nguyên và 3 số thập phân."
   },
   {
     "question": "Đơn vị tính và số chữ số thập phân khi ghi nhận thể tích mét khối (m3) gỗ trong Bảng kê lâm sản là gì?",
@@ -870,7 +870,7 @@ const questions_KL = [
       "Đơn vị dm3, lấy hai (02) số hàng thập phân"
     ],
     "correct": "Đơn vị m3, lấy số nguyên và ba (03) số hàng thập phân",
-    "explanation": "Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích gỗ V tính bằng mét khối (m3), lấy số nguyên và ba (03) số hàng thập phân sau số hàng đơn vị."
+    "explanation": "Phụ lục I Thông tư 26 quy định thể tích gỗ V tính bằng mét khối (m3), lấy số nguyên và ba (03) số hàng thập phân sau số hàng đơn vị."
   },
   {
     "question": "Sai số cho phép khi đo tính thể tích đối với từng khúc, lóng gỗ tròn, gỗ khối trụ tròn là bao nhiêu?",
@@ -881,7 +881,7 @@ const questions_KL = [
       "Cộng trừ 20% (±20%)"
     ],
     "correct": "Cộng trừ 10% (±10%)",
-    "explanation": "Điểm d Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng khúc, lóng gỗ tròn, gỗ khối trụ tròn là mười phần trăm (±10%)."
+    "explanation": "Điểm d Khoản 1 Phụ lục I Thông tư 26 quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng khúc, lóng gỗ tròn, gỗ khối trụ tròn là mười phần trăm (±10%)."
   },
   {
     "question": "Sai số cho phép khi tính thể tích đối với từng thanh, tấm, hộp gỗ xẻ, gỗ đẽo hình hộp là bao nhiêu?",
@@ -892,7 +892,7 @@ const questions_KL = [
       "Cộng trừ 12% (±12%)"
     ],
     "correct": "Cộng trừ 5% (±5%)",
-    "explanation": "Điểm d Khoản 2 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng thanh, tấm, hộp gỗ xẻ, gỗ đẽo là năm phần trăm (±5%)."
+    "explanation": "Điểm d Khoản 2 Phụ lục I Thông tư 26 quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng thanh, tấm, hộp gỗ xẻ, gỗ đẽo là năm phần trăm (±5%)."
   },
   {
     "question": "Công thức tính thể tích hộp gỗ xẻ hình hộp chữ nhật (chiều dài l, chiều rộng a, chiều dày b) là gì?",
@@ -903,7 +903,7 @@ const questions_KL = [
       "V = 2 x (a + b) x l"
     ],
     "correct": "V = l x a x b",
-    "explanation": "Điểm c Khoản 2 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích hộp gỗ xẻ hình hộp chữ nhật: V = l * a * b (trong đó l, a, b đổi ra đơn vị mét, V lấy 3 số thập phân)."
+    "explanation": "Điểm c Khoản 2 Phụ lục I Thông tư 26 quy định thể tích hộp gỗ xẻ hình hộp chữ nhật: V = l * a * b (trong đó l, a, b đổi ra đơn vị mét, V lấy 3 số thập phân)."
   },
   {
     "question": "Trường hợp gỗ có hình thù phức tạp, gốc rễ, gỗ dăm không thể đo được kích thước thì xác định khối lượng như thế nào?",
@@ -914,10 +914,10 @@ const questions_KL = [
       "Bắt buộc phải xẻ vuông vắn rồi mới đo"
     ],
     "correct": "Thực hiện cân (kg) hoặc tính theo ster để quy đổi sang m3 gỗ tròn",
-    "explanation": "Khoản 3 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định gỗ có hình thù phức tạp, gốc, rễ, dăm gỗ không thể đo kích thước thì thực hiện cân (kg) hoặc tính theo ster để quy đổi sang m3 gỗ tròn."
+    "explanation": "Khoản 3 Điều 4 Thông tư 26 quy định gỗ có hình thù phức tạp, gốc, rễ, dăm gỗ không thể đo kích thước thì thực hiện cân (kg) hoặc tính theo ster để quy đổi sang m3 gỗ tròn."
   },
   {
-    "question": "Tỷ lệ quy đổi khối lượng cân (kg) sang thể tích mét khối (m3) gỗ tròn theo Thông tư số 26/2025/TT-BNNMT là bao nhiêu?",
+    "question": "Tỷ lệ quy đổi khối lượng cân (kg) sang thể tích mét khối (m3) gỗ tròn theo Thông tư 26 là bao nhiêu?",
     "options": [
       "500 kg quy đổi bằng 01 m3 gỗ tròn",
       "800 kg quy đổi bằng 01 m3 gỗ tròn",
@@ -925,10 +925,10 @@ const questions_KL = [
       "1.200 kg quy đổi bằng 01 m3 gỗ tròn"
     ],
     "correct": "1.000 kg quy đổi bằng 01 m3 gỗ tròn",
-    "explanation": "Khoản 3 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định rõ: quy đổi 1.000 kg bằng 01 m3 gỗ tròn."
+    "explanation": "Khoản 3 Điều 4 Thông tư 26/2022/TT-BNNPTNT quy định rõ: quy đổi 1.000 kg bằng 01 m3 gỗ tròn."
   },
   {
-    "question": "Tỷ lệ quy đổi từ đơn vị ster (củi, gỗ xếp khối) sang mét khối (m3) gỗ tròn theo Thông tư số 26/2025/TT-BNNMT là bao nhiêu?",
+    "question": "Tỷ lệ quy đổi từ đơn vị ster (củi, gỗ xếp khối) sang mét khối (m3) gỗ tròn theo Thông tư 26 là bao nhiêu?",
     "options": [
       "01 ster quy đổi bằng 0,5 m3 gỗ tròn",
       "01 ster quy đổi bằng 0,7 m3 gỗ tròn",
@@ -936,7 +936,7 @@ const questions_KL = [
       "01 ster quy đổi bằng 1,2 m3 gỗ tròn"
     ],
     "correct": "01 ster quy đổi bằng 0,7 m3 gỗ tròn",
-    "explanation": "Khoản 3 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định rõ: quy đổi 01 ster bằng 0,7 m3 gỗ tròn."
+    "explanation": "Khoản 3 Điều 4 Thông tư 26/2022/TT-BNNPTNT quy định rõ: quy đổi 01 ster bằng 0,7 m3 gỗ tròn."
   },
   {
     "question": "Việc đánh số hiệu đầu lóng gỗ tròn sau khi đo tính được thực hiện như thế nào?",
@@ -947,7 +947,7 @@ const questions_KL = [
       "Dán tem giấy lên vỏ cây"
     ],
     "correct": "Ghi bằng chữ số Ả Rập vào mặt cắt ngang 2 đầu lóng gỗ, dùng sơn khác màu gỗ",
-    "explanation": "Khoản 7 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định số hiệu gỗ đánh bằng chữ số Ả Rập, ghi vào mặt cắt ngang hai đầu lóng gỗ, sử dụng sơn có màu sắc khác với màu của gỗ."
+    "explanation": "Khoản 7 Điều 4 Thông tư 26 quy định số hiệu gỗ đánh bằng chữ số Ả Rập, ghi vào mặt cắt ngang hai đầu lóng gỗ, sử dụng sơn có màu sắc khác với màu của gỗ."
   },
   {
     "question": "Đối với gỗ thuộc loài nguy cấp, quý, hiếm hoặc Phụ lục CITES, quy định đánh số hiệu đầu lóng như thế nào?",
@@ -958,7 +958,7 @@ const questions_KL = [
       "Miễn đánh số hiệu nếu chủ rừng là hộ gia đình"
     ],
     "correct": "Phải đánh số hiệu không phân biệt kích thước lớn hay nhỏ",
-    "explanation": "Khoản 7 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định đối với gỗ thuộc loài nguy cấp, quý, hiếm hoặc gỗ thuộc Phụ lục CITES thì phải đánh số hiệu không phân biệt kích thước."
+    "explanation": "Khoản 7 Điều 4 Thông tư 26 quy định đối với gỗ thuộc loài nguy cấp, quý, hiếm hoặc gỗ thuộc Phụ lục CITES thì phải đánh số hiệu không phân biệt kích thước."
   },
   {
     "question": "Trong biên bản kiểm tra lâm sản, nếu phát hiện lóng gỗ bị rỗng ruột thì khối lượng tính toán được xử lý thế nào?",
@@ -969,7 +969,7 @@ const questions_KL = [
       "Cộng thêm 10% thể tích vì gỗ có giá trị rỗng ruột"
     ],
     "correct": "Xác định và ghi rõ khối lượng phần rỗng ruột, mục để khấu trừ khỏi thể tích toàn bộ",
-    "explanation": "Khoản 2 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định phải ghi nhận khối lượng rỗng ruột, khối lượng mục trong khi thực hiện đo đếm, lập Bảng kê lâm sản để khấu trừ chính xác thể tích thực."
+    "explanation": "Khoản 2 Điều 4 Thông tư 26 quy định phải ghi nhận khối lượng rỗng ruột, khối lượng mục trong khi thực hiện đo đếm, lập Bảng kê lâm sản để khấu trừ chính xác thể tích thực."
   },
   {
     "question": "Khi kiểm tra chuồng trại cơ sở nuôi động vật rừng, nội dung kỹ thuật quan trọng hàng đầu cần kiểm tra là gì?",
@@ -1035,7 +1035,7 @@ const questions_KL = [
       "Số liệu ước tính của Ban Quản lý rừng"
     ],
     "correct": "Kết quả kiểm kê rừng tích hợp trên Cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề",
-    "explanation": "Căn cứ Điểm a Khoản 2 Điều 19 Thông tư số 16/2025/TT-BNNMT và Mục V.1.2 Hướng dẫn số 230/HD-CCKL: Sử dụng kết quả kiểm kê rừng tích hợp tại cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề làm dữ liệu gốc theo dõi diễn biến rừng hàng năm."
+    "explanation": "Căn cứ Khoản 1 Điều 17 Thông tư số 16/2025/TT-BNNMT và Mục V.1.2 Hướng dẫn số 230/HD-CCKL: Sử dụng kết quả kiểm kê rừng tích hợp tại cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề làm dữ liệu gốc theo dõi diễn biến."
   },
   {
     "question": "Phần mềm chuẩn được ngành Kiểm lâm sử dụng để cập nhật diễn biến diện tích rừng là phần mềm nào?",
@@ -1046,7 +1046,7 @@ const questions_KL = [
       "Phần mềm quản lý nhân sự công chức"
     ],
     "correct": "Phần mềm FRMS (Forest Resource Monitoring System) do Cục Lâm nghiệp và Kiểm lâm ban hành",
-    "explanation": "Căn cứ Điểm b Khoản 2 Điều 19 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Ngành Kiểm lâm thống nhất ứng dụng phần mềm Cập nhật diễn biến rừng (FRMS) do Cục Lâm nghiệp và Kiểm lâm ban hành."
+    "explanation": "Căn cứ Điều 18 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Ngành Kiểm lâm thống nhất ứng dụng phần mềm Cập nhật diễn biến rừng (FRMS) do Cục Lâm nghiệp và Kiểm lâm ban hành."
   },
   {
     "question": "Thiết bị kỹ thuật nào sau đây là công cụ chính của Kiểm lâm địa bàn khi điều tra biến động rừng ngoài thực địa?",
@@ -1057,7 +1057,7 @@ const questions_KL = [
       "La bàn cầm tay không có chức năng lưu tọa độ"
     ],
     "correct": "Máy định vị vệ tinh GPS hoặc máy tính bảng chuyên dụng cài đặt phần mềm bản đồ định vị",
-    "explanation": "Căn cứ Điểm c Khoản 2 Điều 19 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Thiết bị phục vụ theo dõi diễn biến rừng gồm máy vi tính, máy định vị vệ tinh GPS, máy tính bảng và tàu bay không người lái (UAV)."
+    "explanation": "Căn cứ Điều 18 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Thiết bị phục vụ điều tra biến động rừng gồm máy định vị vệ tinh GPS, máy tính bảng, máy tính và thiết bị bay không người lái (UAV)."
   },
   {
     "question": "Nguyên nhân nào sau đây làm TĂNG diện tích rừng trong công tác theo dõi diễn biến rừng hàng năm?",
@@ -1068,7 +1068,7 @@ const questions_KL = [
       "Cháy rừng gây thiệt hại hoàn toàn thảm thực vật"
     ],
     "correct": "Trồng mới rừng trên đất chưa có rừng hoặc khoanh nuôi tái sinh đạt tiêu chí thành rừng",
-    "explanation": "Căn cứ Điểm d Khoản 3 Điều 19 Thông tư số 16/2025/TT-BNNMT và Mục V.2 Hướng dẫn số 230/HD-CCKL: Nguyên nhân tăng diện tích rừng gồm trồng rừng, rừng trồng đủ tiêu chí thành rừng, khoanh nuôi tái sinh đủ tiêu chí thành rừng và các nguyên nhân khác."
+    "explanation": "Căn cứ Khoản 1 Điều 15 Thông tư số 16/2025/TT-BNNMT và Mục V.2 Hướng dẫn số 230/HD-CCKL: Nguyên nhân tăng diện tích rừng gồm trồng mới rừng, khoanh nuôi tái sinh tự nhiên đạt tiêu chí rừng, hoặc điều chỉnh diện tích rừng ngoài quy hoạch vào."
   },
   {
     "question": "Chủ rừng có trách nhiệm gì khi diện tích rừng của mình có biến động (do khai thác, trồng mới, cháy rừng)?",
@@ -1090,17 +1090,17 @@ const questions_KL = [
       "Cục trưởng Cục Thống kê tỉnh"
     ],
     "correct": "Chủ tịch Ủy ban nhân dân cấp tỉnh",
-    "explanation": "Căn cứ Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Chi cục Kiểm lâm lập hồ sơ báo cáo Sở Nông nghiệp và Môi trường trình Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng cấp tỉnh hàng năm."
+    "explanation": "Căn cứ Khoản 3 Điều 21 Thông tư số 16/2025/TT-BNNMT quy định Chủ tịch UBND cấp tỉnh phê duyệt và ban hành quyết định công bố hiện trạng rừng cấp tỉnh hàng năm trên cơ sở báo cáo do Sở Nông nghiệp và Môi trường trình."
   },
   {
     "question": "Thời hạn Chủ tịch UBND cấp tỉnh công bố số liệu hiện trạng rừng hàng năm chậm nhất là ngày nào?",
     "options": [
-      "Trước ngày 28 tháng 02 của năm sau liền kề (năm nhuận là ngày 29 tháng 02)",
+      "Ngày 31 tháng 12 của năm theo dõi",
       "Trước ngày 31 tháng 3 của năm sau liền kề",
       "Ngày 30 tháng 6 của năm sau liền kề",
-      "Ngày 31 tháng 12 của năm theo dõi"
+      "Ngày 30 tháng 9 của năm sau liền kề"
     ],
-    "correct": "Trước ngày 28 tháng 02 của năm sau liền kề (năm nhuận là ngày 29 tháng 02)",
-    "explanation": "Căn cứ Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT quy định Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng cấp tỉnh trước ngày 28 tháng 02 năm sau (thời hạn trước ngày 31 tháng 3 năm sau là của Bộ NN&MT công bố hiện trạng rừng toàn quốc)."
+    "correct": "Trước ngày 31 tháng 3 của năm sau liền kề",
+    "explanation": "Căn cứ Điểm c Khoản 3 Điều 21 Thông tư số 16/2025/TT-BNNMT quy định UBND cấp tỉnh hoàn thành việc phê duyệt và công bố hiện trạng rừng của địa phương trước ngày 31 tháng 3 của năm sau liền kề."
   }
 ];
