@@ -114,7 +114,7 @@ const questions_KL = [
     "explanation": "Khoản 1 Điều 125 Luật Xử lý vi phạm hành chính quy định chặt chẽ các trường hợp được phép tạm giữ tang vật, phương tiện nhằm tránh lạm quyền xâm phạm tài sản công dân."
   },
   {
-    "question": "Khi tiến hành đo tính thể tích gỗ tròn bị rỗng ruột theo quy định tại Phụ lục I Thông tư 26/2022/TT-BNNPTNT, Kiểm lâm viên phải thực hiện phương pháp nào?",
+    "question": "Khi tiến hành đo tính thể tích gỗ tròn bị rỗng ruột theo quy định tại Phụ lục I Thông tư 26/2025/TT-BNNMT, Kiểm lâm viên phải thực hiện phương pháp nào?",
     "options": [
       "Tính tổng thể tích toàn bộ khúc gỗ tròn theo công thức hình trụ, sau đó trừ đi thể tích phần ruột rỗng (tính theo đường kính và chiều sâu của phần rỗng)",
       "Chỉ đo phần gỗ đặc bên ngoài và nhân đôi kết quả tính toán",

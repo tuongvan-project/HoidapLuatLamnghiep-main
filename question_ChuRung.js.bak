@@ -12,7 +12,7 @@ const question_ChuRung = [
       "Chỉ cần cây trồng khép tán không nhìn thấy mặt đất và chủ rừng có giấy chứng nhận quyền sử dụng đất"
     ],
     "correct": "Độ tàn che từ 0,1 trở lên; Diện tích liền vùng từ 0,3 ha trở lên (hoặc dải cây rộng tối thiểu 20m); Chiều cao vút ngọn trung bình từ 5,0m trở lên (đối với đất đồi núi, đồng bằng)",
-    "explanation": "Căn cứ Điều 5 Nghị định số 156/2018/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 91/2024/NĐ-CP và Nghị định số 42/2026/NĐ-CP): Tiêu chí xác định rừng gồm 3 điều kiện: độ tàn che từ 0,1 trở lên; diện tích liền vùng từ 0,3 ha trở lên (hoặc dải cây rộng tối thiểu 20m, có từ 03 hàng cây trở lên); chiều cao vút ngọn trung bình từ 5,0m trở lên (đối với đồi núi, đồng bằng)."
+    "explanation": "Điều 4, 5 Nghị định 156/2018/NĐ-CP quy định đồng thời 3 tiêu chí: độ tàn che >= 0,1; diện tích >= 0,3 ha (dải cây >= 20m có >= 3 hàng); chiều cao vút ngọn >= 5m (hoặc đặc thù ven biển/núi đá)."
   },
   {
     "question": "Theo Điều 19 Thông tư số 16/2025/TT-BNNMT, chủ rừng nhóm I (hộ gia đình, cá nhân) có trách nhiệm thông báo biến động diện tích rừng như thế nào?",
@@ -23,7 +23,7 @@ const question_ChuRung = [
       "Không phải thông báo nếu diện tích rừng bị biến động dưới 01 héc-ta"
     ],
     "correct": "Thông báo cho Kiểm lâm địa bàn hoặc UBND cấp xã trong thời hạn 15 ngày kể từ ngày có biến động (do khai thác, trồng mới, cháy, sâu bệnh, sạt lở)",
-    "explanation": "Căn cứ Điểm a Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Trong thời hạn 15 ngày kể từ ngày có biến động về diện tích rừng, chủ rừng nhóm I có trách nhiệm báo cáo Kiểm lâm làm việc tại địa bàn."
+    "explanation": "Khoản 1 Điều 19 Thông tư 16/2025/TT-BNNMT: Chủ rừng nhóm I thông báo cho Kiểm lâm địa bàn hoặc công chức cấp xã được giao theo dõi lâm nghiệp trong thời hạn 15 ngày kể từ khi có biến động."
   },
   {
     "question": "Khi người dân đốt dọn thực bì làm nương rẫy giáp ranh với rừng, quy định an toàn phòng cháy chữa cháy rừng bắt buộc phải bảo đảm những yếu tố nào?",
@@ -78,7 +78,7 @@ const question_ChuRung = [
       "Rừng đặc dụng không quy định diện tích hình sự mà chỉ phạt tiền"
     ],
     "correct": "Diện tích chỉ từ 1.000 m² (0,1 ha) trở lên đã cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Điểm a Khoản 1 Điều 243 Bộ luật Hình sự: Chặt phá rừng đặc dụng trái pháp luật diện tích từ 1.000 m² đến dưới 5.000 m² bị phạt tiền hoặc phạt tù từ 1 năm đến 5 năm."
   },
   {
     "question": "Hộ gia đình, cá nhân tự ý chuyển mục đích sử dụng rừng sang đất trồng cây nông nghiệp không được cơ quan có thẩm quyền cho phép sẽ bị xử phạt như thế nào?",
@@ -100,7 +100,7 @@ const question_ChuRung = [
       "Bắt buộc phải bán toàn bộ sản lượng gỗ khai thác cho Công ty lâm nghiệp nhà nước"
     ],
     "correct": "Chủ rừng tự quyết định việc khai thác; trước khi khai thác lập Bảng kê lâm sản và tự chịu trách nhiệm về nguồn gốc lâm sản hợp pháp",
-    "explanation": "Căn cứ Điều 59 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Rừng trồng sản xuất do chủ rừng tự đầu tư thì chủ rừng tự quyết định khai thác, tự lập Bảng kê lâm sản khi xuất bán."
+    "explanation": "Điều 59 Luật Lâm nghiệp và Thông tư 26/2022/TT-BNNPTNT: Rừng trồng sản xuất do chủ rừng tự đầu tư thì chủ rừng tự quyết định khai thác, tự lập Bảng kê lâm sản khi xuất bán."
   },
   {
     "question": "Hộ gia đình nhận khoán bảo vệ rừng phòng hộ có được phép chăn thả gia súc (trâu, bò, dê) trong phân khu rừng phòng hộ xung yếu không?",
@@ -111,7 +111,7 @@ const question_ChuRung = [
       "Chỉ được chăn thả gia súc vào ban đêm để tránh Kiểm lâm nhìn thấy"
     ],
     "correct": "Nghiêm cấm chăn thả gia súc ở các khu rừng mới trồng, rừng đang trong thời kỳ tái sinh phục hồi; khu vực rừng đã khép tán chỉ được chăn thả có kiểm soát theo quy định",
-    "explanation": "Căn cứ Khoản 1 Điều 56 Luật Lâm nghiệp năm 2017 và Điểm e Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm chăn thả gia súc, vật nuôi vào rừng phòng hộ mới trồng, đang trong thời kỳ chăm sóc hoặc tái sinh phục hồi; người vi phạm bị xử phạt và buộc đưa vật nuôi ra khỏi rừng."
+    "explanation": "Căn cứ Điều 15 và Điều 16 Nghị định số 156/2018/NĐ-CP: Nghiêm cấm chăn thả gia súc vào khu vực rừng mới trồng hoặc rừng đang trong thời kỳ tái sinh phục hồi tự nhiên."
   },
   {
     "question": "Người dân vô tình nhặt được cá thể động vật hoang dã bị thương, kiệt sức trong rừng (như khỉ, cu li, trăn) thì phải xử lý như thế nào là đúng luật?",
@@ -166,7 +166,7 @@ const question_ChuRung = [
       "Chỉ cần mời Trưởng thôn đến chứng kiến là được mang về nhà sử dụng"
     ],
     "correct": "Không được tự ý chặt hạ; phải làm đơn báo cáo UBND xã và Kiểm lâm kiểm tra, hướng dẫn thủ tục tận thu theo đúng quy định pháp luật",
-    "explanation": "Căn cứ Điều 58 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Gỗ cây khô đổ, gãy mục trong rừng tự nhiên thuộc sở hữu toàn dân; việc tận thu phải được lập phương án và báo cáo cơ quan có thẩm quyền theo quy định."
+    "explanation": "Căn cứ Điều 58 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2022/TT-BNNPTNT: Gỗ cây khô đổ, gãy mục trong rừng tự nhiên thuộc sở hữu toàn dân; việc tận thu phải được lập phương án và báo cáo cơ quan có thẩm quyền theo quy định."
   },
   {
     "question": "Hành vi lấn, chiếm đất rừng đặc dụng để trồng cây ăn quả, làm nhà tạm sẽ bị xử lý như thế nào theo Nghị định 146/2026/NĐ-CP?",
@@ -232,7 +232,7 @@ const question_ChuRung = [
       "Chỉ vi phạm nếu đào cây cảnh to bằng xe cẩu chuyên dụng"
     ],
     "correct": "Vi phạm quy định về khai thác thực vật rừng trái phép; bị xử phạt vi phạm hành chính, tịch thu toàn bộ phong lan, cây cảnh và công cụ khai thác",
-    "explanation": "Căn cứ Khoản 2 Điều 16 và Điều 24 Nghị định số 146/2026/NĐ-CP: Khai thác thực vật rừng tự nhiên ngoài gỗ hoặc loài nguy cấp, quý, hiếm (như lan hài, lan hoàng thảo...) trái pháp luật bị phạt tiền và tịch thu toàn bộ tang vật vi phạm."
+    "explanation": "Điều 15 Nghị định 146/2026/NĐ-CP: Khai thác thực vật rừng thông thường hoặc loài nguy cấp quý hiếm (như lan hài, lan hoàng thảo...) mà không có phép đều bị xử phạt và tịch thu tang vật."
   },
   {
     "question": "Theo quy định, tiền chi trả Dịch vụ môi trường rừng (DVMTR) hàng năm mà chủ rừng là hộ gia đình nhận được từ Quỹ Bảo vệ và Phát triển rừng dùng vào mục đích gì?",
@@ -331,7 +331,7 @@ const question_ChuRung = [
       "Bỏ chạy khỏi địa phương để tránh bị cơ quan công an mời lên làm việc"
     ],
     "correct": "Phải lập tức triển khai dập lửa bằng lực lượng, phương tiện tại chỗ, đồng thời báo ngay cho chính quyền xã, Kiểm lâm địa bàn hoặc cơ quan Cảnh sát PCCC gần nhất",
-    "explanation": "Căn cứ Khoản 2 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 51 Nghị định số 156/2018/NĐ-CP: Khi xảy ra cháy rừng, chủ rừng có trách nhiệm kịp thời huy động lực lượng, phương tiện tại chỗ để chữa cháy và báo cáo ngay cho cơ quan Kiểm lâm, chính quyền sở tại hỗ trợ."
+    "explanation": "Khoản 2 Điều 53 Luật Lâm nghiệp: Khi xảy ra cháy rừng, chủ rừng phải kịp thời huy động lực lượng, phương tiện dập cháy và báo cáo ngay cho cơ quan chức năng hỗ trợ."
   },
   {
     "question": "Hộ gia đình có được quyền kết hợp chăn nuôi gia súc, trồng nấm, dược liệu dưới tán rừng sản xuất không?",
@@ -353,7 +353,7 @@ const question_ChuRung = [
       "Bị tịch thu toàn bộ số cây bị đổ"
     ],
     "correct": "Toàn quyền thu dọn, sử dụng hoặc bán gỗ cây đổ gãy trong rừng trồng tự đầu tư",
-    "explanation": "Căn cứ Điều 59 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Tỉa thưa rừng trồng tự đầu tư là biện pháp kỹ thuật lâm sinh thông thường; chủ rừng tự chủ động thực hiện và lập Bảng kê lâm sản theo quy định khi lưu thông."
+    "explanation": "Căn cứ Điều 59 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2022/TT-BNNPTNT: Chủ rừng trồng tự đầu tư có quyền sở hữu cây trồng và được chủ động khai thác, tận dụng cây đổ gãy do thiên tai."
   },
   {
     "question": "Khi muốn tỉa thưa rừng trồng để cây phát triển tốt hơn, hộ gia đình có phải báo cáo không?",
@@ -375,7 +375,7 @@ const question_ChuRung = [
       "Phải đóng dấu đỏ của Ủy ban nhân dân xã"
     ],
     "correct": "Gỗ rừng trồng thông thường KHÔNG phải đóng dấu búa Kiểm lâm",
-    "explanation": "Căn cứ Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Gỗ rừng trồng thông thường không phải đóng dấu búa Kiểm lâm; việc quản lý, truy xuất nguồn gốc căn cứ vào Bảng kê lâm sản hợp pháp."
+    "explanation": "Căn cứ Điều 3 Thông tư số 26/2022/TT-BNNPTNT: Đã bãi bỏ việc đóng dấu búa Kiểm lâm đối với gỗ rừng trồng; việc kiểm tra, truy xuất nguồn gốc căn cứ vào Bảng kê lâm sản hợp pháp."
   },
   {
     "question": "Người dân có được dùng chất độc, hóa chất hoặc mìn để khai thác lâm sản, thủy sản trong rừng không?",
@@ -408,7 +408,7 @@ const question_ChuRung = [
       "Chỉ cấm thả trâu, còn bò thì được thả thoải mái"
     ],
     "correct": "Nghiêm cấm chăn thả gia súc vào rừng mới trồng vì gây gãy, đổ, chết cây con mới trồng",
-    "explanation": "Căn cứ Điều 9 Luật Lâm nghiệp năm 2017 và Điểm e Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm chăn, dắt, thả vật nuôi trên diện tích mới trồng rừng, đang trong thời kỳ chăm sóc; người vi phạm bị phạt tiền và buộc đưa vật nuôi ra khỏi rừng."
+    "explanation": "Căn cứ Điều 9 Luật Lâm nghiệp năm 2017 và Điều 17 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm chăn thả gia súc vào rừng mới trồng; người để gia súc phá hoại rừng trồng bị phạt tiền và buộc bồi thường thiệt hại."
   },
   {
     "question": "Người dân tự ý mang máy múc vào đất rừng phòng hộ để san gạt mặt bằng làm nhà ở thì bị xử lý thế nào?",
@@ -419,7 +419,7 @@ const question_ChuRung = [
       "Không bị xử lý nếu là hộ gia đình nghèo"
     ],
     "correct": "Bị đình chỉ ngay, xử phạt vi phạm hành chính nặng về hành vi phá rừng và buộc khôi phục tình trạng ban đầu",
-    "explanation": "Căn cứ Điều 9 Luật Lâm nghiệp năm 2017 và Điều 23 Nghị định số 146/2026/NĐ-CP: Hành vi tự ý đưa máy móc vào san gạt, hủy hoại diện tích rừng phòng hộ bị xử phạt nghiêm khắc về hành vi Phá rừng trái pháp luật và buộc khôi phục lại tình trạng ban đầu."
+    "explanation": "Căn cứ Điều 9 Luật Lâm nghiệp năm 2017 và Điều 16 Nghị định số 146/2026/NĐ-CP: Hành vi san gạt, hủy hoại đất rừng phòng hộ trái phép bị xử phạt về hành vi phá rừng và buộc khôi phục lại tình trạng ban đầu của đất rừng."
   },
   {
     "question": "Chủ rừng được hưởng lợi từ nguồn thu dịch vụ môi trường rừng (DVMTR) phải có nghĩa vụ gì?",
@@ -518,7 +518,7 @@ const question_ChuRung = [
       "Đợi khi nào cháy hết rừng thì mới báo"
     ],
     "correct": "Hô hoán, báo ngay cho Trưởng thôn, Kiểm lâm địa bàn hoặc UBND xã và tìm cách chữa cháy ban đầu",
-    "explanation": "Căn cứ Khoản 1 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 51 Nghị định số 156/2018/NĐ-CP: Người phát hiện cháy rừng phải báo ngay cho người xung quanh, chủ rừng, cơ quan Kiểm lâm sở tại hoặc UBND cấp xã nơi gần nhất và tham gia chữa cháy theo khả năng."
+    "explanation": "Căn cứ Khoản 2 Điều 53 Luật Lâm nghiệp năm 2017: Mọi người khi phát hiện cháy rừng phải kịp thời báo động, báo cho cơ quan Kiểm lâm, chính quyền xã và tham gia dập lửa theo khả năng."
   },
   {
     "question": "Khi nhận được lệnh huy động tham gia chữa cháy rừng của Chủ tịch UBND xã hoặc Trưởng thôn, người dân phải làm gì?",
@@ -529,7 +529,7 @@ const question_ChuRung = [
       "Giả vờ bị ốm để ở nhà"
     ],
     "correct": "Nghiêm túc chấp hành, nhanh chóng mang dụng cụ có sẵn đến hiện trường tham gia dập lửa",
-    "explanation": "Căn cứ Khoản 4 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 51 Nghị định số 156/2018/NĐ-CP: Cơ quan, tổ chức, cá nhân có nghĩa vụ chấp hành nghiêm sự chỉ huy, điều động lực lượng, phương tiện tham gia chữa cháy rừng của người có thẩm quyền."
+    "explanation": "Căn cứ Điều 53 Luật Lâm nghiệp năm 2017 và Điều 33 Luật PCCC năm 2001: Mọi cá nhân có nghĩa vụ chấp hành nghiêm lệnh huy động lực lượng, phương tiện của người có thẩm quyền để tham gia chữa cháy rừng."
   },
   {
     "question": "Những dụng cụ thủ công thông thường nào tại gia đình rất hữu ích khi tham gia dập lửa rừng?",
@@ -551,7 +551,7 @@ const question_ChuRung = [
       "Được phép nếu đứng cách cây rừng 1 mét"
     ],
     "correct": "Vi phạm nghiêm trọng quy định an toàn PCCCR và bị xử phạt theo luật",
-    "explanation": "Căn cứ Điểm h Khoản 2 và Khoản 3 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm sử dụng lửa tùy tiện, vứt tàn thuốc, que diêm còn than đỏ tại các khu rừng có nguy cơ cháy; vi phạm bị xử phạt vi phạm hành chính từ 1.000.000 đồng đến 5.000.000 đồng."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm vứt tàn thuốc lá, que diêm còn tàn lửa hoặc sử dụng nguồn lửa tùy tiện tại các khu rừng có nguy cơ cháy; vi phạm bị phạt tiền đến 10 triệu đồng."
   },
   {
     "question": "Biển cảnh báo cấp dự báo cháy rừng thường được đặt ở đâu để người dân dễ nhận biết?",
@@ -584,7 +584,7 @@ const question_ChuRung = [
       "Không ai có quyền xử phạt hành vi lấy mật ong"
     ],
     "correct": "Bị xử phạt vi phạm hành chính, bồi thường thiệt hại và có thể bị truy cứu trách nhiệm hình sự",
-    "explanation": "Căn cứ Điểm i Khoản 3 Điều 19, Điều 20 Nghị định số 146/2026/NĐ-CP và Điều 243, 313 BLHS: Đốt lửa, dùng lửa lấy mật ong bị phạt từ 3 - 5 triệu đồng; nếu để cháy lan gây cháy rừng sẽ bị xử phạt theo Điều 20 NĐ 146 hoặc bị truy cứu trách nhiệm hình sự."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP và Điều 243, Điều 313 Bộ luật Hình sự năm 2015: Dùng lửa hun khói bắt ong gây cháy rừng phải bồi thường thiệt hại và bị truy cứu trách nhiệm hình sự nếu gây hậu quả nghiêm trọng."
   },
   {
     "question": "Đường băng xanh cản lửa trong phòng cháy rừng thường được trồng bằng các loài cây nào?",
@@ -628,7 +628,7 @@ const question_ChuRung = [
       "Tự gia đình phải chi trả toàn bộ viện phí"
     ],
     "correct": "Được xem xét công nhận là thương binh, liệt sĩ và hưởng các chế độ ưu đãi người có công",
-    "explanation": "Căn cứ Khoản 6 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 55 Nghị định số 156/2018/NĐ-CP: Người tham gia chữa cháy rừng bị thương hoặc hy sinh thì bản thân hoặc gia đình được xem xét công nhận và hưởng chế độ theo quy định của pháp luật về ưu đãi người có công."
+    "explanation": "Căn cứ Điều 53 Luật Lâm nghiệp năm 2017 và Pháp lệnh Ưu đãi người có công: Người bị thương hoặc hy sinh khi tham gia chữa cháy rừng được xem xét công nhận hưởng chế độ thương binh, liệt sĩ."
   },
   {
     "question": "Chủ rừng không chấp hành quy định lập phương án phòng cháy, chữa cháy rừng bị xử phạt như thế nào?",
@@ -639,7 +639,7 @@ const question_ChuRung = [
       "Chỉ bị ghi tên vào sổ tay của xã"
     ],
     "correct": "Bị xử phạt cảnh cáo hoặc phạt tiền theo quy định pháp luật xử phạt vi phạm lâm nghiệp",
-    "explanation": "Căn cứ Điểm a Khoản 7 Điều 19 Nghị định số 146/2026/NĐ-CP: Chủ rừng không xây dựng phương án phòng cháy và chữa cháy rừng theo quy định bị phạt tiền từ 20.000.000 đồng đến 25.000.000 đồng."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Chủ rừng không lập phương án phòng cháy và chữa cháy rừng theo quy định bị xử phạt vi phạm hành chính từ 2.000.000 đồng đến 50.000.000 đồng."
   },
   {
     "question": "Hành vi đốt vàng mã, đốt nhang gần rừng hoặc trong khu di tích lịch sử ven rừng cần chú ý điều gì?",
@@ -771,7 +771,7 @@ const question_ChuRung = [
       "Chỉ cần nộp đơn xin nhận tiền"
     ],
     "correct": "Được cơ quan chức năng nghiệm thu diện tích rừng còn nguyên vẹn, không xảy ra cháy hoặc phá rừng trái phép",
-    "explanation": "Căn cứ Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 42/2026/NĐ-CP): Việc thanh toán, giải ngân kinh phí hỗ trợ, khoán bảo vệ rừng phải căn cứ vào kết quả nghiệm thu hiện trường xác nhận diện tích rừng được bảo vệ an toàn."
+    "explanation": "Căn cứ Điều 6 Thông tư số 58/2024/TT-BNNPTNT: Việc giải ngân tiền khoán bảo vệ rừng phải căn cứ vào biên bản nghiệm thu hiện trường thực tế xác nhận diện tích rừng bảo vệ an toàn."
   },
   {
     "question": "Hộ gia đình nghèo được hỗ trợ cây giống lâm nghiệp để trồng rừng thì có trách nhiệm gì?",
@@ -848,7 +848,7 @@ const question_ChuRung = [
       "Được coi là hành vi tỉa thưa cây rừng tự nhiên"
     ],
     "correct": "Bị xử phạt nghiêm khắc về hành vi 'Phá rừng trái pháp luật', tính thiệt hại theo từng cây bị hại",
-    "explanation": "Căn cứ Khoản 1 Điều 23 Nghị định số 146/2026/NĐ-CP: Hành vi chặt, ken cây, bóc vỏ, đổ hóa chất làm chết cây rừng bị xử lý nghiêm khắc về hành vi Phá rừng trái pháp luật với mức phạt tiền căn cứ theo diện tích và khối lượng rừng bị hủy hoại."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Hành vi ken cây, khoan thân cây, đổ hóa chất làm chết cây rừng bị xử lý về hành vi Phá rừng trái pháp luật với mức phạt tiền rất nặng."
   },
   {
     "question": "Mức phạt tiền thấp nhất đối với hành vi phá rừng trái pháp luật đối với cá nhân là từ bao nhiêu?",
@@ -875,35 +875,35 @@ const question_ChuRung = [
   {
     "question": "Phá rừng sản xuất là rừng tự nhiên trái phép từ diện tích bao nhiêu thì bị TRUY CỨU TRÁCH NHIỆM HÌNH SỰ (bị đi tù)?",
     "options": [
-      "Từ 5.000 m2 (0,5 ha) trở lên đã cấu thành tội phạm hình sự",
-      "Từ 1.000 m2 trở lên trong mọi trường hợp",
-      "Từ 50.000 m2 trở lên mới bị khởi tố",
+      "Từ 10.000 m2 trở lên",
+      "Từ 1.000 m2 (khoảng gần 3 sào Bắc Bộ) trở lên đã bị đi tù",
+      "Từ 50.000 m2 trở lên",
       "Phá bao nhiêu cũng chỉ bị phạt tiền không bị đi tù"
     ],
-    "correct": "Từ 5.000 m2 (0,5 ha) trở lên đã cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng sản xuất có diện tích từ 5.000 m² đến dưới 10.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "correct": "Từ 1.000 m2 (khoảng gần 3 sào Bắc Bộ) trở lên đã bị đi tù",
+    "explanation": "Điểm a Khoản 1 Điều 243 Bộ luật Hình sự quy định người nào hủy hoại rừng sản xuất là rừng tự nhiên từ 1.000 m2 đến dưới 5.000 m2 thì bị truy cứu TNHS với khung hình phạt tù từ 01 năm đến 05 năm."
   },
   {
     "question": "Phá rừng phòng hộ trái phép từ diện tích bao nhiêu mét vuông (m2) thì bị khởi tố hình sự phạt tù?",
     "options": [
-      "Từ 3.000 m2 trở lên đã đủ yếu tố cấu thành tội phạm hình sự",
-      "Từ 700 m2 trở lên",
-      "Từ 1.000 m2 trở lên",
+      "Từ 5.000 m2 trở lên",
+      "Từ 700 m2 (chưa đầy 2 sào Bắc Bộ) trở lên đã bị truy cứu trách nhiệm hình sự",
+      "Từ 2.000 m2 trở lên",
       "Từ 10.000 m2 trở lên"
     ],
-    "correct": "Từ 3.000 m2 trở lên đã đủ yếu tố cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng phòng hộ có diện tích từ 3.000 m² đến dưới 7.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "correct": "Từ 700 m2 (chưa đầy 2 sào Bắc Bộ) trở lên đã bị truy cứu trách nhiệm hình sự",
+    "explanation": "Điểm b Khoản 1 Điều 243 Bộ luật Hình sự quy định hành vi hủy hoại rừng phòng hộ từ 700 m2 đến dưới 3.000 m2 đã đủ yếu tố cấu thành tội phạm và bị phạt tù từ 01 năm đến 05 năm."
   },
   {
     "question": "Phá rừng đặc dụng trái phép từ diện tích bao nhiêu mét vuông (m2) thì bị khởi tố hình sự phạt tù?",
     "options": [
-      "Từ 1.000 m2 trở lên đã bị truy cứu trách nhiệm hình sự",
-      "Từ 500 m2 trở lên",
+      "Từ 100 m2 trở lên",
+      "Từ 500 m2 (khoảng hơn 1 sào Bắc Bộ) trở lên đã bị truy cứu trách nhiệm hình sự",
       "Từ 3.000 m2 trở lên",
       "Từ 5.000 m2 trở lên"
     ],
-    "correct": "Từ 1.000 m2 trở lên đã bị truy cứu trách nhiệm hình sự",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "correct": "Từ 500 m2 (khoảng hơn 1 sào Bắc Bộ) trở lên đã bị truy cứu trách nhiệm hình sự",
+    "explanation": "Điểm c Khoản 1 Điều 243 Bộ luật Hình sự quy định hành vi hủy hoại rừng đặc dụng từ 500 m2 đến dưới 1.000 m2 đã bị xử lý hình sự với mức án từ 01 năm đến 05 năm tù giam."
   },
   {
     "question": "Hành vi lấn, chiếm đất rừng trái phép ngoài việc bị phạt tiền còn bị áp dụng biện pháp gì?",
@@ -931,12 +931,12 @@ const question_ChuRung = [
     "question": "Chặt trộm dù chỉ 0,5 m3 gỗ quý hiếm Nhóm IA (như gỗ sưa, gỗ gụ...) tại rừng đặc dụng thì bị xử lý thế nào?",
     "options": [
       "Chỉ bị phạt tiền 500.000 đồng vì khối lượng gỗ chặt trộm rất ít",
-      "Đã đủ định lượng bị khởi tố hình sự (khung hình phạt tù từ 06 tháng đến 03 năm)",
+      "Đã đủ định lượng bị khởi tố hình sự phạt tù từ 1 năm đến 5 năm",
       "Chỉ bị tịch thu cây rìu chặt cây mà không bị xử lý gì thêm",
       "Được tha bổng nếu là người dân sinh sống tại địa phương"
     ],
-    "correct": "Đã đủ định lượng bị khởi tố hình sự (khung hình phạt tù từ 06 tháng đến 03 năm)",
-    "explanation": "Căn cứ Điểm h Khoản 1 Điều 232 Bộ luật Hình sự: Khai thác trái phép gỗ Nhóm IA từ 0,5 m³ đến dưới 01 m³ tại rừng đặc dụng đã đủ yếu tố cấu thành tội phạm, bị phạt tiền từ 50.000.000 đồng đến 300.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm."
+    "correct": "Đã đủ định lượng bị khởi tố hình sự phạt tù từ 1 năm đến 5 năm",
+    "explanation": "Căn cứ Điểm b Khoản 1 Điều 232 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung 2017): Khai thác trái phép gỗ Nhóm IA từ 1,5 m³ trở lên (hoặc từ 0,5 m³ tại rừng đặc dụng) bị phạt tù từ 1 năm đến 5 năm."
   },
   {
     "question": "Săn bắt, bẫy bắt hoặc nuôi nhốt trái phép cá thể động vật thuộc loài nguy cấp, quý, hiếm Nhóm IB (như tê tê, voọc...) thì sao?",
@@ -985,13 +985,13 @@ const question_ChuRung = [
   {
     "question": "Việc quảng cáo bán động vật hoang dã trái phép trên mạng xã hội (Facebook, Zalo, TikTok) có bị xử phạt không?",
     "options": [
-      "Bị xử phạt vi phạm hành chính từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ bài đăng",
       "Không bị phạt vì mạng xã hội là không gian ảo",
+      "Bị xử phạt vi phạm hành chính nặng từ 1.000.000 đồng đến 15.000.000 đồng và gỡ bỏ bài đăng",
       "Chỉ bị khóa tài khoản mạng xã hội 1 ngày",
       "Được phép quảng cáo nếu không ghi rõ giá tiền"
     ],
-    "correct": "Bị xử phạt vi phạm hành chính từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ bài đăng",
-    "explanation": "Căn cứ Điểm c Khoản 4 và Điểm đ Khoản 9 Điều 19 Nghị định số 146/2026/NĐ-CP: Hành vi quảng cáo kinh doanh động vật rừng, thực vật rừng không có nguồn gốc hợp pháp bị phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo."
+    "correct": "Bị xử phạt vi phạm hành chính nặng từ 1.000.000 đồng đến 15.000.000 đồng và gỡ bỏ bài đăng",
+    "explanation": "Điều 24 Nghị định 146/2026/NĐ-CP quy định hành vi quảng cáo kinh doanh động vật rừng và sản phẩm của chúng trái quy định bị phạt tiền từ 1 triệu đến 15 triệu đồng và buộc gỡ bỏ thông tin."
   },
   {
     "question": "Nuôi nhốt động vật rừng thông thường (như dúi, cầy vòi, nhím...) mà không khai báo với cơ quan Kiểm lâm bị xử lý thế nào?",
@@ -1016,7 +1016,7 @@ const question_ChuRung = [
     "explanation": "Căn cứ Điều 24 Nghị định số 146/2026/NĐ-CP và Điều 306 Bộ luật Hình sự: Sử dụng súng tự chế, bẫy sắt săn bắt động vật hoang dã bị tịch thu tang vật, phạt tiền và có thể bị phạt tù về tội sử dụng vũ khí trái phép."
   },
   {
-    "question": "Đốt lửa sưởi ấm trong rừng vào mùa hanh khô bất cẩn làm cháy từ 5.000 m2 rừng tự nhiên sản xuất thì người gây cháy bị xử lý thế nào?",
+    "question": "Đốt lửa sưởi ấm trong rừng vào mùa hanh khô bất cẩn làm cháy 1.500 m2 rừng tự nhiên sản xuất thì người gây cháy bị sao?",
     "options": [
       "Chỉ bị nhắc nhở rút kinh nghiệm vì thời tiết mùa đông quá lạnh",
       "Bị khởi tố hình sự về tội Vi phạm quy định về PCCC hoặc tội Hủy hoại rừng (phạt tù từ 1 đến 5 năm)",
@@ -1024,7 +1024,7 @@ const question_ChuRung = [
       "Được cơ quan chức năng hỗ trợ tiền dập lửa"
     ],
     "correct": "Bị khởi tố hình sự về tội Vi phạm quy định về PCCC hoặc tội Hủy hoại rừng (phạt tù từ 1 đến 5 năm)",
-    "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự năm 2015: Hành vi gây cháy, hủy hoại rừng sản xuất từ 5.000 m² đến dưới 10.000 m² cấu thành tội phạm hình sự và bị phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung 2017): Hành vi gây cháy, hủy hoại rừng sản xuất từ 5.000 m² trở lên (hoặc dưới mức này nhưng đã bị xử phạt VPHC) bị phạt tù từ 1 đến 5 năm."
   },
   {
     "question": "Hành vi cản trở, chống đối cán bộ Kiểm lâm hoặc lực lượng bảo vệ rừng đang thi hành công vụ bị xử lý thế nào?",
@@ -1057,7 +1057,7 @@ const question_ChuRung = [
       "Không bị xử phạt nếu nộp tiền điện đầy đủ"
     ],
     "correct": "Bị xử phạt về hành vi Phá rừng trái pháp luật và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
-    "explanation": "Căn cứ Điều 23 và Điểm g Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Chặt cây rừng làm đường điện bị xử phạt về hành vi Phá rừng trái pháp luật; dựng lán trại trái phép trong rừng bị phạt tiền và buộc tháo dỡ công trình."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Chặt cây rừng làm đường dây điện, xây lán trại khi chưa được phê duyệt chủ trương chuyển mục đích sử dụng rừng bị xử phạt về hành vi phá rừng trái pháp luật."
   },
   {
     "question": "Người dân tự nguyện giao nộp động vật rừng quý hiếm đi lạc hoặc nuôi trước đây cho Nhà nước thì có bị đi tù không?",
@@ -1090,7 +1090,7 @@ const question_ChuRung = [
       "Chỉ bị phạt khi có khói bay vào mắt người khác"
     ],
     "correct": "Vẫn bị xử phạt vi phạm hành chính về hành vi vi phạm quy định an toàn phòng cháy chữa cháy rừng",
-    "explanation": "Căn cứ Điểm i Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Hành vi không thực hiện đúng quy định về sử dụng lửa khi đốt nương rẫy, đốt thực bì chuẩn bị đất trồng rừng bị phạt tiền từ 1.000.000 đồng đến 3.000.000 đồng kể cả khi chưa làm cháy lan."
+    "explanation": "Khoản 1 Điều 20 Nghị định 146/2026/NĐ-CP quy định hành vi đốt nương rẫy, đốt thực bì không làm đường băng cản lửa hoặc đốt trong mùa khô hanh nguy hiểm đã bị phạt tiền kể cả khi chưa làm cháy lan."
   },
   {
     "question": "Thông điệp quan trọng nhất mà mỗi người dân, chủ rừng cần ghi nhớ để vừa phát triển kinh tế vừa không vi phạm pháp luật là gì?",
@@ -1134,7 +1134,7 @@ const question_ChuRung = [
       "Cứ thấy hồ nước nào gần nhà nhất là thả toàn bộ các loại chim, thú, bò sát xuống"
     ],
     "correct": "Lựa chọn sinh cảnh phù hợp với tập tính sinh học của loài, bảo đảm có nguồn thức ăn, nước uống và điều kiện an toàn để con vật có thể sinh tồn lâu dài",
-    "explanation": "Căn cứ Khoản 2 Điều 11 Thông tư số 85/2025/TT-BNNMT: Thả động vật về môi trường tự nhiên phải bảo đảm sinh cảnh phù hợp với vùng phân bố tự nhiên của loài, bảo đảm nguồn thức ăn, nước uống và điều kiện an toàn sinh tồn."
+    "explanation": "Căn cứ Điều 10 Nghị định số 06/2019/NĐ-CP: Phóng sinh đúng nơi là lựa chọn sinh cảnh tự nhiên phù hợp tập tính sinh học của loài, bảo đảm điều kiện thức ăn, nước uống để con vật sinh tồn an toàn."
   },
   {
     "question": "Nguyên tắc phóng sinh 'ĐÚNG LÚC' có ý nghĩa gì đối với khả năng sống sót của động vật?",
@@ -1145,7 +1145,7 @@ const question_ChuRung = [
       "Chờ đến khi con vật bị ốm liệt không cử động được mới đem đi thả"
     ],
     "correct": "Lựa chọn thời điểm thời tiết và môi trường phù hợp với khả năng thích nghi của loài (tránh thả giữa trưa nắng gắt hoặc mùa đông giá rét làm con vật sốc nhiệt, kiệt sức)",
-    "explanation": "Căn cứ Khoản 2 Điều 11 Thông tư số 85/2025/TT-BNNMT: Thời điểm thả động vật về tự nhiên phải bảo đảm các yếu tố khí hậu, thời tiết thuận lợi, phù hợp với đặc tính sinh học của loài để động vật nhanh chóng thích nghi môi trường sống."
+    "explanation": "Căn cứ Điều 10 Nghị định số 06/2019/NĐ-CP: Phóng sinh đúng lúc là chọn thời điểm thời tiết thuận lợi, dịu mát để con vật kịp thích nghi môi trường mới, tránh bị sốc nhiệt kiệt sức."
   },
   {
     "question": "Nguyên tắc phóng sinh 'ĐÚNG CÁCH' đòi hỏi người dân cần lưu ý điều gì trước và trong khi thả con vật?",
@@ -1156,7 +1156,7 @@ const question_ChuRung = [
       "Cắt bớt lông cánh của chim trước khi thả để chim bay lượn gần mặt đất"
     ],
     "correct": "Nhận diện loài, đánh giá tình trạng sức khỏe con vật trước khi thả; thả nhẹ nhàng; trường hợp động vật hoang dã nguy cấp cần cứu hộ phải báo cơ quan Kiểm lâm",
-    "explanation": "Căn cứ Điều 11 và Điều 15 Thông tư số 85/2025/TT-BNNMT: Động vật trước khi thả phải được đánh giá sức khỏe, không mang dịch bệnh, tháo bỏ dây buộc bao bì; trường hợp động vật bị thương tật, suy kiệt phải bàn giao cơ quan Kiểm lâm hoặc cơ sở cứu hộ."
+    "explanation": "Căn cứ Khoản 1 Điều 8 Nghị định số 06/2019/NĐ-CP: Phóng sinh đúng cách là kiểm tra sức khỏe con vật, tháo bỏ bao bì dây trói; động vật nguy cấp cần cứu hộ phải giao nộp cho cơ quan Kiểm lâm."
   },
   {
     "question": "Hành vi mua động vật hoang dã (chim trời, rùa, rắn) tại các điểm bán rong trước cổng đền chùa để phóng sinh gây ra tác hại xã hội nào hàng đầu?",
@@ -1189,7 +1189,7 @@ const question_ChuRung = [
       "Tạo kháng thể tự nhiên giúp con vật miễn nhiễm với mọi loại virus"
     ],
     "correct": "Gây tổn hại cho chính con vật: Động vật suy yếu, mất khả năng tự kiếm ăn sẽ bị chết đói, chết ngạt hoặc phát tán mầm bệnh nguy hiểm ra môi trường",
-    "explanation": "Căn cứ Điều 11 và Điều 15 Thông tư số 85/2025/TT-BNNMT: Động vật chưa được cứu hộ phục hồi, bị thương tật hoặc mang mầm bệnh tuyệt đối không được thả ra tự nhiên vì sẽ làm chết con vật và có nguy cơ lây lan dịch bệnh cho môi trường sinh thái."
+    "explanation": "Căn cứ Điều 10 Nghị định số 06/2019/NĐ-CP: Thả động vật bị thương tật, suy kiệt sức khỏe khiến chúng chết đói, chết ngạt hoặc phát tán mầm bệnh dịch nguy hiểm ra tự nhiên."
   },
   {
     "question": "Tình huống: Chị B vào ngày rằm mua 2 con rùa tai đỏ từ người bán dạo mang ra hồ nước cạnh đền gần bìa rừng thả phóng sinh. Hành vi của chị B bị đánh giá như thế nào?",
@@ -1244,7 +1244,7 @@ const question_ChuRung = [
       "Báo cho Kiểm lâm địa bàn khi thấy có khói lạ bốc lên từ phía sườn rừng"
     ],
     "correct": "Vứt tàn hương, tàn thuốc lá hoặc than củi chưa tắt hẳn vào bụi cây, thảm thực vật khô ven rừng",
-    "explanation": "Căn cứ Khoản 2 và Khoản 3 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm vứt tàn hương, que diêm còn tàn lửa vào thảm thực vật ven rừng; hành vi vi phạm an toàn phòng cháy và chữa cháy rừng bị phạt tiền từ 1.000.000 đồng đến 5.000.000 đồng."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm vứt tàn hương, que diêm còn than đỏ vào thảm thực vật khô ven rừng; vi phạm bị xử phạt hành chính rất nặng."
   },
   {
     "question": "Trước khi rời khỏi khu vực thắp hương, đốt vàng mã gần bìa rừng, người dân phải kiểm tra và xử lý tàn tro như thế nào?",
@@ -1266,7 +1266,7 @@ const question_ChuRung = [
       "Đăng bài lên mạng xã hội chờ người khác gọi điện báo công an"
     ],
     "correct": "Hô hoán người xung quanh hỗ trợ ngăn chặn dập lửa ban đầu và báo ngay cho lực lượng Kiểm lâm, chính quyền xã hoặc Cảnh sát PCCC gần nhất",
-    "explanation": "Căn cứ Khoản 1 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 51 Nghị định số 156/2018/NĐ-CP: Người phát hiện cháy rừng hoặc khói bốc lên gần bìa rừng phải hô hoán dập lửa ban đầu và báo ngay cho cơ quan Kiểm lâm sở tại hoặc chính quyền cấp xã nơi gần nhất."
+    "explanation": "Căn cứ Khoản 2 Điều 53 Luật Lâm nghiệp năm 2017: Phát hiện cháy rừng hoặc khói bốc lên gần bìa rừng phải hô hoán dập lửa ban đầu và báo ngay cho Kiểm lâm hoặc chính quyền xã gần nhất."
   },
   {
     "question": "Tình huống: Ông C đi tảo mộ dịp tiết Thanh minh ở sườn đồi, đốt vàng mã xong gặp gió to cuốn tàn lửa vào rừng keo gây cháy 0,5 ha rừng. Ông C sẽ bị xử lý như thế nào?",
@@ -1277,7 +1277,7 @@ const question_ChuRung = [
       "Được Nhà nước hỗ trợ tiền bồi thường thiệt hại cho chủ rừng keo"
     ],
     "correct": "Bị xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự về tội vi phạm quy định PCCC rừng, đồng thời phải bồi thường toàn bộ thiệt hại về rừng",
-    "explanation": "Căn cứ Điều 20 Nghị định số 146/2026/NĐ-CP và Điều 313 Bộ luật Hình sự: Hành vi bất cẩn đốt vàng mã gây cháy rừng bị xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự và phải bồi thường toàn bộ thiệt hại về rừng."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP và Điều 313 Bộ luật Hình sự: Vô ý đốt vàng mã làm cháy rừng bị phạt tiền hoặc truy cứu trách nhiệm hình sự và phải bồi thường thiệt hại."
   },
   {
     "question": "Đối với cây cảnh có nguồn gốc từ vườn nhà hoặc khai thác trên đất thổ cư của hộ gia đình, pháp luật lâm nghiệp có quy định thủ tục cấp 'Giấy xác nhận nguồn gốc hợp pháp' không?",
@@ -1288,7 +1288,7 @@ const question_ChuRung = [
       "Mọi cây cảnh trồng trong vườn nhà đều bị cấm mua bán ra ngoài tỉnh"
     ],
     "correct": "Pháp luật hiện hành KHÔNG quy định thủ tục cấp 'Giấy xác nhận nguồn gốc hợp pháp'; việc chứng minh nguồn gốc thực hiện thông qua Bảng kê lâm sản và hồ sơ lâm sản hợp pháp",
-    "explanation": "Căn cứ Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Pháp luật không quy định cấp \"Giấy xác nhận nguồn gốc\" cho cây vườn nhà; tính hợp pháp của lâm sản được xác lập qua Bảng kê lâm sản."
+    "explanation": "Căn cứ Mục 2 Chương II Thông tư số 26/2025/TT-BNNMT: Pháp luật không cấp 'Giấy xác nhận nguồn gốc' cho cây vườn nhà; tính hợp pháp được xác lập qua Bảng kê lâm sản."
   },
   {
     "question": "Trường hợp cây cảnh vườn nhà là loài cây gỗ thông thường (không thuộc loài nguy cấp, quý hiếm), khi xuất bán vận chuyển có bắt buộc phải xin xác nhận Bảng kê lâm sản của Kiểm lâm không?",
@@ -1299,7 +1299,7 @@ const question_ChuRung = [
       "Chỉ cần người mua tự viết giấy tay là hợp pháp không cần Bảng kê lâm sản"
     ],
     "correct": "KHÔNG thuộc đối tượng buộc phải xác nhận; chủ cây tự lập Bảng kê lâm sản. Trường hợp chủ cây có nhu cầu tự nguyện đề nghị xác nhận thì cơ quan Kiểm lâm sẽ tiếp nhận xác nhận",
-    "explanation": "Căn cứ Điểm đ Khoản 3 Điều 5 Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT): Cây cảnh gỗ thông thường vườn nhà do chủ cây tự lập Bảng kê lâm sản; cơ quan Kiểm lâm tiếp nhận xác nhận khi chủ cây có đề nghị tự nguyện."
+    "explanation": "Căn cứ Điểm đ Khoản 3 Điều 5 Thông tư số 26/2025/TT-BNNMT: Cây cảnh thông thường vườn nhà chủ cây tự lập Bảng kê lâm sản; Kiểm lâm chỉ xác nhận khi chủ cây tự nguyện đề nghị."
   },
   {
     "question": "Trường hợp cây cảnh vườn nhà là loài thực vật rừng thuộc Danh mục nguy cấp, quý, hiếm (Nhóm IA, IIA) hoặc Phụ lục CITES, hồ sơ đề nghị Kiểm lâm xác nhận Bảng kê lâm sản gồm những gì?",
@@ -1310,7 +1310,7 @@ const question_ChuRung = [
       "Phải nộp sổ đỏ bản gốc lưu giữ vĩnh viễn tại cơ quan Kiểm lâm"
     ],
     "correct": "Bản chính Đơn đề nghị xác nhận Bảng kê (Mẫu số 03), Bản chính Bảng kê lâm sản và Bản sao Phương án khai thác theo Mẫu số 08",
-    "explanation": "Căn cứ Khoản 6 Điều 5 Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT): Hồ sơ xác nhận gồm Đơn đề nghị xác nhận Bảng kê lâm sản (Mẫu số 03), Bảng kê lâm sản và Phương án khai thác (Mẫu số 08)."
+    "explanation": "Căn cứ Khoản 6 Điều 5 Thông tư số 26/2025/TT-BNNMT: Cây cảnh vườn nhà thuộc loài nguy cấp quý hiếm nộp hồ sơ gồm Đơn Mẫu 03, Bảng kê lâm sản và Phương án khai thác Mẫu 08."
   },
   {
     "question": "Người dân khi nộp hồ sơ đề nghị xác nhận Bảng kê lâm sản cho cây cảnh tại Cơ quan Kiểm lâm sở tại có phải nộp khoản tiền phí hay lệ phí nào không?",
@@ -1321,7 +1321,7 @@ const question_ChuRung = [
       "Tùy thuộc vào thỏa thuận miệng giữa người dân và cán bộ tiếp nhận hồ sơ"
     ],
     "correct": "Hoàn toàn KHÔNG thu phí; thủ tục xác nhận nguồn gốc lâm sản được cơ quan Kiểm lâm thực hiện miễn phí theo quy định",
-    "explanation": "Căn cứ Điều 5 Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT): Thủ tục xác nhận Bảng kê lâm sản tại cơ quan Kiểm lâm sở tại là thủ tục hành chính không thu phí, lệ phí của người dân."
+    "explanation": "Căn cứ Khoản 5 Điều 5 Thông tư số 26/2025/TT-BNNMT: Thủ tục xác nhận Bảng kê lâm sản tại cơ quan Kiểm lâm là dịch vụ hành chính công không thu phí, lệ phí của người dân."
   },
   {
     "question": "Tình huống: Anh M có 02 cây mai cổ thụ trồng lâu năm trên đất thổ cư muốn chở sang tỉnh khác bán. Anh M đến Hạt Kiểm lâm xin 'Giấy xác nhận nguồn gốc cây cảnh'. Cán bộ Kiểm lâm hướng dẫn thế nào là chuẩn xác?",
@@ -1332,7 +1332,7 @@ const question_ChuRung = [
       "Thu giữ luôn 02 cây mai của anh M để xác minh lai lịch nguồn gốc"
     ],
     "correct": "Giải thích pháp luật không có thủ tục cấp giấy này; hướng dẫn anh M tự lập Bảng kê lâm sản, nếu anh M tự nguyện đề nghị thì Kiểm lâm tiếp nhận xác nhận Bảng kê hoàn toàn miễn phí",
-    "explanation": "Căn cứ Điều 5 và Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Kiểm lâm hướng dẫn chủ cây tự lập Bảng kê lâm sản; tiếp nhận xác nhận Bảng kê tự nguyện hoàn toàn miễn phí."
+    "explanation": "Căn cứ Điều 5 và Điều 8 Thông tư số 26/2025/TT-BNNMT: Kiểm lâm hướng dẫn chủ cây tự lập Bảng kê lâm sản; tiếp nhận xác nhận Bảng kê tự nguyện hoàn toàn miễn phí."
   },
   {
     "question": "Tại sao khi xác định tính pháp lý và danh mục quản lý của một loài cây rừng, cây cảnh, căn cứ khoa học chính thức duy nhất bắt buộc phải sử dụng là gì?",
@@ -1343,7 +1343,7 @@ const question_ChuRung = [
       "Màu sắc của hoa và mùi thơm của quả khi chín"
     ],
     "correct": "Tên khoa học (tên Latinh) của loài; tên thông thường bằng tiếng Việt hoặc tiếng Anh chỉ có giá trị tham khảo",
-    "explanation": "Căn cứ Điều 4 Thông tư số 85/2025/TT-BNNMT và Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Tên khoa học (tên Latinh) là căn cứ pháp lý chính thức duy nhất xác định loài thực vật rừng, động vật rừng trong quản lý và truy xuất nguồn gốc."
+    "explanation": "Căn cứ Điều 4 Nghị định số 06/2019/NĐ-CP và Thông tư số 26/2025/TT-BNNMT: Tên khoa học (Latinh) là căn cứ pháp lý chính thức duy nhất xác định loài thực vật rừng quản lý."
   },
   {
     "question": "Người dân nhặt được một cá thể tê tê hoặc cu li bò vào vườn nhà thì cách xử lý nào sau đây thể hiện đúng tinh thần phóng sinh và đúng pháp luật?",
@@ -1354,7 +1354,7 @@ const question_ChuRung = [
       "Nhốt lại trong chuồng gà nuôi dưỡng làm cảnh cho con cháu xem"
     ],
     "correct": "Thông báo ngay cho Cơ quan Kiểm lâm sở tại hoặc Trung tâm cứu hộ động vật hoang dã để tiếp nhận, cứu hộ và tái thả đúng quy trình bảo tồn",
-    "explanation": "Căn cứ Điều 15 Thông tư số 85/2025/TT-BNNMT và Điều 9 Luật Lâm nghiệp năm 2017: Động vật quý hiếm đi lạc hoặc nhặt được phải giao nộp ngay cho cơ quan Kiểm lâm sở tại để tiếp nhận, cứu hộ, kiểm dịch và tái thả an toàn theo quy định."
+    "explanation": "Căn cứ Khoản 1 Điều 8 Nghị định số 06/2019/NĐ-CP: Động vật quý hiếm nhặt được phải bàn giao cho cơ quan Kiểm lâm để cứu hộ, kiểm dịch và tái thả an toàn theo quy định."
   },
   {
     "question": "Hành vi dùng lửa hun khói bắt tổ ong rừng vào mùa khô hanh tiềm ẩn nguy cơ pháp lý và xã hội nào?",
@@ -1365,7 +1365,7 @@ const question_ChuRung = [
       "Hoàn toàn vô hại vì khói thuốc làm ong ngủ say không gây cháy"
     ],
     "correct": "Vi phạm nghiêm trọng quy định PCCC rừng; tàn lửa rất dễ gây cháy lan rừng tự nhiên, người vi phạm bị phạt tiền hoặc phạt tù và bồi thường thiệt hại",
-    "explanation": "Căn cứ Điểm i Khoản 3 Điều 19 và Điều 20 Nghị định số 146/2026/NĐ-CP: Dùng lửa hun khói đốt tổ ong rừng mùa hanh khô là hành vi nguy hiểm bị nghiêm cấm, bị phạt tiền từ 3 - 5 triệu đồng và xử lý hình sự nếu gây cháy rừng."
+    "explanation": "Căn cứ Điều 16 Nghị định số 146/2026/NĐ-CP: Dùng lửa hun khói đốt tổ ong rừng mùa hanh khô là hành vi nguy hiểm bị nghiêm cấm, phạt tiền nặng hoặc xử lý hình sự nếu gây cháy rừng."
   },
   {
     "question": "Khi người dân làm nương rẫy thu dọn cỏ khô, tàn dư sau thu hoạch thì thời điểm nào trong ngày TUYỆT ĐỐI KHÔNG ĐƯỢC đốt dọn?",
@@ -1398,7 +1398,7 @@ const question_ChuRung = [
       "Chỉ bị tịch thu hoa lan, hành vi đốn hạ cây gỗ không bị xem xét"
     ],
     "correct": "Hành vi khai thác rừng và thực vật rừng trái pháp luật; bị xử phạt VPHC, tịch thu tang vật, phương tiện hoặc xử lý hình sự tùy theo mức độ thiệt hại",
-    "explanation": "Căn cứ Khoản 2 Điều 16 và Điều 24 Nghị định số 146/2026/NĐ-CP: Hành vi chặt hạ cây rừng tự nhiên để lấy phong lan cảnh cấu thành hành vi khai thác rừng tự nhiên và thực vật rừng trái pháp luật."
+    "explanation": "Căn cứ Điều 13 và Điều 15 Nghị định số 146/2026/NĐ-CP: Chặt cây rừng tự nhiên để lấy phong lan cảnh cấu thành hành vi khai thác rừng và thực vật rừng trái phép."
   },
   {
     "question": "Tình huống: Anh D đi xe máy qua bìa rừng thấy người ta vừa đốt vàng mã xong để lại đám tro than đang bốc khói dữ dội sắp bén vào đồi cỏ tranh. Anh D nên làm gì?",
@@ -1409,7 +1409,7 @@ const question_ChuRung = [
       "Ném thêm que củi vào xem lửa có cháy to thành bão lửa hay không"
     ],
     "correct": "Dừng xe, hô hoán người gần đó dùng cành cây, đất cát hoặc nước dập ngay đốm lửa, đồng thời gọi điện báo Kiểm lâm hoặc chính quyền địa phương",
-    "explanation": "Căn cứ Khoản 1 Điều 39 Luật Lâm nghiệp năm 2017 và Điều 51 Nghị định số 156/2018/NĐ-CP: Phát hiện đốm lửa, tàn than bốc khói gần bìa rừng, công dân có nghĩa vụ kịp thời dập lửa và báo tin khẩn cấp cho cơ quan chức năng hoặc chính quyền địa phương."
+    "explanation": "Căn cứ Khoản 2 Điều 53 Luật Lâm nghiệp năm 2017: Phát hiện tàn than bốc khói gần bìa rừng, công dân có nghĩa vụ kịp thời dập lửa và báo tin khẩn cấp cho cơ quan chức năng."
   },
   {
     "question": "Ý nghĩa nhân văn và đúng đắn nhất của việc 'phóng sinh' trong xã hội văn minh hiện nay là gì?",
