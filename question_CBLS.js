@@ -364,7 +364,7 @@ const question_CBLS = [
       "Yêu cầu đoàn kiểm tra phải nộp phí kiểm tra"
     ],
     "correct": "Xuất trình đầy đủ hồ sơ nguồn gốc lâm sản, sổ theo dõi và tạo điều kiện cho đoàn kiểm tra",
-    "explanation": "Căn cứ Điểm b, Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT) và Điều 103 Luật Lâm nghiệp năm 2017: Chủ cơ sở có nghĩa vụ xuất trình hồ sơ, Sổ theo dõi và chấp hành sự kiểm tra, truy xuất nguồn gốc lâm sản của cơ quan Kiểm lâm."
+    "explanation": "Căn cứ Điểm b, Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT) và Điểm c Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017: Cơ sở chế biến lâm sản có nghĩa vụ xuất trình hồ sơ, Sổ theo dõi và chấp hành sự quản lý, kiểm tra, thanh tra, truy xuất nguồn gốc lâm sản của cơ quan nhà nước có thẩm quyền."
   },
   {
     "question": "Biện pháp phòng cháy chữa cháy bắt buộc tại các xưởng cưa xẻ, chế biến gỗ là gì?",
@@ -375,7 +375,7 @@ const question_CBLS = [
       "Tích trữ nhiều can xăng cạnh đống mùn cưa"
     ],
     "correct": "Trang bị bình chữa cháy, bể nước cát, tiêu lệnh PCCC và dọn dẹp mùn cưa, dăm gỗ thường xuyên",
-    "explanation": "Căn cứ Điều 47 Nghị định số 156/2018/NĐ-CP và Luật Phòng cháy và chữa cháy: Cơ sở chế biến gỗ bắt buộc phải thực hiện các biện pháp an toàn PCCC, trang bị phương tiện, dụng cụ dập lửa và định kỳ dọn sạch mùn cưa, vật liệu dễ cháy."
+    "explanation": "Căn cứ Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và pháp luật về Phòng cháy và chữa cháy: Cơ sở chế biến gỗ có nghĩa vụ tuân thủ quy định an toàn PCCC, trang bị đầy đủ phương tiện, dụng cụ dập lửa và định kỳ dọn sạch mùn cưa, vật liệu dễ cháy."
   },
   {
     "question": "Mùn cưa, vỏ cây, phế liệu gỗ tại cơ sở chế biến phải được xử lý như thế nào để bảo vệ môi trường?",
@@ -397,7 +397,7 @@ const question_CBLS = [
       "Đem đi bán lại cho xưởng gỗ khác"
     ],
     "correct": "Từ chối thu mua và báo ngay cho cơ quan Kiểm lâm hoặc Công an sở tại để xử lý",
-    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Điều 26 Nghị định số 146/2026/NĐ-CP: Công dân, chủ cơ sở chế biến có quyền và nghĩa vụ tố giác hành vi khai thác, mua bán lâm sản trái pháp luật; việc cố tình thu mua gỗ lậu sẽ bị xử phạt về hành vi tàng trữ lâm sản trái pháp luật."
+    "explanation": "Căn cứ Khoản 6 Điều 9, Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và Điều 26 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm tàng trữ, mua bán, chế biến lâm sản trái pháp luật; cơ sở chế biến có nghĩa vụ tuân thủ quy định về hồ sơ lâm sản hợp pháp và kiểm tra nguồn gốc lâm sản. Cố tình thu mua gỗ lậu sẽ bị xử phạt hành chính và tịch thu toàn bộ lâm sản; khi phát hiện lâm sản trái phép, chủ xưởng phải từ chối thu mua và báo cho cơ quan chức năng xử lý."
   },
   {
     "question": "Chủ phương tiện vận tải có trách nhiệm gì trước khi nhận chở một chuyến gỗ trên đường?",
@@ -485,7 +485,7 @@ const question_CBLS = [
       "Chỉ cấm vào ban ngày"
     ],
     "correct": "Nghiêm cấm vì vi phạm khoảng cách an toàn PCCC, tiềm ẩn nguy cơ phát hỏa thiêu rụi xưởng gỗ",
-    "explanation": "Căn cứ Luật Phòng cháy và chữa cháy và Điều 47 Nghị định số 156/2018/NĐ-CP: Nghiêm cấm mang nguồn lửa, đun nấu hoặc thắp hương thờ cúng tùy tiện tại khu vực có vật liệu gỗ dễ cháy; vi phạm khoảng cách an toàn PCCC bị xử phạt vi phạm hành chính."
+    "explanation": "Căn cứ Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và pháp luật về Phòng cháy và chữa cháy: Cơ sở chế biến lâm sản có nghĩa vụ chấp hành nghiêm các điều kiện an toàn PCCC; nghiêm cấm mang nguồn lửa, đun nấu hoặc thắp hương thờ cúng tùy tiện tại khu vực có vật liệu gỗ dễ cháy gây nguy cơ hỏa hoạn."
   },
   {
     "question": "Đối với gỗ có nguồn gốc hợp pháp, việc đánh số hiệu lóng gỗ mang lại lợi ích gì cho chủ xưởng?",
@@ -595,7 +595,7 @@ const question_CBLS = [
       "Chỉ bị phạt bấm còi to"
     ],
     "correct": "Bị cưỡng chế ngăn chặn, xử phạt nặng về hành vi chống đối và tịch thu toàn bộ xe cùng lâm sản nếu vi phạm",
-    "explanation": "Căn cứ Điều 107 Luật Lâm nghiệp năm 2017, Nghị định số 146/2026/NĐ-CP và Điều 330 Bộ luật Hình sự: Kiểm lâm có thẩm quyền dừng phương tiện để kiểm tra lâm sản; hành vi không chấp hành hiệu lệnh dừng xe, cố tình bỏ chạy hoặc chống đối sẽ bị cưỡng chế, xử phạt nặng hoặc truy cứu trách nhiệm hình sự về tội Chống người thi hành công vụ."
+    "explanation": "Căn cứ Điểm b Khoản 2 Điều 104 Luật Lâm nghiệp năm 2017, Điểm d Khoản 5 Điều 16 Thông tư số 26/2025/TT-BNNMT, Nghị định số 146/2026/NĐ-CP và Điều 330 Bộ luật Hình sự: Kiểm lâm có thẩm quyền dừng phương tiện giao thông đang lưu thông để kiểm tra lâm sản khi có căn cứ theo quy định; người điều khiển phương tiện phải chấp hành hiệu lệnh. Hành vi cố tình tăng ga bỏ chạy hoặc chống đối sẽ bị áp dụng biện pháp ngăn chặn, xử phạt nặng hoặc truy cứu trách nhiệm hình sự về tội Chống người thi hành công vụ."
   },
   {
     "question": "Hành vi sử dụng con dấu giả hoặc làm giả Bảng kê lâm sản có xác nhận của Kiểm lâm bị xử lý thế nào?",
