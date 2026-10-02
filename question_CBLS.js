@@ -364,7 +364,7 @@ const question_CBLS = [
       "Yêu cầu đoàn kiểm tra phải nộp phí kiểm tra"
     ],
     "correct": "Xuất trình đầy đủ hồ sơ nguồn gốc lâm sản, sổ theo dõi và tạo điều kiện cho đoàn kiểm tra",
-    "explanation": "Căn cứ Điểm b, Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT) và Điểm c Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017: Cơ sở chế biến lâm sản có nghĩa vụ xuất trình hồ sơ, Sổ theo dõi và chấp hành sự quản lý, kiểm tra, thanh tra, truy xuất nguồn gốc lâm sản của cơ quan nhà nước có thẩm quyền."
+    "explanation": "Căn cứ Điểm b, Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT) và Điều 103 Luật Lâm nghiệp năm 2017: Chủ cơ sở có nghĩa vụ xuất trình hồ sơ, Sổ theo dõi và chấp hành sự kiểm tra, truy xuất nguồn gốc lâm sản của cơ quan Kiểm lâm."
   },
   {
     "question": "Biện pháp phòng cháy chữa cháy bắt buộc tại các xưởng cưa xẻ, chế biến gỗ là gì?",
@@ -375,7 +375,7 @@ const question_CBLS = [
       "Tích trữ nhiều can xăng cạnh đống mùn cưa"
     ],
     "correct": "Trang bị bình chữa cháy, bể nước cát, tiêu lệnh PCCC và dọn dẹp mùn cưa, dăm gỗ thường xuyên",
-    "explanation": "Căn cứ Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và pháp luật về Phòng cháy và chữa cháy: Cơ sở chế biến gỗ có nghĩa vụ tuân thủ quy định an toàn PCCC, trang bị đầy đủ phương tiện, dụng cụ dập lửa và định kỳ dọn sạch mùn cưa, vật liệu dễ cháy."
+    "explanation": "Căn cứ Điều 47 Nghị định số 156/2018/NĐ-CP và Luật Phòng cháy và chữa cháy: Cơ sở chế biến gỗ bắt buộc phải thực hiện các biện pháp an toàn PCCC, trang bị phương tiện, dụng cụ dập lửa và định kỳ dọn sạch mùn cưa, vật liệu dễ cháy."
   },
   {
     "question": "Mùn cưa, vỏ cây, phế liệu gỗ tại cơ sở chế biến phải được xử lý như thế nào để bảo vệ môi trường?",
@@ -397,7 +397,7 @@ const question_CBLS = [
       "Đem đi bán lại cho xưởng gỗ khác"
     ],
     "correct": "Từ chối thu mua và báo ngay cho cơ quan Kiểm lâm hoặc Công an sở tại để xử lý",
-    "explanation": "Căn cứ Khoản 6 Điều 9, Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và Điều 26 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm tàng trữ, mua bán, chế biến lâm sản trái pháp luật; cơ sở chế biến có nghĩa vụ tuân thủ quy định về hồ sơ lâm sản hợp pháp và kiểm tra nguồn gốc lâm sản. Cố tình thu mua gỗ lậu sẽ bị xử phạt hành chính và tịch thu toàn bộ lâm sản; khi phát hiện lâm sản trái phép, chủ xưởng phải từ chối thu mua và báo cho cơ quan chức năng xử lý."
+    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Điều 26 Nghị định số 146/2026/NĐ-CP: Công dân, chủ cơ sở chế biến có quyền và nghĩa vụ tố giác hành vi khai thác, mua bán lâm sản trái pháp luật; việc cố tình thu mua gỗ lậu sẽ bị xử phạt về hành vi tàng trữ lâm sản trái pháp luật."
   },
   {
     "question": "Chủ phương tiện vận tải có trách nhiệm gì trước khi nhận chở một chuyến gỗ trên đường?",
@@ -485,7 +485,7 @@ const question_CBLS = [
       "Chỉ cấm vào ban ngày"
     ],
     "correct": "Nghiêm cấm vì vi phạm khoảng cách an toàn PCCC, tiềm ẩn nguy cơ phát hỏa thiêu rụi xưởng gỗ",
-    "explanation": "Căn cứ Điểm a Khoản 2 Điều 68 Luật Lâm nghiệp năm 2017 và pháp luật về Phòng cháy và chữa cháy: Cơ sở chế biến lâm sản có nghĩa vụ chấp hành nghiêm các điều kiện an toàn PCCC; nghiêm cấm mang nguồn lửa, đun nấu hoặc thắp hương thờ cúng tùy tiện tại khu vực có vật liệu gỗ dễ cháy gây nguy cơ hỏa hoạn."
+    "explanation": "Căn cứ Luật Phòng cháy và chữa cháy và Điều 47 Nghị định số 156/2018/NĐ-CP: Nghiêm cấm mang nguồn lửa, đun nấu hoặc thắp hương thờ cúng tùy tiện tại khu vực có vật liệu gỗ dễ cháy; vi phạm khoảng cách an toàn PCCC bị xử phạt vi phạm hành chính."
   },
   {
     "question": "Đối với gỗ có nguồn gốc hợp pháp, việc đánh số hiệu lóng gỗ mang lại lợi ích gì cho chủ xưởng?",
@@ -586,17 +586,7 @@ const question_CBLS = [
     "correct": "Bị xử phạt vi phạm hành chính về hành vi vi phạm quy định về quản lý hồ sơ lâm sản",
     "explanation": "Điều 27 Nghị định 146/2026/NĐ-CP quy định xử phạt vi phạm hành chính đối với cơ sở chế biến, kinh doanh lâm sản không lập sổ theo dõi hoặc không ghi chép đầy đủ theo quy định."
   },
-  {
-    "question": "Lái xe cố tình tăng ga bỏ chạy, không chấp hành hiệu lệnh dừng xe kiểm tra lâm sản của Kiểm lâm thì bị xử lý thế nào?",
-    "options": [
-      "Được coi là tài xế có tay lái giỏi",
-      "Bị cưỡng chế ngăn chặn, xử phạt nặng về hành vi chống đối và tịch thu toàn bộ xe cùng lâm sản nếu vi phạm",
-      "Không bị xử phạt vì đường giao thông là của chung",
-      "Chỉ bị phạt bấm còi to"
-    ],
-    "correct": "Bị cưỡng chế ngăn chặn, xử phạt nặng về hành vi chống đối và tịch thu toàn bộ xe cùng lâm sản nếu vi phạm",
-    "explanation": "Căn cứ Điểm b Khoản 2 Điều 104 Luật Lâm nghiệp năm 2017, Điểm d Khoản 5 Điều 16 Thông tư số 26/2025/TT-BNNMT, Nghị định số 146/2026/NĐ-CP và Điều 330 Bộ luật Hình sự: Kiểm lâm có thẩm quyền dừng phương tiện giao thông đang lưu thông để kiểm tra lâm sản khi có căn cứ theo quy định; người điều khiển phương tiện phải chấp hành hiệu lệnh. Hành vi cố tình tăng ga bỏ chạy hoặc chống đối sẽ bị áp dụng biện pháp ngăn chặn, xử phạt nặng hoặc truy cứu trách nhiệm hình sự về tội Chống người thi hành công vụ."
-  },
+  
   {
     "question": "Hành vi sử dụng con dấu giả hoặc làm giả Bảng kê lâm sản có xác nhận của Kiểm lâm bị xử lý thế nào?",
     "options": [
@@ -612,11 +602,11 @@ const question_CBLS = [
     "question": "Chủ xưởng gỗ cố tình cưa xẻ gỗ vào ban đêm để che giấu hành vi chế biến gỗ lậu thì bị đánh giá thế nào?",
     "options": [
       "Là hành vi chăm chỉ tăng ca lao động",
-      "Là tình tiết vi phạm có tính chất lén lút, che giấu hành vi vi phạm, bị xử phạt ở khung kịch trần",
+      "Là tình tiết vi phạm có tính chất lén lút, che giấu hành vi vi phạm",
       "Được miễn các loại thuế đêm",
       "Không ai có quyền can thiệp ban đêm"
     ],
-    "correct": "Là tình tiết vi phạm có tính chất lén lút, che giấu hành vi vi phạm, bị xử phạt ở khung kịch trần",
+    "correct": "Là tình tiết vi phạm có tính chất lén lút, che giấu hành vi vi phạm",
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 10 Luật Xử lý vi phạm hành chính năm 2012 (sửa đổi, bổ sung 2020): Hành vi lén lút cưa xẻ gỗ lậu vào ban đêm là tình tiết tăng nặng (lẩn tránh, che giấu vi phạm) khi xem xét quyết định xử phạt."
   },
   {
@@ -634,12 +624,12 @@ const question_CBLS = [
     "question": "Chủ cơ sở chế biến cho người khác gửi gỗ lậu trong xưởng của mình thì có bị liên đới trách nhiệm không?",
     "options": [
       "Không bị sao vì gỗ của người khác gửi",
-      "Bị xử lý về hành vi tàng trữ lâm sản trái pháp luật với vai trò đồng phạm chứa chấp tang vật vi phạm",
+      "Bị xử lý về hành vi tàng trữ lâm sản trái pháp luật",
       "Được nhận tiền công giữ gỗ hợp pháp",
       "Chỉ bị phạt nếu để gỗ bị mối mọt"
     ],
-    "correct": "Bị xử lý về hành vi tàng trữ lâm sản trái pháp luật với vai trò đồng phạm chứa chấp tang vật vi phạm",
-    "explanation": "Căn cứ Khoản 1 Điều 26 Nghị định số 146/2026/NĐ-CP: Cho người khác gửi, chứa chấp lâm sản bất hợp pháp trong kho xưởng của mình cấu thành hành vi tàng trữ lâm sản trái pháp luật và bị xử phạt như người tàng trữ."
+    "correct": "Bị xử lý về hành vi tàng trữ lâm sản trái pháp luật",
+    "explanation": "Căn cứ Khoản 1 Điều 26 Nghị định số 146/2026/NĐ-CP."
   },
   {
     "question": "Mức phạt tiền thấp nhất đối với hành vi vận chuyển lâm sản trái pháp luật khởi điểm từ bao nhiêu?",
@@ -782,7 +772,7 @@ const question_CBLS = [
       "Chỉ cần giấy xác nhận của Hội Sinh vật cảnh là được coi là hồ sơ cây cổ thụ hợp pháp"
     ],
     "correct": "KHÔNG quy định riêng đối với 'cây cổ thụ'; việc chứng minh nguồn gốc căn cứ vào nguồn gốc hình thành thực tế của cây (rừng tự nhiên, rừng trồng, đất ngoài lâm nghiệp, công trình dự án)",
-    "explanation": "Căn cứ Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Cây cổ thụ ngoài đất lâm nghiệp quản lý theo quy định về cây phân tán; tính hợp pháp được xác lập qua Bảng kê lâm sản và chứng từ nguồn gốc đất."
+    "explanation": "Căn cứ Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Cây cổ thụ ngoài đất lâm nghiệp quản lý theo quy định về cây phân tán; tính hợp pháp được xác lập qua Bảng kê lâm sản và nguồn gốc đất."
   },
   {
     "question": "Trường hợp cây cổ thụ, cây bóng mát được di dời từ khu vực thực hiện dự án, công trình xây dựng thì hồ sơ chứng minh nguồn gốc hợp pháp gồm những gì theo Khoản 5 Điều 6 Thông tư 26/2025/TT-BNNMT?",
@@ -793,7 +783,7 @@ const question_CBLS = [
       "Giấy cam kết của tài xế xe cẩu chuyên dụng chở cây"
     ],
     "correct": "Quyết định hoặc văn bản của cơ quan có thẩm quyền về việc xử lý cây, kèm theo Bảng kê lâm sản và các hồ sơ liên quan khi thực hiện mua bán, vận chuyển",
-    "explanation": "Căn cứ Điểm a Khoản 5 Điều 6, Điều 8 và Điều 11 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Hồ sơ lâm sản di dời, khai thác tận dụng từ dự án công trình giải phóng mặt bằng gồm quyết định phê duyệt của cơ quan có thẩm quyền kèm Bảng kê lâm sản và chứng từ lưu thông theo quy định."
+    "explanation": "Căn cứ Điểm a Khoản 5 Điều 6, Điều 8 và Điều 11 Thông tư số 26/2025/TT-BNNMT: Hồ sơ lâm sản di dời, khai thác tận dụng từ dự án công trình giải phóng mặt bằng gồm quyết định phê duyệt của cơ quan có thẩm quyền kèm Bảng kê lâm sản và chứng từ lưu thông theo quy định."
   },
   {
     "question": "Trường hợp cây bứng dưỡng từ khu vực đất ngoài quy hoạch lâm nghiệp, công trình dân dụng đô thị (cây phân tán, loài thông thường) thì hồ sơ chứng minh nguồn gốc căn cứ theo điều khoản nào?",
@@ -804,7 +794,7 @@ const question_CBLS = [
       "Không cần bất kỳ hồ sơ nào vì cây nằm ngoài quy hoạch lâm nghiệp"
     ],
     "correct": "Bảng kê lâm sản do chủ sở hữu lập kèm tài liệu chứng minh quyền sử dụng đất hoặc nguồn gốc hình thành của cây",
-    "explanation": "Căn cứ Khoản 3 Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Cây bứng dưỡng từ đất ngoài quy hoạch lâm nghiệp có hồ sơ gồm Bảng kê lâm sản tự lập và tài liệu chứng minh quyền sử dụng đất hoặc nguồn gốc cây."
+    "explanation": "Căn cứ Khoản 3 Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT)"
   },
   {
     "question": "Cây cảnh cổ thụ mua bán, chuyển nhượng qua nhiều chủ sở hữu trong nước thì hồ sơ nguồn gốc hợp pháp được xác lập như thế nào?",
