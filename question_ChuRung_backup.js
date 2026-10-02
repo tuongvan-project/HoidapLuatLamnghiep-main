@@ -939,15 +939,15 @@ const question_ChuRung = [
     "explanation": "Căn cứ Điểm h Khoản 1 Điều 232 Bộ luật Hình sự: Khai thác trái phép gỗ Nhóm IA từ 0,5 m³ đến dưới 01 m³ tại rừng đặc dụng đã đủ yếu tố cấu thành tội phạm, bị phạt tiền từ 50.000.000 đồng đến 300.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm."
   },
   {
-    "question": "Săn bắt, bẫy bắt hoặc nuôi nhốt trái phép cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm ĐƯỢC ƯU TIÊN BẢO VỆ (như tê tê, voọc...) thì bị xử lý như thế nào theo Điều 244 BLHS?",
+    "question": "Săn bắt, bẫy bắt hoặc nuôi nhốt trái phép cá thể động vật thuộc loài nguy cấp, quý, hiếm Nhóm IB (như tê tê, voọc...) thì sao?",
     "options": [
-      "Chỉ cần từ 01 cá thể đã bị khởi tố hình sự phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
-      "Nuôi 01 cá thể làm cảnh trong nhà thì không bị xử lý hình sự",
-      "Chỉ bị phạt tiền 500.000 đồng nếu chưa đem bán ra thị trường",
-      "Được phép nuôi nhốt nếu xây dựng chuồng sắt kiên cố"
+      "Nuôi 1 con làm cảnh thì không sao",
+      "Chỉ cần từ 01 cá thể lớp thú Nhóm IB đã bị khởi tố hình sự phạt tù từ 01 năm đến 05 năm",
+      "Chỉ bị phạt tiền 500.000 đồng nếu chưa đem bán",
+      "Được phép nuôi nếu có chuồng sắt"
     ],
-    "correct": "Chỉ cần từ 01 cá thể đã bị khởi tố hình sự phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
-    "explanation": "Điểm a Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép từ 01 cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ thì bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm (đối với động vật lớp thú thuộc Nhóm IB không thuộc danh mục ưu tiên bảo vệ thì định lượng khởi tố hình sự phải từ 03 cá thể trở lên theo Điểm d Khoản 1 Điều 244)."
+    "correct": "Chỉ cần từ 01 cá thể lớp thú Nhóm IB đã bị khởi tố hình sự phạt tù từ 01 năm đến 05 năm",
+    "explanation": "Khoản 1 Điều 244 Bộ luật Hình sự quy định chỉ cần săn bắt, giết, nuôi nhốt từ 01 cá thể động vật thuộc lớp thú Nhóm IB hoặc Danh mục loài ưu tiên bảo vệ là cấu thành tội phạm hình sự rất nghiêm trọng."
   },
   {
     "question": "Người dân vận chuyển gỗ trái phép bằng xe máy hoặc xe ô tô tải thì phương tiện vận chuyển bị xử lý thế nào?",

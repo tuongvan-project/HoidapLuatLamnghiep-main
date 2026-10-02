@@ -149,13 +149,13 @@ const questions_KL = [
   {
     "question": "Để được cơ quan Kiểm lâm xếp loại Doanh nghiệp chế biến và xuất khẩu gỗ Nhóm I theo Nghị định 102/2020/NĐ-CP, doanh nghiệp phải đáp ứng tiêu chuẩn cốt lõi nào?",
     "options": [
-      "Tuân thủ đầy đủ quy định pháp luật trong hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
+      "Tuân thủ đầy đủ quy định pháp luật trong hoạt động tối thiểu 02 năm liên tục, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
       "Có vốn điều lệ đăng ký kinh doanh từ 50 tỷ đồng trở lên và sở hữu tối thiểu 03 nhà máy cưa xẻ gỗ",
       "Chỉ cần có hợp đồng xuất khẩu gỗ sang thị trường Hoa Kỳ hoặc Châu Âu trong năm hiện tại",
       "Đã được Ủy ban nhân dân cấp xã cấp giấy khen về công tác bảo vệ môi trường nông thôn"
     ],
-    "correct": "Tuân thủ đầy đủ quy định pháp luật trong hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
-    "explanation": "Điểm a Khoản 1 Điều 12 Nghị định số 102/2020/NĐ-CP (sửa đổi, bổ sung bởi Nghị định số 120/2024/NĐ-CP): Tiêu chí Doanh nghiệp Nhóm I là tuân thủ đầy đủ quy định pháp luật, hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập doanh nghiệp, vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ."
+    "correct": "Tuân thủ đầy đủ quy định pháp luật trong hoạt động tối thiểu 02 năm liên tục, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
+    "explanation": "Điều 12, 13 Nghị định 102/2020/NĐ-CP quy định tiêu chí Doanh nghiệp Nhóm I: Hoạt động tối thiểu 02 năm, tuân thủ pháp luật, thực hiện trách nhiệm giải trình nguồn gốc gỗ hợp pháp."
   },
   {
     "question": "Theo Nghị định 156/2018/NĐ-CP (sửa đổi bởi Nghị định 91/2024/NĐ-CP và Nghị định 42/2026/NĐ-CP), Phương án phòng cháy và chữa cháy rừng do chủ rừng là tổ chức lập phải gửi đến cơ quan nào để tham gia ý kiến?",
@@ -259,13 +259,13 @@ const questions_KL = [
   {
     "question": "Thời hiệu xử phạt vi phạm hành chính đối với các hành vi vi phạm trong lĩnh vực lâm nghiệp được quy định như thế nào?",
     "options": [
-      "Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm đối với mọi hành vi vi phạm",
-      "Thời hiệu là 01 năm đối với mọi hành vi vi phạm hành chính trong lâm nghiệp",
-      "Thời hiệu là 06 tháng kể từ ngày lập biên bản vi phạm hành chính",
-      "Thời hiệu là 05 năm đối với hành vi phá rừng tự nhiên"
+      "Thời hiệu là 01 năm; riêng hành vi phá rừng, khai thác rừng, tàng trữ, buôn bán lâm sản trái phép qua biên giới thời hiệu là 02 năm",
+      "Thời hiệu là 06 tháng đối với mọi hành vi vi phạm hành chính trong lâm nghiệp",
+      "Thời hiệu là 05 năm kể từ ngày chấm dứt hành vi vi phạm",
+      "Không áp dụng thời hiệu xử phạt vi phạm hành chính đối với rừng tự nhiên"
     ],
-    "correct": "Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm đối với mọi hành vi vi phạm",
-    "explanation": "Khoản 1 Điều 5 Nghị định số 146/2026/NĐ-CP và Điểm a Khoản 1 Điều 6 Luật Xử lý vi phạm hành chính (sửa đổi, bổ sung năm 2020): Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm."
+    "correct": "Thời hiệu là 01 năm; riêng hành vi phá rừng, khai thác rừng, tàng trữ, buôn bán lâm sản trái phép qua biên giới thời hiệu là 02 năm",
+    "explanation": "Điều 6 Luật Xử lý vi phạm hành chính và Điều 5 Nghị định số 146/2026/NĐ-CP: Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 01 năm; riêng các hành vi vi phạm về quản lý rừng, phát triển rừng, sử dụng rừng, bảo vệ rừng, lâm sản thì thời hiệu xử phạt là 02 năm."
   },
   {
     "question": "Hành vi khai thác gỗ rừng tự nhiên vượt quá 10% chỉ tiêu sản lượng ghi trong Giấy phép khai thác hợp pháp bị xử lý về hành vi nào?",
@@ -501,13 +501,13 @@ const questions_KL = [
   {
     "question": "Hành vi săn bắt, nuôi nhốt trái phép cá thể động vật thuộc lớp thú thuộc Danh mục Nhóm IB từ bao nhiêu cá thể thì bị khởi tố theo Điều 244 BLHS?",
     "options": [
-      "Từ 03 cá thể trở lên",
       "Từ 01 cá thể trở lên",
+      "Từ 03 cá thể trở lên",
       "Từ 05 cá thể trở lên",
       "Từ 10 cá thể trở lên"
     ],
-    "correct": "Từ 03 cá thể trở lên",
-    "explanation": "Điểm d Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục Nhóm IB (không thuộc loài ưu tiên bảo vệ) với số lượng từ 03 cá thể đến 07 cá thể lớp thú thì bị truy cứu trách nhiệm hình sự (mức từ 01 cá thể áp dụng đối với loài thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ theo Điểm a Khoản 1 Điều 244)."
+    "correct": "Từ 01 cá thể trở lên",
+    "explanation": "Điểm a Khoản 1 Điều 244 Bộ luật Hình sự quy định săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép từ 01 cá thể đến 04 cá thể động vật lớp thú thuộc loài nguy cấp, quý, hiếm thì bị truy cứu TNHS."
   },
   {
     "question": "Theo Bộ luật Tố tụng hình sự, cơ quan Kiểm lâm có thẩm quyền khởi tố vụ án hình sự trong trường hợp nào?",
