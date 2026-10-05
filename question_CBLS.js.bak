@@ -1,8 +1,6 @@
 /**
- * BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT LÂM NGHIỆP - GÓI 3: KINH DOANH, CHẾ BIẾN LÂM SẢN (92 CÂU)
+ * BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT LÂM NGHIỆP - GÓI 3: KINH DOANH, CHẾ BIẾN LÂM SẢN (85 CÂU)
  * Đã chuẩn hóa: Loại bỏ điều khoản trong options, bổ sung 100% căn cứ pháp lý trong explanation
- * Cập nhật chuẩn xác theo Thông tư 26/2025/TT-BNNMT (sửa đổi bởi TT 84/2025/TT-BNNMT, VBHN 04/VBHN-BNNMT),
- * Nghị định số 146/2026/NĐ-CP và Nghị định số 102/2020/NĐ-CP (sửa đổi bởi NĐ 120/2024/NĐ-CP).
  */
 const question_CBLS = [
   {
@@ -588,6 +586,7 @@ const question_CBLS = [
     "correct": "Bị xử phạt vi phạm hành chính về hành vi vi phạm quy định về quản lý hồ sơ lâm sản",
     "explanation": "Điều 27 Nghị định 146/2026/NĐ-CP quy định xử phạt vi phạm hành chính đối với cơ sở chế biến, kinh doanh lâm sản không lập sổ theo dõi hoặc không ghi chép đầy đủ theo quy định."
   },
+  
   {
     "question": "Hành vi sử dụng con dấu giả hoặc làm giả Bảng kê lâm sản có xác nhận của Kiểm lâm bị xử lý thế nào?",
     "options": [
@@ -677,26 +676,26 @@ const question_CBLS = [
     "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015: Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 20 m³ đến dưới 40 m³ gỗ thực vật rừng thông thường bị truy cứu trách nhiệm hình sự với khung hình phạt tù từ 06 tháng đến 03 năm; điều luật không phân biệt nguồn gốc rừng tự nhiên hay rừng trồng đối với hành vi tàng trữ, vận chuyển, mua bán."
   },
   {
-    "question": "Theo Nghị định số 146/2026/NĐ-CP, chủ cơ sở chế biến, mua bán lâm sản có hành vi không lập sổ theo dõi hoặc lập sổ không đúng mẫu; không ghi chép hoặc ghi chép không đầy đủ, không đúng thực tế vào sổ nhập, xuất lâm sản thì bị phạt tiền ở khung mức nào?",
+    "question": "Tàng trữ, buôn bán trái phép gỗ quý hiếm Nhóm IA từ khối lượng bao nhiêu m3 thì bị phạt tù theo Điều 232 BLHS?",
     "options": [
-      "Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng",
-      "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng",
-      "Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng",
-      "Phạt tiền từ 1.000.000 đồng đến 5.000.000 đồng"
+      "Từ 1,5 m3 trở lên đã bị truy cứu trách nhiệm hình sự",
+      "Từ 10 m3 trở lên",
+      "Từ 20 m3 trở lên",
+      "Chỉ phạt tù khi buôn bán trên 50 m3"
     ],
-    "correct": "Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng",
-    "explanation": "Căn cứ Điểm a Khoản 2 Điều 27 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng đối với hành vi chủ cơ sở chế biến, mua bán lâm sản không lập sổ theo dõi hoặc lập sổ theo dõi không đúng mẫu theo quy định; không ghi chép hoặc ghi chép không đầy đủ, không đúng thực tế vào sổ nhập, xuất lâm sản."
+    "correct": "Từ 1,5 m3 trở lên đã bị truy cứu trách nhiệm hình sự",
+    "explanation": "Điểm k Khoản 1 Điều 232 Bộ luật Hình sự quy định hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 1,5 m3 đến dưới 03 m3 gỗ thuộc Danh mục Nhóm IA đã cấu thành tội phạm hình sự phạt tù."
   },
   {
-    "question": "Theo Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017), hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép gỗ thuộc Danh mục thực vật rừng, động vật rừng nguy cấp, quý, hiếm Nhóm IIA với khối lượng tối thiểu bao nhiêu thì bị truy cứu trách nhiệm hình sự (Điều 232)?",
+    "question": "Khung hình phạt tù tối đa đối với tội vi phạm quy định về khai thác, bảo vệ rừng và lâm sản (Điều 232 BLHS) là bao lâu?",
     "options": [
-      "Từ 10 mét khối (m³) trở lên",
-      "Từ 1,5 mét khối (m³) trở lên",
-      "Từ 20 mét khối (m³) trở lên",
-      "Từ 2,5 mét khối (m³) trở lên"
+      "Tối đa 01 năm tù",
+      "Tối đa 03 năm tù",
+      "Tối đa đến 10 năm tù giam",
+      "Tối đa 6 tháng tù treo"
     ],
-    "correct": "Từ 10 mét khối (m³) trở lên",
-    "explanation": "Căn cứ Điểm k Khoản 1 Điều 232 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung 2017): Hành vi tàng trữ, vận chuyển, chế biến hoặc mua bán trái phép từ 10 m³ đến dưới 20 m³ gỗ thuộc Danh mục loài nguy cấp, quý, hiếm Nhóm IIA bị truy cứu trách nhiệm hình sự với khung phạt tiền từ 50 đến 300 triệu đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm."
+    "correct": "Tối đa đến 10 năm tù giam",
+    "explanation": "Căn cứ Khoản 3 Điều 232 Bộ luật Hình sự năm 2015: Khung hình phạt tù cao nhất đối với cá nhân phạm tội vi phạm quy định về khai thác, bảo vệ rừng và lâm sản (trường hợp phạm tội có tổ chức, khối lượng rất lớn hoặc tái phạm nguy hiểm...) là phạt tù từ 05 năm đến 10 năm."
   },
   {
     "question": "Ngoài phạt tiền và tịch thu gỗ, cơ sở chế biến gỗ lậu còn có thể bị áp dụng hình thức phạt bổ sung nào?",
@@ -875,15 +874,15 @@ const question_CBLS = [
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Cơ sở kinh doanh phải lập Sổ theo dõi nhập, xuất lâm sản (Mẫu số 04), cập nhật đầy đủ, kịp thời và xuất trình khi có yêu cầu kiểm tra."
   },
   {
-    "question": "Theo Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT), trường hợp cần xác minh nguồn gốc lâm sản trước khi xác nhận Bảng kê lâm sản mà vụ việc có nhiều nội dung phức tạp thì thời hạn xác minh và xác nhận tối đa là bao lâu?",
+    "question": "Trách nhiệm của chủ lâm sản về tính chính xác của hồ sơ lâm sản được quy định như thế nào tại Khoản 7 Điều 32 Thông tư 26/2025/TT-BNNMT?",
     "options": [
-      "Không quá 03 ngày làm việc kể từ ngày thông báo",
-      "Không quá 02 ngày làm việc kể từ ngày thông báo",
-      "Không quá 05 ngày làm việc kể từ ngày tiếp nhận hồ sơ",
-      "Không quá 10 ngày làm việc kể từ ngày nhận đủ hồ sơ hợp lệ"
+      "Chủ lâm sản phải lưu giữ đầy đủ hồ sơ, chịu trách nhiệm trước pháp luật về tính chính xác của hồ sơ và chấp hành quy định kiểm tra, truy xuất của cơ quan chức năng",
+      "Chủ lâm sản không chịu trách nhiệm nếu hàng hóa đã rời khỏi cổng xưởng",
+      "Mọi sai sót trong hồ sơ đều do cơ quan Kiểm lâm tự gánh chịu trách nhiệm",
+      "Chỉ chịu trách nhiệm nếu lâm sản là gỗ rừng tự nhiên quý hiếm"
     ],
-    "correct": "Không quá 03 ngày làm việc kể từ ngày thông báo",
-    "explanation": "Căn cứ Điểm c Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Khi cần xác minh nguồn gốc lâm sản, Kiểm lâm tiến hành xác minh trong thời hạn 02 ngày làm việc kể từ ngày thông báo; trường hợp có nhiều nội dung phức tạp, việc xác minh và xác nhận được thực hiện không quá 03 ngày làm việc."
+    "correct": "Chủ lâm sản phải lưu giữ đầy đủ hồ sơ, chịu trách nhiệm trước pháp luật về tính chính xác của hồ sơ và chấp hành quy định kiểm tra, truy xuất của cơ quan chức năng",
+    "explanation": "Căn cứ Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT): Chủ lâm sản chịu trách nhiệm toàn diện trước pháp luật về tính chính xác, trung thực của hồ sơ lâm sản."
   },
   {
     "question": "Hành vi đào trộm cây gỗ cổ thụ, cây cảnh trên núi đá thuộc rừng phòng hộ, rừng đặc dụng đem về bán cho các khu nghỉ dưỡng bị xử lý như thế nào?",
@@ -908,28 +907,6 @@ const question_CBLS = [
     "explanation": "Căn cứ Điểm b Khoản 5 Điều 27 Nghị định số 102/2020/NĐ-CP (được sửa đổi bởi Nghị định 120/2024/NĐ-CP) và Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Chủ cơ sở chế biến, kinh doanh có trách nhiệm lưu giữ đầy đủ hồ sơ lâm sản trong thời hạn 05 năm kể từ ngày xuất bán gỗ."
   },
   {
-    "question": "Theo Nghị định số 102/2020/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 120/2024/NĐ-CP), doanh nghiệp chế biến, xuất khẩu gỗ phải đáp ứng tiêu chí hoạt động liên tục trong thời gian tối thiểu bao lâu kể từ ngày đăng ký thành lập để được xem xét phân loại là Doanh nghiệp Nhóm I?",
-    "options": [
-      "Ít nhất 01 năm kể từ ngày đăng ký thành lập doanh nghiệp",
-      "Ít nhất 02 năm kể từ ngày đăng ký thành lập doanh nghiệp",
-      "Ít nhất 06 tháng kể từ ngày bắt đầu hoạt động sản xuất kinh doanh",
-      "Ít nhất 03 năm kể từ ngày được cấp mã số thuế doanh nghiệp"
-    ],
-    "correct": "Ít nhất 01 năm kể từ ngày đăng ký thành lập doanh nghiệp",
-    "explanation": "Căn cứ Điểm a Khoản 1 Điều 12 Nghị định số 102/2020/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 120/2024/NĐ-CP và Nghị định số 42/2026/NĐ-CP): Doanh nghiệp Nhóm I là doanh nghiệp tuân thủ đầy đủ quy định của pháp luật trong việc thành lập và hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập doanh nghiệp, tuân thủ quy định bảo đảm gỗ hợp pháp và chế độ báo cáo, lưu giữ hồ sơ."
-  },
-  {
-    "question": "Tình huống: Nghệ nhân K mua một gốc cây gỗ lũa từ người đi rừng về đục tượng bán 80 triệu đồng. Khi vận chuyển đi giao cho khách, anh K bị Kiểm lâm kiểm tra. Để chuyến hàng hợp pháp, anh K cần xuất trình gì?",
-    "options": [
-      "Hóa đơn bán hàng hoặc chứng từ hợp pháp kèm Bảng kê lâm sản do anh K tự lập khi lưu thông sản phẩm gỗ",
-      "Chỉ cần bản vẽ thiết kế tác phẩm mỹ nghệ của anh K",
-      "Giấy chứng nhận danh hiệu nghệ nhân làng nghề",
-      "Không cần giấy tờ gì vì gỗ lũa đã được đục thành tác phẩm nghệ thuật"
-    ],
-    "correct": "Hóa đơn bán hàng hoặc chứng từ hợp pháp kèm Bảng kê lâm sản do anh K tự lập khi lưu thông sản phẩm gỗ",
-    "explanation": "Căn cứ Khoản 4 Điều 5 và Điều 11 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Sản phẩm gỗ mỹ nghệ hoàn chỉnh không phải xác nhận Bảng kê lâm sản; khi lưu thông nội địa cần hóa đơn hoặc chứng từ bán hàng hợp pháp kèm Bảng kê lâm sản do chủ hàng tự lập."
-  },
-  {
     "question": "Theo Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT), thời gian chốt số liệu báo cáo định kỳ hằng năm về tình hình nhập, xuất lâm sản của tổ chức, hộ kinh doanh gửi cơ quan Kiểm lâm sở tại được tính như thế nào?",
     "options": [
       "Tính từ ngày 15 tháng 12 năm trước kỳ báo cáo đến ngày 14 tháng 12 của kỳ báo cáo",
@@ -941,80 +918,14 @@ const question_CBLS = [
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Tổ chức, hộ kinh doanh báo cáo tình hình nhập, xuất lâm sản cho cơ quan Kiểm lâm sở tại theo Mẫu số 29 Phụ lục II định kỳ hằng năm trước ngày 15 tháng 01. Thời gian chốt số liệu báo cáo được tính từ ngày 15 tháng 12 năm trước kỳ báo cáo đến ngày 14 tháng 12 của kỳ báo cáo (trừ trường hợp đã cập nhật trên hệ thống quản lý, truy xuất nguồn gốc lâm sản điện tử)."
   },
   {
-    "question": "Tình huống: Ông A khai thác vườn keo sản xuất do gia đình tự trồng, có các lóng gỗ đã cắt khúc dài từ 1 mét trở lên. Theo Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi TT 84/2025/TT-BNNMT), những lóng gỗ keo có đường kính đầu nhỏ từ bao nhiêu centimét (cm) trở lên thì được xác định là gỗ tròn?",
+    "question": "Tình huống: Nghệ nhân K mua một gốc cây gỗ lũa từ người đi rừng về đục tượng bán 80 triệu đồng. Khi vận chuyển đi giao cho khách, anh K bị Kiểm lâm kiểm tra. Để chuyến hàng hợp pháp, anh K cần xuất trình gì?",
     "options": [
-      "Từ 06 cm trở lên",
-      "Từ 10 cm trở lên",
-      "Từ 20 cm trở lên",
-      "Từ 05 cm trở lên"
+      "Hóa đơn bán hàng hoặc chứng từ hợp pháp kèm Bảng kê lâm sản do anh K tự lập khi lưu thông sản phẩm gỗ",
+      "Chỉ cần bản vẽ thiết kế tác phẩm mỹ nghệ của anh K",
+      "Giấy chứng nhận danh hiệu nghệ nhân làng nghề",
+      "Không cần giấy tờ gì vì gỗ lũa đã được đục thành tác phẩm nghệ thuật"
     ],
-    "correct": "Từ 06 cm trở lên",
-    "explanation": "Căn cứ Điểm c Khoản 2 Điều 3 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Gỗ tròn là gỗ nguyên khai, còn nguyên hình dạng sau khai thác chưa cắt khúc hoặc đã cắt khúc, gỗ bóc vỏ, gỗ lóc lõi có kích thước: 'Gỗ rừng trồng, rừng tràm, rừng ngập mặn có đường kính đầu nhỏ từ 06 cm trở lên và chiều dài từ 01 m trở lên'."
-  },
-  {
-    "question": "Tình huống: Hộ gia đình bà B tận thu gốc, rễ cây keo và cành ngọn sau khai thác rừng trồng của gia đình để bán cho xưởng băm dăm. Do gỗ có hình thù phức tạp, không đo được kích thước nên bà B cân được 3.000 kg. Theo Thông tư số 26/2025/TT-BNNMT, khối lượng này được quy đổi tương đương bằng bao nhiêu mét khối (m³) gỗ tròn?",
-    "options": [
-      "Quy đổi bằng 03 m³ gỗ tròn (1.000 kg bằng 01 m³ gỗ tròn)",
-      "Quy đổi bằng 2,1 m³ gỗ tròn (áp dụng hệ số quy đổi 0,7)",
-      "Quy đổi bằng 1,5 m³ gỗ tròn (áp dụng tỷ lệ 2.000 kg bằng 01 m³)",
-      "Không được quy đổi sang mét khối mà bắt buộc chỉ ghi đơn vị kg"
-    ],
-    "correct": "Quy đổi bằng 03 m³ gỗ tròn (1.000 kg bằng 01 m³ gỗ tròn)",
-    "explanation": "Căn cứ Khoản 3 Điều 4 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Đối với gỗ gốc, rễ; gỗ có hình thù phức tạp, không đồng nhất; gỗ không thể đo được kích thước thì thực hiện cân, đơn vị tính là kilôgam (kg) hoặc tính theo ster; quy đổi 1000 kg bằng 01 m³ gỗ tròn hoặc quy đổi 01 ster bằng 0,7 m³ gỗ tròn."
-  },
-  {
-    "question": "Tình huống: Anh C là chủ xưởng mộc gia đình cưa xẻ gỗ hộp loài thông thường để bán cho người dân làm nhà. Theo Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi TT 84/2025/TT-BNNMT), hộp gỗ xẻ có kích thước như thế nào thì anh C bắt buộc phải đánh số hiệu gỗ bằng sơn vào mặt cắt ngang hai đầu hộp gỗ?",
-    "options": [
-      "Chiều dài từ 01 m trở lên, chiều rộng từ 20 cm trở lên và chiều dày từ 05 cm trở lên",
-      "Chiều dài từ 02 m trở lên, chiều rộng từ 30 cm trở lên và chiều dày từ 10 cm trở lên",
-      "Bắt buộc đánh số hiệu đối với mọi kích thước gỗ xẻ không phân biệt lớn nhỏ",
-      "Chỉ bắt buộc đánh số hiệu đối với gỗ hộp có chiều dài từ 03 m trở lên"
-    ],
-    "correct": "Chiều dài từ 01 m trở lên, chiều rộng từ 20 cm trở lên và chiều dày từ 05 cm trở lên",
-    "explanation": "Căn cứ Khoản 7 Điều 4 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Chủ lâm sản hoặc cơ quan chức năng phải thực hiện đánh số hiệu đầu lóng, khúc, hộp, thanh, tấm gỗ đối với gỗ xẻ, gỗ đẽo có chiều dài từ 1 m trở lên, chiều rộng từ 20 cm trở lên, chiều dày từ 5 cm trở lên; số hiệu gỗ đánh bằng chữ Ả Rập, được ghi vào mặt cắt ngang hai đầu lóng gỗ, hộp gỗ và sử dụng sơn có màu sắc khác với màu của gỗ."
-  },
-  {
-    "question": "Tình huống: Ông D khai thác xong vườn cây keo do gia đình tự đầu tư và chuẩn bị bốc xếp lên xe ô tô tải xuất bán toàn bộ cho một xưởng chế biến trong một chuyến hàng. Theo Thông tư số 26/2025/TT-BNNMT, ông D phải lập Bảng kê lâm sản khi nào và theo mẫu số mấy?",
-    "options": [
-      "Lập khi bán, chuyển giao quyền sở hữu, vận chuyển lâm sản trong cùng một lần theo Mẫu số 01 Phụ lục II",
-      "Chỉ lập sau khi xưởng chế biến đã cân và thanh toán xong toàn bộ tiền gỗ",
-      "Lập theo Mẫu số 02 Phụ lục II áp dụng cho mọi trường hợp gỗ rừng trồng",
-      "Không cần lập Bảng kê nếu đã có hợp đồng mua bán viết tay giữa hai bên"
-    ],
-    "correct": "Lập khi bán, chuyển giao quyền sở hữu, vận chuyển lâm sản trong cùng một lần theo Mẫu số 01 Phụ lục II",
-    "explanation": "Căn cứ Điểm b Khoản 1 và Khoản 2 Điều 5 Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Chủ lâm sản lập Bảng kê lâm sản khi bán, chuyển giao quyền sở hữu, vận chuyển lâm sản trong cùng một lần theo Mẫu số 01 Phụ lục II ban hành kèm theo Thông tư này."
-  },
-  {
-    "question": "Tình huống: Hộ gia đình ông M chặt hạ một số cây xoan đào và mít trong vườn nhà do gia đình tự trồng để xuất bán cho thợ mộc đóng đồ gia dụng. Theo Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi TT 84/2025/TT-BNNMT), hồ sơ lâm sản hợp pháp do gia đình ông M lập giao cho người mua gồm tài liệu gì?",
-    "options": [
-      "Bản chính Bảng kê lâm sản do ông M tự lập (hoặc có xác nhận của Kiểm lâm nếu ông M đề nghị)",
-      "Bắt buộc phải có Giấy phép khai thác gỗ vườn nhà do Ủy ban nhân dân cấp xã cấp",
-      "Bắt buộc phải có Biên bản kiểm tra thực địa và phê duyệt của Hạt Kiểm lâm trước khi chặt",
-      "Chỉ cần giấy viết tay biên nhận tiền giữa ông M và người mua không cần lập Bảng kê"
-    ],
-    "correct": "Bản chính Bảng kê lâm sản do ông M tự lập (hoặc có xác nhận của Kiểm lâm nếu ông M đề nghị)",
-    "explanation": "Căn cứ Khoản 3 Điều 8 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Gỗ loài thông thường khai thác từ rừng sản xuất là rừng trồng, gỗ có tên trùng với cây gỗ rừng tự nhiên, cây trồng phân tán, cây vườn nhà do tổ chức, cá nhân, hộ gia đình tự đầu tư: bản chính Bảng kê lâm sản do chủ lâm sản lập hoặc bản chính Bảng kê lâm sản có xác nhận của cơ quan Kiểm lâm sở tại đối với trường hợp chủ lâm sản đề nghị xác nhận."
-  },
-  {
-    "question": "Tình huống: Gia đình anh P khai thác gỗ rừng trồng sản xuất của mình, sau đó tự dùng xe ô tô tải gia đình chở gỗ từ đồi rừng về tập kết tại bãi gỗ cạnh nhà trong cùng một lần và cùng một phương tiện. Theo Thông tư số 26/2025/TT-BNNMT, hồ sơ lâm sản đi đường thực hiện như thế nào?",
-    "options": [
-      "Thực hiện theo quy định tại Điều 8 Thông tư này (mang theo bản chính Bảng kê lâm sản do anh P tự lập)",
-      "Bắt buộc phải xin Giấy phép vận chuyển đặc biệt của cơ quan Kiểm lâm sở tại trước khi chuyển",
-      "Bắt buộc phải có hóa đơn giá trị gia tăng kèm theo ngay từ khi chở ra khỏi đồi rừng",
-      "Không cần mang theo bất kỳ giấy tờ gì và không bị giới hạn số lần, phương tiện vận chuyển"
-    ],
-    "correct": "Thực hiện theo quy định tại Điều 8 Thông tư này (mang theo bản chính Bảng kê lâm sản do anh P tự lập)",
-    "explanation": "Căn cứ Khoản 3 Điều 11 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Đối với lâm sản sau khai thác do chủ lâm sản vận chuyển về kho, bãi trong cùng một lần và cùng một phương tiện: thực hiện theo quy định tại Điều 8 Thông tư này (bản chính Bảng kê lâm sản do chủ lâm sản lập)."
-  },
-  {
-    "question": "Tình huống: Hộ kinh doanh xưởng mộc của ông T thu mua gỗ keo tròn từ các hộ dân trồng rừng trong huyện về xẻ làm cốt pha và đóng đồ mộc dân dụng. Theo Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi TT 84/2025/TT-BNNMT), hồ sơ lâm sản bắt buộc phải có và lưu giữ tại cơ sở chế biến của ông T gồm những gì?",
-    "options": [
-      "Bản chính Bảng kê lâm sản của người bán giao, Sổ theo dõi nhập xuất lâm sản (Mẫu số 04) và bản sao hồ sơ khi xuất bán",
-      "Chỉ cần lưu giữ chứng từ thanh toán tiền mặt qua ngân hàng giữa bên mua và bên bán",
-      "Chỉ cần lưu Sổ nhật ký chi tiêu gia đình và hóa đơn tiền điện sản xuất của xưởng mộc",
-      "Không phải lưu giữ hồ sơ hay sổ sách nếu chỉ cưa xẻ gỗ cho người dân trong cùng xã"
-    ],
-    "correct": "Bản chính Bảng kê lâm sản của người bán giao, Sổ theo dõi nhập xuất lâm sản (Mẫu số 04) và bản sao hồ sơ khi xuất bán",
-    "explanation": "Căn cứ Điểm b, Điểm c và Điểm d Khoản 1 Điều 13 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Hồ sơ lâm sản tại cơ sở chế biến, kinh doanh gồm: Bản chính Bảng kê lâm sản và bản sao hồ sơ lâm sản chuyển giao quyền sở hữu từ tổ chức, cá nhân liền kề trước đó; Bản sao hồ sơ lâm sản khi xuất bán; Sổ theo dõi nhập, xuất lâm sản đối với tổ chức, hộ kinh doanh theo Mẫu số 04 Phụ lục II."
+    "correct": "Hóa đơn bán hàng hoặc chứng từ hợp pháp kèm Bảng kê lâm sản do anh K tự lập khi lưu thông sản phẩm gỗ",
+    "explanation": "Căn cứ Khoản 4 Điều 5 và Điều 11 Thông tư số 26/2025/TT-BNNMT (hợp nhất tại VBHN số 04/VBHN-BNNMT): Sản phẩm gỗ mỹ nghệ hoàn chỉnh không phải xác nhận Bảng kê lâm sản; khi lưu thông nội địa cần hóa đơn hoặc chứng từ bán hàng hợp pháp kèm Bảng kê lâm sản do chủ hàng tự lập."
   }
 ];
