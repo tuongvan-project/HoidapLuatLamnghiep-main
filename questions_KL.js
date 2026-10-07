@@ -1,6 +1,6 @@
 /**
- * BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT VÀ NGHIỆP VỤ KIỂM LÂM (100 CÂU)
- * Đã chuẩn hóa: Loại bỏ điều khoản trong options, bổ sung 100% căn cứ pháp lý trong explanation
+ * BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT VÀ NGHIỆP VỤ KIỂM LÂM (115 CÂU)
+ * Đã chuẩn hóa: Cập nhật 100% căn cứ pháp lý theo kho QPPL hiện hành (loại bỏ NĐ 06/2019/NĐ-CP đã hết hiệu lực, thay thế bằng TT 85/2025/TT-BNNMT; bổ sung NĐ 58/2024/NĐ-CP và NĐ 42/2026/NĐ-CP)
  */
 const questions_KL = [
   {
@@ -89,7 +89,7 @@ const questions_KL = [
       "Trong thời hạn 07 ngày làm việc để hoàn thiện chứng cứ"
     ],
     "correct": "Trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính",
-    "explanation": "Khoản 4 Điều 12 Nghị định số 118/2021/NĐ-CP: Trường hợp vượt thẩm quyền, việc chuyển biên bản vi phạm hành chính và các tài liệu khác cho người có thẩm quyền xử phạt phải được thực hiện trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản (vùng sâu, xa không quá 03 ngày làm việc)."
+    "explanation": "Điểm a Khoản 9 Điều 12 Nghị định số 118/2021/NĐ-CP: Việc chuyển biên bản vi phạm hành chính và các tài liệu khác cho người có thẩm quyền để xử phạt phải được thực hiện trong thời hạn 02 ngày làm việc, kể từ ngày lập biên bản (trường hợp biên bản được lập tại vùng sâu, vùng xa, biên giới, miền núi, hải đảo mà việc đi lại gặp khó khăn thì thời hạn chuyển không quá 05 ngày làm việc)."
   },
   {
     "question": "Theo Điều 164 Bộ luật Tố tụng hình sự, khi phát hiện tội phạm lâm nghiệp quả tang thuộc tội ít nghiêm trọng, Hạt trưởng Hạt Kiểm lâm có thẩm quyền tố tụng như thế nào?",
@@ -210,7 +210,7 @@ const questions_KL = [
       "Thả ngay vào bất kỳ khu rừng nào gần trụ sở Hạt Kiểm lâm mà không cần kiểm dịch thú y"
     ],
     "correct": "Phải bàn giao ngay cho cơ quan Thú y hoặc Trung tâm cứu hộ động vật hoang dã để chăm sóc, cứu hộ kịp thời; lập biên bản bàn giao chặt chẽ",
-    "explanation": "Khoản 2 Điều 6 Nghị định số 146/2026/NĐ-CP và Thông tư số 85/2025/TT-BNNMT: Động vật rừng sống phải được ưu tiên xử lý cứu hộ kịp thời, bàn giao ngay cho cơ sở cứu hộ/thú y hoặc cơ sở nuôi hợp pháp để chăm sóc, tránh bị chết hoặc tổn hại."
+    "explanation": "Khoản 1, Khoản 2 Điều 22 Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Động vật rừng sống là tang vật trong quá trình tạm giữ phải được nuôi dưỡng, chăm sóc, bảo đảm vệ sinh, an toàn. Trường hợp cơ quan tạm giữ không đủ điều kiện thì tạm giao cho cơ quan chuyên ngành hoặc cơ sở cứu hộ, cơ sở có đủ điều kiện để nuôi dưỡng, bảo quản và lập Biên bản theo Mẫu số 22 Phụ lục II."
   },
   {
     "question": "Phương pháp điều tra sâu bệnh hại rừng xác định diện tích rừng bị hại ở mức 'nặng' khi tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại đạt ngưỡng nào?",
@@ -628,7 +628,7 @@ const questions_KL = [
       "Chỉ thống kê diện tích rừng trồng mới"
     ],
     "correct": "Tiếp nhận thông tin biến động từ chủ rừng, phối hợp Kiểm lâm xác minh và xác nhận hồ sơ",
-    "explanation": "Căn cứ Điều 19 Thông tư số 16/2025/TT-BNNMT quy định UBND cấp xã có trách nhiệm tiếp nhận báo cáo biến động rừng của chủ rừng, phối hợp Kiểm lâm địa bàn kiểm tra thực địa và xác nhận kết quả biến động rừng trên địa bàn."
+    "explanation": "Căn cứ Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Hạt Kiểm lâm tiếp nhận, xác minh biến động rừng, lập hồ sơ trình UBND cấp xã quyết định công bố hiện trạng rừng và báo cáo Chi cục Kiểm lâm trước ngày 31 tháng 01 năm sau."
   },
   {
     "question": "Khi tiếp nhận thông tin về động vật hoang dã đi lạc, bị thương, UBND cấp xã phải lập biên bản trong thời hạn bao lâu?",
@@ -738,7 +738,7 @@ const questions_KL = [
       "P% = (n + N) / 2"
     ],
     "correct": "P% = (n / N) x 100 (với n: số cây bị hại; N: tổng số cây điều tra)",
-    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Hướng dẫn số 230/HD-CCKL: Công thức tính tỷ lệ cây bị hại P% = (n/N) * 100, trong đó n là số cây bị hại trên ô tiêu chuẩn, N là tổng số cây điều tra."
+    "explanation": "Căn cứ Mục 4 Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang và Tiêu chuẩn quốc gia TCVN 8927:2023, TCVN 13268-7:2023: Công thức tính tỷ lệ cây bị hại P% = (n / N) x 100, trong đó n là số cây bị hại trên ô tiêu chuẩn, N là tổng số cây điều tra."
   },
   {
     "question": "Theo mức độ phân cấp tỷ lệ cây bị hại (P%), mức độ hại 'Nặng' được xác định khi nào?",
@@ -749,7 +749,7 @@ const questions_KL = [
       "P% lớn hơn 50%"
     ],
     "correct": "P% lớn hơn 50%",
-    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Hướng dẫn số 230/HD-CCKL: Phân cấp mức độ bị hại: Nhẹ (P < 25%), Trung bình (25% <= P <= 50%), Nặng (P > 50% số cây hoặc tán lá bị hại)."
+    "explanation": "Căn cứ Mục 4 Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang và Tiêu chuẩn quốc gia TCVN 8927:2023: Phân cấp mức độ hại gồm 5 mức (không bị hại R=0%; hại nhẹ R<25%; hại vừa 25%<=R<50%; hại nặng 50%<=R<75%; hại rất nặng R>=75%). Khi tỷ lệ cây hoặc tán lá bị hại vượt trên 50% thì thuộc mức độ hại nặng."
   },
   {
     "question": "Khi phát hiện dịch sâu bệnh hại rừng bùng phát có nguy cơ lây lan diện rộng, cơ quan Kiểm lâm phải làm gì?",
@@ -782,7 +782,7 @@ const questions_KL = [
       "Bản photocopy căn cước công dân của toàn bộ người dân trong thôn"
     ],
     "correct": "Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết bảo vệ rừng của các hộ gia đình",
-    "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Hồ sơ nghiệm thu công tác tuyên truyền BVR gồm Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết BVR&PCCCR."
+    "explanation": "Căn cứ Mục II.4 Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang: Hồ sơ nghiệm thu công tác tuyên truyền bảo vệ rừng gồm Dự toán chi tiết kinh phí, Biểu tổng hợp khối lượng giá trị, Kế hoạch tuyên truyền, Biên bản tuyên truyền và danh sách ký cam kết (nếu có)."
   },
   {
     "question": "Hình thức tuyên truyền pháp luật lâm nghiệp nào sau đây mang lại hiệu quả trực tiếp nhất tại thôn bản?",
@@ -843,12 +843,12 @@ const questions_KL = [
     "question": "Phương pháp xác định đường kính mỗi đầu lóng gỗ tròn được quy định như thế nào?",
     "options": [
       "Đo ở 2 vị trí lớn nhất và nhỏ nhất (trừ vỏ cây), sau đó tính trung bình cộng",
-      "Chỉ đo một vị trí bất kỳ bao gồm cả vỏ cây",
-      "Đo chu vi ngoài vỏ rồi chia đôi",
-      "Lấy đường kính ở vị trí chính giữa khúc gỗ"
+      "Chỉ cần đo 1 lần duy nhất tại tâm mặt cắt ngang của đầu lóng gỗ",
+      "Đo vòng tròn chu vi đầu lóng gỗ bao gồm cả vỏ rồi chia cho số Pi (3,14)",
+      "Lấy kích thước bất kỳ do người bán tự ước lượng và ghi trong hóa đơn"
     ],
     "correct": "Đo ở 2 vị trí lớn nhất và nhỏ nhất (trừ vỏ cây), sau đó tính trung bình cộng",
-    "explanation": "Điểm b Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: mỗi đầu lóng gỗ đo ở 2 vị trí có đường kính lớn nhất và nhỏ nhất (trừ vỏ cây), tính trị số trung bình cộng để xác định đường kính đầu đó."
+    "explanation": "Điểm b Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: mỗi đầu lóng gỗ đo ở 2 vị trí có đường kính lớn nhất và nhỏ nhất (trừ phần vỏ cây), tính trị số trung bình cộng để xác định đường kính đầu đó."
   },
   {
     "question": "Công thức tính thể tích (V) của lóng gỗ tròn, gỗ đẽo hình trụ tròn theo Thông tư số 26/2025/TT-BNNMT là gì?",
@@ -969,7 +969,7 @@ const questions_KL = [
       "Cộng thêm 10% thể tích vì gỗ có giá trị rỗng ruột"
     ],
     "correct": "Xác định và ghi rõ khối lượng phần rỗng ruột, mục để khấu trừ khỏi thể tích toàn bộ",
-    "explanation": "Khoản 2 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định phải ghi nhận khối lượng rỗng ruột, khối lượng mục trong khi thực hiện đo đếm, lập Bảng kê lâm sản để khấu trừ chính xác thể tích thực."
+    "explanation": "Khoản 2 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định: Ghi khối lượng rỗng ruột, khối lượng mục trong khi thực hiện lập Bảng kê lâm sản để xác định chính xác thể tích thực tế của lâm sản."
   },
   {
     "question": "Khi kiểm tra chuồng trại cơ sở nuôi động vật rừng, nội dung kỹ thuật quan trọng hàng đầu cần kiểm tra là gì?",
@@ -1002,7 +1002,7 @@ const questions_KL = [
       "Tự tiêu hủy mà không cần ghi chép sổ sách"
     ],
     "correct": "Lập biên bản và thông báo cho cơ quan Kiểm lâm sở tại hoặc UBND xã để phối hợp xử lý",
-    "explanation": "Căn cứ Khoản 3 Điều 14 Nghị định số 06/2019/NĐ-CP và Thông tư số 85/2025/TT-BNNMT: Khi động vật quý hiếm chết, cơ sở phải lập biên bản, cập nhật sổ theo dõi và thông báo cơ quan Kiểm lâm sở tại để kiểm tra, giám sát xử lý."
+    "explanation": "Căn cứ Điều 15 và Điều 24 Thông tư số 85/2025/TT-BNNMT: Cơ sở nuôi động vật rừng phải ghi chép sổ theo dõi; khi động vật rừng bị chết, cá thể chết phải được lập biên bản xác nhận, cập nhật sổ theo dõi và thông báo cho cơ quan Kiểm lâm sở tại hoặc cơ quan có thẩm quyền để phối hợp giám sát, xử lý theo quy định."
   },
   {
     "question": "Biện pháp đánh dấu mẫu vật nào thường được áp dụng đối với cá thể động vật rừng nguy cấp, quý, hiếm lớp thú?",
@@ -1024,7 +1024,7 @@ const questions_KL = [
       "Chỉ cần giấy xác nhận của Hội Nông dân xã"
     ],
     "correct": "Có mã số cơ sở nuôi hợp pháp, con giống có nguồn gốc F2 trở đi và lập bảng kê lâm sản theo quy định",
-    "explanation": "Căn cứ Khoản 2 Điều 14 Nghị định số 06/2019/NĐ-CP (sửa đổi bởi NĐ 84/2021/NĐ-CP) và Thông tư số 85/2025/TT-BNNMT: Xuất bán động vật hoang dã phải từ cơ sở có mã số hợp pháp, nguồn gốc chứng minh sinh sản từ thế hệ F2 trở đi và có Bảng kê lâm sản."
+    "explanation": "Căn cứ Điều 14 Thông tư số 26/2025/TT-BNNMT (sửa đổi bởi Thông tư số 84/2025/TT-BNNMT) và Điều 25, Điều 27 Thông tư số 85/2025/TT-BNNMT: Xuất bán, thương mại động vật rừng thuộc loài nguy cấp, quý, hiếm hoặc Phụ lục CITES phải từ cơ sở nuôi được cấp mã số hợp pháp, có nguồn gốc nuôi sinh sản từ thế hệ F2 trở về sau, thực hiện đánh dấu mẫu vật và lập Bảng kê lâm sản theo quy định."
   },
   {
     "question": "Cơ sở dữ liệu gốc để thực hiện theo dõi diễn biến rừng hàng năm là nguồn dữ liệu nào?",
@@ -1079,7 +1079,7 @@ const questions_KL = [
       "Chỉ báo cáo khi chuẩn bị bán đất rừng"
     ],
     "correct": "Báo cáo bằng văn bản hoặc trực tiếp cho Kiểm lâm địa bàn hoặc UBND cấp xã để kiểm tra cập nhật",
-    "explanation": "Căn cứ Điều 19 Thông tư số 16/2025/TT-BNNMT quy định chủ rừng có trách nhiệm thông báo biến động diện tích rừng (do khai thác, trồng mới, cháy, sâu bệnh) cho Kiểm lâm địa bàn hoặc UBND cấp xã trong thời hạn 15 ngày."
+    "explanation": "Căn cứ Điểm a Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Trong thời hạn 15 ngày kể từ ngày có biến động về diện tích rừng, chủ rừng nhóm II có trách nhiệm báo cáo Hạt Kiểm lâm, chủ rừng nhóm I có trách nhiệm báo cáo Kiểm lâm địa bàn để tiếp nhận, xác minh thông tin biến động theo Biểu số 01 Phụ lục IX."
   },
   {
     "question": "Ai có thẩm quyền phê duyệt và công bố số liệu hiện trạng rừng cấp tỉnh hàng năm?",
@@ -1095,12 +1095,177 @@ const questions_KL = [
   {
     "question": "Thời hạn Chủ tịch UBND cấp tỉnh công bố số liệu hiện trạng rừng hàng năm chậm nhất là ngày nào?",
     "options": [
-      "Trước ngày 28 tháng 02 của năm sau liền kề (năm nhuận là ngày 29 tháng 02)",
-      "Trước ngày 31 tháng 3 của năm sau liền kề",
-      "Ngày 30 tháng 6 của năm sau liền kề",
-      "Ngày 31 tháng 12 của năm theo dõi"
+      "Trước ngày 28 tháng 02 năm sau liền kề",
+      "Trước ngày 31 tháng 01 năm sau liền kề",
+      "Trước ngày 31 tháng 03 năm sau liền kề",
+      "Trước ngày 15 tháng 01 năm sau liền kề"
     ],
-    "correct": "Trước ngày 28 tháng 02 của năm sau liền kề (năm nhuận là ngày 29 tháng 02)",
-    "explanation": "Căn cứ Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT quy định Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng cấp tỉnh trước ngày 28 tháng 02 năm sau (thời hạn trước ngày 31 tháng 3 năm sau là của Bộ NN&MT công bố hiện trạng rừng toàn quốc)."
+    "correct": "Trước ngày 28 tháng 02 năm sau liền kề",
+    "explanation": "Căn cứ Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Chi cục Kiểm lâm cấp tỉnh lập hồ sơ báo cáo Sở Nông nghiệp và Môi trường trình Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau (thời hạn trước 31 tháng 3 năm sau là của Bộ Nông nghiệp và Môi trường công bố hiện trạng rừng toàn quốc)."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 42/2026/NĐ-CP), mức cấp kinh phí bảo vệ rừng đặc dụng bình quân hàng năm cho Ban quản lý rừng đặc dụng là bao nhiêu?",
+    "options": [
+      "500.000 đồng/ha/năm",
+      "300.000 đồng/ha/năm",
+      "700.000 đồng/ha/năm",
+      "1.000.000 đồng/ha/năm"
+    ],
+    "correct": "500.000 đồng/ha/năm",
+    "explanation": "Điểm a Khoản 2 Điều 5 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Ban quản lý rừng đặc dụng, Ban quản lý rừng phòng hộ được Nhà nước cấp kinh phí bảo vệ rừng bình quân 500.000 đồng/ha/năm trên tổng diện tích được giao ngoài kinh phí sự nghiệp thường xuyên của các đơn vị."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 42/2026/NĐ-CP), cộng đồng dân cư được Nhà nước giao rừng đặc dụng được cấp kinh phí bảo vệ rừng bình quân hàng năm là bao nhiêu?",
+    "options": [
+      "1.000.000 đồng/ha/năm",
+      "500.000 đồng/ha/năm",
+      "800.000 đồng/ha/năm",
+      "1.500.000 đồng/ha/năm"
+    ],
+    "correct": "1.000.000 đồng/ha/năm",
+    "explanation": "Điểm b Khoản 2 Điều 5 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Cộng đồng dân cư được giao rừng đặc dụng được Nhà nước cấp kinh phí bảo vệ rừng bình quân 1.000.000 đồng/ha/năm trên tổng diện tích rừng đặc dụng được giao."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức kinh phí cấp cho hoạt động khoanh nuôi xúc tiến tái sinh tự nhiên thuộc quy hoạch rừng đặc dụng được quy định như thế nào?",
+    "options": [
+      "Bình quân 2.500.000 đồng/ha/năm trong thời gian 6 năm (vùng đất ven biển bằng 1,5 lần mức bình quân)",
+      "Bình quân 1.500.000 đồng/ha/năm trong thời gian 3 năm",
+      "Bình quân 3.000.000 đồng/ha/năm trong thời gian 5 năm",
+      "Bình quân 2.000.000 đồng/ha/năm trong thời gian 4 năm"
+    ],
+    "correct": "Bình quân 2.500.000 đồng/ha/năm trong thời gian 6 năm (vùng đất ven biển bằng 1,5 lần mức bình quân)",
+    "explanation": "Điểm a Khoản 2 Điều 6 Nghị định số 58/2024/NĐ-CP: Khoanh nuôi xúc tiến tái sinh tự nhiên thuộc quy hoạch rừng đặc dụng có mức kinh phí bình quân 2.500.000 đồng/ha/năm trong thời gian 6 năm. Đối với vùng đất ven biển bằng 1,5 lần mức bình quân."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, cộng đồng dân cư thôn thuộc vùng đệm của các khu rừng đặc dụng được hỗ trợ kinh phí phát triển sinh kế bình quân là bao nhiêu?",
+    "options": [
+      "100.000.000 đồng/cộng đồng dân cư/năm",
+      "50.000.000 đồng/cộng đồng dân cư/năm",
+      "150.000.000 đồng/cộng đồng dân cư/năm",
+      "200.000.000 đồng/cộng đồng dân cư/năm"
+    ],
+    "correct": "100.000.000 đồng/cộng đồng dân cư/năm",
+    "explanation": "Khoản 1 Điều 8 Nghị định số 58/2024/NĐ-CP: Cộng đồng dân cư thuộc vùng đệm của khu rừng đặc dụng được hỗ trợ bình quân là 100.000.000 đồng/cộng đồng dân cư/năm để phát triển sinh kế, cải thiện đời sống."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, hộ gia đình, cá nhân, cộng đồng dân cư được giao rừng phòng hộ được cấp kinh phí bảo vệ rừng bình quân hàng năm là bao nhiêu?",
+    "options": [
+      "1.000.000 đồng/ha/năm",
+      "500.000 đồng/ha/năm",
+      "600.000 đồng/ha/năm",
+      "400.000 đồng/ha/năm"
+    ],
+    "correct": "1.000.000 đồng/ha/năm",
+    "explanation": "Điểm b Khoản 2 Điều 9 Nghị định số 58/2024/NĐ-CP dẫn chiếu Điểm b Khoản 2 Điều 5: Hộ gia đình, cá nhân, cộng đồng dân cư được Nhà nước cấp kinh phí bảo vệ rừng phòng hộ bình quân 1.000.000 đồng/ha/năm."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, Ban quản lý rừng đặc dụng, Ban quản lý rừng phòng hộ quản lý rừng sản xuất là rừng tự nhiên trong thời gian đóng cửa rừng được Nhà nước cấp kinh phí bảo vệ rừng bình quân bao nhiêu?",
+    "options": [
+      "500.000 đồng/ha/năm",
+      "300.000 đồng/ha/năm",
+      "700.000 đồng/ha/năm",
+      "1.000.000 đồng/ha/năm"
+    ],
+    "correct": "500.000 đồng/ha/năm",
+    "explanation": "Điểm a Khoản 2 Điều 12 Nghị định số 58/2024/NĐ-CP dẫn chiếu Điểm a Khoản 2 Điều 5: Ban quản lý rừng đặc dụng, Ban quản lý rừng phòng hộ được cấp kinh phí bảo vệ rừng sản xuất là rừng tự nhiên trong thời gian đóng cửa rừng bình quân 500.000 đồng/ha/năm."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức hỗ trợ một lần đối với hộ gia đình, cá nhân trồng rừng sản xuất lấy gỗ, cây lâm sản ngoài gỗ tại vùng đồng bào dân tộc thiểu số và miền núi là bao nhiêu?",
+    "options": [
+      "Bình quân 15.000.000 đồng/ha/chu kỳ",
+      "Bình quân 10.000.000 đồng/ha/chu kỳ",
+      "Bình quân 20.000.000 đồng/ha/chu kỳ",
+      "Bình quân 30.000.000 đồng/ha/chu kỳ"
+    ],
+    "correct": "Bình quân 15.000.000 đồng/ha/chu kỳ",
+    "explanation": "Điểm a Khoản 2 Điều 14 Nghị định số 58/2024/NĐ-CP: Hỗ trợ một lần bình quân 15.000.000 đồng/ha/chu kỳ để mua cây giống, vật tư, phân bón đối với trồng cây lấy gỗ, cây lâm sản ngoài gỗ theo chu kỳ kinh doanh của loài cây trồng."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, thời gian hỗ trợ lãi suất vốn vay thương mại tối đa đối với hộ gia đình, cá nhân trồng rừng gỗ lớn là bao lâu?",
+    "options": [
+      "Tối đa 12 năm tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng",
+      "Tối đa 10 năm tính từ ngày ký hợp đồng",
+      "Tối đa 15 năm tính từ ngày trồng rừng",
+      "Tối đa 08 năm theo chu kỳ kinh doanh"
+    ],
+    "correct": "Tối đa 12 năm tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng",
+    "explanation": "Điểm b Khoản 2 Điều 15 Nghị định số 58/2024/NĐ-CP: Thời gian hỗ trợ lãi suất tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng đầu tư với ngân hàng thương mại, tối đa 12 năm; số vốn vay được hỗ trợ không quá 70% tổng vốn vay."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức hỗ trợ kinh phí xây dựng phương án quản lý rừng bền vững và cấp chứng chỉ quản lý rừng bền vững là bao nhiêu?",
+    "options": [
+      "Hỗ trợ sau đầu tư một lần tối đa 400.000 đồng/ha",
+      "Hỗ trợ trực tiếp trước đầu tư 200.000 đồng/ha",
+      "Hỗ trợ hàng năm tối đa 500.000 đồng/ha",
+      "Hỗ trợ 50% chi phí nhưng không quá 100.000 đồng/ha"
+    ],
+    "correct": "Hỗ trợ sau đầu tư một lần tối đa 400.000 đồng/ha",
+    "explanation": "Khoản 2 Điều 16 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ một lần xây dựng phương án quản lý rừng bền vững và cấp chứng chỉ quản lý rừng bền vững tối đa 400.000 đồng/ha theo hình thức hỗ trợ sau đầu tư."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức hỗ trợ đầu tư xây dựng đường lâm nghiệp tại khu vực trồng rừng sản xuất tập trung từ 500 ha trở lên tối đa là bao nhiêu?",
+    "options": [
+      "Tối đa 450.000.000 đồng/km",
+      "Tối đa 300.000.000 đồng/km",
+      "Tối đa 500.000.000 đồng/km",
+      "Tối đa 600.000.000 đồng/km"
+    ],
+    "correct": "Tối đa 450.000.000 đồng/km",
+    "explanation": "Điểm b Khoản 1 Điều 17 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ đầu tư xây dựng đường lâm nghiệp tối đa 450.000.000 đồng/km tại khu vực trồng rừng sản xuất có quy mô tập trung từ 500 ha trở lên."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức hỗ trợ đầu tư xây dựng đường băng cản lửa tại khu vực rừng sản xuất tập trung từ 500 ha trở lên tối đa là bao nhiêu?",
+    "options": [
+      "Tối đa 100.000.000 đồng/km",
+      "Tối đa 50.000.000 đồng/km",
+      "Tối đa 150.000.000 đồng/km",
+      "Tối đa 200.000.000 đồng/km"
+    ],
+    "correct": "Tối đa 100.000.000 đồng/km",
+    "explanation": "Điểm b Khoản 2 Điều 17 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ đầu tư xây dựng đường băng cản lửa tối đa 100.000.000 đồng/km tại khu rừng sản xuất có quy mô tập trung từ 500 ha trở lên."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức chi tiền ăn tối đa cho lực lượng tham gia chữa cháy rừng theo lệnh điều động, huy động được quy định như thế nào?",
+    "options": [
+      "Tối đa bằng 0,4 ngày lương tối thiểu vùng/suất ăn",
+      "Tối đa bằng 0,2 ngày lương tối thiểu vùng/suất ăn",
+      "Tối đa bằng 0,5 ngày lương tối thiểu vùng/suất ăn",
+      "Cố định 100.000 đồng/suất ăn đối với mọi địa bàn"
+    ],
+    "correct": "Tối đa bằng 0,4 ngày lương tối thiểu vùng/suất ăn",
+    "explanation": "Điểm a Khoản 2 Điều 20 Nghị định số 58/2024/NĐ-CP: Chi tiền ăn đối với các lực lượng và những người tham gia chữa cháy rừng theo lệnh điều động, huy động tối đa bằng 0,4 ngày lương tối thiểu vùng/suất ăn."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức trợ cấp gạo bảo vệ và phát triển rừng cho hộ gia đình nghèo, đồng bào dân tộc thiểu số tại xã khu vực II, III là bao nhiêu?",
+    "options": [
+      "15 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 7 năm",
+      "10 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 5 năm",
+      "20 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 3 năm",
+      "30 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 10 năm"
+    ],
+    "correct": "15 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 7 năm",
+    "explanation": "Khoản 2 Điều 21 Nghị định số 58/2024/NĐ-CP: Mức trợ cấp 15 kg gạo/khẩu/tháng; Chủ tịch UBND cấp tỉnh quyết định đối tượng, mức và hình thức cụ thể, thời gian trợ cấp tối đa 7 năm."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP, mức hỗ trợ trồng cây phân tán (quy đổi 1.000 cây/ha) bình quân là bao nhiêu?",
+    "options": [
+      "Bình quân 15.000.000 đồng/ha",
+      "Bình quân 10.000.000 đồng/ha",
+      "Bình quân 20.000.000 đồng/ha",
+      "Bình quân 25.000.000 đồng/ha"
+    ],
+    "correct": "Bình quân 15.000.000 đồng/ha",
+    "explanation": "Khoản 2 Điều 23 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ bình quân 15.000.000 đồng/ha trồng cây phân tán (quy đổi 1.000 cây/ha) để hỗ trợ mua cây giống, phân bón và chi phí một phần nhân công trồng, chăm sóc, quản lý, giám sát."
+  },
+  {
+    "question": "Theo Nghị định số 58/2024/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 42/2026/NĐ-CP), cơ quan nào chủ trì thẩm định thiết kế, dự toán công trình lâm sinh đối với các dự án do Chủ tịch Ủy ban nhân dân cấp tỉnh quyết định đầu tư?",
+    "options": [
+      "Sở Nông nghiệp và Môi trường",
+      "Sở Tài chính",
+      "Sở Kế hoạch và Đầu tư",
+      "Ban Quản lý dự án đầu tư xây dựng chuyên ngành cấp tỉnh"
+    ],
+    "correct": "Sở Nông nghiệp và Môi trường",
+    "explanation": "Điểm c Khoản 1 Điều 31 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Đối với các dự án do Chủ tịch Ủy ban nhân dân cấp tỉnh quyết định đầu tư, Sở Nông nghiệp và Môi trường chủ trì thẩm định thiết kế, dự toán công trình lâm sinh."
   }
 ];
