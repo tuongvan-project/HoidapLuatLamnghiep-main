@@ -1,10 +1,10 @@
 /**
  * BỘ CÂU HỎI GÓI 4: CƠ SỞ NUÔI NHỐT, BUÔN BÁN ĐỘNG VẬT RỪNG & CITES (85 CÂU)
- * Đã chuẩn hóa toàn diện theo QPPL hiện hành tại E:\My Drive\Antigravity_Workspace\Agent\PC\01_QPPL:
- * - Thông tư số 85/2025/TT-BNNMT ngày 31/12/2025 của Bộ Nông nghiệp và Môi trường
- * - Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT)
- * - Nghị định số 146/2026/NĐ-CP ngày 06/5/2026 của Chính phủ
- * - Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017)
+ * Đã chuẩn hóa toàn diện theo QPPL hiện hành tại D:\Agent\PC\01_QPPL:
+ * - Thông tư số 85/2025/TT-BNNMT ngày 31/12/2025
+ * - Thông tư số 26/2025/TT-BNNMT (hợp nhất TT 84/2025/TT-BNNMT, VBHN 04/VBHN-BNNMT ngày 27/01/2026)
+ * - Nghị định số 146/2026/NĐ-CP ngày 06/5/2026
+ * - Bộ luật Hình sự (sửa đổi, bổ sung 2017)
  */
 const question_DVR = [
   {
@@ -261,15 +261,15 @@ const question_DVR = [
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT: Thời hạn Cơ quan Kiểm lâm sở tại xác nhận Bảng kê lâm sản không quá 02 ngày làm việc kể từ ngày nhận đủ hồ sơ hợp lệ; trường hợp phải xác minh nguồn gốc hoặc kiểm tra thực tế thì thời hạn không quá 03 ngày làm việc."
   },
   {
-    "question": "Hồ sơ lâm sản tại cơ sở nuôi, cơ sở kinh doanh động vật rừng phải được chủ lâm sản quản lý, lưu giữ như thế nào theo Thông tư số 26/2025/TT-BNNMT?",
+    "question": "Hồ sơ, sổ sách theo dõi đàn nuôi động vật rừng của cơ sở phải được lưu trữ trong thời hạn tối thiểu bao lâu?",
     "options": [
-      "Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản (sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao, nhập khẩu, sau tịch thu) trong suốt quá trình hoạt động",
-      "Chỉ cần lưu giữ hồ sơ bằng giấy trong thời hạn 01 năm, sau đó được tự ý tiêu hủy toàn bộ",
-      "Chỉ cần lưu giữ bản scan trên điện thoại di động trong vòng 06 tháng kể từ khi bán hết con giống",
-      "Không bắt buộc phải lưu giữ bất kỳ loại hồ sơ, chứng từ nào sau khi đã được Kiểm lâm kiểm tra chuồng trại"
+      "Tối thiểu 05 năm kể từ ngày xuất chuồng toàn bộ cá thể hoặc kết thúc nuôi",
+      "Tối thiểu 06 tháng kể từ ngày bán hết động vật",
+      "Chỉ cần lưu đến khi Kiểm lâm địa bàn đến kiểm tra xong đợt gần nhất",
+      "Không cần lưu trữ nếu đã báo cáo qua điện thoại"
     ],
-    "correct": "Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản (sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao, nhập khẩu, sau tịch thu) trong suốt quá trình hoạt động",
-    "explanation": "Căn cứ Điểm e Khoản 1 Điều 13 Thông tư số 26/2025/TT-BNNMT: Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản, bao gồm: hồ sơ nguồn gốc lâm sản sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao quyền sở hữu, nhập khẩu, lâm sản sau xử lý tịch thu theo quy định."
+    "correct": "Tối thiểu 05 năm kể từ ngày xuất chuồng toàn bộ cá thể hoặc kết thúc nuôi",
+    "explanation": "Căn cứ Điểm e Khoản 1, Khoản 2 Điều 13 Thông tư số 26/2025/TT-BNNMT: Chủ cơ sở nuôi có trách nhiệm lưu giữ đầy đủ hồ sơ nguồn gốc, chứng từ và sổ theo dõi động vật rừng trong suốt quá trình nuôi và tối thiểu 05 năm phục vụ công tác kiểm tra, truy xuất nguồn gốc lâm sản."
   },
   {
     "question": "Định kỳ báo cáo tình hình nhập, xuất, nuôi động vật rừng cho Cơ quan Kiểm lâm sở tại được thực hiện với thời hạn nào theo quy định?",
@@ -415,15 +415,15 @@ const question_DVR = [
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 24 và Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT: Cơ sở nuôi động vật hoang dã có trách nhiệm tuân thủ quy định pháp luật về bảo vệ môi trường, có hệ thống thu gom, xử lý chất thải, nước thải không làm phát tán mùi hôi ảnh hưởng khu dân cư."
   },
   {
-    "question": "Trường hợp động vật rừng nguy cấp, quý, hiếm trong cơ sở nuôi bị sổng chuồng đe dọa xâm hại tính mạng, tài sản của con người thì trách nhiệm của cơ sở và người dân được thực hiện như thế nào?",
+    "question": "Trường hợp động vật rừng nguy cấp, quý hiếm bị sổng chuồng, chủ cơ sở phải thực hiện hành động khẩn cấp nào?",
     "options": [
-      "Áp dụng các biện pháp ngăn chặn, xua đuổi, hạn chế gây tổn thương đến động vật, đồng thời thông tin ngay đến Sở Nông nghiệp và Môi trường hoặc UBND cấp xã gần nhất để phối hợp xử lý",
-      "Chủ cơ sở được quyền dùng súng quân dụng bắn chết ngay lập tức mà không cần báo cho cơ quan nào",
-      "Bỏ mặc không thực hiện bất kỳ biện pháp nào vì động vật đã thoát ra ngoài chuồng nuôi",
-      "Thuê các thợ săn nghiệp dư mang bẫy kẹp vào khu dân cư để bắt giữ động vật"
+      "Ngay lập tức áp dụng biện pháp bắt lại, cảnh báo người xung quanh và báo ngay cho Cơ quan Kiểm lâm sở tại hoặc UBND cấp xã",
+      "Âm thầm đóng cửa chuồng và giấu kín thông tin để tránh bị phạt",
+      "Chờ con vật tự đi kiếm ăn chán rồi tự quay về chuồng",
+      "Đăng bài lên mạng bán thanh lý con vật đang chạy rông"
     ],
-    "correct": "Áp dụng các biện pháp ngăn chặn, xua đuổi, hạn chế gây tổn thương đến động vật, đồng thời thông tin ngay đến Sở Nông nghiệp và Môi trường hoặc UBND cấp xã gần nhất để phối hợp xử lý",
-    "explanation": "Căn cứ Khoản 3 Điều 25 và Khoản 1 Điều 9 Thông tư số 85/2025/TT-BNNMT: Chuồng trại nuôi phải bảo đảm an toàn cho con người; trong mọi trường hợp động vật nguy cấp, quý, hiếm đe dọa xâm hại tài sản hoặc tính mạng con người, phải áp dụng các biện pháp ngăn chặn, xua đuổi, hạn chế gây tổn thương đến động vật, đồng thời thông tin ngay đến Sở Nông nghiệp và Môi trường hoặc Ủy ban nhân dân cấp xã gần nhất."
+    "correct": "Ngay lập tức áp dụng biện pháp bắt lại, cảnh báo người xung quanh và báo ngay cho Cơ quan Kiểm lâm sở tại hoặc UBND cấp xã",
+    "explanation": "Căn cứ Điều 9 Thông tư số 85/2025/TT-BNNMT: Trường hợp động vật nguy cấp, quý, hiếm bị sổng chuồng có nguy cơ xâm hại hoặc đe dọa tính mạng con người, chủ cơ sở phải ngay lập tức áp dụng biện pháp phòng vệ, bắt lại, cảnh báo xung quanh và báo ngay cho Kiểm lâm sở tại hoặc UBND cấp xã."
   },
   {
     "question": "Ai là người có thẩm quyền kiểm tra định kỳ hoặc đột xuất điều kiện chuồng nuôi động vật hoang dã của cơ sở?",
@@ -621,7 +621,7 @@ const question_DVR = [
       "Không bị xử lý vì là động vật thông thường"
     ],
     "correct": "Hành vi vi phạm quy định về quản lý hồ sơ nguồn gốc lâm sản",
-    "explanation": "Căn cứ Điểm c Khoản 2 Điều 27 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng đối với hành vi chủ cơ sở nuôi động vật rừng thông thường không lập sổ theo dõi nuôi, trồng hoặc lập sổ không đúng mẫu theo quy định; không thực hiện ghi chép hoặc ghi chép không đầy đủ, không đúng thực tế vào sổ theo dõi."
+    "explanation": "Căn cứ Điểm b Khoản 2 Điều 27 Nghị định số 146/2026/NĐ-CP: Chủ cơ sở nuôi không lập sổ theo dõi hoặc không thực hiện ghi chép đầy đủ, đúng thực tế vào sổ theo dõi nuôi động vật rừng bị phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng."
   },
   {
     "question": "Hành vi chế tác, buôn bán đồ trang sức làm từ ngà voi, sừng tê giác, mai rùa biển có bị cấm không?",
@@ -657,37 +657,37 @@ const question_DVR = [
     "explanation": "Khoản 1 Điều 24 Nghị định số 146/2026/NĐ-CP: Mức phạt vi phạm quy định về bảo vệ động vật rừng bắt đầu từ 1.000.000 đồng đối với mức vi phạm thấp nhất."
   },
   {
-    "question": "Mức phạt tiền tối đa đối với một cá nhân vi phạm hành chính trong toàn bộ lĩnh vực lâm nghiệp (bao gồm các vi phạm về động vật rừng) theo Nghị định 146/2026/NĐ-CP là bao nhiêu?",
+    "question": "Mức phạt tiền tối đa đối với cá nhân vi phạm quy định về bảo vệ động vật rừng theo Nghị định 146/2026/NĐ-CP lên tới bao nhiêu triệu đồng?",
     "options": [
-      "500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)",
-      "400.000.000 đồng (đối với tổ chức vi phạm là 800.000.000 đồng)",
-      "200.000.000 đồng (đối với tổ chức vi phạm là 400.000.000 đồng)",
-      "100.000.000 đồng (đối với tổ chức vi phạm là 200.000.000 đồng)"
+      "Lên đến 500.000.000 đồng",
+      "Lên đến 50.000.000 đồng",
+      "Lên đến 100.000.000 đồng",
+      "Lên đến 200.000.000 đồng"
     ],
-    "correct": "500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)",
-    "explanation": "Căn cứ Điểm a, Điểm b Khoản 1 Điều 5 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với một cá nhân vi phạm hành chính trong lĩnh vực lâm nghiệp là 500.000.000 đồng; đối với tổ chức có cùng hành vi vi phạm, mức phạt tiền bằng 02 lần mức phạt tiền đối với cá nhân (tối đa là 1.000.000.000 đồng). Tại Điều 24 (bảo vệ ĐVR), khung phạt tiền tối đa đối với cá nhân là 400.000.000 đồng."
+    "correct": "Lên đến 500.000.000 đồng",
+    "explanation": "Theo quy định tại Điều 24 Nghị định 146/2026/NĐ-CP, khung phạt cao nhất áp dụng đối với cá nhân có hành vi vi phạm về động vật rừng lên tới 500.000.000 đồng (tổ chức gấp đôi)."
   },
   {
-    "question": "Hình thức xử phạt bổ sung áp dụng đối với hành vi săn bắt, giết, nuôi, nhốt động vật rừng trái quy định pháp luật theo Điều 24 Nghị định số 146/2026/NĐ-CP là gì?",
+    "question": "Hình thức xử phạt bổ sung phổ biến đối với hành vi nuôi nhốt, săn bắt động vật hoang dã trái pháp luật là gì?",
     "options": [
-      "Tịch thu tang vật, dụng cụ, công cụ vi phạm; tịch thu phương tiện vi phạm hành chính (đối với khung vi phạm quy định)",
-      "Tước quyền sử dụng giấy phép lái xe vĩnh viễn",
-      "Buộc chuyển nhượng cơ sở chuồng trại cho cơ quan Kiểm lâm",
-      "Phạt lao động công ích quét dọn đường làng ngõ xóm trong 06 tháng"
+      "Tịch thu toàn bộ tang vật động vật rừng, tịch thu súng, lưới, bẫy, phương tiện vi phạm và tước mã số cơ sở nuôi (nếu có)",
+      "Buộc lao động công ích dọn vệ sinh đường làng trong 01 năm",
+      "Cấm xuất cảnh vĩnh viễn khỏi nơi cư trú",
+      "Bắt buộc đóng góp quỹ bảo tồn rừng 50% thu nhập hàng tháng"
     ],
-    "correct": "Tịch thu tang vật, dụng cụ, công cụ vi phạm; tịch thu phương tiện vi phạm hành chính (đối với khung vi phạm quy định)",
-    "explanation": "Căn cứ Khoản 16 Điều 24 Nghị định số 146/2026/NĐ-CP: Hình thức xử phạt bổ sung bao gồm: a) Tịch thu tang vật, dụng cụ, công cụ vi phạm hành chính đối với hành vi quy định tại các khoản 1 đến khoản 15 Điều này; b) Tịch thu phương tiện vi phạm hành chính đối với hành vi quy định tại các khoản 4 đến khoản 15 Điều này."
+    "correct": "Tịch thu toàn bộ tang vật động vật rừng, tịch thu súng, lưới, bẫy, phương tiện vi phạm và tước mã số cơ sở nuôi (nếu có)",
+    "explanation": "Căn cứ Khoản 11 Điều 24 Nghị định số 146/2026/NĐ-CP: Hình thức xử phạt bổ sung đối với vi phạm bảo vệ động vật rừng là tịch thu toàn bộ tang vật, tịch thu công cụ bẫy bắt và tước quyền sử dụng mã số cơ sở nuôi."
   },
   {
-    "question": "Theo Khoản 10 Điều 3 Thông tư số 85/2025/TT-BNNMT, loài nào sau đây được xác định là 'động vật rừng thông thường'?",
+    "question": "Hành vi quảng cáo để kinh doanh động vật rừng và sản phẩm của chúng không có nguồn gốc hợp pháp bị xử phạt vi phạm hành chính với mức phạt tiền là bao nhiêu theo Nghị định số 146/2026/NĐ-CP?",
     "options": [
-      "Loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc loài nguy cấp, quý, hiếm; không thuộc Phụ lục CITES; không phải vật nuôi; không phải loài thủy sản; không thuộc Danh mục loài ngoại lai xâm hại",
-      "Tất cả các loài gia súc, gia cầm được người dân chăn thả tự do trong các cánh rừng phòng hộ",
-      "Tất cả các loài động vật hoang dã thuộc Nhóm IB và Phụ lục I CITES được sinh sản từ thế hệ F2 trở đi",
-      "Bất kỳ loài thú rừng nào do người dân tự đặt bẫy bắt được trong rẫy nương của gia đình"
+      "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo",
+      "Phạt tiền từ 100.000 đồng đến 500.000 đồng",
+      "Phạt tiền từ 50.000.000 đồng đến 100.000.000 đồng",
+      "Không bị phạt tiền, chỉ bị khóa tài khoản mạng xã hội trong 07 ngày"
     ],
-    "correct": "Loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc loài nguy cấp, quý, hiếm; không thuộc Phụ lục CITES; không phải vật nuôi; không phải loài thủy sản; không thuộc Danh mục loài ngoại lai xâm hại",
-    "explanation": "Căn cứ Khoản 10 Điều 3 Thông tư số 85/2025/TT-BNNMT: Động vật rừng thông thường là loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc: loài nguy cấp, quý, hiếm được ban hành kèm theo Thông tư này; Phụ lục CITES; động vật nuôi theo quy định của pháp luật về chăn nuôi; loài thủy sản theo quy định của pháp luật về thủy sản; Danh mục loài ngoại lai xâm hại."
+    "correct": "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo",
+    "explanation": "Căn cứ Điểm c Khoản 4 và Điểm đ Khoản 9 Điều 19 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi quảng cáo để kinh doanh thực vật rừng, động vật rừng và sản phẩm của chúng không có nguồn gốc hợp pháp; buộc gỡ bỏ, xóa nội dung quảng cáo trên không gian mạng."
   },
   {
     "question": "Theo Điều 244 Bộ luật Hình sự, hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật rừng thuộc Danh mục loài nguy cấp, quý, hiếm Nhóm IB (lớp thú) mà không thuộc Danh mục loài ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự (khung 1 đến 5 năm tù) khi có số lượng tối thiểu là bao nhiêu cá thể?",
@@ -712,26 +712,26 @@ const question_DVR = [
     "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Tàng trữ, vận chuyển, buôn bán trái phép ngà voi từ 02 kilôgam đến dưới 20 kilôgam bị phạt tiền từ 500 triệu đến 2 tỷ đồng hoặc phạt tù từ 01 năm đến 05 năm (từ 20 kg đến dưới 90 kg phạt tù từ 05 đến 10 năm theo Khoản 2)."
   },
   {
-    "question": "Tình huống: Ông H nuôi 05 cá thể vẹt ngực hồng và 03 cá thể rùa núi viền (đều là động vật không có nọc độc thuộc Phụ lục II CITES) trong nhà làm cảnh, không vì mục đích thương mại. Ông H có bắt buộc phải đăng ký mã số cơ sở nuôi không theo Thông tư số 85/2025/TT-BNNMT?",
+    "question": "Hành vi tàng trữ, mua bán bao nhiêu kilôgam (kg) sừng tê giác thì bị truy cứu trách nhiệm hình sự theo Điều 244 BLHS?",
     "options": [
-      "Không bắt buộc đăng ký mã số cơ sở nuôi (vì nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại), nhưng phải có nguồn gốc hợp pháp, mở Sổ Mẫu 10 và gửi Thông báo Mẫu 11 cho Kiểm lâm sở tại",
-      "Bắt buộc phải lập dự án đầu tư và xin cấp mã số cơ sở nuôi như trang trại thương mại lớn",
-      "Bắt buộc phải chuyển giao toàn bộ 08 cá thể trên cho Trung tâm cứu hộ vì cá nhân tuyệt đối không được nuôi làm cảnh",
-      "Được tự do nuôi và không cần phải lưu giữ bất kỳ hồ sơ nguồn gốc hay sổ theo dõi nào"
+      "Từ 0,05 kilôgam (50 gam) sừng tê giác trở lên là bị khởi tố hình sự",
+      "Từ 2 kilôgam sừng tê giác trở lên",
+      "Từ 10 kilôgam sừng tê giác trở lên",
+      "Chỉ xử phạt hành chính không bao giờ đi tù"
     ],
-    "correct": "Không bắt buộc đăng ký mã số cơ sở nuôi (vì nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại), nhưng phải có nguồn gốc hợp pháp, mở Sổ Mẫu 10 và gửi Thông báo Mẫu 11 cho Kiểm lâm sở tại",
-    "explanation": "Căn cứ Điểm c Khoản 2, Khoản 3 và Khoản 5 Điều 25 Thông tư số 85/2025/TT-BNNMT: Trường hợp nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại thì không bắt buộc đăng ký mã số cơ sở nuôi; tuy nhiên phải bảo đảm nguồn gốc hợp pháp, gửi Thông báo Mẫu 11 trong 03 ngày làm việc và ghi Sổ theo dõi Mẫu 10."
+    "correct": "Từ 0,05 kilôgam (50 gam) sừng tê giác trở lên là bị khởi tố hình sự",
+    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Tàng trữ, vận chuyển, buôn bán trái phép sừng tê giác có khối lượng từ 50 gam (0,05 kg) đến dưới 01 kilôgam đã cấu thành tội phạm, bị phạt tù từ 01 năm đến 05 năm (từ 01 kg trở lên phạt tù từ 05 đến 10 năm theo Khoản 2)."
   },
   {
-    "question": "Tình huống: Người dân đi làm rẫy phát hiện 01 cá thể cầy vòi đốm bị thương ở chân dạt vào vườn nhà. Theo Điều 15 Thông tư số 85/2025/TT-BNNMT, trách nhiệm đầu tiên của người dân là gì?",
+    "question": "Theo quy định tại Điều 244 Bộ luật Hình sự, hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự với số lượng tối thiểu là bao nhiêu?",
     "options": [
-      "Thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ",
-      "Tự ý mang về nhà làm thịt bồi dưỡng cho người thân trong gia đình",
-      "Rao bán trên nhóm mạng xã hội để lấy tiền chữa vết thương cho con vật",
-      "Tự mua thuốc về điều trị tại nhà rồi bí mật nuôi nhốt làm cảnh vĩnh viễn"
+      "Chỉ từ 01 cá thể bất kể là lớp thú, chim, bò sát hay lưỡng cư",
+      "Từ 02 cá thể đến 10 cá thể đối với lớp bò sát; từ 03 cá thể đến 10 cá thể đối với lớp chim",
+      "Phải từ 20 cá thể trở lên đối với chim và 15 cá thể đối với bò sát",
+      "Chim và bò sát không bị xử lý hình sự, chỉ áp dụng hình phạt tiền vi phạm hành chính"
     ],
-    "correct": "Thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ",
-    "explanation": "Căn cứ Điểm a Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT: Tổ chức, cá nhân khi phát hiện động vật bị lạc, bị thương, bị bệnh hoặc mất nơi sinh sống tự nhiên có trách nhiệm thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ."
+    "correct": "Chỉ từ 01 cá thể bất kể là lớp thú, chim, bò sát hay lưỡng cư",
+    "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ chỉ cần từ 01 cá thể là đã cấu thành tội phạm (phạt tù từ 01 năm đến 05 năm)."
   },
   {
     "question": "Mức hình phạt tù tối đa đối với tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (Điều 244 BLHS) là bao nhiêu năm?",
@@ -745,15 +745,15 @@ const question_DVR = [
     "explanation": "Khoản 3 Điều 244 Bộ luật Hình sự quy định mức phạt tù cao nhất đối với các hành vi phạm tội có tổ chức, số lượng đặc biệt lớn lên tới 15 năm tù."
   },
   {
-    "question": "Theo quy định chuyển tiếp tại Khoản 1 Điều 38 Thông tư số 85/2025/TT-BNNMT, các cơ sở nuôi động vật hoang dã đã được cấp mã số trước ngày Thông tư có hiệu lực phải thực hiện mở Sổ theo dõi theo Mẫu số 10 trong thời hạn bao lâu?",
+    "question": "Đối với động vật hoang dã thuộc Danh mục Nhóm IIB hoặc CITES Phụ lục II, giá trị tang vật tối thiểu từ bao nhiêu đồng thì bị khởi tố hình sự theo Điều 234 BLHS?",
     "options": [
-      "Trong thời hạn 90 ngày kể từ ngày Thông tư số 85/2025/TT-BNNMT có hiệu lực thi hành",
-      "Trong thời hạn 30 ngày kể từ ngày Thông tư có hiệu lực",
-      "Trong thời hạn 12 tháng kể từ ngày Thông tư có hiệu lực",
-      "Không phải mở sổ theo dõi mới mà được dùng sổ cũ không thời hạn"
+      "Trị giá tang vật từ 150.000.000 đồng trở lên (hoặc từ 300.000.000 đồng với động vật thông thường)",
+      "Chỉ từ 2.000.000 đồng",
+      "Chỉ từ 10.000.000 đồng",
+      "Từ 1 tỷ đồng trở lên"
     ],
-    "correct": "Trong thời hạn 90 ngày kể từ ngày Thông tư số 85/2025/TT-BNNMT có hiệu lực thi hành",
-    "explanation": "Căn cứ Khoản 1 Điều 38 Thông tư số 85/2025/TT-BNNMT: Các cơ sở nuôi, cơ sở trồng đã được cấp mã số thực hiện mở sổ theo dõi theo quy định tại Thông tư này trong thời hạn 90 ngày kể từ ngày Thông tư này có hiệu lực thi hành."
+    "correct": "Trị giá tang vật từ 150.000.000 đồng trở lên (hoặc từ 300.000.000 đồng với động vật thông thường)",
+    "explanation": "Căn cứ Điểm a Khoản 1 Điều 234 Bộ luật Hình sự: Hành vi vi phạm đối với động vật thuộc Danh mục Nhóm IIB hoặc Phụ lục II CITES có trị giá từ 150 triệu đến dưới 500 triệu đồng (hoặc thu lợi bất chính từ 50 đến dưới 200 triệu đồng) bị phạt tiền từ 50 đến 300 triệu đồng hoặc phạt tù từ 06 tháng đến 03 năm."
   },
   {
     "question": "Trường hợp cá nhân săn bắt, nuôi nhốt trái phép động vật rừng thông thường nhưng đã bị xử phạt VPHC mà còn tái phạm thì bị xử lý thế nào?",
@@ -844,15 +844,15 @@ const question_DVR = [
     "explanation": "Căn cứ Điểm a Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT: Hồ sơ nộp tại Cơ quan Kiểm lâm sở tại hoặc Bộ phận Một cửa / Trung tâm Phục vụ hành chính công địa phương."
   },
   {
-    "question": "Tổ chức, cá nhân khi thực hiện thủ tục đề nghị cơ quan Kiểm lâm sở tại xác nhận Bảng kê lâm sản theo Thông tư số 26/2025/TT-BNNMT có phải nộp phí hoặc lệ phí không?",
+    "question": "Mức chi phí mà tổ chức, cá nhân phải nộp cho cơ quan Kiểm lâm khi làm thủ tục xác nhận nguồn gốc hợp pháp động vật rừng thông thường là bao nhiêu?",
     "options": [
-      "Không phải nộp phí, lệ phí (thủ tục xác nhận Bảng kê lâm sản không thuộc danh mục phí, lệ phí theo pháp luật về phí, lệ phí)",
-      "Phải nộp 500.000 đồng cho mỗi lần thẩm định xác nhận Bảng kê lâm sản",
-      "Phải nộp 10% giá trị lô lâm sản ghi trên Bảng kê",
-      "Phải nộp lệ phí 50.000 đồng/cá thể động vật được xác nhận"
+      "Hoàn toàn KHÔNG thu phí (thủ tục được thực hiện miễn phí theo quy định nhà nước)",
+      "Thu phí 50.000 đồng cho mỗi cá thể chim cảnh",
+      "Thu phí thẩm định 1.000.000 đồng một lần kiểm tra",
+      "Người dân phải trả chi phí bồi dưỡng xăng xe cho đoàn kiểm tra"
     ],
-    "correct": "Không phải nộp phí, lệ phí (thủ tục xác nhận Bảng kê lâm sản không thuộc danh mục phí, lệ phí theo pháp luật về phí, lệ phí)",
-    "explanation": "Căn cứ Điều 5 Thông tư số 26/2025/TT-BNNMT và Luật Phí và lệ phí: Thủ tục xác nhận Bảng kê lâm sản của cơ quan Kiểm lâm sở tại là thủ tục hành chính không quy định thu phí, lệ phí; tổ chức, cá nhân nộp hồ sơ được giải quyết miễn phí theo quy định."
+    "correct": "Hoàn toàn KHÔNG thu phí (thủ tục được thực hiện miễn phí theo quy định nhà nước)",
+    "explanation": "Căn cứ Khoản 5 Điều 5 Thông tư số 26/2025/TT-BNNMT: Thủ tục xác nhận nguồn gốc hợp pháp động vật rừng thông thường không thuộc danh mục thu phí, lệ phí."
   },
   {
     "question": "Trường hợp loài động vật rừng thông thường chưa có tiêu chuẩn, quy chuẩn quốc gia về chuồng trại do cơ quan Nhà nước ban hành thì chủ cơ sở nuôi thực hiện như thế nào?",
