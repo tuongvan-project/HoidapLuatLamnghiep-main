@@ -12,6 +12,16 @@ const chibiCharacter = document.getElementById('chibi-character');
 const chibiSpeechBubble = document.getElementById('chibi-speech-bubble');
 const speechText = document.getElementById('speech-text');
 const chibiBubbleClose = document.getElementById('chibi-bubble-close');
+const chibiBubbleActions = document.getElementById('chibi-bubble-actions');
+const chibiActionNo = document.getElementById('chibi-action-no');
+const chibiActionYes = document.getElementById('chibi-action-yes');
+const instructionModalOverlay = document.getElementById('instruction-modal-overlay');
+const instructionCloseBtn = document.getElementById('instruction-close-btn');
+const instructionPlayBtn = document.getElementById('instruction-play-btn');
+const instructionModalBackdrop = document.querySelector('.instruction-modal-backdrop');
+let isAwaitingInstructionPrompt = false;
+let pendingInstructionMode = null;
+let pendingScreenElement = null;
 const mainContainer = document.querySelector('.container');
 const resultsContainer = document.getElementById('results-container');
 const resultText = document.getElementById('result-text');
@@ -226,7 +236,7 @@ function openConfirmModal(actionType) {
         clearInterval(timerInterval);
         timerInterval = null;
         if (tenSecondsSound && !tenSecondsSound.paused) {
-            try { tenSecondsSound.pause(); } catch (_) {}
+            try { tenSecondsSound.pause(); } catch (_) { }
         }
     } else {
         wasTimerRunning = false;
@@ -624,6 +634,14 @@ function displayAvgTime() {
 }
 
 function resetGame() {
+    if (instructionModalOverlay) {
+        instructionModalOverlay.classList.remove('active');
+        instructionModalOverlay.style.display = 'none';
+    }
+    isAwaitingInstructionPrompt = false;
+    pendingInstructionMode = null;
+    pendingScreenElement = null;
+    hideBubbleActions();
     pauseChibiVideos();
     stopTimer();
     cancelTypeWriterEffects();
@@ -654,7 +672,7 @@ function pauseChibiVideos() {
     Object.values(chibiClips).forEach(clip => {
         if (clip) {
             clip.classList.remove('active');
-            try { clip.pause(); } catch (_) {}
+            try { clip.pause(); } catch (_) { }
         }
     });
     activeChibiClip = null;
@@ -692,7 +710,7 @@ function playChibiVideo(videoSrc) {
 
         try {
             nextClip.currentTime = 0;
-        } catch (_) {}
+        } catch (_) { }
 
         const playPromise = nextClip.play();
         if (playPromise !== undefined) {
@@ -707,7 +725,7 @@ function playChibiVideo(videoSrc) {
             if (chibiTransitionTimeout) clearTimeout(chibiTransitionTimeout);
             chibiTransitionTimeout = setTimeout(() => {
                 prevClip.classList.remove('active');
-                try { prevClip.pause(); } catch (_) {}
+                try { prevClip.pause(); } catch (_) { }
             }, 70);
         }
     } catch (e) {
@@ -790,12 +808,7 @@ modeOptions.forEach(option => {
         selectedMode = 'kiemlam';
         setTimeout(() => {
             option.classList.remove('pressed');
-            modeSelectScreen.classList.remove('active');
-            setTimeout(() => {
-                modeSelectScreen.style.display = 'none';
-                mainContainer.style.display = 'flex';
-                startQuiz('kiemlam');
-            }, 280);
+            requestGameStart('kiemlam', modeSelectScreen);
         }, 100);
     });
 });
@@ -822,12 +835,7 @@ if (danTopicCards) {
 
             setTimeout(() => {
                 card.classList.remove('pressed');
-                if (danTopicScreen) danTopicScreen.classList.remove('active');
-                setTimeout(() => {
-                    if (danTopicScreen) danTopicScreen.style.display = 'none';
-                    mainContainer.style.display = 'flex';
-                    startQuiz(submode);
-                }, 280);
+                requestGameStart(submode, danTopicScreen);
             }, 100);
         });
     });
@@ -836,6 +844,10 @@ if (danTopicCards) {
 if (danTopicBack) {
     danTopicBack.addEventListener('click', () => {
         safePlaySound(clickSound);
+        isAwaitingInstructionPrompt = false;
+        pendingInstructionMode = null;
+        pendingScreenElement = null;
+        hideBubbleActions();
         stopChibiBlinkLoop();
         stopChibiIdleActionLoop();
         hideChibiSpeechBubble(true);
@@ -854,6 +866,10 @@ if (danTopicBack) {
 
 modeSelectBack.addEventListener('click', () => {
     safePlaySound(clickSound);
+    isAwaitingInstructionPrompt = false;
+    pendingInstructionMode = null;
+    pendingScreenElement = null;
+    hideBubbleActions();
     stopChibiBlinkLoop();
     stopChibiIdleActionLoop();
     hideChibiSpeechBubble(true);
@@ -891,7 +907,7 @@ const MODE_SELECTION_DIALOGUES = [
     {
         id: 'mode_intro',
         text: "Đầu tiên, mời bạn chọn chế độ chơi phù hợp:\n\nChế độ NHÂN DÂN: Nơi mọi người dân với những vai trò khác nhau trong xã hội tìm hiểu các quy định của pháp luật về lĩnh vực lâm nghiệp.\n\nChế độ KIỂM LÂM: Thử thách và kiểm tra kiến thức chuyên môn, nghiệp vụ của cán bộ Kiểm lâm và nhân viên bảo vệ rừng chuyên trách.",
-        pauseAfter: 0
+        pauseAfter: 5000
     }
 ];
 
@@ -919,19 +935,518 @@ const DAN_TOPIC_DIALOGUES = [
         id: 'dan_tonghop',
         submode: 'dan_tonghop',
         text: "TỔNG HỢP: Bạn muốn thử sức với nhiều nội dung khác nhau? Hãy chọn phần này để trả lời các câu hỏi tổng hợp về lĩnh vực lâm nghiệp, bao gồm các nội dung dành cho chủ rừng, kinh doanh và chế biến lâm sản, cơ sở nuôi động vật rừng cùng những kiến thức pháp luật lâm nghiệp chung.",
-        pauseAfter: 0
+        pauseAfter: 5000
     }
 ];
+
+// ==========================================================================
+// HỆ THỐNG RIG HOẠT HÌNH 2D 60FPS CHO TRỢ LÝ CHIBI KIỂM LÂM
+// - Nâng tay phải theo quỹ đạo Bezier FK (18 frame) + vén tóc sau tai (10 frame)
+// - Mắt cười híp hình cầu vồng 4 giai đoạn mượt mà (0 -> 1 -> 2 -> 3)
+// - Khẩu hình nói chuyện 3 trạng thái tự nhiên (0 -> 1 -> 2)
+// ==========================================================================
+const chibiCanvas = document.getElementById('chibi-canvas');
+const chibiCtx = chibiCanvas ? chibiCanvas.getContext('2d') : null;
+
+const chibiRigAssets = {
+    loadedCount: 0,
+    ready: false,
+    base: new Image(),
+    arms: new Image(),
+    faces: new Image(),
+    mouths: new Image()
+};
+
+const chibiRigState = {
+    armFrame: 0,        // 0..17: nâng/hạ tay phải, 18..27: vuốt nhẹ lọn tóc sau tai
+    eyeRow: 0,          // 0: mở, 1: khép 36%, 2: khép 65%, 3: mắt cười cầu vồng (^ ^)
+    mouthRow: 0,        // 0: mỉm cười, 1: hé nhẹ (i/e), 2: tròn nhỏ (o/u), 3: mở vừa (ơ/ê), 4: mở tươi (a), 5: cười hé
+    mouthMode: 'smile', // 'smile' | 'talking' | 'original'
+    targetVowel: 'A',   // 'A' | 'O' | 'E' | 'SPACE' | 'REST'
+    talkPauseUntil: 0,  // Tạm dừng khép môi mỉm cười khi gặp dấu phẩy/chấm câu
+    talkStepTime: 0,    // Nhịp chuyển khẩu hình Kuchi-paku mượt mà (~72ms)
+    talkSeqIdx: 0,      // Chỉ số bước trong chuỗi khẩu hình nguyên âm
+    talkChinOffsetY: 0, // Độ nhún nhẹ cằm (0..0.45px) khi mở miệng phát âm
+    bodyTiltDeg: 0,     // Độ nghiêng nhẹ thân trên khi vén tóc
+    isBlinking: false,
+    blinkStartTime: 0,
+    blinkDuration: 210,
+    isTuckingHair: false,
+    hairTuckStartTime: 0,
+    hairTuckFastReturn: false,
+    hairTuckReturnStartFrame: 0,
+    hairTuckOnComplete: null,
+    rafId: null
+};
+
+// Tạo Sprite Sheet 6 trạng thái khẩu hình chuẩn Anime (Kiểu 1: Dịu dàng, lịch sự - 84x288px)
+function buildAnimeMouthSheet() {
+    function drawSkinCover(ctx) {
+        ctx.save();
+        const cx = 42, cy = 13.6, angle = -0.095;
+        const cosA = Math.cos(-angle), sinA = Math.sin(-angle);
+        const rx = 18.5, ry = 7.8;
+        for (let py = 4; py <= 26; py++) {
+            for (let px = 20; px <= 64; px++) {
+                const dx0 = px - cx, dy0 = py - cy;
+                const rxLocal = (dx0 * cosA - dy0 * sinA) / rx;
+                const ryLocal = (dx0 * sinA + dy0 * cosA) / ry;
+                const d = Math.sqrt(rxLocal * rxLocal + ryLocal * ryLocal);
+                if (d >= 1) continue;
+                let alpha = 1.0;
+                if (d > 0.62) {
+                    alpha = 0.5 * (1 + Math.cos(Math.PI * (d - 0.62) / 0.38));
+                }
+                const ty = Math.max(0, Math.min(1, (py - 6) / 18));
+                const tx = Math.max(0, Math.min(1, Math.abs(px - 42) / 20));
+                const r = Math.round(255 - ty * 1.5);
+                const g = Math.round(235 - ty * 8 - tx * 6);
+                const b = Math.round(220 - ty * 11 - tx * 7);
+                ctx.fillStyle = `rgba(${r},${g},${b},${alpha.toFixed(3)})`;
+                ctx.fillRect(px, py, 1, 1);
+            }
+        }
+        ctx.restore();
+    }
+
+    function drawAnimeMouthFrame(ctx, frameIdx) {
+        ctx.clearRect(0, 0, 84, 48);
+        drawSkinCover(ctx);
+        ctx.save();
+        ctx.translate(42, 13.5);
+        ctx.rotate(-0.095);
+
+        if (frameIdx === 0) {
+            ctx.strokeStyle = 'rgba(236, 152, 145, 0.52)';
+            ctx.lineWidth = 2.1;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(-11.2, -0.4);
+            ctx.quadraticCurveTo(0, 3.5, 11.2, -0.4);
+            ctx.stroke();
+
+            ctx.strokeStyle = '#6c322b';
+            ctx.lineWidth = 1.3;
+            ctx.beginPath();
+            ctx.moveTo(-11.8, -1.0);
+            ctx.quadraticCurveTo(0, 3.0, 11.8, -1.0);
+            ctx.stroke();
+            ctx.restore();
+            return;
+        }
+
+        const configs = {
+            1: { w: 9.6,  cornerY: -0.9, uMidY: 0.9,  openH: 3.8, teeth: false, tongueY: 1.9, isO: false },
+            2: { w: 5.4,  cornerY:  0.8, uMidY: -0.6, openH: 5.2, teeth: false, tongueY: 2.2, isO: true  },
+            3: { w: 10.2, cornerY: -0.9, uMidY: 0.7,  openH: 5.8, teeth: true,  tongueY: 2.5, isO: false },
+            4: { w: 11.4, cornerY: -1.1, uMidY: 0.6,  openH: 7.5, teeth: true,  tongueY: 3.0, isO: false },
+            5: { w: 10.8, cornerY: -1.2, uMidY: 1.1,  openH: 4.6, teeth: true,  tongueY: 2.2, isO: false }
+        };
+        const c = configs[frameIdx];
+
+        const defineMouthPath = () => {
+            ctx.beginPath();
+            if (c.isO) {
+                ctx.moveTo(-c.w, c.cornerY);
+                ctx.bezierCurveTo(-c.w * 0.6, c.uMidY, c.w * 0.6, c.uMidY, c.w, c.cornerY);
+                ctx.bezierCurveTo(c.w * 1.05, c.openH * 0.75, c.w * 0.55, c.openH, 0, c.openH);
+                ctx.bezierCurveTo(-c.w * 0.55, c.openH, -c.w * 1.05, c.openH * 0.75, -c.w, c.cornerY);
+            } else {
+                ctx.moveTo(-c.w, c.cornerY);
+                ctx.quadraticCurveTo(0, c.uMidY, c.w, c.cornerY);
+                ctx.bezierCurveTo(c.w * 0.82, c.openH * 0.96, -c.w * 0.82, c.openH * 0.96, -c.w, c.cornerY);
+            }
+            ctx.closePath();
+        };
+
+        ctx.save();
+        ctx.strokeStyle = 'rgba(234, 150, 140, 0.45)';
+        ctx.lineWidth = 1.6;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(-c.w * 0.65, c.openH * 0.78);
+        ctx.quadraticCurveTo(0, c.openH + 1.15, c.w * 0.65, c.openH * 0.78);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.save();
+        defineMouthPath();
+        ctx.clip();
+
+        const cavGrad = ctx.createLinearGradient(0, c.cornerY, 0, c.openH);
+        cavGrad.addColorStop(0, '#983b44');
+        cavGrad.addColorStop(0.5, '#bf525c');
+        cavGrad.addColorStop(1, '#de6f78');
+        ctx.fillStyle = cavGrad;
+        ctx.fillRect(-c.w - 3, -4, (c.w + 3) * 2, c.openH + 7);
+
+        const tGrad = ctx.createLinearGradient(0, c.tongueY, 0, c.openH + 1);
+        tGrad.addColorStop(0, '#f2858c');
+        tGrad.addColorStop(1, '#ffb3b6');
+        ctx.fillStyle = tGrad;
+        ctx.beginPath();
+        ctx.ellipse(0, c.openH * 0.92, c.w * 0.70, c.openH * 0.54, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (c.teeth) {
+            ctx.fillStyle = 'rgba(255, 251, 247, 0.86)';
+            ctx.beginPath();
+            ctx.moveTo(-c.w * 0.72, c.cornerY);
+            ctx.quadraticCurveTo(0, c.uMidY + 1.25, c.w * 0.72, c.cornerY);
+            ctx.lineTo(c.w * 0.72, -3);
+            ctx.lineTo(-c.w * 0.72, -3);
+            ctx.closePath();
+            ctx.fill();
+        }
+        ctx.restore();
+
+        ctx.strokeStyle = 'rgba(135, 64, 58, 0.72)';
+        ctx.lineWidth = 1.0;
+        ctx.lineJoin = 'round';
+        defineMouthPath();
+        ctx.stroke();
+
+        ctx.strokeStyle = '#682f29';
+        ctx.lineWidth = 1.3;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        if (c.isO) {
+            ctx.moveTo(-c.w, c.cornerY * 0.85);
+            ctx.bezierCurveTo(-c.w * 0.55, c.uMidY, c.w * 0.55, c.uMidY, c.w, c.cornerY * 0.85);
+        } else {
+            ctx.moveTo(-c.w - 0.5, c.cornerY - 0.25);
+            ctx.quadraticCurveTo(0, c.uMidY, c.w + 0.5, c.cornerY - 0.25);
+        }
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    const sheet = document.createElement('canvas');
+    sheet.width = 84;
+    sheet.height = 48 * 6;
+    const sctx = sheet.getContext('2d');
+    const cell = document.createElement('canvas');
+    cell.width = 84;
+    cell.height = 48;
+    const cctx = cell.getContext('2d');
+    for (let i = 0; i < 6; i++) {
+        drawAnimeMouthFrame(cctx, i);
+        sctx.drawImage(cell, 0, i * 48);
+    }
+    return sheet;
+}
+
+function notifyChibiSpeechChar(ch) {
+    const now = performance.now();
+    if (!ch) return;
+    if (/[.,!?;:\n\r…]/.test(ch)) {
+        chibiRigState.talkPauseUntil = now + 175;
+        chibiRigState.targetVowel = 'REST';
+    } else if (/\s/.test(ch)) {
+        chibiRigState.targetVowel = 'SPACE';
+    } else if (/[oôuùúủũụốồổỗộóòỏõọ]/i.test(ch)) {
+        chibiRigState.targetVowel = 'O';
+    } else if (/[aăâáàảãạắằẳẵặấầẩẫậ]/i.test(ch)) {
+        chibiRigState.targetVowel = 'A';
+    } else if (/[eêiơưyéèẻẽẹếềểễệíìỉĩịớờởỡợứừửữựýỳỷỹỵ]/i.test(ch)) {
+        chibiRigState.targetVowel = 'E';
+    }
+}
+
+function initChibiRigAssets() {
+    const animeMouthCanvas = buildAnimeMouthSheet();
+    const sources = [
+        { key: 'base', src: 'chibi_rig_base.png?v=26' },
+        { key: 'arms', src: 'chibi_rig_arms.png?v=26' },
+        { key: 'faces', src: 'chibi_rig_faces.png?v=26' },
+        { key: 'mouths', src: 'chibi_rig_mouths.png?v=26' }
+    ];
+
+    sources.forEach(({ key, src }) => {
+        const img = chibiRigAssets[key];
+        img.onload = () => {
+            if (key === 'mouths' && img.naturalHeight < 288 && !img.dataset.upgraded) {
+                img.dataset.upgraded = 'true';
+                img.src = animeMouthCanvas.toDataURL('image/png');
+                return;
+            }
+            chibiRigAssets.loadedCount++;
+            if (chibiRigAssets.loadedCount === sources.length) {
+                chibiRigAssets.ready = true;
+                if (chibiCharacter) {
+                    chibiCharacter.classList.add('rig-ready');
+                }
+                renderChibiRigFrame(performance.now());
+                startChibiRigLoop();
+            }
+        };
+        img.onerror = () => {
+            if (key === 'mouths' && !img.dataset.upgraded) {
+                img.dataset.upgraded = 'true';
+                img.src = animeMouthCanvas.toDataURL('image/png');
+            }
+        };
+        img.src = src;
+    });
+}
+
+function easeInOutSine(x) {
+    return -(Math.cos(Math.PI * Math.max(0, Math.min(1, x))) - 1) / 2;
+}
+
+function updateChibiRigState(now) {
+    // 1. Cập nhật chuỗi hoạt ảnh đưa tay phải lên vén tóc bên tai & mắt cười cầu vồng
+    if (chibiRigState.isTuckingHair) {
+        const elapsed = now - chibiRigState.hairTuckStartTime;
+
+        if (chibiRigState.hairTuckFastReturn) {
+            const returnDur = 420;
+            const p = Math.min(1, elapsed / returnDur);
+            const eased = easeInOutSine(p);
+            chibiRigState.armFrame = Math.round(chibiRigState.hairTuckReturnStartFrame * (1 - eased));
+            chibiRigState.bodyTiltDeg = 1.1 * (1 - eased);
+            chibiRigState.eyeRow = p < 0.4 ? 2 : (p < 0.75 ? 1 : 0);
+
+            if (p >= 1) {
+                chibiRigState.isTuckingHair = false;
+                chibiRigState.hairTuckFastReturn = false;
+                chibiRigState.armFrame = 0;
+                chibiRigState.bodyTiltDeg = 0;
+                chibiRigState.eyeRow = 0;
+                if (chibiCharacter) chibiCharacter.classList.remove('touching-hair');
+            }
+        } else {
+            const liftDur = 1350;
+            const strokeDur = 1600;
+            const lowerDur = 1250;
+            const totalDur = liftDur + strokeDur + lowerDur;
+
+            if (elapsed < liftDur) {
+                const p = easeInOutSine(elapsed / liftDur);
+                chibiRigState.armFrame = Math.round(p * 17);
+                chibiRigState.bodyTiltDeg = p * 1.15;
+                if (p < 0.22) {
+                    chibiRigState.eyeRow = 0;
+                } else if (p < 0.44) {
+                    chibiRigState.eyeRow = 1;
+                } else if (p < 0.66) {
+                    chibiRigState.eyeRow = 2;
+                } else {
+                    chibiRigState.eyeRow = 3;
+                }
+            } else if (elapsed < liftDur + strokeDur) {
+                const sp = (elapsed - liftDur) / strokeDur;
+                chibiRigState.eyeRow = 3;
+                if (sp < 0.54) {
+                    const wave1 = Math.sin((sp / 0.54) * Math.PI);
+                    chibiRigState.armFrame = 17 + Math.round(wave1 * 10);
+                } else {
+                    const wave2 = Math.sin(((sp - 0.54) / 0.46) * Math.PI);
+                    chibiRigState.armFrame = 17 + Math.round(wave2 * 8);
+                }
+                chibiRigState.bodyTiltDeg = 1.15 + Math.sin(sp * Math.PI * 2) * 0.25;
+            } else if (elapsed < totalDur) {
+                const p = easeInOutSine((elapsed - liftDur - strokeDur) / lowerDur);
+                chibiRigState.armFrame = Math.round((1 - p) * 17);
+                chibiRigState.bodyTiltDeg = (1 - p) * 1.15;
+                if (p < 0.32) {
+                    chibiRigState.eyeRow = 3;
+                } else if (p < 0.56) {
+                    chibiRigState.eyeRow = 2;
+                } else if (p < 0.78) {
+                    chibiRigState.eyeRow = 1;
+                } else {
+                    chibiRigState.eyeRow = 0;
+                }
+            } else {
+                chibiRigState.isTuckingHair = false;
+                chibiRigState.armFrame = 0;
+                chibiRigState.bodyTiltDeg = 0;
+                chibiRigState.eyeRow = 0;
+                if (chibiCharacter) chibiCharacter.classList.remove('touching-hair');
+                if (typeof chibiRigState.hairTuckOnComplete === 'function') {
+                    const cb = chibiRigState.hairTuckOnComplete;
+                    chibiRigState.hairTuckOnComplete = null;
+                    cb();
+                }
+            }
+        }
+    } else if (chibiRigState.isBlinking) {
+        const elapsed = now - chibiRigState.blinkStartTime;
+        const p = elapsed / chibiRigState.blinkDuration;
+        if (p >= 1) {
+            chibiRigState.isBlinking = false;
+            chibiRigState.eyeRow = 0;
+        } else if (p < 0.22) {
+            chibiRigState.eyeRow = 1;
+        } else if (p < 0.42) {
+            chibiRigState.eyeRow = 2;
+        } else if (p < 0.65) {
+            chibiRigState.eyeRow = 3;
+        } else if (p < 0.82) {
+            chibiRigState.eyeRow = 2;
+        } else {
+            chibiRigState.eyeRow = 1;
+        }
+    } else {
+        chibiRigState.eyeRow = 0;
+    }
+
+    // 3. Cập nhật khẩu hình miệng Anime 6 trạng thái theo nguyên âm & dấu câu (Kiểu 1)
+    if (chibiRigState.mouthMode === 'talking' && isChibiSpeaking) {
+        if (now < (chibiRigState.talkPauseUntil || 0)) {
+            chibiRigState.mouthRow = (chibiRigState.mouthRow > 1) ? 1 : 0;
+            chibiRigState.talkChinOffsetY = 0;
+        } else {
+            if (now - (chibiRigState.talkStepTime || 0) >= 72) {
+                chibiRigState.talkStepTime = now;
+                chibiRigState.talkSeqIdx = ((chibiRigState.talkSeqIdx || 0) + 1) % 8;
+                const v = chibiRigState.targetVowel || 'A';
+                const patterns = {
+                    'A':     [1, 3, 4, 5, 3, 4, 5, 1],
+                    'O':     [1, 2, 3, 2, 5, 2, 1, 0],
+                    'E':     [1, 5, 3, 5, 1, 3, 5, 1],
+                    'SPACE': [5, 1, 0, 1, 5, 1, 3, 1],
+                    'REST':  [1, 0, 0, 1, 0, 0, 1, 0]
+                };
+                const seq = patterns[v] || patterns['A'];
+                chibiRigState.mouthRow = seq[chibiRigState.talkSeqIdx];
+            }
+            const r = chibiRigState.mouthRow;
+            chibiRigState.talkChinOffsetY = (r === 4) ? 0.45 : (r === 3 ? 0.25 : 0);
+        }
+    } else if (chibiRigState.mouthMode === 'original') {
+        chibiRigState.mouthRow = 4;
+        chibiRigState.talkChinOffsetY = 0;
+    } else {
+        chibiRigState.mouthRow = 0;
+        chibiRigState.talkChinOffsetY = 0;
+    }
+}
+
+function renderChibiRigFrame(now) {
+    if (!chibiCtx || !chibiRigAssets.ready) return;
+
+    updateChibiRigState(now);
+
+    chibiCtx.clearRect(0, 0, 408, 612);
+    chibiCtx.save();
+
+    if (Math.abs(chibiRigState.bodyTiltDeg) > 0.01) {
+        const pivotX = 204;
+        const pivotY = 410;
+        chibiCtx.translate(pivotX, pivotY);
+        chibiCtx.rotate((chibiRigState.bodyTiltDeg * Math.PI) / 180);
+        chibiCtx.translate(-pivotX, -pivotY);
+    }
+
+    // 1. Vẽ thân cơ sở
+    chibiCtx.drawImage(chibiRigAssets.base, 0, 0, 408, 612);
+
+    // 2. Vẽ frame cánh tay phải + lọn tóc bên tai
+    const armIdx = Math.max(0, Math.min(27, chibiRigState.armFrame));
+    const armCol = armIdx % 7;
+    const armRow = Math.floor(armIdx / 7);
+    chibiCtx.drawImage(
+        chibiRigAssets.arms,
+        armCol * 128,
+        armRow * 240,
+        128,
+        240,
+        72,
+        148,
+        128,
+        240
+    );
+
+    // 3. Vẽ trạng thái mắt (1 cột x 4 hàng, mỗi ô 136x66 đặt tại 138, 132)
+    const eyeIdx = Math.max(0, Math.min(3, chibiRigState.eyeRow));
+    if (eyeIdx > 0) {
+        chibiCtx.drawImage(
+            chibiRigAssets.faces,
+            0,
+            eyeIdx * 66,
+            136,
+            66,
+            138,
+            132,
+            136,
+            66
+        );
+    }
+
+    // 4. Vẽ trạng thái miệng Anime (1 cột x 6 hàng, mỗi ô 84x48 đặt tại 158, 182)
+    const maxMouthRow = Math.max(2, Math.floor((chibiRigAssets.mouths.naturalHeight || 288) / 48) - 1);
+    const mouthIdx = Math.max(0, Math.min(maxMouthRow, chibiRigState.mouthRow));
+    if (mouthIdx > 0) {
+        const dy = chibiRigState.talkChinOffsetY || 0;
+        chibiCtx.drawImage(
+            chibiRigAssets.mouths,
+            0,
+            mouthIdx * 48,
+            84,
+            48,
+            158,
+            182 + dy,
+            84,
+            48
+        );
+    }
+
+    chibiCtx.restore();
+}
+
+function startChibiRigLoop() {
+    if (chibiRigState.rafId) return;
+    chibiRigState.lastRenderTime = performance.now();
+
+    function stepFrame(now) {
+        const isScreenActive = (modeSelectScreen && modeSelectScreen.classList.contains('active')) ||
+            (danTopicScreen && danTopicScreen.classList.contains('active'));
+        if (isScreenActive || chibiRigState.isTuckingHair) {
+            chibiRigState.lastRenderTime = now;
+            renderChibiRigFrame(now);
+        }
+    }
+
+    function tick(now) {
+        stepFrame(now);
+        chibiRigState.rafId = requestAnimationFrame(tick);
+    }
+    chibiRigState.rafId = requestAnimationFrame(tick);
+
+    if (!chibiRigState.heartbeatId) {
+        chibiRigState.heartbeatId = setInterval(() => {
+            const now = performance.now();
+            if (now - (chibiRigState.lastRenderTime || 0) >= 28) {
+                if (chibiRigState.isTuckingHair || chibiRigState.isBlinking || isChibiSpeaking) {
+                    stepFrame(now);
+                }
+            }
+        }, 32);
+    }
+}
+
+initChibiRigAssets();
 
 function setChibiMouthState(state) {
     if (!chibiCharacter) return;
     chibiCharacter.classList.remove('mouth-original', 'mouth-smile', 'mouth-talking');
     if (state === 'original') {
         chibiCharacter.classList.add('mouth-original');
+        chibiRigState.mouthMode = 'original';
     } else if (state === 'talking') {
         chibiCharacter.classList.add('mouth-talking');
+        chibiRigState.mouthMode = 'talking';
+        // Nếu nhân vật đang vén tóc mà bắt đầu nói thì nhẹ nhàng hạ tay xuống
+        if (chibiRigState.isTuckingHair && !chibiRigState.hairTuckFastReturn) {
+            chibiRigState.hairTuckFastReturn = true;
+            chibiRigState.hairTuckStartTime = performance.now();
+            chibiRigState.hairTuckReturnStartFrame = Math.min(17, chibiRigState.armFrame);
+        }
     } else {
         chibiCharacter.classList.add('mouth-smile');
+        chibiRigState.mouthMode = 'smile';
     }
 }
 
@@ -943,11 +1458,15 @@ function startChibiBlinkLoop() {
         const delay = Math.random() * 2400 + 2600;
         chibiBlinkTimeout = setTimeout(() => {
             const isScreenActive = (modeSelectScreen && modeSelectScreen.classList.contains('active')) ||
-                                  (danTopicScreen && danTopicScreen.classList.contains('active'));
+                (danTopicScreen && danTopicScreen.classList.contains('active'));
             if (!isScreenActive) return;
+            if (chibiRigState.isTuckingHair) {
+                scheduleBlink();
+                return;
+            }
             triggerChibiBlink(() => {
                 if (Math.random() < 0.25) {
-                    setTimeout(() => triggerChibiBlink(scheduleBlink), 140);
+                    setTimeout(() => triggerChibiBlink(scheduleBlink), 160);
                 } else {
                     scheduleBlink();
                 }
@@ -966,43 +1485,48 @@ function stopChibiBlinkLoop() {
 
 function triggerChibiBlink(callback) {
     if (!chibiCharacter) return;
+    if (!chibiRigState.isTuckingHair) {
+        chibiRigState.isBlinking = true;
+        chibiRigState.blinkStartTime = performance.now();
+    }
     chibiCharacter.classList.add('blinking');
     setTimeout(() => {
         chibiCharacter.classList.remove('blinking');
         if (callback) callback();
-    }, 150);
+    }, chibiRigState.blinkDuration);
 }
+
+function triggerChibiHairTuck(onComplete) {
+    if (!chibiCharacter) return;
+    setChibiMouthState('smile');
+    chibiCharacter.classList.add('touching-hair');
+    chibiRigState.isTuckingHair = true;
+    chibiRigState.hairTuckFastReturn = false;
+    chibiRigState.hairTuckStartTime = performance.now();
+    chibiRigState.hairTuckOnComplete = onComplete || null;
+}
+
+window.triggerChibiHairTuck = triggerChibiHairTuck;
+window.chibiRigState = chibiRigState;
 
 function startChibiIdleActionLoop() {
     stopChibiIdleActionLoop();
 
     function scheduleIdleAction() {
-        const delay = Math.random() * 3000 + 5500;
+        // Chu kỳ 10 - 15 giây thực hiện động tác đưa tay phải lên vén tóc bên tai & mắt cười cầu vồng
+        const delay = Math.random() * 5000 + 10000;
         chibiIdleActionTimeout = setTimeout(() => {
             const isScreenActive = (modeSelectScreen && modeSelectScreen.classList.contains('active')) ||
-                                  (danTopicScreen && danTopicScreen.classList.contains('active'));
+                (danTopicScreen && danTopicScreen.classList.contains('active'));
             if (!isScreenActive) return;
-            if (isChibiSpeaking || isChibiTyping) {
+            if (isChibiSpeaking || isChibiTyping || chibiRigState.isTuckingHair) {
                 scheduleIdleAction();
                 return;
             }
 
-            if (Math.random() < 0.5) {
-                chibiCharacter.classList.add('turning-head');
-                triggerChibiBlink();
-                setTimeout(() => {
-                    chibiCharacter.classList.remove('turning-head');
-                    scheduleIdleAction();
-                }, 1600);
-            } else {
-                chibiCharacter.classList.add('touching-hair');
-                setChibiMouthState('smile');
-                triggerChibiBlink();
-                setTimeout(() => {
-                    chibiCharacter.classList.remove('touching-hair');
-                    scheduleIdleAction();
-                }, 2600);
-            }
+            triggerChibiHairTuck(() => {
+                scheduleIdleAction();
+            });
         }, delay);
     }
     scheduleIdleAction();
@@ -1013,6 +1537,11 @@ function stopChibiIdleActionLoop() {
         clearTimeout(chibiIdleActionTimeout);
         chibiIdleActionTimeout = null;
     }
+    chibiRigState.isTuckingHair = false;
+    chibiRigState.hairTuckFastReturn = false;
+    chibiRigState.armFrame = 0;
+    chibiRigState.bodyTiltDeg = 0;
+    chibiRigState.eyeRow = 0;
     if (chibiCharacter) {
         chibiCharacter.classList.remove('turning-head', 'touching-hair');
     }
@@ -1164,7 +1693,9 @@ function typeChibiDialogue(text, onComplete) {
         if (token !== chibiDialogueToken) return;
 
         if (charIdx < text.length) {
-            speechText.textContent += text.charAt(charIdx);
+            const ch = text.charAt(charIdx);
+            speechText.textContent += ch;
+            notifyChibiSpeechChar(ch);
             charIdx++;
             chibiTypewriterTimeout = setTimeout(typeNextChar, speed);
         } else {
@@ -1215,10 +1746,17 @@ function advanceDialogueStep(nextIndex) {
     }
 
     typeChibiDialogue(item.text, () => {
-        if (item.pauseAfter > 0 && currentDialogueIndex + 1 < currentDialogueQueue.length) {
+        if (currentDialogueIndex + 1 < currentDialogueQueue.length) {
+            if (item.pauseAfter > 0) {
+                chibiStepDelayTimeout = setTimeout(() => {
+                    advanceDialogueStep(currentDialogueIndex + 1);
+                }, item.pauseAfter);
+            }
+        } else {
+            const autoCloseDelay = item.pauseAfter > 0 ? item.pauseAfter : 5000;
             chibiStepDelayTimeout = setTimeout(() => {
-                advanceDialogueStep(currentDialogueIndex + 1);
-            }, item.pauseAfter);
+                hideChibiSpeechBubble(false);
+            }, autoCloseDelay);
         }
     });
 }
@@ -1269,10 +1807,17 @@ function skipOrCompleteDialogue() {
             clearTimeout(chibiStepDelayTimeout);
             chibiStepDelayTimeout = null;
         }
-        if (currentItem.pauseAfter > 0 && currentDialogueIndex + 1 < currentDialogueQueue.length) {
+        if (currentDialogueIndex + 1 < currentDialogueQueue.length) {
+            if (currentItem.pauseAfter > 0) {
+                chibiStepDelayTimeout = setTimeout(() => {
+                    advanceDialogueStep(currentDialogueIndex + 1);
+                }, currentItem.pauseAfter);
+            }
+        } else {
+            const autoCloseDelay = currentItem.pauseAfter > 0 ? currentItem.pauseAfter : 5000;
             chibiStepDelayTimeout = setTimeout(() => {
-                advanceDialogueStep(currentDialogueIndex + 1);
-            }, currentItem.pauseAfter);
+                hideChibiSpeechBubble(false);
+            }, autoCloseDelay);
         }
     } else {
         // Đã hiển thị đủ: bấm tiếp chuyển ngay sang đoạn tiếp theo
@@ -1338,6 +1883,23 @@ if (chibiSpeechBubble) {
     chibiSpeechBubble.addEventListener('click', (e) => {
         e.stopPropagation();
         safePlaySound(clickSound);
+        if (isAwaitingInstructionPrompt) {
+            if (isChibiTyping) {
+                chibiDialogueToken++;
+                if (chibiTypewriterTimeout) {
+                    clearTimeout(chibiTypewriterTimeout);
+                    chibiTypewriterTimeout = null;
+                }
+                speechText.textContent = "Bạn có muốn tìm hiểu về cách chơi và quy tắc của trò chơi không?";
+                isChibiTyping = false;
+                isChibiSpeaking = false;
+                setChibiMouthState('smile');
+                ensureBubbleFitsText();
+                triggerChibiBlink();
+                showBubbleActions();
+            }
+            return;
+        }
         skipOrCompleteDialogue();
     });
 }
@@ -1347,6 +1909,10 @@ if (chibiBubbleClose) {
     chibiBubbleClose.addEventListener('click', (e) => {
         e.stopPropagation();
         safePlaySound(clickSound);
+        if (isAwaitingInstructionPrompt) {
+            handleInstructionNo();
+            return;
+        }
         hideChibiSpeechBubble(false);
     });
 }
@@ -1545,3 +2111,176 @@ infoButton.addEventListener('click', () => {
         aboutMeOverlay.addEventListener('animationend', onAnimationEnd);
     }
 });
+
+// ==========================================================================
+// TÍNH NĂNG HỎI HƯỚNG DẪN LUẬT CHƠI & BẢNG THÔNG TIN INSTRUCTION.WEBP
+// Chỉ xuất hiện 1 lần duy nhất khi người chơi mở trình duyệt lần đầu.
+// Khi đã chơi rồi mà quay về Home hoặc Replay thì không bao giờ hiện lại.
+// ==========================================================================
+
+function requestGameStart(targetMode, currentScreenElement) {
+    const hasSeenPrompt = sessionStorage.getItem('hoidap_instruction_asked') === 'true';
+    if (hasSeenPrompt) {
+        // Đã hỏi hoặc đã từng chơi trong phiên trình duyệt này -> Vào thẳng game luôn
+        transitionScreenToGame(currentScreenElement, targetMode);
+        return;
+    }
+
+    // Lần đầu mở trình duyệt -> Đánh dấu ngay cờ để không hỏi lại
+    sessionStorage.setItem('hoidap_instruction_asked', 'true');
+    pendingInstructionMode = targetMode;
+    pendingScreenElement = currentScreenElement;
+    askInstructionPreference(currentScreenElement);
+}
+
+function transitionScreenToGame(screenElement, targetMode) {
+    stopChibiBlinkLoop();
+    stopChibiIdleActionLoop();
+    hideChibiSpeechBubble(true);
+    selectedMode = targetMode;
+
+    if (screenElement) {
+        screenElement.classList.remove('active');
+        setTimeout(() => {
+            screenElement.style.display = 'none';
+            mainContainer.style.display = 'flex';
+            startQuiz(targetMode);
+        }, 280);
+    } else {
+        mainContainer.style.display = 'flex';
+        startQuiz(targetMode);
+    }
+}
+
+function askInstructionPreference(screenElement) {
+    isAwaitingInstructionPrompt = true;
+    stopChibiDialogue();
+
+    const screenType = (screenElement === danTopicScreen) ? 'dan_topic' : 'mode';
+    attachAssistantToScreen(screenType);
+
+    if (modeChibiGuide) {
+        modeChibiGuide.classList.remove('bubble-hidden');
+    }
+
+    if (chibiCharacter) {
+        chibiCharacter.classList.remove('turning-head', 'touching-hair');
+        chibiCharacter.classList.add('ready');
+    }
+
+    if (chibiSpeechBubble) {
+        chibiSpeechBubble.classList.remove('closing');
+        chibiSpeechBubble.classList.add('active');
+        safePlaySound(latGiaySound);
+    }
+
+    if (chibiBubbleActions) {
+        chibiBubbleActions.classList.remove('visible');
+        chibiBubbleActions.style.display = 'none';
+    }
+
+    const promptText = "Bạn có muốn tìm hiểu về cách chơi và quy tắc của trò chơi không?";
+    typeChibiDialogue(promptText, () => {
+        showBubbleActions();
+    });
+}
+
+function showBubbleActions() {
+    if (!chibiBubbleActions) return;
+    chibiBubbleActions.style.display = 'flex';
+    requestAnimationFrame(() => {
+        chibiBubbleActions.classList.add('visible');
+    });
+}
+
+function hideBubbleActions() {
+    if (!chibiBubbleActions) return;
+    chibiBubbleActions.classList.remove('visible');
+    chibiBubbleActions.style.display = 'none';
+}
+
+function handleInstructionNo() {
+    safePlaySound(clickSound);
+    isAwaitingInstructionPrompt = false;
+    hideBubbleActions();
+    hideChibiSpeechBubble(true);
+    const mode = pendingInstructionMode || 'dan_tonghop';
+    const screen = pendingScreenElement;
+    pendingInstructionMode = null;
+    pendingScreenElement = null;
+    transitionScreenToGame(screen, mode);
+}
+
+function handleInstructionYes() {
+    safePlaySound(clickSound);
+    isAwaitingInstructionPrompt = false;
+    hideBubbleActions();
+    hideChibiSpeechBubble(true);
+    openInstructionModal();
+}
+
+function openInstructionModal() {
+    if (!instructionModalOverlay) return;
+    safePlaySound(latGiaySound);
+    instructionModalOverlay.style.display = 'flex';
+    requestAnimationFrame(() => {
+        instructionModalOverlay.classList.add('active');
+    });
+}
+
+function closeInstructionModalAndStart() {
+    if (!instructionModalOverlay || !instructionModalOverlay.classList.contains('active')) return;
+    safePlaySound(clickSound);
+    instructionModalOverlay.classList.remove('active');
+    setTimeout(() => {
+        instructionModalOverlay.style.display = 'none';
+        const mode = pendingInstructionMode || 'dan_tonghop';
+        const screen = pendingScreenElement;
+        pendingInstructionMode = null;
+        pendingScreenElement = null;
+        transitionScreenToGame(screen, mode);
+    }, 280);
+}
+
+// Gắn sự kiện cho 2 nút lựa chọn trong bong bóng chat Chibi
+if (chibiActionNo) {
+    chibiActionNo.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handleInstructionNo();
+    });
+}
+
+if (chibiActionYes) {
+    chibiActionYes.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handleInstructionYes();
+    });
+}
+
+// Gắn sự kiện cho Bảng hướng dẫn luật chơi
+if (instructionCloseBtn) {
+    instructionCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeInstructionModalAndStart();
+    });
+}
+
+if (instructionPlayBtn) {
+    instructionPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeInstructionModalAndStart();
+    });
+}
+
+if (instructionModalBackdrop) {
+    instructionModalBackdrop.addEventListener('click', () => {
+        closeInstructionModalAndStart();
+    });
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && instructionModalOverlay && instructionModalOverlay.classList.contains('active')) {
+        closeInstructionModalAndStart();
+    }
+});
+

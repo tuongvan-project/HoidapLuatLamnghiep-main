@@ -180,15 +180,15 @@ const question_ChuRung = [
     "explanation": "Căn cứ Điều 10 Nghị định số 146/2026/NĐ-CP: Hành vi lấn, chiếm rừng đặc dụng bị phạt tiền từ 1.000.000 đồng đến tối đa 80.000.000 đồng đối với rừng trồng (từ 10.000 m² trở lên); trường hợp lấn, chiếm rừng tự nhiên thì áp dụng mức phạt bằng hai lần (lên đến 160.000.000 đồng); đồng thời buộc áp dụng biện pháp khắc phục hậu quả khôi phục lại tình trạng ban đầu và trả lại diện tích rừng đã lấn chiếm."
   },
   {
-    "question": "Cộng đồng dân cư thôn được Nhà nước giao rừng tự nhiên thì ai là người đại diện hợp pháp trước pháp luật của cộng đồng trong quản lý khu rừng?",
+    "question": "Cộng đồng dân cư thôn được Nhà nước giao rừng tín ngưỡng thì ai là người đại diện hợp pháp trước pháp luật của cộng đồng trong quản lý khu rừng?",
     "options": [
-      "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra theo quy chế)",
+      "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra)",
       "Chủ tịch Hội Cựu chiến binh của xã",
       "Bất kỳ người cao tuổi nào sinh sống trong thôn",
       "Người có đóng góp nhiều tiền nhất vào quỹ thôn"
     ],
-    "correct": "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra theo quy chế)",
-    "explanation": "Căn cứ Điều 86 Luật Lâm nghiệp năm 2017 quy định người đại diện hợp pháp của cộng đồng dân cư thôn trong việc quản lý, bảo vệ khu rừng được giao là Trưởng thôn hoặc người được cộng đồng dân cư họp bầu ra."
+    "correct": "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra)",
+    "explanation": "Căn cứ Điều 86 Luật Lâm nghiệp năm 2017 hoặc khoản 3 Điều 6 Luật Đất đai quy định Người đại diện cho cộng đồng dân cư là trưởng thôn, làng, ấp, bản, bon, buôn, phum, sóc, tổ dân phố và điểm dân cư tương tự hoặc người được cộng đồng dân cư thỏa thuận cử ra."
   },
   {
     "question": "Người dân tự ý mang các loại thuốc diệt cỏ, hóa chất cực độc vào rừng phun để dọn thực bì trước khi trồng rừng bị xử lý như thế nào?",
@@ -1049,15 +1049,15 @@ const question_ChuRung = [
     "explanation": "Căn cứ Nghị định số 29/2018/NĐ-CP, Chương IV Thông tư số 26/2025/TT-BNNMT (VBHN số 04/VBHN-BNNMT) và Luật Quản lý, sử dụng tài sản công năm 2017: Lâm sản bị tịch thu do vi phạm pháp luật được xác lập quyền sở hữu toàn dân, xử lý theo hình thức bán đấu giá nộp ngân sách nhà nước, chuyển giao cho cơ quan nhà nước sử dụng hoặc tiêu hủy nếu thuộc trường hợp phải tiêu hủy."
   },
   {
-    "question": "Hành vi chặt phá cây rừng để làm đường dây điện hoặc xây dựng lán trại khi chưa được cấp phép bị xử phạt thế nào?",
+    "question": "Hành vi chặt phá cây rừng để làm đường dây điện bị xử phạt thế nào?",
     "options": [
       "Được phép vì mục đích sinh hoạt",
-      "Bị xử phạt về hành vi Phá rừng trái pháp luật và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
+      "Bị xử phạt về hành vi Phá rừng và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
       "Chỉ bị phạt nếu chặt cây có đường kính trên 1 mét",
       "Không bị xử phạt nếu nộp tiền điện đầy đủ"
     ],
-    "correct": "Bị xử phạt về hành vi Phá rừng trái pháp luật và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
-    "explanation": "Căn cứ Điều 23 và Điểm g Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Chặt cây rừng làm đường điện bị xử phạt về hành vi Phá rừng trái pháp luật; dựng lán trại trái phép trong rừng bị phạt tiền và buộc tháo dỡ công trình."
+    "correct": "Bị xử phạt về hành vi Phá rừng và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
+    "explanation": "Căn cứ Điều 23 Nghị định số 146/2026/NĐ-CP: Chặt cây rừng làm đường điện bị xử phạt về hành vi Phá rừng."
   },
   {
     "question": "Người dân tự nguyện giao nộp động vật rừng quý hiếm đi lạc hoặc nuôi trước đây cho Nhà nước thì có bị đi tù không?",

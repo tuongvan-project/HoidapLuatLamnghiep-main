@@ -197,13 +197,13 @@ const question_DVR = [
   {
     "question": "Khi kiểm tra đột xuất cơ sở nuôi động vật rừng, lực lượng chức năng phát hiện số lượng cá thể thực tế NHIỀU HƠN số lượng ghi trong Sổ theo dõi Mẫu 10 thì số cá thể dư thừa bị xử lý thế nào?",
     "options": [
-      "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi nhốt lâm sản trái pháp luật và bị tịch thu",
+      "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi, nhốt động vật rừng trái quy định pháp luật và bị tịch thu",
       "Chủ cơ sở được phép tự ghi bổ sung vào sổ ngay trước mặt đoàn kiểm tra",
       "Được cơ quan Kiểm lâm tự động công nhận là số lượng con non mới đẻ",
       "Chỉ cần nộp một khoản phí bổ sung 100.000 đồng cho mỗi cá thể dư thừa"
     ],
-    "correct": "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi nhốt lâm sản trái pháp luật và bị tịch thu",
-    "explanation": "Số lượng cá thể không có hồ sơ nguồn gốc chứng minh hợp pháp bị coi là lâm sản trái pháp luật, bị xử phạt theo Điều 24/26 NĐ 146 và tịch thu sung công quỹ."
+    "correct": "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi, nhốt động vật rừng trái quy định pháp luật  luật và bị tịch thu",
+    "explanation": "Số lượng cá thể không có hồ sơ nguồn gốc chứng minh hợp pháp bị coi là nuôi, nhốt động vật rừng trái quy định pháp luật , bị xử phạt theo Điều 24 NĐ 146 và tịch thu theo quy định."
   },
   {
     "question": "Mức phạt tiền tối đa áp dụng đối với TỔ CHỨC vi phạm quy định về bảo vệ động vật hoang dã theo Nghị định 146/2026/NĐ-CP lên tới bao nhiêu?",

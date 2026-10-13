@@ -789,13 +789,13 @@ const question_CBLS = [
   {
     "question": "Cây cảnh cổ thụ mua bán, chuyển nhượng qua nhiều chủ sở hữu trong nước thì hồ sơ nguồn gốc hợp pháp được xác lập như thế nào?",
     "options": [
-      "Được kế thừa từ hồ sơ lâm sản của chủ sở hữu trước đó, gồm Bảng kê lâm sản và các chứng từ mua bán, hóa đơn hợp pháp kèm theo",
+      "Được kế thừa từ hồ sơ lâm sản của chủ sở hữu trước đó",
       "Tự động mất hiệu lực pháp lý và chủ mới phải làm lại từ đầu từ Ủy ban nhân dân tỉnh",
       "Chỉ cần một bản photocopy căn cước công dân của người chủ đầu tiên",
       "Mỗi lần chuyển nhượng phải đem cây lên trồng lại vào rừng tự nhiên 3 tháng"
     ],
-    "correct": "Được kế thừa từ hồ sơ lâm sản của chủ sở hữu trước đó, gồm Bảng kê lâm sản và các chứng từ mua bán, hóa đơn hợp pháp kèm theo",
-    "explanation": "Căn cứ Điều 8 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Hồ sơ lâm sản có tính kế thừa từ chủ sở hữu trước đó, gồm Bảng kê lâm sản và chứng từ chuyển nhượng, hóa đơn mua bán hợp pháp."
+    "correct": "Được kế thừa từ hồ sơ lâm sản của chủ sở hữu trước đó",
+    "explanation": "Căn cứ Điều 11 Thông tư số 26/2025/TT-BNNMT (được sửa đổi bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Hồ sơ lâm sản có tính kế thừa từ chủ sở hữu trước đó, gồm Bảng kê lâm sản (có xác nhận của cơ quan Kiểm lâm sở tại (nếu thuộc trường hợp phải xác nhận)"
   },
   {
     "question": "Trường hợp cây bứng dưỡng thuộc Danh mục loài thực vật rừng nguy cấp, quý, hiếm hoặc Phụ lục CITES (bất kể được bứng từ đâu), hồ sơ nguồn gốc bắt buộc theo quy định nào?",
