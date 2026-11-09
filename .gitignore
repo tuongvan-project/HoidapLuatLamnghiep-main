@@ -1,0 +1,15 @@
+# Thư mục sao lưu (chỉ giữ trên máy tính cá nhân, không đẩy lên web)
+backup_original/
+backup_task/
+backup_videos_original/
+backup_*/
+
+# Tài liệu văn bản nội bộ
+*.docx
+*.txt
+
+# File tạm và hệ thống
+tmp_*
+test_*
+.DS_Store
+Thumbs.db
