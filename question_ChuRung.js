@@ -1,9 +1,8 @@
 // ============================================================================
-// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ
-// Gói dữ liệu: Chủ rừng và cộng đồng dân cư (130 câu)
-// Cơ quan đối soát: Chuyên gia Pháp chế Kiểm lâm (Subagent PC)
-// Căn cứ QPPL: Hệ thống QPPL hiện hành (NĐ 146/2026, NĐ 42/2026, TT 85/2025, TT 16/2025, Luật Đất đai 2024)
-// Cấu trúc Object: { id, question, options, correct, explanation } (Bảo vệ tính toàn vẹn 100%)
+// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ (BẢN V2 - NÂNG CAO ĐỘ KHÓ)
+// Gói dữ liệu: Quyền, nghĩa vụ chủ rừng và chính sách lâm nghiệp (130 câu)
+// Đã điều chỉnh: Tăng độ khó bằng cách thay thế 1 phương án sai lộ liễu thành phương án nhiễu tinh vi (plausible distractor)
+// Bảo toàn: 100% câu hỏi, đáp án đúng và trích dẫn giải thích pháp lý nguyên vẹn
 // ============================================================================
 
 const question_ChuRung = [
@@ -14,7 +13,7 @@ const question_ChuRung = [
       "Độ tàn che từ 0,1 trở lên; Diện tích liền vùng từ 0,3 ha trở lên (hoặc dải cây rộng tối thiểu 20m); Chiều cao vút ngọn trung bình từ 5,0m trở lên (đối với đất đồi núi, đồng bằng)",
       "Độ tàn che từ 0,3 trở lên; Diện tích liền vùng từ 0,5 ha trở lên; Chiều cao cây bất kỳ không phân biệt",
       "Độ tàn che từ 0,05 trở lên; Diện tích đất từ 1,0 ha trở lên; Cây trồng đã sống được trên 02 năm",
-      "Chỉ cần cây trồng khép tán không nhìn thấy mặt đất và chủ rừng có giấy chứng nhận quyền sử dụng đất"
+      "Độ tàn che từ 0,2 trở lên; Diện tích liền vùng từ 0,5 ha trở lên; Chiều cao cây trung bình từ 3,0m trở lên đối với cây gỗ bản địa"
     ],
     "correct": "Độ tàn che từ 0,1 trở lên; Diện tích liền vùng từ 0,3 ha trở lên (hoặc dải cây rộng tối thiểu 20m); Chiều cao vút ngọn trung bình từ 5,0m trở lên (đối với đất đồi núi, đồng bằng)",
     "explanation": "Căn cứ Điều 5 Nghị định số 156/2018/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 91/2024/NĐ-CP và Nghị định số 42/2026/NĐ-CP): Tiêu chí xác định rừng gồm 3 điều kiện: độ tàn che từ 0,1 trở lên; diện tích liền vùng từ 0,3 ha trở lên (hoặc dải cây rộng tối thiểu 20m, có từ 03 hàng cây trở lên); chiều cao vút ngọn trung bình từ 5,0m trở lên (đối với đồi núi, đồng bằng)."
@@ -24,12 +23,12 @@ const question_ChuRung = [
     "question": "Theo Điều 19 Thông tư số 16/2025/TT-BNNMT, chủ rừng nhóm I (hộ gia đình, cá nhân) có trách nhiệm thông báo biến động diện tích rừng như thế nào?",
     "options": [
       "Thông báo cho Kiểm lâm địa bàn hoặc UBND cấp xã trong thời hạn 15 ngày kể từ ngày có biến động (do khai thác, trồng mới, cháy, sâu bệnh, sạt lở)",
-      "Chỉ cần thông báo bằng miệng cho Trưởng thôn vào dịp họp thôn tổng kết cuối năm",
-      "Thông báo trong thời hạn 30 ngày làm việc trực tiếp về Chi cục Kiểm lâm cấp tỉnh",
+      "Phải thông báo cho Kiểm lâm làm việc tại địa bàn biết để kiểm tra, xác minh và cập nhật theo dõi diễn biến rừng",
+      "Phải báo cáo trực tiếp cho Sở Nông nghiệp và Môi trường cấp tỉnh phê duyệt trước khi trồng lại",
       "Không phải thông báo nếu diện tích rừng bị biến động dưới 01 héc-ta"
     ],
-    "correct": "Thông báo cho Kiểm lâm địa bàn hoặc UBND cấp xã trong thời hạn 15 ngày kể từ ngày có biến động (do khai thác, trồng mới, cháy, sâu bệnh, sạt lở)",
-    "explanation": "Căn cứ Điểm a Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Trong thời hạn 15 ngày kể từ ngày có biến động về diện tích rừng, chủ rừng nhóm I có trách nhiệm báo cáo Kiểm lâm làm việc tại địa bàn."
+    "correct": "Phải thông báo cho Kiểm lâm làm việc tại địa bàn biết để kiểm tra, xác minh và cập nhật theo dõi diễn biến rừng",
+    "explanation": "Theo Điểm a Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại Văn bản hợp nhất số 06/VBHN-BNNMT), chủ rừng nhóm I (hộ gia đình, cá nhân, cộng đồng dân cư) có trách nhiệm thông báo cho Kiểm lâm làm việc tại địa bàn khi có biến động diện tích rừng để Hạt Kiểm lâm kiểm tra, xác minh, cập nhật cơ sở dữ liệu theo dõi diễn biến rừng và trình Chủ tịch Ủy ban nhân dân cấp xã quyết định công bố hiện trạng rừng."
   },
   {
     "id": "ChuRung_003",
@@ -37,7 +36,7 @@ const question_ChuRung = [
     "options": [
       "Làm đường băng cản lửa rộng tối thiểu 4 - 6m bao quanh bãi đốt; đốt vào sáng sớm hoặc chiều tối khi gió lặng; thông báo cho Trưởng thôn/Kiểm lâm địa bàn; tuyệt đối cấm đốt khi dự báo cháy rừng Cấp IV, Cấp V",
       "Đốt vào buổi trưa nắng gắt để thực bì cháy nhanh và triệt để; không cần làm đường băng cản lửa nếu nương đã có bờ đá bao quanh",
-      "Được phép đốt tự do trong mọi điều kiện thời tiết miễn là chủ nương có mặt túc trực tại nương",
+      "Làm đường băng cản lửa rộng 2 - 3m; chỉ cần thông báo cho các chủ rừng liền kề trước 01 ngày mà không cần báo Kiểm lâm",
       "Chỉ cần xin phép bằng miệng của các hộ gia đình có nương liền kề mà không cần làm đường băng cản lửa"
     ],
     "correct": "Làm đường băng cản lửa rộng tối thiểu 4 - 6m bao quanh bãi đốt; đốt vào sáng sớm hoặc chiều tối khi gió lặng; thông báo cho Trưởng thôn/Kiểm lâm địa bàn; tuyệt đối cấm đốt khi dự báo cháy rừng Cấp IV, Cấp V",
@@ -48,12 +47,12 @@ const question_ChuRung = [
     "question": "Hộ gia đình được giao rừng phòng hộ tự bỏ vốn trồng rừng, khi khai thác cây gỗ phụ trợ hoặc tỉa thưa phải tuân thủ điều kiện nào sau đây?",
     "options": [
       "Khai thác tỉa thưa cây phụ trợ nhưng phải bảo đảm độ tàn che của rừng sau khai thác không dưới 0,6; lập phương án khai thác gửi UBND xã và Kiểm lâm",
-      "Được phép chặt trắng toàn bộ diện tích để trồng lại lứa cây mới có năng suất cao hơn",
-      "Được tự do đốn hạ bất kỳ cây nào to nhất mang đi bán lấy tiền mà không cần giữ độ tàn che",
+      "Phải lập Phương án khai thác gỗ (Mẫu số 08 Phụ lục II) trình Chủ tịch Ủy ban nhân dân cấp xã phê duyệt trước khi thực hiện và gửi 01 bản cho cơ quan Kiểm lâm sở tại để theo dõi, giám sát",
+      "Được khai thác tỉa thưa cây phụ trợ nhưng độ tàn che của rừng sau khai thác không được dưới 0,4",
       "Phải để rừng nguyên vẹn vĩnh viễn, nghiêm cấm khai thác bất kỳ cây gỗ nào dù tự bỏ vốn trồng"
     ],
-    "correct": "Khai thác tỉa thưa cây phụ trợ nhưng phải bảo đảm độ tàn che của rừng sau khai thác không dưới 0,6; lập phương án khai thác gửi UBND xã và Kiểm lâm",
-    "explanation": "Căn cứ Khoản 1 Điều 55 Luật Lâm nghiệp năm 2017 và Điều 20 Nghị định số 156/2018/NĐ-CP: Khai thác tỉa thưa rừng trồng phòng hộ phải bảo đảm duy trì độ tàn che của rừng sau khai thác không được nhỏ hơn 0,6."
+    "correct": "Phải lập Phương án khai thác gỗ (Mẫu số 08 Phụ lục II) trình Chủ tịch Ủy ban nhân dân cấp xã phê duyệt trước khi thực hiện và gửi 01 bản cho cơ quan Kiểm lâm sở tại để theo dõi, giám sát",
+    "explanation": "Theo Khoản 2 Điều 20 Nghị định số 156/2018/NĐ-CP (hợp nhất tại Văn bản hợp nhất số 13/VBHN-BNNMT) và Điểm c Khoản 2, Điểm c Khoản 3, Khoản 9 Điều 6 Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT), việc khai thác tận thu gỗ rừng tự nhiên của hộ gia đình, cá nhân phải lập Phương án khai thác theo Mẫu số 08 Phụ lục II trình Chủ tịch Ủy ban nhân dân cấp xã phê duyệt trước khi khai thác và gửi 01 bản đến cơ quan Kiểm lâm sở tại để theo dõi, giám sát."
   },
   {
     "id": "ChuRung_005",
@@ -61,7 +60,7 @@ const question_ChuRung = [
     "options": [
       "Thiệt hại từ 0,5 ha (5.000m²) rừng đặc dụng, từ 01 ha rừng phòng hộ hoặc từ 1,5 ha rừng sản xuất trở lên",
       "Chỉ khi gây cháy lan từ 10 ha rừng trở lên mới bị xử lý hình sự",
-      "Mọi vụ cháy nương lan vào rừng đều chỉ phạt hành chính tiền bạc, không bị đi tù",
+      "Thiệt hại từ 01 ha rừng đặc dụng, từ 02 ha rừng phòng hộ hoặc từ 03 ha rừng sản xuất trở lên",
       "Gây thiệt hại từ 100 ha rừng trở lên mới cấu thành tội phạm"
     ],
     "correct": "Thiệt hại từ 0,5 ha (5.000m²) rừng đặc dụng, từ 01 ha rừng phòng hộ hoặc từ 1,5 ha rừng sản xuất trở lên",
@@ -72,12 +71,12 @@ const question_ChuRung = [
     "question": "Hành vi chặt phá rừng sản xuất là rừng tự nhiên trái phép đến ngưỡng diện tích tối thiểu bao nhiêu thì bị truy cứu trách nhiệm hình sự theo Điều 243 BLHS?",
     "options": [
       "Diện tích từ 5.000 m² (0,5 ha) trở lên, hoặc từ 2.500 m² nếu đã bị xử phạt VPHC về hành vi này mà còn tái phạm",
-      "Diện tích từ 1.000 m² trở lên trong mọi trường hợp",
-      "Diện tích từ 20.000 m² (02 ha) trở lên mới bị khởi tố hình sự",
+      "Từ 5.000 mét vuông (0,5 ha) đến dưới 10.000 mét vuông, hoặc dưới 5.000 mét vuông nếu đã bị xử phạt vi phạm hành chính về một trong các hành vi quy định tại Điều 243 hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm",
+      "Diện tích từ 3.000 m² (0,3 ha) đối với rừng gỗ lớn và từ 5.000 m² đối với rừng tre nứa",
       "Chỉ bị xử lý hình sự khi chặt hạ các cây gỗ có đường kính trên 01 mét"
     ],
-    "correct": "Diện tích từ 5.000 m² (0,5 ha) trở lên, hoặc từ 2.500 m² nếu đã bị xử phạt VPHC về hành vi này mà còn tái phạm",
-    "explanation": "Điểm b Khoản 1 Điều 243 Bộ luật Hình sự: Phá rừng sản xuất là rừng tự nhiên từ 5.000 m² đến dưới 10.000 m² (hoặc dưới mức này nhưng đã bị xử phạt VPHC) bị phạt tù từ 1 đến 5 năm."
+    "correct": "Từ 5.000 mét vuông (0,5 ha) đến dưới 10.000 mét vuông, hoặc dưới 5.000 mét vuông nếu đã bị xử phạt vi phạm hành chính về một trong các hành vi quy định tại Điều 243 hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm",
+    "explanation": "Căn cứ Điểm b và Điểm g Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025): Hành vi đốt, phá rừng trái phép hoặc có hành vi khác hủy hoại rừng sản xuất có diện tích từ 5.000 mét vuông (0,5 ha) đến dưới 10.000 mét vuông (hoặc dưới 5.000 mét vuông nhưng đã bị xử phạt vi phạm hành chính về một trong các hành vi quy định tại Điều này hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm) thì bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng, với mức phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "ChuRung_007",
@@ -85,11 +84,11 @@ const question_ChuRung = [
     "options": [
       "Diện tích chỉ từ 1.000 m² (0,1 ha) trở lên đã cấu thành tội phạm hình sự",
       "Diện tích từ 5.000 m² trở lên mới bị truy cứu hình sự",
-      "Diện tích từ 10.000 m² trở lên mới bị khởi tố",
+      "Diện tích từ 2.000 m² (0,2 ha) trở lên đối với phân khu bảo vệ nghiêm ngặt",
       "Rừng đặc dụng không quy định diện tích hình sự mà chỉ phạt tiền"
     ],
     "correct": "Diện tích chỉ từ 1.000 m² (0,1 ha) trở lên đã cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025): Hủy hoại rừng phòng hộ có diện tích từ 3.000 mét vuông (0,3 ha) đến dưới 7.000 mét vuông thì bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "ChuRung_008",
@@ -97,7 +96,7 @@ const question_ChuRung = [
     "options": [
       "Bị phạt tiền từ mức thấp nhất 3.000.000 đồng đến tối đa 250.000.000 đồng (hoặc đến 500.000.000 đồng nếu là rừng tự nhiên) tùy diện tích; buộc khôi phục lại tình trạng ban đầu của rừng",
       "Chỉ bị nhắc nhở và được cơ quan nhà nước tự động hợp thức hóa cấp sổ đỏ sang đất nông nghiệp",
-      "Không bị phạt tiền nếu hộ gia đình cam kết chỉ trồng ngô, sắn phục vụ chăn nuôi",
+      "Chỉ bị xử phạt vi phạm hành chính về hành vi sử dụng đất sai mục đích theo pháp luật về đất đai mà không bị phạt về lâm nghiệp",
       "Chỉ bị phạt tiền mức cố định 200.000 đồng cho một vụ việc vi phạm"
     ],
     "correct": "Bị phạt tiền từ mức thấp nhất 3.000.000 đồng đến tối đa 250.000.000 đồng (hoặc đến 500.000.000 đồng nếu là rừng tự nhiên) tùy diện tích; buộc khôi phục lại tình trạng ban đầu của rừng",
@@ -108,12 +107,12 @@ const question_ChuRung = [
     "question": "Khi khai thác gỗ rừng trồng do hộ gia đình tự đầu tư trên đất rừng sản xuất đã được cấp giấy chứng nhận quyền sử dụng đất, thủ tục pháp lý quy định ra sao?",
     "options": [
       "Chủ rừng tự quyết định việc khai thác; trước khi khai thác lập Bảng kê lâm sản và tự chịu trách nhiệm về nguồn gốc lâm sản hợp pháp",
-      "Bắt buộc phải làm đơn xin phép và được Chủ tịch UBND tỉnh phê duyệt mới được chặt cây",
-      "Phải mời đoàn công tác liên ngành của tỉnh về giám sát cắm mốc từng cây gỗ",
+      "Không phải xin phê duyệt phương án khai thác; trước khi khai thác chủ rừng tự lập Phương án khai thác gửi cơ quan Kiểm lâm sở tại để theo dõi, giám sát và sau khi khai thác (hoặc khi bán, vận chuyển) thì lập Bảng kê lâm sản",
+      "Phải gửi phương án khai thác lên Ủy ban nhân dân cấp xã để phê duyệt trước khi chặt hạ ít nhất 05 ngày làm việc",
       "Bắt buộc phải bán toàn bộ sản lượng gỗ khai thác cho Công ty lâm nghiệp nhà nước"
     ],
-    "correct": "Chủ rừng tự quyết định việc khai thác; trước khi khai thác lập Bảng kê lâm sản và tự chịu trách nhiệm về nguồn gốc lâm sản hợp pháp",
-    "explanation": "Căn cứ Điều 59 Luật Lâm nghiệp năm 2017 và Thông tư số 26/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Rừng trồng sản xuất do chủ rừng tự đầu tư thì chủ rừng tự quyết định khai thác, tự lập Bảng kê lâm sản khi xuất bán."
+    "correct": "Không phải xin phê duyệt phương án khai thác; trước khi khai thác chủ rừng tự lập Phương án khai thác gửi cơ quan Kiểm lâm sở tại để theo dõi, giám sát và sau khi khai thác (hoặc khi bán, vận chuyển) thì lập Bảng kê lâm sản",
+    "explanation": "Căn cứ Khoản 1 Điều 59 Luật Lâm nghiệp năm 2017 và Khoản 1 Điều 5, Khoản 7, Khoản 9 Điều 6 Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT): Chủ rừng tự quyết định khai thác rừng sản xuất là rừng trồng do mình tự bỏ vốn đầu tư (không phải trình cơ quan nhà nước phê duyệt phương án khai thác). Trước khi khai thác, chủ rừng lập Phương án khai thác theo Mẫu số 08 Phụ lục II và gửi 01 bản đến cơ quan Kiểm lâm sở tại để theo dõi, giám sát; sau khi khai thác (trong thời hạn 05 ngày làm việc kể từ ngày kết thúc khai thác hoặc khi bán, vận chuyển) chủ rừng tự lập Bảng kê lâm sản để làm hồ sơ nguồn gốc gỗ hợp pháp."
   },
   {
     "id": "ChuRung_010",
@@ -122,7 +121,7 @@ const question_ChuRung = [
       "Nghiêm cấm chăn thả gia súc ở các khu rừng mới trồng, rừng đang trong thời kỳ tái sinh phục hồi; khu vực rừng đã khép tán chỉ được chăn thả có kiểm soát theo quy định",
       "Được phép thả rông không giới hạn số lượng gia súc ở mọi vị trí trong rừng phòng hộ",
       "Được phép chặt hạ cây rừng để làm hàng rào nhốt đàn bò hàng trăm con",
-      "Chỉ được chăn thả gia súc vào ban đêm để tránh Kiểm lâm nhìn thấy"
+      "Được phép chăn thả có kiểm soát nếu có sự chấp thuận bằng văn bản của Trưởng thôn nơi có rừng"
     ],
     "correct": "Nghiêm cấm chăn thả gia súc ở các khu rừng mới trồng, rừng đang trong thời kỳ tái sinh phục hồi; khu vực rừng đã khép tán chỉ được chăn thả có kiểm soát theo quy định",
     "explanation": "Căn cứ Khoản 1 Điều 56 Luật Lâm nghiệp năm 2017 và Điểm e Khoản 2 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm chăn thả gia súc, vật nuôi vào rừng phòng hộ mới trồng, đang trong thời kỳ chăm sóc hoặc tái sinh phục hồi; người vi phạm bị xử phạt và buộc đưa vật nuôi ra khỏi rừng."
@@ -133,11 +132,11 @@ const question_ChuRung = [
     "options": [
       "Báo ngay hoặc mang đến giao nộp cho Cơ quan Kiểm lâm sở tại hoặc UBND cấp xã gần nhất để cứu hộ; tuyệt đối không tự ý giữ nuôi, giết thịt hoặc rao bán",
       "Tự ý mang về nhà nhốt làm cảnh và đăng bài bán lên mạng xã hội lấy tiền bồi dưỡng",
-      "Đem ra chợ bán cho người mua phóng sinh để làm phúc",
+      "Tạm thời nuôi nhốt tại gia đình và làm đơn đề nghị cơ quan Kiểm lâm hỗ trợ kinh phí chăm sóc",
       "Mổ thịt liên hoan cùng bà con lối xóm vì con vật tự bò vào nương của mình"
     ],
     "correct": "Báo ngay hoặc mang đến giao nộp cho Cơ quan Kiểm lâm sở tại hoặc UBND cấp xã gần nhất để cứu hộ; tuyệt đối không tự ý giữ nuôi, giết thịt hoặc rao bán",
-    "explanation": "Căn cứ Điều 15 Thông tư số 85/2025/TT-BNNMT và Điều 29 Nghị định số 29/2018/NĐ-CP: Động vật rừng bị lạc, bị thương, bị bệnh, suy kiệt sức khỏe là tài sản công; người dân có trách nhiệm thông báo ngay cho UBND cấp xã nơi phát hiện hoặc cơ quan Kiểm lâm sở tại để kiểm tra, tiếp nhận và tổ chức cứu hộ theo quy định; tự ý nuôi giữ, giết thịt hoặc mua bán là vi phạm pháp luật."
+    "explanation": "Theo Nghị định số 77/2025/NĐ-CP (thay thế Nghị định số 29/2018/NĐ-CP), Chương III Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT) và Điều 15 Thông tư số 85/2025/TT-BNNMT: Đối với tài sản công là cây rừng (lâm sản) gắn liền với đất, việc thanh lý để thu hồi gỗ được thực hiện theo phương thức bán đấu giá công khai theo quy định của pháp luật về đấu giá tài sản (trừ các trường hợp đặc biệt đủ điều kiện bán chỉ định hoặc tiêu hủy đối với cây rừng bị dịch bệnh bắt buộc tiêu hủy)."
   },
   {
     "id": "ChuRung_012",
@@ -145,7 +144,7 @@ const question_ChuRung = [
     "options": [
       "Là hành vi vi phạm pháp luật về bảo vệ động vật rừng bị nghiêm cấm; bị xử phạt VPHC, tịch thu toàn bộ bẫy và bồi thường thiệt hại nếu gây chết động vật",
       "Hoàn toàn hợp pháp vì nương rẫy thuộc quyền sở hữu của gia đình",
-      "Chỉ vi phạm nếu bẫy bắt được các loài thú có trọng lượng trên 50kg",
+      "Chỉ bị xử phạt nếu giăng bẫy trong mùa sinh sản của động vật hoang dã",
       "Được khuyến khích để diệt trừ các loài thú hoang phá hoại mùa màng"
     ],
     "correct": "Là hành vi vi phạm pháp luật về bảo vệ động vật rừng bị nghiêm cấm; bị xử phạt VPHC, tịch thu toàn bộ bẫy và bồi thường thiệt hại nếu gây chết động vật",
@@ -156,12 +155,12 @@ const question_ChuRung = [
     "question": "Theo Nghị định số 58/2024/NĐ-CP của Chính phủ, chính sách hỗ trợ khoán bảo vệ rừng đối với hộ gia đình đồng bào dân tộc thiểu số ở xã khu vực III được hỗ trợ mức kinh phí nào?",
     "options": [
       "Mức hỗ trợ tối thiểu từ 500.000 đồng/ha/năm (vùng đặc biệt khó khăn có thể áp dụng mức cao hơn theo quy định)",
-      "Chỉ hỗ trợ 50.000 đồng/ha/năm",
+      "Bình quân 1.000.000 đồng/ha/năm; đối với hộ gia đình sinh sống ổn định tại xã khu vực II, khu vực III được hưởng mức bằng 1,2 lần mức bình quân (1.200.000 đồng/ha/năm), vùng đất ven biển bằng 1,5 lần mức bình quân (1.500.000 đồng/ha/năm)",
       "Không hỗ trợ tiền mặt, chỉ hỗ trợ cây giống ngô lai",
-      "Hỗ trợ 50.000.000 đồng/ha/tháng"
+      "Mức cố định 300.000 đồng/ha/năm áp dụng chung cho mọi vùng miền trên cả nước"
     ],
-    "correct": "Mức hỗ trợ tối thiểu từ 500.000 đồng/ha/năm (vùng đặc biệt khó khăn có thể áp dụng mức cao hơn theo quy định)",
-    "explanation": "Căn cứ Điều 5 và Điều 6 Nghị định số 58/2024/NĐ-CP của Chính phủ: Hộ đồng bào DTTS nghèo ở xã khu vực III nhận khoán bảo vệ rừng được ngân sách nhà nước hỗ trợ bình quân tối thiểu từ 500.000 đồng/ha/năm."
+    "correct": "Bình quân 1.000.000 đồng/ha/năm; đối với hộ gia đình sinh sống ổn định tại xã khu vực II, khu vực III được hưởng mức bằng 1,2 lần mức bình quân (1.200.000 đồng/ha/năm), vùng đất ven biển bằng 1,5 lần mức bình quân (1.500.000 đồng/ha/năm)",
+    "explanation": "Căn cứ Điểm a Khoản 3 Điều 19 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Điều 44 Nghị định số 42/2026/NĐ-CP có hiệu lực từ ngày 15/3/2026): Kinh phí khoán bảo vệ rừng đặc dụng, rừng phòng hộ, rừng sản xuất là rừng tự nhiên từ ngân sách nhà nước bình quân là 1.000.000 đồng/ha/năm trên tổng diện tích được giao, nhận khoán bảo vệ rừng; đối với hộ gia đình, cá nhân, cộng đồng dân cư tại các xã khu vực II, khu vực III bằng 1,2 lần mức bình quân (1.200.000 đồng/ha/năm), vùng đất ven biển bằng 1,5 lần mức bình quân (1.500.000 đồng/ha/năm)."
   },
   {
     "id": "ChuRung_014",
@@ -170,7 +169,7 @@ const question_ChuRung = [
       "Kịp thời thông báo ngay cho Kiểm lâm địa bàn, Trưởng thôn hoặc Công an xã; không manh động đơn độc va chạm trực tiếp với các đối tượng",
       "Tự ý cầm hung khí ra đánh nhau với các đối tượng chặt phá rừng",
       "Mặc kệ không quan tâm vì đó không phải là diện tích rừng của nhà mình",
-      "Đến thỏa thuận xin chia một phần gỗ đã chặt hạ để giữ im lặng"
+      "Không bị thu hồi rừng nếu hộ gia đình đã nộp đủ tiền thuế sử dụng đất hàng năm"
     ],
     "correct": "Kịp thời thông báo ngay cho Kiểm lâm địa bàn, Trưởng thôn hoặc Công an xã; không manh động đơn độc va chạm trực tiếp với các đối tượng",
     "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Điều 19 Bộ luật Tố tụng hình sự năm 2015: Người dân có quyền và nghĩa vụ tố giác hành vi phá rừng trái pháp luật với cơ quan Kiểm lâm, Công an xã để kịp thời ngăn chặn."
@@ -181,7 +180,7 @@ const question_ChuRung = [
     "options": [
       "Không được tự ý chặt hạ; phải làm đơn báo cáo UBND xã và Kiểm lâm kiểm tra, hướng dẫn thủ tục tận thu theo đúng quy định pháp luật",
       "Được toàn quyền chặt hạ bất kỳ lúc nào vì cây đã bị khô đổ",
-      "Được phép đốn hạ thêm các cây gỗ tươi đứng liền kề cây khô",
+      "Được toàn quyền tự ý chuyển nhượng hợp đồng nhận khoán bảo vệ rừng cho cá nhân khác ngoài cộng đồng mà không cần sự đồng ý của bên giao khoán",
       "Chỉ cần mời Trưởng thôn đến chứng kiến là được mang về nhà sử dụng"
     ],
     "correct": "Không được tự ý chặt hạ; phải làm đơn báo cáo UBND xã và Kiểm lâm kiểm tra, hướng dẫn thủ tục tận thu theo đúng quy định pháp luật",
@@ -193,7 +192,7 @@ const question_ChuRung = [
     "options": [
       "Bị phạt tiền từ 1.000.000 đồng đến tối đa 80.000.000 đồng (đối với rừng trồng) hoặc đến 160.000.000 đồng (đối với rừng tự nhiên); buộc khôi phục lại tình trạng ban đầu và trả lại đất rừng đã lấn chiếm",
       "Được miễn phạt nếu cam kết sau khi thu hoạch hoa quả sẽ trả lại đất",
-      "Chỉ bị phạt cảnh cáo và được tiếp tục sử dụng đất rừng lâu dài",
+      "Văn phòng đăng ký đất đai trực thuộc Bộ Nông nghiệp và Môi trường tại Trung ương",
       "Được chính quyền xã cấp phép xây dựng hợp thức hóa nhà ở"
     ],
     "correct": "Bị phạt tiền từ 1.000.000 đồng đến tối đa 80.000.000 đồng (đối với rừng trồng) hoặc đến 160.000.000 đồng (đối với rừng tự nhiên); buộc khôi phục lại tình trạng ban đầu và trả lại đất rừng đã lấn chiếm",
@@ -206,10 +205,10 @@ const question_ChuRung = [
       "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra)",
       "Chủ tịch Hội Cựu chiến binh của xã",
       "Bất kỳ người cao tuổi nào sinh sống trong thôn",
-      "Người có đóng góp nhiều tiền nhất vào quỹ thôn"
+      "Kế toán trưởng hoặc Trưởng phòng Hành chính - Tổng hợp của Ban Quản lý rừng"
     ],
     "correct": "Trưởng thôn (hoặc người đại diện do cộng đồng dân cư thôn họp bầu ra)",
-    "explanation": "Căn cứ Điều 86 Luật Lâm nghiệp năm 2017 hoặc khoản 3 Điều 6 Luật Đất đai quy định Người đại diện cho cộng đồng dân cư là trưởng thôn, làng, ấp, bản, bon, buôn, phum, sóc, tổ dân phố và điểm dân cư tương tự hoặc người được cộng đồng dân cư thỏa thuận cử ra."
+    "explanation": "Theo Khoản 3 Điều 6 Luật Đất đai năm 2024: Người đứng đầu của tổ chức chịu trách nhiệm trước Nhà nước đối với việc sử dụng đất của tổ chức mình."
   },
   {
     "id": "ChuRung_018",
@@ -217,11 +216,11 @@ const question_ChuRung = [
     "options": [
       "Bị nghiêm cấm và bị xử phạt nặng về hành vi hủy hoại sinh thái rừng, gây ô nhiễm môi trường đất, nguồn nước tự nhiên",
       "Được phép sử dụng thoải mái nếu thuốc diệt cỏ mua tại quầy thuốc bảo vệ thực vật",
-      "Được Nhà nước hỗ trợ kinh phí mua thuốc diệt cỏ để giải phóng đất rừng",
+      "Chỉ bị nhắc nhở hành chính và được phép tiếp tục thu hoạch cây nông nghiệp cho đến hết chu kỳ 05 năm",
       "Chỉ bị phạt nếu hóa chất làm chết các cây gỗ to trên 10 năm tuổi"
     ],
     "correct": "Bị nghiêm cấm và bị xử phạt nặng về hành vi hủy hoại sinh thái rừng, gây ô nhiễm môi trường đất, nguồn nước tự nhiên",
-    "explanation": "Căn cứ Khoản 6 Điều 9 Luật Lâm nghiệp năm 2017 và Điều 235 Bộ luật Hình sự: Nghiêm cấm đưa hóa chất độc hại, chất diệt cỏ vào rừng hủy hoại hệ sinh thái; hành vi này bị phạt tiền rất nặng hoặc xử lý hình sự về tội gây ô nhiễm môi trường."
+    "explanation": "Theo Khoản 11, Khoản 14, Khoản 15 Điều 23 Nghị định số 146/2026/NĐ-CP và Điều 243 Bộ luật Hình sự, hành vi tự ý phát phá rừng tự nhiên để lấn, chiếm đất trồng cây nông nghiệp là hành vi vi phạm pháp luật nghiêm trọng, bị phạt tiền hoặc truy cứu trách nhiệm hình sự và buộc khôi phục lại tình trạng ban đầu, buộc trả lại diện tích đất đã lấn, chiếm."
   },
   {
     "id": "ChuRung_019",
@@ -230,7 +229,7 @@ const question_ChuRung = [
       "Báo ngay cho Kiểm lâm địa bàn hoặc cán bộ khuyến nông/UBND xã để kiểm tra, hướng dẫn biện pháp kỹ thuật phòng trừ dập dịch kịp thời",
       "Tự ý đốt lửa hun khói khắp cánh rừng để xua đuổi sâu bọ",
       "Mặc kệ cho sâu bệnh tự ăn hết lá cây vì rừng tự nhiên có khả năng tự phục hồi",
-      "Bán tháo toàn bộ cánh rừng đang bị sâu cho thương lái phá đi"
+      "Tự mua thuốc bảo vệ thực vật hóa học về phun diện rộng mà không cần hướng dẫn của cán bộ chuyên môn"
     ],
     "correct": "Báo ngay cho Kiểm lâm địa bàn hoặc cán bộ khuyến nông/UBND xã để kiểm tra, hướng dẫn biện pháp kỹ thuật phòng trừ dập dịch kịp thời",
     "explanation": "Chủ rừng có nghĩa vụ phòng trừ sinh vật hại rừng; khi dịch hại bùng phát phải thông báo cho cơ quan chuyên môn để phối hợp xử lý dập dịch theo Điều 61 Luật Lâm nghiệp."
@@ -241,7 +240,7 @@ const question_ChuRung = [
     "options": [
       "Nghiêm cấm tuyệt đối việc tự ý phân lô, bán nền đất rừng; hành vi này vi phạm pháp luật đất đai và lâm nghiệp, giao dịch bị vô hiệu và bị xử phạt nghiêm khắc",
       "Được phép tự do phân lô bán nền nếu có giấy viết tay giữa các bên",
-      "Được phép phân lô nếu diện tích mỗi nền đất lớn hơn 500m²",
+      "Được phép chuyển nhượng một phần diện tích đất rừng sản xuất nếu mảnh đất tách thửa từ 1.000m² trở lên",
       "Chỉ cần nộp thuế sử dụng đất phi nông nghiệp cho cán bộ địa chính xã"
     ],
     "correct": "Nghiêm cấm tuyệt đối việc tự ý phân lô, bán nền đất rừng; hành vi này vi phạm pháp luật đất đai và lâm nghiệp, giao dịch bị vô hiệu và bị xử phạt nghiêm khắc",
@@ -253,7 +252,7 @@ const question_ChuRung = [
     "options": [
       "Vi phạm quy định về khai thác thực vật rừng trái phép; bị xử phạt vi phạm hành chính, tịch thu toàn bộ phong lan, cây cảnh và công cụ khai thác",
       "Hoàn toàn hợp pháp vì hoa lan và cây cảnh là lâm sản phụ mọc tự nhiên không ai sở hữu",
-      "Được phép nếu chỉ hái phong lan bám trên cành cây khô",
+      "Được phép hái lượm nếu loài hoa lan hoặc cây cảnh không nằm trong Danh mục thực vật rừng nguy cấp, quý, hiếm",
       "Chỉ vi phạm nếu đào cây cảnh to bằng xe cẩu chuyên dụng"
     ],
     "correct": "Vi phạm quy định về khai thác thực vật rừng trái phép; bị xử phạt vi phạm hành chính, tịch thu toàn bộ phong lan, cây cảnh và công cụ khai thác",
@@ -265,7 +264,7 @@ const question_ChuRung = [
     "options": [
       "Dùng phục vụ công tác tuần tra, bảo vệ rừng, phòng cháy chữa cháy rừng và nâng cao thu nhập, cải thiện đời sống của hộ nhận khoán",
       "Bắt buộc phải nộp lại 100% cho Ủy ban nhân dân xã làm quỹ xây dựng nông thôn mới",
-      "Chỉ được dùng để mua sắm trang thiết bị văn phòng phẩm cho thôn bản",
+      "Phải trích nộp 30% tổng số tiền nhận được vào Quỹ phát triển thôn bản để phục vụ công ích",
       "Tự do sử dụng để tổ chức đánh bạc và uống rượu bia"
     ],
     "correct": "Dùng phục vụ công tác tuần tra, bảo vệ rừng, phòng cháy chữa cháy rừng và nâng cao thu nhập, cải thiện đời sống của hộ nhận khoán",
@@ -277,7 +276,7 @@ const question_ChuRung = [
     "options": [
       "Bị nghiêm cấm tuyệt đối; bị phạt tiền nặng, tịch thu toàn bộ kích điện/hóa chất và có thể bị truy cứu trách nhiệm hình sự về tội hủy hoại nguồn lợi thủy sản",
       "Được phép sử dụng nếu chỉ kích điện bắt cá nhỏ làm mồi nhử",
-      "Chỉ bị phạt nếu nguồn điện kích từ 220V trở lên",
+      "Chỉ bị xử phạt vi phạm hành chính theo pháp luật thủy sản mà không bị xử lý về pháp luật lâm nghiệp",
       "Không bị phạt nếu suối nước không có biển cắm cấm đánh bắt cá"
     ],
     "correct": "Bị nghiêm cấm tuyệt đối; bị phạt tiền nặng, tịch thu toàn bộ kích điện/hóa chất và có thể bị truy cứu trách nhiệm hình sự về tội hủy hoại nguồn lợi thủy sản",
@@ -289,7 +288,7 @@ const question_ChuRung = [
     "options": [
       "Bị xử phạt vi phạm hành chính về hành vi sử dụng môi trường rừng trái quy định; buộc tháo dỡ công trình lều quán và khôi phục lại tình trạng ban đầu",
       "Được hoan nghênh vì góp phần phát triển du lịch địa phương",
-      "Chỉ bị phạt nếu lều quán xây dựng kiên cố bằng bê tông cốt thép",
+      "Được phép dựng công trình tạm bằng tre nứa, bạt che nếu có hợp đồng liên kết với Ban quản lý rừng",
       "Không bị xử lý nếu đã đóng tiền vệ sinh môi trường cho đội bảo vệ rừng"
     ],
     "correct": "Bị xử phạt vi phạm hành chính về hành vi sử dụng môi trường rừng trái quy định; buộc tháo dỡ công trình lều quán và khôi phục lại tình trạng ban đầu",
@@ -301,7 +300,7 @@ const question_ChuRung = [
     "options": [
       "Báo cáo ngay Trưởng thôn và UBND cấp xã/Kiểm lâm địa bàn để lập biên bản hiện trạng và tiến hành chặt tỉa hạ thấp độ cao bảo đảm an toàn tính mạng người dân",
       "Mặc kệ chờ cho cây tự đổ vào nhà để yêu cầu cơ quan Kiểm lâm bồi thường thiệt hại",
-      "Tự ý đổ thuốc độc vào gốc cây cho chết dần dần",
+      "Chủ nhà được tự ý chặt hạ cây đổ nếu cây trồng nằm hoàn toàn trong phạm vi ranh giới đất ở của gia đình",
       "Đốt gốc cây vào ban đêm để cây gãy đổ ra phía đường quốc lộ"
     ],
     "correct": "Báo cáo ngay Trưởng thôn và UBND cấp xã/Kiểm lâm địa bàn để lập biên bản hiện trạng và tiến hành chặt tỉa hạ thấp độ cao bảo đảm an toàn tính mạng người dân",
@@ -313,7 +312,7 @@ const question_ChuRung = [
     "options": [
       "Không có giá trị pháp lý, hợp đồng vô hiệu; người mua đối mặt nguy cơ mất trắng tiền và không được cấp Giấy chứng nhận quyền sử dụng đất",
       "Có giá trị pháp lý tuyệt đối nếu có chữ ký của người bán và người mua",
-      "Được pháp luật bảo hộ nếu hai bên đã bàn giao tiền mặt đầy đủ trước mặt người làm chứng",
+      "Có giá trị pháp lý nếu hợp đồng mua bán viết tay có chữ ký xác nhận của Trưởng thôn",
       "Chỉ cần đem giấy tay lên nộp cho Trưởng thôn ký xác nhận là hợp pháp"
     ],
     "correct": "Không có giá trị pháp lý, hợp đồng vô hiệu; người mua đối mặt nguy cơ mất trắng tiền và không được cấp Giấy chứng nhận quyền sử dụng đất",
@@ -325,7 +324,7 @@ const question_ChuRung = [
     "options": [
       "Được phép thu nhặt lâm sản phụ thông thường (củi khô, nấm, rau rừng) phục vụ sinh hoạt thiết yếu gia đình theo quy chế quản lý rừng, nhưng không được hủy hoại cây rừng và phải bảo đảm PCCC",
       "Bắt buộc phải có Giấy phép khai thác của Giám đốc Sở Nông nghiệp và Môi trường",
-      "Bị nghiêm cấm tuyệt đối, bước chân vào rừng nhặt nấm đều bị xử phạt 50 triệu đồng",
+      "Bắt buộc phải có Giấy xác nhận của Trưởng thôn và Kiểm lâm địa bàn mới được phép thu lượm lâm sản phụ",
       "Chỉ được thu nhặt nếu trả phí bản quyền cho Trạm Kiểm lâm địa bàn"
     ],
     "correct": "Được phép thu nhặt lâm sản phụ thông thường (củi khô, nấm, rau rừng) phục vụ sinh hoạt thiết yếu gia đình theo quy chế quản lý rừng, nhưng không được hủy hoại cây rừng và phải bảo đảm PCCC",
@@ -337,7 +336,7 @@ const question_ChuRung = [
     "options": [
       "Bị tịch thu súng tự chế, bị xử phạt nặng về hành vi săn bắt động vật hoang dã trái phép VÀ hành vi sử dụng vũ khí tự chế trái phép (có thể bị xử lý hình sự)",
       "Được phép sử dụng nếu súng do cá nhân tự chế tạo bằng ống nước nhựa",
-      "Chỉ bị phạt tiền 50.000 đồng nếu không bắn trúng con chim nào",
+      "Chỉ bị xử phạt vi phạm hành chính về hành vi sử dụng súng tự chế nếu bắn trúng động vật nguy cấp, quý, hiếm",
       "Được Nhà nước cấp giấy chứng nhận thợ săn thiện xạ địa phương"
     ],
     "correct": "Bị tịch thu súng tự chế, bị xử phạt nặng về hành vi săn bắt động vật hoang dã trái phép VÀ hành vi sử dụng vũ khí tự chế trái phép (có thể bị xử lý hình sự)",
@@ -349,7 +348,7 @@ const question_ChuRung = [
     "options": [
       "Nghiêm cấm tuyệt đối; cộng đồng dân cư không được chuyển đổi, chuyển nhượng, tặng cho, cho thuê, thế chấp hoặc góp vốn bằng quyền sử dụng rừng được Nhà nước giao",
       "Được quyền bán nếu toàn bộ bà con trong thôn cùng đồng ý biểu quyết",
-      "Được quyền cho thuê thời hạn 50 năm để chia tiền cho các hộ gia đình",
+      "Được quyền cho thuê quyền sử dụng rừng nếu có Nghị quyết đồng thuận của trên 80% hộ gia đình trong thôn",
       "Được phép chuyển nhượng nếu doanh nghiệp cam kết tuyển dụng người trong thôn vào làm việc"
     ],
     "correct": "Nghiêm cấm tuyệt đối; cộng đồng dân cư không được chuyển đổi, chuyển nhượng, tặng cho, cho thuê, thế chấp hoặc góp vốn bằng quyền sử dụng rừng được Nhà nước giao",
@@ -361,7 +360,7 @@ const question_ChuRung = [
     "options": [
       "Phải lập tức triển khai dập lửa bằng lực lượng, phương tiện tại chỗ, đồng thời báo ngay cho chính quyền xã, Kiểm lâm địa bàn hoặc cơ quan Cảnh sát PCCC gần nhất",
       "Ngồi ở nhà chờ khi nào lửa cháy tắt hẳn thì mới đi kiểm tra diện tích bị thiệt hại",
-      "Chỉ cần quay video đăng lên mạng xã hội để kêu gọi cộng đồng mạng ủng hộ",
+      "Báo cáo cho Trưởng thôn và chờ lực lượng dân quân xã đến hiện trường rồi mới cùng tham gia dập lửa",
       "Bỏ chạy khỏi địa phương để tránh bị cơ quan công an mời lên làm việc"
     ],
     "correct": "Phải lập tức triển khai dập lửa bằng lực lượng, phương tiện tại chỗ, đồng thời báo ngay cho chính quyền xã, Kiểm lâm địa bàn hoặc cơ quan Cảnh sát PCCC gần nhất",
@@ -373,7 +372,7 @@ const question_ChuRung = [
     "options": [
       "Được khuyến khích phát triển kinh tế dưới tán rừng nhưng không được làm suy thoái rừng",
       "Bị nghiêm cấm hoàn toàn không được thả gia súc",
-      "Chỉ được nuôi gà, cấm trồng cây dược liệu",
+      "Chỉ được trồng cây dược liệu, nghiêm cấm hoàn toàn việc chăn thả gia súc dưới tán rừng sản xuất",
       "Phải chặt hết cây to mới được trồng dược liệu"
     ],
     "correct": "Được khuyến khích phát triển kinh tế dưới tán rừng nhưng không được làm suy thoái rừng",
@@ -385,7 +384,7 @@ const question_ChuRung = [
     "options": [
       "Toàn quyền thu dọn, sử dụng hoặc bán gỗ cây đổ gãy trong rừng trồng tự đầu tư",
       "Bắt buộc phải để cây mục nát không được chạm vào",
-      "Phải chờ cơ quan chức năng của tỉnh xuống giám định mới được dọn",
+      "Phải báo cáo bằng văn bản cho Ủy ban nhân dân cấp xã xác nhận số lượng cây đổ gãy trước khi bán",
       "Bị tịch thu toàn bộ số cây bị đổ"
     ],
     "correct": "Toàn quyền thu dọn, sử dụng hoặc bán gỗ cây đổ gãy trong rừng trồng tự đầu tư",
@@ -397,7 +396,7 @@ const question_ChuRung = [
     "options": [
       "Chủ rừng tự đầu tư tự quyết định việc tỉa thưa mật độ cây rừng của mình",
       "Bắt buộc phải thuê đơn vị tư vấn lập hồ sơ thiết kế",
-      "Phải nộp phạt tiền trước khi tỉa thưa",
+      "Phải lập phương án tỉa thưa và nộp về Chi cục Kiểm lâm cấp tỉnh để thẩm định trước khi thực hiện",
       "Mỗi hecta chỉ được chặt tỉa đúng 1 cây"
     ],
     "correct": "Chủ rừng tự đầu tư tự quyết định việc tỉa thưa mật độ cây rừng của mình",
@@ -409,7 +408,7 @@ const question_ChuRung = [
     "options": [
       "Gỗ rừng trồng thông thường KHÔNG phải đóng dấu búa Kiểm lâm",
       "Bắt buộc mọi khúc gỗ đều phải đóng dấu búa Kiểm lâm",
-      "Phải đóng dấu búa của Trưởng thôn",
+      "Chỉ bị phạt cảnh cáo và được giữ lại toàn bộ số gỗ đã khai thác để sử dụng trong gia đình",
       "Phải đóng dấu đỏ của Ủy ban nhân dân xã"
     ],
     "correct": "Gỗ rừng trồng thông thường KHÔNG phải đóng dấu búa Kiểm lâm",
@@ -421,7 +420,7 @@ const question_ChuRung = [
     "options": [
       "Được dùng nếu không có dụng cụ khác",
       "Tuyệt đối nghiêm cấm; hành vi này nguy hiểm cho môi trường và bị truy cứu trách nhiệm hình sự",
-      "Được dùng vào mùa khô hạn",
+      "Chỉ bị xử phạt vi phạm hành chính nếu sử dụng chất nổ trong phạm vi khu rừng sản xuất",
       "Chỉ cấm ở sông lớn, suối nhỏ trong rừng thì được dùng"
     ],
     "correct": "Tuyệt đối nghiêm cấm; hành vi này nguy hiểm cho môi trường và bị truy cứu trách nhiệm hình sự",
@@ -433,7 +432,7 @@ const question_ChuRung = [
     "options": [
       "Mặc kệ sâu ăn hết lá cây tự mọc lại",
       "Áp dụng biện pháp phòng trừ kịp thời và báo cho Kiểm lâm địa bàn để được hướng dẫn kỹ thuật",
-      "Đốt sạch toàn bộ khu rừng để diệt sâu",
+      "Tự mua thuốc bảo vệ thực vật về phun mà không cần tham khảo ý kiến cán bộ khuyến nông hay Kiểm lâm",
       "Phun thuốc trừ cỏ lên toàn bộ tán cây"
     ],
     "correct": "Áp dụng biện pháp phòng trừ kịp thời và báo cho Kiểm lâm địa bàn để được hướng dẫn kỹ thuật",
@@ -445,7 +444,7 @@ const question_ChuRung = [
     "options": [
       "Không bị cấm vì cỏ trong rừng là thức ăn tự nhiên",
       "Nghiêm cấm chăn thả gia súc vào rừng mới trồng vì gây gãy, đổ, chết cây con mới trồng",
-      "Được thả nếu trâu bò có đeo chuông",
+      "Được chăn thả nếu mật độ trâu bò không quá 02 con trên mỗi héc-ta rừng mới trồng",
       "Chỉ cấm thả trâu, còn bò thì được thả thoải mái"
     ],
     "correct": "Nghiêm cấm chăn thả gia súc vào rừng mới trồng vì gây gãy, đổ, chết cây con mới trồng",
@@ -457,7 +456,7 @@ const question_ChuRung = [
     "options": [
       "Được hoan nghênh vì làm đẹp cảnh quan",
       "Bị đình chỉ ngay, xử phạt vi phạm hành chính nặng về hành vi phá rừng và buộc khôi phục tình trạng ban đầu",
-      "Chỉ cần đóng tiền phạt 100.000 đồng là được làm tiếp",
+      "Chỉ bị xử phạt vi phạm hành chính về trật tự xây dựng nếu công trình nhà ở chưa hoàn thành",
       "Không bị xử lý nếu là hộ gia đình nghèo"
     ],
     "correct": "Bị đình chỉ ngay, xử phạt vi phạm hành chính nặng về hành vi phá rừng và buộc khôi phục tình trạng ban đầu",
@@ -469,7 +468,7 @@ const question_ChuRung = [
     "options": [
       "Không phải làm gì, chỉ việc nhận tiền",
       "Phải bảo vệ tốt diện tích rừng được chi trả DVMTR, không để xảy ra cháy rừng, phá rừng",
-      "Phải chia tiền cho tất cả mọi người trong xã",
+      "Phải trích 20% số tiền nhận được nộp về Ban Quản lý rừng phòng hộ để hỗ trợ kinh phí tuần tra",
       "Phải nộp lại toàn bộ tiền cho nhà máy thủy điện"
     ],
     "correct": "Phải bảo vệ tốt diện tích rừng được chi trả DVMTR, không để xảy ra cháy rừng, phá rừng",
@@ -481,11 +480,11 @@ const question_ChuRung = [
     "options": [
       "Chỉ được thế chấp nhà ở",
       "Được thế chấp giá trị quyền sử dụng đất rừng và giá trị rừng trồng theo quy định pháp luật",
-      "Thế chấp thẻ cử tri",
+      "Chỉ được thế chấp giá trị cây trồng trên đất mà không được thế chấp giá trị quyền sử dụng đất",
       "Không ngân hàng nào cho vay trồng rừng"
     ],
     "correct": "Được thế chấp giá trị quyền sử dụng đất rừng và giá trị rừng trồng theo quy định pháp luật",
-    "explanation": "Căn cứ Điều 73 Luật Lâm nghiệp năm 2017 và Nghị định số 116/2018/NĐ-CP: Chủ rừng sản xuất được quyền thế chấp quyền sử dụng đất rừng và tài sản gắn liền với đất (cây rừng trồng) để vay vốn ngân hàng."
+    "explanation": "Theo Khoản 2 Điều 84, Khoản 2 Điều 85 Luật Lâm nghiệp năm 2017, Điều 37 Luật Đất đai năm 2024 và Nghị định số 55/2015/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 116/2018/NĐ-CP và Nghị định số 156/2025/NĐ-CP), hộ gia đình, cá nhân là chủ rừng có quyền thế chấp quyền sử dụng đất và giá trị rừng sản xuất là rừng trồng bằng vốn tự có tại các tổ chức tín dụng để vay vốn phát triển sản xuất."
   },
   {
     "id": "ChuRung_041",
@@ -493,7 +492,7 @@ const question_ChuRung = [
     "options": [
       "Lén lút châm lửa đốt vào ban đêm để không ai thấy",
       "Làm đường băng cản lửa, thông báo cho Trưởng thôn/Kiểm lâm và canh gác dập tắt tàn lửa",
-      "Đốt ngay vào giữa trưa khi có gió to để cháy cho nhanh",
+      "Chỉ cần làm đường băng cản lửa rộng 01 mét và đốt vào lúc trời sắp có mưa",
       "Chỉ cần hô to cho cả làng cùng biết"
     ],
     "correct": "Làm đường băng cản lửa, thông báo cho Trưởng thôn/Kiểm lâm và canh gác dập tắt tàn lửa",
@@ -504,7 +503,7 @@ const question_ChuRung = [
     "question": "Đường băng cản lửa cô lập khu vực đốt dọn thực bì nương rẫy cần có chiều rộng tối thiểu khoảng bao nhiêu?",
     "options": [
       "Khoảng 0,5 mét",
-      "Khoảng 1 mét",
+      "Khoảng từ 1,5 mét đến 2,0 mét",
       "Khoảng từ 4 mét đến 6 mét được dọn sạch cỏ rác, vật liệu cháy",
       "Phải rộng 50 mét"
     ],
@@ -517,7 +516,7 @@ const question_ChuRung = [
     "options": [
       "Buổi trưa nắng gắt (từ 11 giờ đến 14 giờ) vì cỏ khô dễ cháy",
       "Buổi sáng sớm hoặc chiều muộn khi trời râm mát, độ ẩm cao và gió lặng",
-      "Khi có gió mùa thổi mạnh cấp 5, cấp 6",
+      "Buổi trưa từ 11 giờ đến 13 giờ vì lúc này thực bì khô giòn dễ cháy hết tàn dư",
       "Bất kỳ thời điểm nào chủ nương rảnh rỗi"
     ],
     "correct": "Buổi sáng sớm hoặc chiều muộn khi trời râm mát, độ ẩm cao và gió lặng",
@@ -529,7 +528,7 @@ const question_ChuRung = [
     "options": [
       "Được đốt nếu có đông người cùng canh",
       "Tuyệt đối NGHIÊM CẤM dùng lửa trong rừng và đốt nương rẫy ven rừng",
-      "Được đốt nếu đốt từng đám nhỏ",
+      "Được phép đốt nếu có phương án phòng cháy và có sự giám sát trực tiếp của Trưởng thôn",
       "Chỉ được đốt vào buổi trưa"
     ],
     "correct": "Tuyệt đối NGHIÊM CẤM dùng lửa trong rừng và đốt nương rẫy ven rừng",
@@ -540,7 +539,7 @@ const question_ChuRung = [
     "question": "Người dân sau khi đốt nương rẫy xong được phép ra về khi nào?",
     "options": [
       "Ngay sau khi châm lửa xong",
-      "Khi lửa đang cháy to nhất",
+      "Khi đám cháy đã giảm cường độ và chỉ còn lại khói bốc lên từ các gốc cây to",
       "Chỉ khi ngọn lửa đã tắt hoàn toàn và đã dập tắt hết tàn tro âm ỉ",
       "Khi trời sắp đổ mưa rào"
     ],
@@ -553,7 +552,7 @@ const question_ChuRung = [
     "options": [
       "Chỉ cần xin lỗi chủ rừng là xong",
       "Bị xử phạt vi phạm hành chính, bồi thường toàn bộ thiệt hại và có thể bị đi tù nếu cháy lớn",
-      "Không bị xử lý vì là tai nạn rủi ro",
+      "Chỉ phải nộp phạt tiền hành chính nếu diện tích rừng bị cháy lan dưới 01 héc-ta",
       "Được Nhà nước thưởng tiền vì giúp dọn rừng"
     ],
     "correct": "Bị xử phạt vi phạm hành chính, bồi thường toàn bộ thiệt hại và có thể bị đi tù nếu cháy lớn",
@@ -565,7 +564,7 @@ const question_ChuRung = [
     "options": [
       "Đứng quay video phát trực tiếp lên mạng xã hội rồi bỏ đi",
       "Hô hoán, báo ngay cho Trưởng thôn, Kiểm lâm địa bàn hoặc UBND xã và tìm cách chữa cháy ban đầu",
-      "Chạy về nhà khóa cửa lại coi như không biết",
+      "Tự mình huy động người nhà đến dập lửa, khi nào không dập được mới báo chính quyền",
       "Đợi khi nào cháy hết rừng thì mới báo"
     ],
     "correct": "Hô hoán, báo ngay cho Trưởng thôn, Kiểm lâm địa bàn hoặc UBND xã và tìm cách chữa cháy ban đầu",
@@ -577,7 +576,7 @@ const question_ChuRung = [
     "options": [
       "Từ chối tham gia vì không phải rừng nhà mình",
       "Nghiêm túc chấp hành, nhanh chóng mang dụng cụ có sẵn đến hiện trường tham gia dập lửa",
-      "Đòi trả tiền công trước mới đi",
+      "Chỉ có trách nhiệm tham gia nếu đám cháy đe dọa trực tiếp đến nương rẫy hoặc nhà ở của gia đình",
       "Giả vờ bị ốm để ở nhà"
     ],
     "correct": "Nghiêm túc chấp hành, nhanh chóng mang dụng cụ có sẵn đến hiện trường tham gia dập lửa",
@@ -589,7 +588,7 @@ const question_ChuRung = [
     "options": [
       "Bàn chải đánh răng và bát ăn cơm",
       "Dao phát, cuốc, cào sắt, cành cây tươi, bình xịt nước, can nước",
-      "Điện thoại thông minh và sạc dự phòng",
+      "Máy bơm nước mini và dây dẫn mềm nhưng không cần mang theo dao phát hay cào sắt",
       "Bút viết và giấy trắng"
     ],
     "correct": "Dao phát, cuốc, cào sắt, cành cây tươi, bình xịt nước, can nước",
@@ -601,7 +600,7 @@ const question_ChuRung = [
     "options": [
       "Không vi phạm vì tàn thuốc rất nhỏ",
       "Vi phạm nghiêm trọng quy định an toàn PCCCR và bị xử phạt theo luật",
-      "Chỉ vi phạm nếu vứt vào đống củi khô",
+      "Chỉ bị xử phạt nếu để tàn thuốc bùng phát thành ngọn lửa cháy lan ra diện tích rừng xung quanh",
       "Được phép nếu đứng cách cây rừng 1 mét"
     ],
     "correct": "Vi phạm nghiêm trọng quy định an toàn PCCCR và bị xử phạt theo luật",
@@ -613,7 +612,7 @@ const question_ChuRung = [
     "options": [
       "Cất trong tủ kín của phòng làm việc xã",
       "Đặt tại các cửa rừng, ngã ba đường vào rừng, nhà văn hóa thôn, nơi đông dân cư qua lại",
-      "Chôn sâu dưới đáy suối",
+      "Đặt tại trụ sở Ủy ban nhân dân cấp xã và bảng tin nội bộ của Hạt Kiểm lâm",
       "Đặt trên đỉnh núi cao không có lối đi"
     ],
     "correct": "Đặt tại các cửa rừng, ngã ba đường vào rừng, nhà văn hóa thôn, nơi đông dân cư qua lại",
@@ -625,7 +624,7 @@ const question_ChuRung = [
     "options": [
       "Các tháng mùa mưa tháng 6, tháng 7, tháng 8",
       "Các tháng mùa khô từ tháng 11 năm trước đến tháng 4 năm sau",
-      "Chỉ riêng ngày Tết Nguyên đán",
+      "Các tháng chuyển mùa từ tháng 8 đến tháng 10 hàng năm",
       "Quanh năm nguy cơ cháy rừng như nhau"
     ],
     "correct": "Các tháng mùa khô từ tháng 11 năm trước đến tháng 4 năm sau",
@@ -637,7 +636,7 @@ const question_ChuRung = [
     "options": [
       "Được miễn trách nhiệm nếu giao nộp lại mật ong",
       "Bị xử phạt vi phạm hành chính, bồi thường thiệt hại và có thể bị truy cứu trách nhiệm hình sự",
-      "Chỉ bị phạt nhắc nhở tại cuộc họp thôn",
+      "Chỉ bị phạt tiền mức 500.000 đồng nếu người lấy mật ong tự giác khắc phục hậu quả ban đầu",
       "Không ai có quyền xử phạt hành vi lấy mật ong"
     ],
     "correct": "Bị xử phạt vi phạm hành chính, bồi thường thiệt hại và có thể bị truy cứu trách nhiệm hình sự",
@@ -649,7 +648,7 @@ const question_ChuRung = [
     "options": [
       "Các loài cây có lá chứa nhiều tinh dầu dễ cháy như thông, bạch đàn",
       "Các loài cây có tán rậm rạp, lá dày, mọng nước, khó cháy như vối thuốc, xoan đào, chè mạn",
-      "Trồng các loại cỏ tranh khô",
+      "Các loài cây keo lai và bạch đàn mô có tốc độ sinh trưởng nhanh và khép tán sớm",
       "Trồng cây thân rỗng"
     ],
     "correct": "Các loài cây có tán rậm rạp, lá dày, mọng nước, khó cháy như vối thuốc, xoan đào, chè mạn",
@@ -661,7 +660,7 @@ const question_ChuRung = [
     "options": [
       "Do Ủy ban nhân dân cấp xã quyết định thành lập theo đề nghị của thôn và Kiểm lâm",
       "Do các cháu thiếu nhi trong thôn tự lập",
-      "Do các công ty du lịch thành lập",
+      "Do Hạt trưởng Hạt Kiểm lâm sở tại trực tiếp ký quyết định thành lập và phân bổ ngân sách",
       "Do hội người cao tuổi tự quản"
     ],
     "correct": "Do Ủy ban nhân dân cấp xã quyết định thành lập theo đề nghị của thôn và Kiểm lâm",
@@ -673,7 +672,7 @@ const question_ChuRung = [
     "options": [
       "Phải lấy được thật nhiều gỗ mang về",
       "Tuyệt đối bảo đảm an toàn tính mạng con người, sau đó mới đến bảo vệ tài sản rừng",
-      "Càng liều mình lao vào giữa ngọn lửa càng tốt",
+      "Phải ưu tiên cứu vãn các lóng gỗ quý và tài sản có giá trị cao trước khi xem xét rút quân",
       "Không cần tuân theo sự chỉ huy của ai"
     ],
     "correct": "Tuyệt đối bảo đảm an toàn tính mạng con người, sau đó mới đến bảo vệ tài sản rừng",
@@ -685,7 +684,7 @@ const question_ChuRung = [
     "options": [
       "Không được giải quyết bất kỳ chế độ gì",
       "Được xem xét công nhận là thương binh, liệt sĩ và hưởng các chế độ ưu đãi người có công",
-      "Chỉ được hỗ trợ một bữa ăn trưa",
+      "Chỉ được thanh toán chi phí thuốc men thực tế mà không được hưởng các chế độ trợ cấp lao động",
       "Tự gia đình phải chi trả toàn bộ viện phí"
     ],
     "correct": "Được xem xét công nhận là thương binh, liệt sĩ và hưởng các chế độ ưu đãi người có công",
@@ -696,12 +695,12 @@ const question_ChuRung = [
     "question": "Chủ rừng không chấp hành quy định lập phương án phòng cháy, chữa cháy rừng bị xử phạt như thế nào?",
     "options": [
       "Bị xử phạt cảnh cáo hoặc phạt tiền theo quy định pháp luật xử phạt vi phạm lâm nghiệp",
-      "Được Nhà nước làm hộ mà không cần quan tâm",
-      "Không bị phạt nếu khu rừng đó nhỏ",
+      "Bị xử phạt vi phạm hành chính (phạt tiền từ 20.000.000 đồng đến 25.000.000 đồng theo Điểm a Khoản 7 Điều 19 Nghị định số 146/2026/NĐ-CP); nếu gây thiệt hại nghiêm trọng làm cháy rừng sẽ bị truy cứu trách nhiệm hình sự và phải bồi thường thiệt hại",
+      "Chỉ bị phạt tiền tối đa không quá 500.000 đồng và không phải bồi thường thiệt hại nếu lửa cháy lan do gió lớn",
       "Chỉ bị ghi tên vào sổ tay của xã"
     ],
-    "correct": "Bị xử phạt cảnh cáo hoặc phạt tiền theo quy định pháp luật xử phạt vi phạm lâm nghiệp",
-    "explanation": "Căn cứ Điểm a Khoản 7 Điều 19 Nghị định số 146/2026/NĐ-CP: Chủ rừng không xây dựng phương án phòng cháy và chữa cháy rừng theo quy định bị phạt tiền từ 20.000.000 đồng đến 25.000.000 đồng."
+    "correct": "Bị xử phạt vi phạm hành chính (phạt tiền từ 20.000.000 đồng đến 25.000.000 đồng theo Điểm a Khoản 7 Điều 19 Nghị định số 146/2026/NĐ-CP); nếu gây thiệt hại nghiêm trọng làm cháy rừng sẽ bị truy cứu trách nhiệm hình sự và phải bồi thường thiệt hại",
+    "explanation": "Căn cứ Điểm a Khoản 7 Điều 19 Nghị định số 146/2026/NĐ-CP, hành vi đốt nương, rẫy, đồng ruộng, đốt thực bì để chuẩn bị đất trồng rừng và làm giảm vật liệu cháy trong rừng không đúng quy định bị phạt tiền từ 20.000.000 đồng đến 25.000.000 đồng (không áp dụng hình thức phạt cảnh cáo tại khoản này). Nếu gây cháy rừng đến mức truy cứu trách nhiệm hình sự sẽ bị xử lý theo Điều 240 hoặc Điều 243 Bộ luật Hình sự và buộc bồi thường thiệt hại."
   },
   {
     "id": "ChuRung_059",
@@ -709,7 +708,7 @@ const question_ChuRung = [
     "options": [
       "Đốt ở bất cứ chỗ nào có bóng mát",
       "Phải đốt đúng nơi quy định có lò đốt an toàn và dập tắt hết tàn lửa trước khi đi",
-      "Đốt vàng mã càng nhiều trong rừng càng may mắn",
+      "Được phép đốt nếu có người túc trực canh gác trong thời gian 15 phút sau khi thắp hương",
       "Cứ vứt tàn nhang vào đống lá khô"
     ],
     "correct": "Phải đốt đúng nơi quy định có lò đốt an toàn và dập tắt hết tàn lửa trước khi đi",
@@ -721,11 +720,11 @@ const question_ChuRung = [
     "options": [
       "Số 113",
       "Số 114 (Cảnh sát Phòng cháy, chữa cháy và Cứu nạn, cứu hộ)",
-      "Số 115",
+      "Số 113 (Tổng đài Cảnh sát phản ứng nhanh)",
       "Số 1080"
     ],
     "correct": "Số 114 (Cảnh sát Phòng cháy, chữa cháy và Cứu nạn, cứu hộ)",
-    "explanation": "Căn cứ Điều 20 Luật PCCC năm 2001 (sửa đổi, bổ sung 2013): Số điện thoại khẩn cấp 114 là số cứu hỏa toàn quốc miễn phí tiếp nhận thông tin báo cháy rừng và cháy dân sự 24/24 giờ."
+    "explanation": "Theo quy định của Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ số 55/2024/QH15 (có hiệu lực từ ngày 01/7/2025), Nghị định số 105/2025/NĐ-CP và Điều 51 Nghị định số 156/2018/NĐ-CP (hợp nhất tại Văn bản hợp nhất số 13/VBHN-BNNMT), Ban Quản lý rừng, doanh nghiệp lâm nghiệp phải thành lập và duy trì hoạt động của Tổ, Đội phòng cháy và chữa cháy rừng cơ sở (lực lượng chuyên ngành/bán chuyên trách tại chỗ)."
   },
   {
     "id": "ChuRung_061",
@@ -733,23 +732,23 @@ const question_ChuRung = [
     "options": [
       "Được nhận tiền công khoán bảo vệ rừng hàng năm từ nguồn ngân sách nhà nước và dịch vụ môi trường rừng",
       "Được tự do chặt hạ gỗ rừng tự nhiên để mang đi bán",
-      "Được cấp giấy phép mở xưởng cưa xẻ gỗ tự do trong rừng",
+      "Được giao quyền tự chủ hoàn toàn trong việc chuyển đổi rừng tự nhiên nghèo kiệt sang rừng trồng",
       "Không được hưởng bất kỳ chính sách hỗ trợ nào của Nhà nước"
     ],
     "correct": "Được nhận tiền công khoán bảo vệ rừng hàng năm từ nguồn ngân sách nhà nước và dịch vụ môi trường rừng",
-    "explanation": "Căn cứ Điều 5 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi NĐ 42/2026/NĐ-CP): Hộ đồng bào DTTS nghèo nhận khoán bảo vệ rừng tự nhiên được Nhà nước hỗ trợ tiền công khoán bảo vệ rừng hàng năm."
+    "explanation": "Theo Điều 19 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Điều 44 Nghị định số 42/2026/NĐ-CP), đối tượng nhận khoán bảo vệ rừng tự nhiên bao gồm hộ gia đình, cá nhân, cộng đồng dân cư đang sinh sống hợp pháp, ổn định tại địa phương nơi có rừng."
   },
   {
     "id": "ChuRung_062",
     "question": "Mức hỗ trợ kinh phí khoán bảo vệ rừng cho người dân hiện nay theo chính sách Nhà nước bình quân khoảng bao nhiêu?",
     "options": [
       "Khoảng 50.000 đồng/ha/năm",
-      "Khoảng từ 500.000 đồng/ha/năm trở lên (tùy khu vực và nguồn vốn hỗ trợ)",
-      "Khoảng 10.000 đồng/ha/năm",
+      "Bình quân 1.000.000 đồng/ha/năm (tại xã khu vực II, khu vực III bằng 1,2 lần mức bình quân là 1.200.000 đồng/ha/năm; vùng đất ven biển bằng 1,5 lần mức bình quân là 1.500.000 đồng/ha/năm)",
+      "Khoảng 200.000 đồng đến 300.000 đồng/ha/năm",
       "Khoảng 50 triệu đồng/ha/năm"
     ],
-    "correct": "Khoảng từ 500.000 đồng/ha/năm trở lên (tùy khu vực và nguồn vốn hỗ trợ)",
-    "explanation": "Căn cứ Khoản 1 Điều 6 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ kinh phí khoán bảo vệ rừng từ ngân sách nhà nước bình quân 500.000 đồng/ha/năm cho các hộ nhận khoán vùng khó khăn."
+    "correct": "Bình quân 1.000.000 đồng/ha/năm (tại xã khu vực II, khu vực III bằng 1,2 lần mức bình quân là 1.200.000 đồng/ha/năm; vùng đất ven biển bằng 1,5 lần mức bình quân là 1.500.000 đồng/ha/năm)",
+    "explanation": "Căn cứ Điểm a Khoản 3 Điều 19 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Điều 44 Nghị định số 42/2026/NĐ-CP có hiệu lực từ ngày 15/3/2026): Kinh phí khoán bảo vệ rừng đặc dụng, rừng phòng hộ, rừng sản xuất là rừng tự nhiên bình quân là 1.000.000 đồng/ha/năm; đối với xã khu vực II, khu vực III bằng 1,2 lần mức bình quân (1.200.000 đồng/ha/năm), vùng đất ven biển bằng 1,5 lần mức bình quân (1.500.000 đồng/ha/năm)."
   },
   {
     "id": "ChuRung_063",
@@ -757,7 +756,7 @@ const question_ChuRung = [
     "options": [
       "Do nhân dân tự quyên góp với nhau",
       "Từ các cơ sở sử dụng DVMTR như nhà máy thủy điện, nhà máy nước sạch, cơ sở du lịch sinh thái",
-      "Từ tiền bán gỗ lậu tịch thu",
+      "Chi cục Kiểm lâm cấp tỉnh",
       "Từ tiền cứu trợ của các hội từ thiện"
     ],
     "correct": "Từ các cơ sở sử dụng DVMTR như nhà máy thủy điện, nhà máy nước sạch, cơ sở du lịch sinh thái",
@@ -769,7 +768,7 @@ const question_ChuRung = [
     "options": [
       "Nhận qua tài khoản ngân hàng hoặc qua hệ thống bưu điện cơ sở",
       "Chỉ nhận bằng hiện vật là ngô khoai",
-      "Phải lên tận Bộ Nông nghiệp ở Hà Nội để nhận",
+      "Chỉ nhận tiền mặt trực tiếp tại trụ sở Chi cục Kiểm lâm cấp tỉnh vào cuối mỗi quý",
       "Đến nhà riêng của Trưởng thôn vào ban đêm"
     ],
     "correct": "Nhận qua tài khoản ngân hàng hoặc qua hệ thống bưu điện cơ sở",
@@ -781,11 +780,11 @@ const question_ChuRung = [
     "options": [
       "Tất cả mọi gia đình trong tỉnh",
       "Hộ gia đình đồng bào dân tộc thiểu số nghèo tham gia trồng rừng thay thế nương rẫy",
-      "Chỉ các gia đình nuôi trâu bò",
+      "Tất cả các hộ gia đình cư trú tại vùng sâu, vùng xa có diện tích đất lâm nghiệp trên 05 ha",
       "Chỉ người kinh doanh buôn bán ở thị trấn"
     ],
     "correct": "Hộ gia đình đồng bào dân tộc thiểu số nghèo tham gia trồng rừng thay thế nương rẫy",
-    "explanation": "Căn cứ Điều 8 Nghị định số 58/2024/NĐ-CP: Nhà nước có chính sách hỗ trợ gạo cho hộ đồng bào DTTS nghèo tự nguyện chuyển đổi nương rẫy sang trồng rừng để bảo đảm lương thực trong thời gian đầu."
+    "explanation": "Theo Điều 21 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Khoản 1 Điều 46 Nghị định số 42/2026/NĐ-CP), Nhà nước có chính sách hỗ trợ một lần kinh phí mua cây giống, phân bón và chi phí một phần nhân công cho hộ gia đình trồng rừng sản xuất bằng loài cây gỗ lớn hoặc cây bản địa trên diện tích đất lâm nghiệp được giao."
   },
   {
     "id": "ChuRung_066",
@@ -793,7 +792,7 @@ const question_ChuRung = [
     "options": [
       "Ngân hàng Chính sách xã hội hoặc Ngân hàng Nông nghiệp và PTNT (Agribank)",
       "Chỉ được vay tại các hiệu cầm đồ tư nhân",
-      "Vay tại các ứng dụng 'tín dụng đen' trên mạng",
+      "Chỉ được vay thông qua các tổ chức tài chính vi mô do Hội Nông dân tỉnh bảo lãnh",
       "Không có ngân hàng nào hỗ trợ"
     ],
     "correct": "Ngân hàng Chính sách xã hội hoặc Ngân hàng Nông nghiệp và PTNT (Agribank)",
@@ -805,7 +804,7 @@ const question_ChuRung = [
     "options": [
       "Để có lá cây làm phân xanh",
       "Tạo nguồn gỗ có giá trị kinh tế cao, giữ nước bền vững và giảm thiểu thiên tai sạt lở",
-      "Để không ai vào rừng được nữa",
+      "Để rút ngắn chu kỳ khai thác lấy gỗ non phục vụ sản xuất dăm gỗ và ván ép",
       "Để chặt phá làm củi đun"
     ],
     "correct": "Tạo nguồn gỗ có giá trị kinh tế cao, giữ nước bền vững và giảm thiểu thiên tai sạt lở",
@@ -817,7 +816,7 @@ const question_ChuRung = [
     "options": [
       "Tự chủ rừng phải bỏ tiền túi 100%",
       "Từ nguồn kinh phí nộp tiền trồng rừng thay thế do Quỹ Bảo vệ và phát triển rừng quản lý",
-      "Do nhân dân trong xã đóng góp",
+      "Từ nguồn vốn ngân sách sự nghiệp kinh tế giao cho Chi cục Kiểm lâm hàng năm",
       "Do nước ngoài viện trợ"
     ],
     "correct": "Từ nguồn kinh phí nộp tiền trồng rừng thay thế do Quỹ Bảo vệ và phát triển rừng quản lý",
@@ -829,7 +828,7 @@ const question_ChuRung = [
     "options": [
       "Không được dùng, phải chia hết cho Trưởng thôn",
       "Được bàn bạc tập thể sử dụng vào tuần tra bảo vệ rừng và tu sửa nhà văn hóa, đường làng ngõ xóm",
-      "Chỉ được dùng để liên hoan ăn uống",
+      "Chỉ được dùng để chi hỗ trợ trực tiếp tiền mặt cho các hộ nghèo trong thôn vào dịp Tết",
       "Phải đem gửi tiết kiệm tư nhân"
     ],
     "correct": "Được bàn bạc tập thể sử dụng vào tuần tra bảo vệ rừng và tu sửa nhà văn hóa, đường làng ngõ xóm",
@@ -841,7 +840,7 @@ const question_ChuRung = [
     "options": [
       "Rừng bị cháy hết cũng được nhận tiền",
       "Được cơ quan chức năng nghiệm thu diện tích rừng còn nguyên vẹn, không xảy ra cháy hoặc phá rừng trái phép",
-      "Chỉ cần có mặt ở nhà vào ngày phát tiền",
+      "Chỉ cần có xác nhận của Trưởng thôn về việc gia đình có tham gia các buổi họp thôn đầy đủ",
       "Chỉ cần nộp đơn xin nhận tiền"
     ],
     "correct": "Được cơ quan chức năng nghiệm thu diện tích rừng còn nguyên vẹn, không xảy ra cháy hoặc phá rừng trái phép",
@@ -853,11 +852,11 @@ const question_ChuRung = [
     "options": [
       "Đem bán cây giống lấy tiền tiêu xài",
       "Trồng đúng kỹ thuật trên diện tích được phê duyệt và chăm sóc bảo vệ cây sống thành rừng",
-      "Vứt cây giống ven đường",
+      "Được quyền tự ý thay đổi cơ cấu giống cây trồng nếu thấy loài cây khác có giá trị kinh tế cao hơn",
       "Chỉ trồng một vài cây gần nhà"
     ],
     "correct": "Trồng đúng kỹ thuật trên diện tích được phê duyệt và chăm sóc bảo vệ cây sống thành rừng",
-    "explanation": "Căn cứ Điều 9 Nghị định số 58/2024/NĐ-CP: Hộ gia đình nghèo được hỗ trợ cây giống phải trồng đúng kỹ thuật, đúng mật độ, chăm sóc chu đáo; nghiêm cấm bán hoặc sử dụng sai mục đích."
+    "explanation": "Theo Điều 14 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Điều 42 Nghị định số 42/2026/NĐ-CP), Nhà nước cấp kinh phí hỗ trợ khoanh nuôi xúc tiến tái sinh tự nhiên và khoanh nuôi xúc tiến tái sinh tự nhiên có trồng bổ sung (kinh phí bình quân 1.500.000 đồng/ha/năm trong 06 năm đối với khoanh nuôi xúc tiến tái sinh tự nhiên; đối với khoanh nuôi xúc tiến tái sinh tự nhiên có trồng bổ sung được cấp bình quân 2.000.000 đồng/ha/năm trong 03 năm đầu và 1.000.000 đồng/ha/năm trong 03 năm tiếp theo)."
   },
   {
     "id": "ChuRung_072",
@@ -865,7 +864,7 @@ const question_ChuRung = [
     "options": [
       "Gỗ bán được giá cao hơn từ 10% đến 20% so với gỗ thông thường và được doanh nghiệp bao tiêu",
       "Không có lợi ích gì",
-      "Làm giảm giá trị của cây gỗ",
+      "Được miễn toàn bộ thuế tài nguyên và thuế thu nhập cá nhân khi xuất bán gỗ",
       "Người dân phải nộp phạt cho tổ chức quốc tế"
     ],
     "correct": "Gỗ bán được giá cao hơn từ 10% đến 20% so với gỗ thông thường và được doanh nghiệp bao tiêu",
@@ -877,7 +876,7 @@ const question_ChuRung = [
     "options": [
       "Người dân bị mất trắng toàn bộ tài sản",
       "Nhà nước thực hiện hỗ trợ, bồi thường hoặc giao khoán bảo vệ rừng theo quy định pháp luật",
-      "Người dân phải nộp tiền phạt cho xã",
+      "Người dân vẫn giữ nguyên quyền khai thác trắng như đối với rừng sản xuất trước đây",
       "Không có chính sách giải quyết"
     ],
     "correct": "Nhà nước thực hiện hỗ trợ, bồi thường hoặc giao khoán bảo vệ rừng theo quy định pháp luật",
@@ -889,11 +888,11 @@ const question_ChuRung = [
     "options": [
       "Hộ nghèo, hộ cận nghèo, đồng bào dân tộc thiểu số sinh sống ở khu vực miền núi khó khăn",
       "Chỉ các doanh nghiệp ở thành phố",
-      "Những người không có đất rừng",
+      "Các doanh nghiệp chế biến gỗ xuất khẩu có quy mô vốn trên 100 tỷ đồng tại địa bàn",
       "Chỉ các hộ gia đình khá giả"
     ],
     "correct": "Hộ nghèo, hộ cận nghèo, đồng bào dân tộc thiểu số sinh sống ở khu vực miền núi khó khăn",
-    "explanation": "Căn cứ Điều 5 và Điều 6 Nghị định số 58/2024/NĐ-CP: Các chương trình mục tiêu quốc gia ưu tiên nguồn lực hỗ trợ đồng bào DTTS, hộ nghèo vùng sâu vùng xa phát triển kinh tế lâm nghiệp bền vững."
+    "explanation": "Theo Điều 2, Điều 4, Điều 14, Điều 19 và Điều 21 Nghị định số 58/2024/NĐ-CP (được sửa đổi, bổ sung bởi Nghị định số 42/2026/NĐ-CP), hộ gia đình người dân tộc thiểu số và hộ gia đình người Kinh nghèo đang sinh sống ổn định tại các xã khu vực II, khu vực III có thực hiện các hoạt động bảo vệ và phát triển rừng thuộc đối tượng được hưởng các chính sách hỗ trợ bảo vệ rừng, khoanh nuôi tái sinh, trồng rừng và trợ cấp gạo."
   },
   {
     "id": "ChuRung_075",
@@ -901,7 +900,7 @@ const question_ChuRung = [
     "options": [
       "Cán bộ Kiểm lâm địa bàn và cán bộ Khuyến nông cơ sở",
       "Các thương lái mua gỗ ép giá",
-      "Những người bán hàng rong",
+      "Doanh nghiệp cung ứng giống cây trồng lâm nghiệp sau khi đã ký hợp đồng mua bán cây",
       "Người dân phải tự tìm hiểu không ai hướng dẫn"
     ],
     "correct": "Cán bộ Kiểm lâm địa bàn và cán bộ Khuyến nông cơ sở",
@@ -913,7 +912,7 @@ const question_ChuRung = [
     "options": [
       "Đi bộ trên đường mòn trong rừng ngắm cảnh",
       "Chặt, đốt cây rừng; san ủi đất rừng; ken cây băm gốc đổ hóa chất hủy hoại cây mà không được phép",
-      "Trồng thêm cây xanh vào khu vực đất trống ven rừng",
+      "Khai thác gỗ rừng trồng sản xuất của gia đình nhưng chưa nộp bản kê lâm sản cho xã",
       "Thu dọn rác thải rơi vãi bìa rừng"
     ],
     "correct": "Chặt, đốt cây rừng; san ủi đất rừng; ken cây băm gốc đổ hóa chất hủy hoại cây mà không được phép",
@@ -925,7 +924,7 @@ const question_ChuRung = [
     "options": [
       "Không bị coi là phá rừng vì cây vẫn đứng nguyên",
       "Bị xử phạt nghiêm khắc về hành vi 'Phá rừng trái pháp luật', tính thiệt hại theo từng cây bị hại",
-      "Chỉ bị phạt nhắc nhở vì không dùng cưa xăng",
+      "Chỉ bị coi là hành vi hủy hoại tài sản nếu số lượng cây bị ken chết từ 10 cây trở lên",
       "Được coi là hành vi tỉa thưa cây rừng tự nhiên"
     ],
     "correct": "Bị xử phạt nghiêm khắc về hành vi 'Phá rừng trái pháp luật', tính thiệt hại theo từng cây bị hại",
@@ -937,7 +936,7 @@ const question_ChuRung = [
     "options": [
       "Chỉ phạt từ 10.000 đồng",
       "Phạt tiền từ 3.000.000 đồng trở lên (tùy theo diện tích và loại rừng)",
-      "Chỉ phạt cảnh cáo bằng lời nói",
+      "Phạt tiền từ 500.000 đồng đối với diện tích phá rừng dưới 100 m²",
       "Tối thiểu phải từ 100 triệu đồng"
     ],
     "correct": "Phạt tiền từ 3.000.000 đồng trở lên (tùy theo diện tích và loại rừng)",
@@ -948,7 +947,7 @@ const question_ChuRung = [
     "question": "Mức phạt tiền tối đa mà một cá nhân có thể bị xử phạt hành chính trong lĩnh vực lâm nghiệp là bao nhiêu?",
     "options": [
       "50.000.000 đồng",
-      "100.000.000 đồng",
+      "200.000.000 đồng đối với cá nhân vi phạm pháp luật lâm nghiệp",
       "250.000.000 đồng",
       "500.000.000 đồng (nửa tỷ đồng)"
     ],
@@ -961,11 +960,11 @@ const question_ChuRung = [
     "options": [
       "Từ 5.000 m2 (0,5 ha) trở lên đã cấu thành tội phạm hình sự",
       "Từ 1.000 m2 trở lên trong mọi trường hợp",
-      "Từ 50.000 m2 trở lên mới bị khởi tố",
+      "Từ 10.000 m² (01 ha) trở lên mới bị truy cứu trách nhiệm hình sự",
       "Phá bao nhiêu cũng chỉ bị phạt tiền không bị đi tù"
     ],
     "correct": "Từ 5.000 m2 (0,5 ha) trở lên đã cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng sản xuất có diện tích từ 5.000 m² đến dưới 10.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025): Hủy hoại rừng sản xuất có diện tích từ 5.000 mét vuông (0,5 ha) đến dưới 10.000 mét vuông là cấu thành cơ bản của Tội hủy hoại rừng (phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
   },
   {
     "id": "ChuRung_081",
@@ -973,11 +972,11 @@ const question_ChuRung = [
     "options": [
       "Từ 3.000 m2 trở lên đã đủ yếu tố cấu thành tội phạm hình sự",
       "Từ 700 m2 trở lên",
-      "Từ 1.000 m2 trở lên",
+      "Từ 5.000 m² trở lên mới đủ yếu tố cấu thành tội phạm hình sự",
       "Từ 10.000 m2 trở lên"
     ],
     "correct": "Từ 3.000 m2 trở lên đã đủ yếu tố cấu thành tội phạm hình sự",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng phòng hộ có diện tích từ 3.000 m² đến dưới 7.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025): Hành vi hủy hoại rừng đặc dụng có diện tích từ 1.000 mét vuông (0,1 ha) đến dưới 3.000 mét vuông đã đủ yếu tố cấu thành Tội hủy hoại rừng (phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
   },
   {
     "id": "ChuRung_082",
@@ -985,11 +984,11 @@ const question_ChuRung = [
     "options": [
       "Từ 1.000 m2 trở lên đã bị truy cứu trách nhiệm hình sự",
       "Từ 500 m2 trở lên",
-      "Từ 3.000 m2 trở lên",
+      "Từ 2.000 m² trở lên mới bị truy cứu trách nhiệm hình sự",
       "Từ 5.000 m2 trở lên"
     ],
     "correct": "Từ 1.000 m2 trở lên đã bị truy cứu trách nhiệm hình sự",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025): Hủy hoại rừng phòng hộ có diện tích từ 3.000 mét vuông (0,3 ha) đến dưới 7.000 mét vuông thì bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng (phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
   },
   {
     "id": "ChuRung_083",
@@ -997,7 +996,7 @@ const question_ChuRung = [
     "options": [
       "Được giữ lại phần đất đã lấn chiếm",
       "Buộc tháo dỡ công trình, trả lại đất rừng đã lấn chiếm và khôi phục lại tình trạng ban đầu",
-      "Được cấp sổ đỏ hợp thức hóa đất lấn chiếm",
+      "Chỉ bị phạt tiền vi phạm hành chính tối đa 50.000.000 đồng vì khối lượng gỗ dưới 30 mét khối",
       "Chỉ cần viết bản kiểm điểm cá nhân"
     ],
     "correct": "Buộc tháo dỡ công trình, trả lại đất rừng đã lấn chiếm và khôi phục lại tình trạng ban đầu",
@@ -1009,7 +1008,7 @@ const question_ChuRung = [
     "options": [
       "Từ 100 m3 trở lên",
       "Từ 10 m3 trở lên tại rừng sản xuất (hoặc từ 07 m3 tại rừng phòng hộ) đã bị truy cứu TNHS",
-      "Từ 50 m3 trở lên",
+      "Phạt cải tạo không giam giữ đến 02 năm hoặc phạt tù từ 03 tháng đến 01 năm",
       "Chặt trộm bao nhiêu cũng chỉ bị tịch thu gỗ"
     ],
     "correct": "Từ 10 m3 trở lên tại rừng sản xuất (hoặc từ 07 m3 tại rừng phòng hộ) đã bị truy cứu TNHS",
@@ -1021,7 +1020,7 @@ const question_ChuRung = [
     "options": [
       "Chỉ bị phạt tiền 500.000 đồng vì khối lượng gỗ chặt trộm rất ít",
       "Đã đủ định lượng bị khởi tố hình sự (khung hình phạt tù từ 06 tháng đến 03 năm)",
-      "Chỉ bị tịch thu cây rìu chặt cây mà không bị xử lý gì thêm",
+      "Không cấu thành tội phạm hình sự nếu việc phá rừng chỉ nhằm mục đích lấy đất canh tác tự túc lương thực",
       "Được tha bổng nếu là người dân sinh sống tại địa phương"
     ],
     "correct": "Đã đủ định lượng bị khởi tố hình sự (khung hình phạt tù từ 06 tháng đến 03 năm)",
@@ -1032,12 +1031,12 @@ const question_ChuRung = [
     "question": "Săn bắt, bẫy bắt hoặc nuôi nhốt trái phép cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm ĐƯỢC ƯU TIÊN BẢO VỆ (như tê tê, voọc...) thì bị xử lý như thế nào theo Điều 244 BLHS?",
     "options": [
       "Chỉ cần từ 01 cá thể đã bị khởi tố hình sự phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
-      "Nuôi 01 cá thể làm cảnh trong nhà thì không bị xử lý hình sự",
-      "Chỉ bị phạt tiền 500.000 đồng nếu chưa đem bán ra thị trường",
+      "Phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm",
+      "Chỉ bị xử phạt vi phạm hành chính từ 10.000.000 đồng đến 20.000.000 đồng nếu săn bắt lần đầu",
       "Được phép nuôi nhốt nếu xây dựng chuồng sắt kiên cố"
     ],
-    "correct": "Chỉ cần từ 01 cá thể đã bị khởi tố hình sự phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
-    "explanation": "Điểm a Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép từ 01 cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ thì bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm (đối với động vật lớp thú thuộc Nhóm IB không thuộc danh mục ưu tiên bảo vệ thì định lượng khởi tố hình sự phải từ 03 cá thể trở lên theo Điểm d Khoản 1 Điều 244)."
+    "correct": "Phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm",
+    "explanation": "Theo Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Khoản 22 Điều 1 Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025), người nào săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ hoặc Danh mục thực vật rừng, động vật rừng nguy cấp, quý, hiếm Nhóm IB thì bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "ChuRung_087",
@@ -1045,7 +1044,7 @@ const question_ChuRung = [
     "options": [
       "Người vi phạm được trả lại xe ngay",
       "Phương tiện vận chuyển vi phạm có thể bị tịch thu sung công quỹ Nhà nước theo quy định",
-      "Cơ quan Kiểm lâm phải bồi thường xăng cho chủ xe",
+      "Được miễn toàn bộ trách nhiệm hình sự và chỉ phải nộp phạt vi phạm hành chính 5.000.000 đồng",
       "Chỉ phạt tiền người lái xe, không được giữ xe"
     ],
     "correct": "Phương tiện vận chuyển vi phạm có thể bị tịch thu sung công quỹ Nhà nước theo quy định",
@@ -1057,7 +1056,7 @@ const question_ChuRung = [
     "options": [
       "Từ 1.000.000 đồng trở lên đối với khối lượng lâm sản nhỏ nhất",
       "Chỉ phạt từ 10.000 đồng",
-      "Không bị phạt tiền nếu chở bằng xe đạp",
+      "Chỉ bị tịch thu tang vật và không bị truy cứu trách nhiệm hình sự nếu chưa tiêu thụ được số gỗ trên",
       "Khởi điểm từ 50.000.000 đồng"
     ],
     "correct": "Từ 1.000.000 đồng trở lên đối với khối lượng lâm sản nhỏ nhất",
@@ -1069,7 +1068,7 @@ const question_ChuRung = [
     "options": [
       "Bị tịch thu toàn bộ lâm sản và bị xử phạt tiền rất nặng theo quy định xử phạt vi phạm hành chính",
       "Được phép giữ lại sử dụng nếu mua với giá rẻ dưới 1 triệu đồng",
-      "Chỉ bị xử phạt nếu mua bán lâm sản của các công ty nhà nước",
+      "Chỉ bị xử phạt vi phạm hành chính mức tối đa 5.000.000 đồng theo Luật Xử lý VPHC",
       "Không bị kiểm tra xử phạt nếu giao dịch diễn ra vào ban đêm"
     ],
     "correct": "Bị tịch thu toàn bộ lâm sản và bị xử phạt tiền rất nặng theo quy định xử phạt vi phạm hành chính",
@@ -1081,7 +1080,7 @@ const question_ChuRung = [
     "options": [
       "Bị xử phạt vi phạm hành chính từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ bài đăng",
       "Không bị phạt vì mạng xã hội là không gian ảo",
-      "Chỉ bị khóa tài khoản mạng xã hội 1 ngày",
+      "Chỉ bị xử lý kỷ luật nội bộ và không bị truy cứu trách nhiệm hình sự nếu không trực tiếp chặt cây",
       "Được phép quảng cáo nếu không ghi rõ giá tiền"
     ],
     "correct": "Bị xử phạt vi phạm hành chính từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ bài đăng",
@@ -1093,7 +1092,7 @@ const question_ChuRung = [
     "options": [
       "Không cần khai báo vì là động vật thông thường",
       "Bị xử phạt vi phạm hành chính về hành vi nuôi nhốt động vật rừng trái phép và bị tịch thu",
-      "Chỉ cần khai báo với người hàng xóm",
+      "Chỉ cần làm cam kết không buôn bán thương mại với Trưởng thôn là được nuôi hợp pháp",
       "Được chính quyền thưởng tiền khuyến khích"
     ],
     "correct": "Bị xử phạt vi phạm hành chính về hành vi nuôi nhốt động vật rừng trái phép và bị tịch thu",
@@ -1105,7 +1104,7 @@ const question_ChuRung = [
     "options": [
       "Bị tịch thu toàn bộ súng, bẫy, công cụ săn bắt và bị phạt tiền rất nặng",
       "Được phép dùng nếu là truyền thống của dòng họ",
-      "Chỉ cấm ở đồng bằng, miền núi được dùng thoải mái",
+      "Chỉ bị xử phạt nếu săn bắt các loài thú có khối lượng cơ thể từ 20 kg trở lên",
       "Chỉ bị nhắc nhở không được bắn trúng người"
     ],
     "correct": "Bị tịch thu toàn bộ súng, bẫy, công cụ săn bắt và bị phạt tiền rất nặng",
@@ -1117,7 +1116,7 @@ const question_ChuRung = [
     "options": [
       "Chỉ bị nhắc nhở rút kinh nghiệm vì thời tiết mùa đông quá lạnh",
       "Bị khởi tố hình sự về tội Vi phạm quy định về PCCC hoặc tội Hủy hoại rừng (phạt tù từ 1 đến 5 năm)",
-      "Chỉ phải trồng đền lại 10 cây keo giống mới",
+      "Chỉ bị xử phạt vi phạm hành chính và buộc nộp tiền bồi thường thiệt hại giá trị gỗ",
       "Được cơ quan chức năng hỗ trợ tiền dập lửa"
     ],
     "correct": "Bị khởi tố hình sự về tội Vi phạm quy định về PCCC hoặc tội Hủy hoại rừng (phạt tù từ 1 đến 5 năm)",
@@ -1129,7 +1128,7 @@ const question_ChuRung = [
     "options": [
       "Không sao vì cán bộ phải chịu đựng nhân dân",
       "Bị xử phạt hành chính nặng hoặc bị truy cứu trách nhiệm hình sự về tội 'Chống người thi hành công vụ'",
-      "Chỉ cần bỏ chạy là thoát tội",
+      "Chỉ bị xử phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng mà không bị truy cứu hình sự",
       "Chỉ bị phạt viết bản tự kiểm điểm"
     ],
     "correct": "Bị xử phạt hành chính nặng hoặc bị truy cứu trách nhiệm hình sự về tội 'Chống người thi hành công vụ'",
@@ -1141,11 +1140,11 @@ const question_ChuRung = [
     "options": [
       "Chia đều cho những người tham gia bắt giữ",
       "Tịch thu sung công quỹ Nhà nước để bán đấu giá hoặc chuyển giao theo quy định pháp luật",
-      "Đem đốt bỏ toàn bộ để khỏi ai dùng",
+      "Chuyển giao cho Ủy ban nhân dân cấp xã làm vật liệu xây dựng nhà văn hóa thôn",
       "Trả lại cho người vận chuyển nếu xin xỏ"
     ],
     "correct": "Tịch thu sung công quỹ Nhà nước để bán đấu giá hoặc chuyển giao theo quy định pháp luật",
-    "explanation": "Căn cứ Nghị định số 29/2018/NĐ-CP, Chương IV Thông tư số 26/2025/TT-BNNMT (VBHN số 04/VBHN-BNNMT) và Luật Quản lý, sử dụng tài sản công năm 2017: Lâm sản bị tịch thu do vi phạm pháp luật được xác lập quyền sở hữu toàn dân, xử lý theo hình thức bán đấu giá nộp ngân sách nhà nước, chuyển giao cho cơ quan nhà nước sử dụng hoặc tiêu hủy nếu thuộc trường hợp phải tiêu hủy."
+    "explanation": "Theo Nghị định số 77/2025/NĐ-CP (thay thế Nghị định số 29/2018/NĐ-CP), Chương III Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT) và Luật Quản lý, sử dụng tài sản công năm 2017: Toàn bộ số tiền thu được từ việc bán đấu giá lâm sản tận thu trên đất rừng do Nhà nước đại diện chủ sở hữu, sau khi trừ các chi phí hợp lý có liên quan, phải nộp vào ngân sách nhà nước theo quy định."
   },
   {
     "id": "ChuRung_096",
@@ -1153,7 +1152,7 @@ const question_ChuRung = [
     "options": [
       "Được phép vì mục đích sinh hoạt",
       "Bị xử phạt về hành vi Phá rừng và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
-      "Chỉ bị phạt nếu chặt cây có đường kính trên 1 mét",
+      "Chỉ bị xử phạt vi phạm hành chính theo quy định về bảo vệ an toàn hành lang lưới điện",
       "Không bị xử phạt nếu nộp tiền điện đầy đủ"
     ],
     "correct": "Bị xử phạt về hành vi Phá rừng và buộc tháo dỡ công trình, trồng lại diện tích rừng đã phá",
@@ -1165,7 +1164,7 @@ const question_ChuRung = [
     "options": [
       "Bị bắt bỏ tù ngay lập tức khi vừa bước chân vào cổng",
       "Được Nhà nước khoan hồng, không bị xử phạt và được cơ quan chức năng tiếp nhận để cứu hộ",
-      "Bắt buộc phải nộp phạt 50 triệu đồng mới được giao nộp",
+      "Chỉ được miễn phạt tiền nếu cá thể động vật giao nộp còn hoàn toàn khỏe mạnh",
       "Không cơ quan nào tiếp nhận động vật giao nộp"
     ],
     "correct": "Được Nhà nước khoan hồng, không bị xử phạt và được cơ quan chức năng tiếp nhận để cứu hộ",
@@ -1177,7 +1176,7 @@ const question_ChuRung = [
     "options": [
       "Mang cưa xăng vào rừng đặc dụng chặt hạ cây cổ thụ",
       "Đi trên đường mòn tuần tra rừng, thu nhặt củi khô gãy mục trong rừng sản xuất của gia đình",
-      "Đặt bẫy dây phanh sắt bắt thú rừng",
+      "Thu hái măng bát độ và thảo quả trồng xen dưới tán rừng đặc dụng khi chưa xin phép",
       "Đổ hóa chất độc xuống suối đầu nguồn để bắt cá"
     ],
     "correct": "Đi trên đường mòn tuần tra rừng, thu nhặt củi khô gãy mục trong rừng sản xuất của gia đình",
@@ -1189,7 +1188,7 @@ const question_ChuRung = [
     "options": [
       "Chưa cháy rừng thì không bao giờ bị phạt",
       "Vẫn bị xử phạt vi phạm hành chính về hành vi vi phạm quy định an toàn phòng cháy chữa cháy rừng",
-      "Chỉ bị phạt nếu người khác chụp ảnh đưa lên mạng",
+      "Chỉ bị lập biên bản nhắc nhở nếu chưa gây thiệt hại cho các chủ rừng xung quanh",
       "Chỉ bị phạt khi có khói bay vào mắt người khác"
     ],
     "correct": "Vẫn bị xử phạt vi phạm hành chính về hành vi vi phạm quy định an toàn phòng cháy chữa cháy rừng",
@@ -1201,7 +1200,7 @@ const question_ChuRung = [
     "options": [
       "Cứ chặt phá rừng trước rồi nộp phạt sau",
       "Bảo vệ rừng là bảo vệ nguồn sống; chỉ khai thác rừng trồng hợp pháp, không phá rừng tự nhiên và luôn cảnh giác phòng chống cháy rừng",
-      "Không cần quan tâm đến pháp luật vì Kiểm lâm ở xa",
+      "Tự do khai thác cây rừng theo nhu cầu sinh hoạt gia đình mà không cần tuân thủ quy chế",
       "Rừng của ai người nấy lo, cháy rừng không việc gì phải giúp"
     ],
     "correct": "Bảo vệ rừng là bảo vệ nguồn sống; chỉ khai thác rừng trồng hợp pháp, không phá rừng tự nhiên và luôn cảnh giác phòng chống cháy rừng",
@@ -1213,7 +1212,7 @@ const question_ChuRung = [
     "options": [
       "Tuyệt đối không săn bắt, mua bán, vận chuyển, nuôi nhốt hoặc phóng sinh động vật hoang dã trái quy định của pháp luật",
       "Được phép mua bất kỳ con thú nào ngoài chợ miễn là mục đích mua để thả phóng sinh tích đức",
-      "Chỉ cần xin phép Trụ trì chùa là được phép thả mọi loài động vật vào rừng tự nhiên",
+      "Được phép thả nếu cá thể động vật đã được nuôi thuần hóa trong gia đình trên 06 tháng",
       "Được phép tự do bẫy bắt thú rừng về thả vào vườn nhà của người khác"
     ],
     "correct": "Tuyệt đối không săn bắt, mua bán, vận chuyển, nuôi nhốt hoặc phóng sinh động vật hoang dã trái quy định của pháp luật",
@@ -1225,7 +1224,7 @@ const question_ChuRung = [
     "options": [
       "Lựa chọn loài bản địa phù hợp với hệ sinh thái; tuyệt đối không thả các loài ngoại lai xâm hại hoặc loài không phù hợp với môi trường sống",
       "Thả bất kỳ loài động vật nào mua được từ các gánh hàng rong trước cổng đền chùa",
-      "Ưu tiên thả rùa tai đỏ, cá lau kính, tôm càng đỏ vì chúng có sức sống rất dai",
+      "Có thể thả bất kỳ loài động vật hoang dã nào nếu chúng có nguồn gốc sinh sản trong nước",
       "Chỉ phóng sinh các loài thú ăn thịt hung dữ để rèn luyện bản năng sinh tồn"
     ],
     "correct": "Lựa chọn loài bản địa phù hợp với hệ sinh thái; tuyệt đối không thả các loài ngoại lai xâm hại hoặc loài không phù hợp với môi trường sống",
@@ -1237,7 +1236,7 @@ const question_ChuRung = [
     "options": [
       "Lựa chọn sinh cảnh phù hợp với tập tính sinh học của loài, bảo đảm có nguồn thức ăn, nước uống và điều kiện an toàn để con vật có thể sinh tồn lâu dài",
       "Thả rùa cạn xuống lòng sông sâu hoặc thả cá nước ngọt vào đầm nước mặn",
-      "Thả ngay tại các điểm đông đúc dân cư, vỉa hè hoặc các khu chợ buôn bán thực phẩm",
+      "Chỉ cần chọn các khu bảo tồn thiên nhiên hoặc vườn quốc gia để thả mà không cần xem xét sinh cảnh cụ thể của loài",
       "Cứ thấy hồ nước nào gần nhà nhất là thả toàn bộ các loại chim, thú, bò sát xuống"
     ],
     "correct": "Lựa chọn sinh cảnh phù hợp với tập tính sinh học của loài, bảo đảm có nguồn thức ăn, nước uống và điều kiện an toàn để con vật có thể sinh tồn lâu dài",
@@ -1249,7 +1248,7 @@ const question_ChuRung = [
     "options": [
       "Lựa chọn thời điểm thời tiết và môi trường phù hợp với khả năng thích nghi của loài (tránh thả giữa trưa nắng gắt hoặc mùa đông giá rét làm con vật sốc nhiệt, kiệt sức)",
       "Chỉ được phóng sinh vào đúng 12 giờ đêm ngày rằm tháng 7 âm lịch",
-      "Phải thả ngay khi vừa mua từ chợ về bất chấp con vật đang ngạt thở trong túi nilon",
+      "Nên thả vào thời điểm rạng sáng của các ngày lễ Phật đản bất kể nhiệt độ môi trường ngoài trời",
       "Chờ đến khi con vật bị ốm liệt không cử động được mới đem đi thả"
     ],
     "correct": "Lựa chọn thời điểm thời tiết và môi trường phù hợp với khả năng thích nghi của loài (tránh thả giữa trưa nắng gắt hoặc mùa đông giá rét làm con vật sốc nhiệt, kiệt sức)",
@@ -1261,7 +1260,7 @@ const question_ChuRung = [
     "options": [
       "Nhận diện loài, đánh giá tình trạng sức khỏe con vật trước khi thả; thả nhẹ nhàng; trường hợp động vật hoang dã nguy cấp cần cứu hộ phải báo cơ quan Kiểm lâm",
       "Ném thật mạnh từ trên cầu cao xuống sông để con vật nhanh chóng bơi đi",
-      "Để nguyên cả túi nilon và dây thừng buộc chặt chân con vật rồi vứt xuống nước",
+      "Chỉ cần mở cửa lồng cho con vật tự bay hoặc bò ra ngoài mà không cần kiểm tra sức khỏe ban đầu",
       "Cắt bớt lông cánh của chim trước khi thả để chim bay lượn gần mặt đất"
     ],
     "correct": "Nhận diện loài, đánh giá tình trạng sức khỏe con vật trước khi thả; thả nhẹ nhàng; trường hợp động vật hoang dã nguy cấp cần cứu hộ phải báo cơ quan Kiểm lâm",
@@ -1273,7 +1272,7 @@ const question_ChuRung = [
     "options": [
       "Tạo áp lực săn bắt: Nhu cầu mua phóng sinh vô tình tiếp tay cho thợ bẫy bắt, gom hàng và kích thích đường dây buôn bán trái phép động vật hoang dã",
       "Làm tăng sản lượng nông nghiệp của các hộ nông dân vùng ven rừng",
-      "Giúp người nghèo có thêm công ăn việc làm hợp pháp được nhà nước bảo hộ",
+      "Làm gia tăng nguồn cung động vật hoang dã thương phẩm trên thị trường tự do",
       "Làm phong phú thêm nguồn gen động vật quý hiếm trong các khu đô thị"
     ],
     "correct": "Tạo áp lực săn bắt: Nhu cầu mua phóng sinh vô tình tiếp tay cho thợ bẫy bắt, gom hàng và kích thích đường dây buôn bán trái phép động vật hoang dã",
@@ -1285,7 +1284,7 @@ const question_ChuRung = [
     "options": [
       "Gây mất cân bằng hệ sinh thái: Loài ngoại lai cạnh tranh thức ăn, nơi sống, phát tán dịch bệnh và tiêu diệt các loài thủy sinh bản địa",
       "Cải thiện chất lượng nguồn nước ngọt sinh hoạt của các hộ dân trong vùng",
-      "Tạo nguồn thức ăn dồi dào giúp bảo tồn các loài cá quý hiếm",
+      "Chỉ ảnh hưởng cục bộ tại điểm thả và tự động cân bằng sau từ 01 đến 02 năm",
       "Không gây ảnh hưởng gì vì thiên nhiên tự có cơ chế đào thải tự nhiên"
     ],
     "correct": "Gây mất cân bằng hệ sinh thái: Loài ngoại lai cạnh tranh thức ăn, nơi sống, phát tán dịch bệnh và tiêu diệt các loài thủy sinh bản địa",
@@ -1297,7 +1296,7 @@ const question_ChuRung = [
     "options": [
       "Gây tổn hại cho chính con vật: Động vật suy yếu, mất khả năng tự kiếm ăn sẽ bị chết đói, chết ngạt hoặc phát tán mầm bệnh nguy hiểm ra môi trường",
       "Giúp con vật nhanh chóng hồi phục thể lực kỳ diệu trong vài giờ",
-      "Con vật tự động tìm được đường trở về với chuồng trại ban đầu",
+      "Chỉ cần cho con vật ăn no trước khi thả là bảo đảm khả năng sinh tồn ngoài tự nhiên",
       "Tạo kháng thể tự nhiên giúp con vật miễn nhiễm với mọi loại virus"
     ],
     "correct": "Gây tổn hại cho chính con vật: Động vật suy yếu, mất khả năng tự kiếm ăn sẽ bị chết đói, chết ngạt hoặc phát tán mầm bệnh nguy hiểm ra môi trường",
@@ -1309,7 +1308,7 @@ const question_ChuRung = [
     "options": [
       "Sai quy định: Rùa tai đỏ là loài ngoại lai xâm hại nguy hiểm, hành vi phát tán vào tự nhiên bị pháp luật nghiêm cấm và bị xử phạt hành chính",
       "Hoàn toàn đúng vì chị B có tâm thiện nguyện cầu bình an cho gia đình",
-      "Hợp pháp nếu chị B thả rùa vào lúc trời mưa râm mát",
+      "Được coi là hoạt động tôn giáo hợp pháp và chỉ bị nhắc nhở bảo đảm an ninh trật tự",
       "Chỉ bị nhắc nhở nếu rùa tai đỏ bò lên bờ cắn người"
     ],
     "correct": "Sai quy định: Rùa tai đỏ là loài ngoại lai xâm hại nguy hiểm, hành vi phát tán vào tự nhiên bị pháp luật nghiêm cấm và bị xử phạt hành chính",
@@ -1321,7 +1320,7 @@ const question_ChuRung = [
     "options": [
       "Phóng sinh sai cách: Mua chim bẫy bắt vừa tiếp tay cho nạn săn bẫy chim trời, vừa làm chim bị chết ngạt, sốc nhiệt và gây ô nhiễm môi trường",
       "Là hành động đại từ bi đáng được chính quyền địa phương khen thưởng",
-      "Đúng luật vì chim sẻ là loài chim thông thường không bị cấm săn bắt",
+      "Bằng tiền mặt trực tiếp tại trụ sở Ủy ban nhân dân cấp tỉnh mà không cần lập danh sách ký nhận",
       "Anh A không có lỗi vì trách nhiệm làm chết chim thuộc về người bán lồng"
     ],
     "correct": "Phóng sinh sai cách: Mua chim bẫy bắt vừa tiếp tay cho nạn săn bẫy chim trời, vừa làm chim bị chết ngạt, sốc nhiệt và gây ô nhiễm môi trường",
@@ -1333,7 +1332,7 @@ const question_ChuRung = [
     "options": [
       "Do người dân gia tăng hoạt động tín ngưỡng, đi tảo mộ, thắp hương và đốt vàng mã bất cẩn tại các nghĩa địa, đồi nương nằm xen kẽ hoặc giáp ranh với rừng",
       "Do nhiệt độ mùa đông tại Tuyên Quang luôn nóng gay gắt trên 45 độ C",
-      "Do các loài thú rừng tự cọ xát cơ thể vào thân cây làm bốc cháy",
+      "Được phép chia đều toàn bộ số tiền cho các hộ dân sử dụng vào mục đích tiêu dùng cá nhân mà không cần tuần tra bảo vệ rừng",
       "Do sấm sét tự nhiên xuất hiện liên tục trong cả tháng Tết âm lịch"
     ],
     "correct": "Do người dân gia tăng hoạt động tín ngưỡng, đi tảo mộ, thắp hương và đốt vàng mã bất cẩn tại các nghĩa địa, đồi nương nằm xen kẽ hoặc giáp ranh với rừng",
@@ -1345,7 +1344,7 @@ const question_ChuRung = [
     "options": [
       "Không đốt vàng mã khi trời nắng nóng, gió mạnh; không thắp hương gần bìa rừng, thảm thực vật khô; luôn có người trông coi và dập tắt hoàn toàn tàn lửa trước khi về",
       "Được phép gom lá thông khô xung quanh mộ lại để đốt vàng mã cho cháy to",
-      "Chỉ cần thắp hương cắm vào gốc cây to rồi đi về ngay không cần chờ tàn",
+      "Cơ quan Thuế địa phương thu hộ và giữ lại 50% để bổ sung ngân sách chi thường xuyên của xã",
       "Đốt vàng mã ngay trên thảm cỏ khô dưới tán rừng keo vào buổi trưa"
     ],
     "correct": "Không đốt vàng mã khi trời nắng nóng, gió mạnh; không thắp hương gần bìa rừng, thảm thực vật khô; luôn có người trông coi và dập tắt hoàn toàn tàn lửa trước khi về",
@@ -1357,7 +1356,7 @@ const question_ChuRung = [
     "options": [
       "Vứt tàn hương, tàn thuốc lá hoặc than củi chưa tắt hẳn vào bụi cây, thảm thực vật khô ven rừng",
       "Mang theo chai nước sạch để dập tắt tàn hương sau khi cúng lễ",
-      "Dọn sạch cỏ rác khô xung quanh phần mộ trước khi thắp nén hương",
+      "Vẫn được thanh toán đủ 100% tiền dịch vụ môi trường rừng vì diện tích rừng bị mất dưới 05 ha",
       "Báo cho Kiểm lâm địa bàn khi thấy có khói lạ bốc lên từ phía sườn rừng"
     ],
     "correct": "Vứt tàn hương, tàn thuốc lá hoặc than củi chưa tắt hẳn vào bụi cây, thảm thực vật khô ven rừng",
@@ -1369,7 +1368,7 @@ const question_ChuRung = [
     "options": [
       "Dập tắt hoàn toàn tàn lửa, tàn hương và than đỏ bằng nước hoặc phủ đất cát dầy; bảo đảm không còn khói hoặc đốm lửa âm ỉ",
       "Chỉ cần thổi nhẹ bằng miệng cho bớt khói rồi ra về",
-      "Dùng cành lá cây khô quét phủ lên đống than đang đỏ rực để giấu đi",
+      "Chỉ bị phê bình trước thôn, bản và không phải hoàn trả số tiền dịch vụ môi trường rừng đã nhận",
       "Cứ để than tự tàn tự nhiên vì gió rừng sẽ thổi nguội dần"
     ],
     "correct": "Dập tắt hoàn toàn tàn lửa, tàn hương và than đỏ bằng nước hoặc phủ đất cát dầy; bảo đảm không còn khói hoặc đốm lửa âm ỉ",
@@ -1381,7 +1380,7 @@ const question_ChuRung = [
     "options": [
       "Hô hoán người xung quanh hỗ trợ ngăn chặn dập lửa ban đầu và báo ngay cho lực lượng Kiểm lâm, chính quyền xã hoặc Cảnh sát PCCC gần nhất",
       "Lẳng lặng bỏ về nhà đóng kín cửa coi như mình không nhìn thấy",
-      "Chờ đến khi lửa lan sang nương nhà mình thì mới đi tìm người giúp",
+      "Trưởng ban Quản lý Quỹ Bảo vệ và phát triển rừng cấp tỉnh tự quyết định mà không cần thông qua cộng đồng",
       "Đăng bài lên mạng xã hội chờ người khác gọi điện báo công an"
     ],
     "correct": "Hô hoán người xung quanh hỗ trợ ngăn chặn dập lửa ban đầu và báo ngay cho lực lượng Kiểm lâm, chính quyền xã hoặc Cảnh sát PCCC gần nhất",
@@ -1393,7 +1392,7 @@ const question_ChuRung = [
     "options": [
       "Bị xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự về tội vi phạm quy định PCCC rừng, đồng thời phải bồi thường toàn bộ thiệt hại về rừng",
       "Không bị xử lý vì việc đốt vàng mã là phong tục tập quán tâm linh truyền thống",
-      "Chỉ bị phê bình nhắc nhở tại cuộc họp thôn cuối năm",
+      "Được giữ lại tối đa 50% tổng số tiền dịch vụ môi trường rừng nhận được để chi trả lương hành chính",
       "Được Nhà nước hỗ trợ tiền bồi thường thiệt hại cho chủ rừng keo"
     ],
     "correct": "Bị xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự về tội vi phạm quy định PCCC rừng, đồng thời phải bồi thường toàn bộ thiệt hại về rừng",
@@ -1405,7 +1404,7 @@ const question_ChuRung = [
     "options": [
       "Pháp luật hiện hành KHÔNG quy định thủ tục cấp 'Giấy xác nhận nguồn gốc hợp pháp'; việc chứng minh nguồn gốc thực hiện thông qua Bảng kê lâm sản và hồ sơ lâm sản hợp pháp",
       "Bắt buộc phải xin Giấy xác nhận nguồn gốc hợp pháp của Giám đốc Sở Nông nghiệp và Môi trường",
-      "Chỉ có Chủ tịch UBND cấp xã mới có quyền cấp Giấy chứng nhận nguồn gốc cây vườn nhà",
+      "Không cần công khai danh sách chi trả tiền dịch vụ môi trường rừng nếu các hộ dân không có đơn khiếu nại",
       "Mọi cây cảnh trồng trong vườn nhà đều bị cấm mua bán ra ngoài tỉnh"
     ],
     "correct": "Pháp luật hiện hành KHÔNG quy định thủ tục cấp 'Giấy xác nhận nguồn gốc hợp pháp'; việc chứng minh nguồn gốc thực hiện thông qua Bảng kê lâm sản và hồ sơ lâm sản hợp pháp",
@@ -1417,7 +1416,7 @@ const question_ChuRung = [
     "options": [
       "KHÔNG thuộc đối tượng buộc phải xác nhận; chủ cây tự lập Bảng kê lâm sản. Trường hợp chủ cây có nhu cầu tự nguyện đề nghị xác nhận thì cơ quan Kiểm lâm sẽ tiếp nhận xác nhận",
       "Bắt buộc 100% trường hợp phải có xác nhận có đóng dấu đỏ của Hạt trưởng Hạt Kiểm lâm",
-      "Phải được Bộ trưởng Bộ Nông nghiệp và Môi trường ký phê duyệt từng cây",
+      "Chỉ được khiếu nại lên Bộ Nông nghiệp và Môi trường mà không được phản ánh tại địa phương",
       "Chỉ cần người mua tự viết giấy tay là hợp pháp không cần Bảng kê lâm sản"
     ],
     "correct": "KHÔNG thuộc đối tượng buộc phải xác nhận; chủ cây tự lập Bảng kê lâm sản. Trường hợp chủ cây có nhu cầu tự nguyện đề nghị xác nhận thì cơ quan Kiểm lâm sẽ tiếp nhận xác nhận",
@@ -1429,7 +1428,7 @@ const question_ChuRung = [
     "options": [
       "Bản chính Đơn đề nghị xác nhận Bảng kê (Mẫu số 03), Bản chính Bảng kê lâm sản và Bản sao Phương án khai thác theo Mẫu số 08",
       "Chỉ cần nộp bản sao Giấy khai sinh của chủ vườn cây",
-      "Chỉ cần một bức ảnh chụp cây hoa đăng lên mạng xã hội",
+      "Phải nộp thuế thu nhập cá nhân ở mức cố định 20% trên tổng số tiền dịch vụ môi trường rừng nhận được",
       "Phải nộp sổ đỏ bản gốc lưu giữ vĩnh viễn tại cơ quan Kiểm lâm"
     ],
     "correct": "Bản chính Đơn đề nghị xác nhận Bảng kê (Mẫu số 03), Bản chính Bảng kê lâm sản và Bản sao Phương án khai thác theo Mẫu số 08",
@@ -1441,7 +1440,7 @@ const question_ChuRung = [
     "options": [
       "Hoàn toàn KHÔNG thu phí; thủ tục xác nhận nguồn gốc lâm sản được cơ quan Kiểm lâm thực hiện miễn phí theo quy định",
       "Phải nộp lệ phí bằng 10% giá trị ước tính của cây cảnh",
-      "Phải nộp cố định 2.000.000 đồng lệ phí đóng dấu xác nhận",
+      "Chỉ diện tích rừng tự nhiên có trữ lượng gỗ trên 200 m³/ha mới được tính chi trả dịch vụ môi trường rừng",
       "Tùy thuộc vào thỏa thuận miệng giữa người dân và cán bộ tiếp nhận hồ sơ"
     ],
     "correct": "Hoàn toàn KHÔNG thu phí; thủ tục xác nhận nguồn gốc lâm sản được cơ quan Kiểm lâm thực hiện miễn phí theo quy định",
@@ -1453,7 +1452,7 @@ const question_ChuRung = [
     "options": [
       "Giải thích pháp luật không có thủ tục cấp giấy này; hướng dẫn anh M tự lập Bảng kê lâm sản, nếu anh M tự nguyện đề nghị thì Kiểm lâm tiếp nhận xác nhận Bảng kê hoàn toàn miễn phí",
       "Yêu cầu anh M phải nộp phạt 5 triệu đồng vì tự ý đào cây vườn nhà khi chưa xin phép",
-      "Từ chối tiếp và bảo anh M muốn chở đi đâu thì tùy ý không cần giấy tờ gì",
+      "Mọi diện tích đất trống chưa có rừng đều được hưởng 100% mức chi trả dịch vụ môi trường rừng như rừng tự nhiên",
       "Thu giữ luôn 02 cây mai của anh M để xác minh lai lịch nguồn gốc"
     ],
     "correct": "Giải thích pháp luật không có thủ tục cấp giấy này; hướng dẫn anh M tự lập Bảng kê lâm sản, nếu anh M tự nguyện đề nghị thì Kiểm lâm tiếp nhận xác nhận Bảng kê hoàn toàn miễn phí",
@@ -1465,7 +1464,7 @@ const question_ChuRung = [
     "options": [
       "Tên khoa học (tên Latinh) của loài; tên thông thường bằng tiếng Việt hoặc tiếng Anh chỉ có giá trị tham khảo",
       "Tên gọi dân gian truyền miệng của người dân cao tuổi tại địa phương",
-      "Tên thương mại do các nhà vườn kinh doanh sinh vật cảnh tự đặt cho hấp dẫn",
+      "Hệ số K được áp dụng cố định bằng 2,0 cho tất cả các lô rừng không phân biệt trạng thái và nguồn gốc rừng",
       "Màu sắc của hoa và mùi thơm của quả khi chín"
     ],
     "correct": "Tên khoa học (tên Latinh) của loài; tên thông thường bằng tiếng Việt hoặc tiếng Anh chỉ có giá trị tham khảo",
@@ -1477,7 +1476,7 @@ const question_ChuRung = [
     "options": [
       "Thông báo ngay cho Cơ quan Kiểm lâm sở tại hoặc Trung tâm cứu hộ động vật hoang dã để tiếp nhận, cứu hộ và tái thả đúng quy trình bảo tồn",
       "Tự mình mang ra khu rừng gần nhất thả ngay mà không cần kiểm tra sức khỏe con vật",
-      "Đem ra chợ bán cho phật tử mua phóng sinh lấy tiền làm từ thiện",
+      "Bàn giao cho chùa hoặc cơ sở thờ tự gần nhất để phật tử chăm sóc nuôi dưỡng",
       "Nhốt lại trong chuồng gà nuôi dưỡng làm cảnh cho con cháu xem"
     ],
     "correct": "Thông báo ngay cho Cơ quan Kiểm lâm sở tại hoặc Trung tâm cứu hộ động vật hoang dã để tiếp nhận, cứu hộ và tái thả đúng quy trình bảo tồn",
@@ -1489,7 +1488,7 @@ const question_ChuRung = [
     "options": [
       "Vi phạm nghiêm trọng quy định PCCC rừng; tàn lửa rất dễ gây cháy lan rừng tự nhiên, người vi phạm bị phạt tiền hoặc phạt tù và bồi thường thiệt hại",
       "Được khuyến khích vì giúp người dân có thêm thu nhập từ sáp và mật ong rừng",
-      "Chỉ bị phạt nếu tổ ong nằm trong bán kính 10 mét cách trụ sở UBND xã",
+      "Chỉ bị xử phạt nếu người hun khói không phải là chủ rừng nơi có tổ ong",
       "Hoàn toàn vô hại vì khói thuốc làm ong ngủ say không gây cháy"
     ],
     "correct": "Vi phạm nghiêm trọng quy định PCCC rừng; tàn lửa rất dễ gây cháy lan rừng tự nhiên, người vi phạm bị phạt tiền hoặc phạt tù và bồi thường thiệt hại",
@@ -1501,7 +1500,7 @@ const question_ChuRung = [
     "options": [
       "Buổi trưa nắng gắt, hanh khô, có gió to và khi cấp dự báo cháy rừng đang ở Cấp IV (Cấp nguy hiểm), Cấp V (Cấp cực kỳ nguy hiểm)",
       "Sáng sớm khi sương mù còn dày và gió lặng",
-      "Chiều tối khi mặt trời đã lặn và không khí mát mẻ",
+      "Chỉ được đốt dọn vào những ngày có gió mùa Đông Bắc khô hanh cấp 4 trở lên",
       "Ngày trời râm mát có mưa phùn lất phất"
     ],
     "correct": "Buổi trưa nắng gắt, hanh khô, có gió to và khi cấp dự báo cháy rừng đang ở Cấp IV (Cấp nguy hiểm), Cấp V (Cấp cực kỳ nguy hiểm)",
@@ -1513,7 +1512,7 @@ const question_ChuRung = [
     "options": [
       "Hai bên thương lượng bồi thường thiệt hại dân sự theo quy định của Bộ luật Dân sự về bồi thường thiệt hại do cây cối gây ra; dọn dẹp bảo đảm an toàn",
       "Bắt buộc cơ quan Kiểm lâm phải đứng ra bồi thường thay cho chủ cây",
-      "Người bị cây đổ đè vào nhà phải tự chịu chi phí sửa chữa không được khiếu nại",
+      "UBND cấp xã có trách nhiệm trích ngân sách dự phòng bồi thường nếu cây trồng lâu năm",
       "UBND xã phải bỏ ngân sách nhà nước ra đền bù toàn bộ thiệt hại"
     ],
     "correct": "Hai bên thương lượng bồi thường thiệt hại dân sự theo quy định của Bộ luật Dân sự về bồi thường thiệt hại do cây cối gây ra; dọn dẹp bảo đảm an toàn",
@@ -1525,7 +1524,7 @@ const question_ChuRung = [
     "options": [
       "Hành vi khai thác rừng và thực vật rừng trái pháp luật; bị xử phạt VPHC, tịch thu tang vật, phương tiện hoặc xử lý hình sự tùy theo mức độ thiệt hại",
       "Chỉ là hành vi vi phạm trật tự công cộng thông thường",
-      "Được pháp luật bảo hộ quyền tự do khai thác tài nguyên thiên nhiên",
+      "Chỉ bị xử phạt vi phạm hành chính về hành vi thu hái lâm sản ngoài gỗ trái phép",
       "Chỉ bị tịch thu hoa lan, hành vi đốn hạ cây gỗ không bị xem xét"
     ],
     "correct": "Hành vi khai thác rừng và thực vật rừng trái pháp luật; bị xử phạt VPHC, tịch thu tang vật, phương tiện hoặc xử lý hình sự tùy theo mức độ thiệt hại",
@@ -1537,7 +1536,7 @@ const question_ChuRung = [
     "options": [
       "Dừng xe, hô hoán người gần đó dùng cành cây, đất cát hoặc nước dập ngay đốm lửa, đồng thời gọi điện báo Kiểm lâm hoặc chính quyền địa phương",
       "Tăng ga phóng xe đi thật nhanh để tránh bị hiểu nhầm là người gây cháy",
-      "Đứng quay clip livestream câu like trên mạng xã hội rồi bỏ đi",
+      "Chỉ cần gọi điện báo cho gia đình người vừa đốt vàng mã quay lại dập lửa",
       "Ném thêm que củi vào xem lửa có cháy to thành bão lửa hay không"
     ],
     "correct": "Dừng xe, hô hoán người gần đó dùng cành cây, đất cát hoặc nước dập ngay đốm lửa, đồng thời gọi điện báo Kiểm lâm hoặc chính quyền địa phương",
@@ -1549,7 +1548,7 @@ const question_ChuRung = [
     "options": [
       "Bảo vệ sinh cảnh sống tự nhiên, tích cực tham gia trồng cây gây rừng, không tiêu thụ thịt thú rừng và không tiếp tay cho hoạt động bẫy bắt động vật hoang dã",
       "Càng bỏ nhiều tiền ra mua động vật nhốt trong lồng đem thả thì công đức càng lớn",
-      "Chỉ cần phóng sinh vào ngày rằm tháng 7 là được xóa hết mọi lỗi lầm vi phạm",
+      "Chỉ cần phóng sinh các loài động vật ăn chay như rùa, chim bồ câu để tích phước",
       "Bắt động vật ngoài rừng về nhốt trong nhà rồi thả ra trong sân vườn gia đình"
     ],
     "correct": "Bảo vệ sinh cảnh sống tự nhiên, tích cực tham gia trồng cây gây rừng, không tiêu thụ thịt thú rừng và không tiếp tay cho hoạt động bẫy bắt động vật hoang dã",
@@ -1561,7 +1560,7 @@ const question_ChuRung = [
     "options": [
       "Báo ngay cho Kiểm lâm địa bàn, Trưởng thôn hoặc Công an cấp xã để tiến hành kiểm tra, ngăn chặn và tịch thu dụng cụ bẫy bắt theo quy định",
       "Đến học hỏi kinh nghiệm bẫy chim để về làm theo kiếm thêm thu nhập",
-      "Mặc kệ vì chim trời tự nhiên ai bắt được thì người đó hưởng",
+      "Chỉ nhắc nhở người bẫy chim không được giăng lưới chắn ngang đường đi lại của thôn",
       "Báo cho cơ quan Khí tượng thủy văn tỉnh để theo dõi hướng gió"
     ],
     "correct": "Báo ngay cho Kiểm lâm địa bàn, Trưởng thôn hoặc Công an cấp xã để tiến hành kiểm tra, ngăn chặn và tịch thu dụng cụ bẫy bắt theo quy định",

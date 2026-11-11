@@ -1,9 +1,8 @@
 // ============================================================================
-// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ
-// Gói dữ liệu: Động vật rừng, cơ sở nuôi nhốt và CITES (85 câu)
-// Cơ quan đối soát: Chuyên gia Pháp chế Kiểm lâm (Subagent PC)
-// Căn cứ QPPL: Hệ thống QPPL hiện hành (NĐ 146/2026, NĐ 42/2026, TT 85/2025, TT 16/2025, Luật Đất đai 2024)
-// Cấu trúc Object: { id, question, options, correct, explanation } (Bảo vệ tính toàn vẹn 100%)
+// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ (BẢN V2 - NÂNG CAO ĐỘ KHÓ)
+// Gói dữ liệu: Quản lý động vật rừng và bảo tồn thiên nhiên (85 câu)
+// Đã điều chỉnh: Tăng độ khó bằng cách thay thế 1 phương án sai lộ liễu thành phương án nhiễu tinh vi (plausible distractor)
+// Bảo toàn: 100% câu hỏi, đáp án đúng và trích dẫn giải thích pháp lý nguyên vẹn
 // ============================================================================
 
 const question_DVR = [
@@ -14,7 +13,7 @@ const question_DVR = [
       "Cơ sở phải được đăng ký mã số với Ban Thư ký CITES quốc tế; mẫu vật xuất khẩu phải sinh sản từ thế hệ F2 trở về sau trong môi trường có kiểm soát",
       "Chỉ cần được Chi cục Kiểm lâm cấp tỉnh cấp Giấy xác nhận nguồn gốc con giống",
       "Chỉ cần cá thể sinh sản đạt thế hệ F1 khỏe mạnh trong chuồng trại của hộ gia đình",
-      "Được tự do xuất khẩu nếu có đối tác nước ngoài đồng ý chuyển tiền đặt cọc trước"
+      "Chỉ cần được Cơ quan quản lý CITES Việt Nam cấp Giấy phép xuất khẩu mà không cần đăng ký mã số với Ban Thư ký CITES quốc tế"
     ],
     "correct": "Cơ sở phải được đăng ký mã số với Ban Thư ký CITES quốc tế; mẫu vật xuất khẩu phải sinh sản từ thế hệ F2 trở về sau trong môi trường có kiểm soát",
     "explanation": "Căn cứ Điểm a Khoản 3 Điều 27 Thông tư số 85/2025/TT-BNNMT: Đối với mẫu vật loài thuộc Phụ lục I CITES, mẫu vật loài động vật xuất khẩu phải từ thế hệ F2 trở về sau được sinh sản tại cơ sở nuôi đã được Ban Thư ký CITES cấp mã số cơ sở nuôi."
@@ -25,7 +24,7 @@ const question_DVR = [
     "options": [
       "Động vật sống được đánh dấu bằng chip, vòng hoặc thẻ hoặc máy phát tín hiệu; ghi Sổ theo dõi đánh dấu và gửi thông báo cho Kiểm lâm sở tại",
       "Chủ cơ sở tự mua chíp định vị GPS trên mạng cài vào vòng cổ của con vật",
-      "Dùng mực xăm mã số căn cước công dân của chủ nuôi lên đùi con vật",
+      "Chỉ cần gắn thẻ nhựa dập số nổi bấm vào tai động vật kèm biên bản bàn giao giống",
       "Chỉ cần gắn thẻ nhựa dập số nổi bấm vào tai động vật mà không cần vi mạch"
     ],
     "correct": "Động vật sống được đánh dấu bằng chip, vòng hoặc thẻ hoặc máy phát tín hiệu; ghi Sổ theo dõi đánh dấu và gửi thông báo cho Kiểm lâm sở tại",
@@ -37,7 +36,7 @@ const question_DVR = [
     "options": [
       "Lập biên bản xác nhận, thông báo cho cơ quan có thẩm quyền/Kiểm lâm sở tại; thực hiện tiêu hủy hoặc chuyển giao làm mẫu vật nghiên cứu khoa học, giáo dục môi trường",
       "Tự ý mổ thịt bán cho các nhà hàng đặc sản để thu hồi vốn con giống",
-      "Sấy khô hoặc ngâm rượu toàn bộ cá thể để trưng bày tại phòng khách của gia đình",
+      "Chủ cơ sở được phép tự chôn lấp hoặc bảo quản lạnh trong khuôn viên trại nuôi và báo cáo vào kỳ báo cáo định kỳ cuối năm",
       "Tự đào hố chôn trong vườn nhà vào ban đêm mà không cần thông báo cho bất kỳ cơ quan nào"
     ],
     "correct": "Lập biên bản xác nhận, thông báo cho cơ quan có thẩm quyền/Kiểm lâm sở tại; thực hiện tiêu hủy hoặc chuyển giao làm mẫu vật nghiên cứu khoa học, giáo dục môi trường",
@@ -50,10 +49,10 @@ const question_DVR = [
       "Từ 0,05 kilôgam (50 gam) sừng tê giác trở lên",
       "Từ 0,5 kilôgam (500 gam) sừng tê giác trở lên",
       "Từ 01 kilôgam sừng tê giác trở lên",
-      "Từ 05 kilôgam sừng tê giác trở lên"
+      "Từ 0,1 kilôgam (100 gam) sừng tê giác trở lên"
     ],
     "correct": "Từ 0,05 kilôgam (50 gam) sừng tê giác trở lên",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Tàng trữ, vận chuyển, buôn bán trái phép sừng tê giác có khối lượng từ 50 gam (0,05 kilôgam) đến dưới 01 kilôgam bị phạt tiền từ 500 triệu đến 2 tỷ đồng hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Theo Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Khoản 22 Điều 1 Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025), hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ hoặc Nhóm IB (dù chỉ 01 cá thể) bị truy cứu trách nhiệm hình sự với mức phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_005",
@@ -62,7 +61,7 @@ const question_DVR = [
       "Chỉ từ 01 cá thể bất kể là lớp thú, chim, bò sát hay lưỡng cư",
       "Từ 02 cá thể đến 10 cá thể đối với lớp bò sát; từ 03 cá thể đến 10 cá thể đối với lớp chim",
       "Phải từ 20 cá thể trở lên đối với chim và 15 cá thể đối với bò sát",
-      "Chim và bò sát không bị xử lý hình sự, chỉ áp dụng hình phạt tiền vi phạm hành chính"
+      "Từ 03 cá thể trở lên đối với chim, bò sát; từ 01 cá thể đối với lớp thú"
     ],
     "correct": "Chỉ từ 01 cá thể bất kể là lớp thú, chim, bò sát hay lưỡng cư",
     "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ chỉ cần từ 01 cá thể (bất kể lớp thú, chim, bò sát, lưỡng cư hay lớp khác) là đã cấu thành tội phạm, bị phạt tù từ 01 năm đến 05 năm."
@@ -73,7 +72,7 @@ const question_DVR = [
     "options": [
       "Bị truy cứu trách nhiệm hình sự về tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (phạt tù từ 01 năm đến 05 năm theo Khoản 1)",
       "Chỉ bị xử lý hình sự khi khối lượng vảy tê tê từ 10 kilôgam trở lên",
-      "Chỉ bị phạt tiền vi phạm hành chính vì vảy tê tê là vị thuốc đông y",
+      "Chỉ bị truy cứu trách nhiệm hình sự khi tàng trữ từ 01 cá thể tê tê còn sống hoặc từ 01 kg vảy tê tê trở lên",
       "Phải từ 50 kilôgam vảy tê tê trở lên mới cấu thành tội phạm"
     ],
     "correct": "Bị truy cứu trách nhiệm hình sự về tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (phạt tù từ 01 năm đến 05 năm theo Khoản 1)",
@@ -85,7 +84,7 @@ const question_DVR = [
     "options": [
       "Hóa đơn (nếu có), Bảng kê lâm sản có xác nhận của Cơ quan Kiểm lâm sở tại và Giấy chứng nhận kiểm dịch động vật của cơ quan Thú y (nếu vận chuyển ra ngoại tỉnh)",
       "Chỉ cần Bảng kê lâm sản do chủ trại tự ký và không cần bất kỳ cơ quan nào xác nhận",
-      "Chỉ cần chụp ảnh đàn giống gửi qua ứng dụng Zalo cho người mua tại tỉnh bạn",
+      "Chỉ cần Bảng kê lâm sản do chủ trại tự lập kèm hóa đơn GTGT mà không cần xác nhận của cơ quan Kiểm lâm sở tại",
       "Bắt buộc phải có Giấy phép CITES xuất nhập khẩu của Bộ Nông nghiệp và Môi trường"
     ],
     "correct": "Hóa đơn (nếu có), Bảng kê lâm sản có xác nhận của Cơ quan Kiểm lâm sở tại và Giấy chứng nhận kiểm dịch động vật của cơ quan Thú y (nếu vận chuyển ra ngoại tỉnh)",
@@ -97,7 +96,7 @@ const question_DVR = [
     "options": [
       "Cơ sở nuôi sinh sản nuôi để sản sinh ra thế hệ kế tiếp; cơ sở nuôi sinh trưởng nuôi con non, trứng khai thác từ tự nhiên để nuôi lớn, cho ấp nở trong môi trường có kiểm soát",
       "Cơ sở nuôi sinh sản chỉ dành cho các loài thú ăn cỏ; cơ sở sinh trưởng chỉ dành cho thú ăn thịt",
-      "Cơ sở nuôi sinh trưởng không cần xin cấp mã số của cơ quan Kiểm lâm",
+      "Cơ sở nuôi sinh sản bắt buộc phải có giấy phép CITES; cơ sở nuôi sinh trưởng chỉ cần đăng ký với UBND cấp xã",
       "Cơ sở nuôi sinh sản chỉ được mở tại các viện nghiên cứu khoa học của nhà nước"
     ],
     "correct": "Cơ sở nuôi sinh sản nuôi để sản sinh ra thế hệ kế tiếp; cơ sở nuôi sinh trưởng nuôi con non, trứng khai thác từ tự nhiên để nuôi lớn, cho ấp nở trong môi trường có kiểm soát",
@@ -109,11 +108,11 @@ const question_DVR = [
     "options": [
       "Báo cáo ngay bằng văn bản cho Cơ quan Kiểm lâm sở tại trong thời hạn 03 ngày làm việc để phối hợp với thú y kiểm tra, lập biên bản và tiến hành cấy lại vi mạch mới",
       "Tự ý mua chíp điện tử trôi nổi trên thị trường về cấy vào con vật mà không cần báo Kiểm lâm",
-      "Bán gấp cá thể bị mất chíp sang lò mổ để tránh bị cơ quan chức năng kiểm tra phát hiện",
+      "Cơ sở tự thực hiện việc gắn chíp/đeo vòng nhận dạng hoặc đánh dấu theo quy định; trong thời hạn 01 ngày làm việc kể từ khi hoàn thành việc đánh dấu phải ghi vào Sổ theo dõi đánh dấu mẫu vật (Mẫu số 13) và gửi Thông báo đánh dấu mẫu vật (Mẫu số 14) đến cơ quan Kiểm lâm sở tại",
       "Cắt tai con vật làm dấu phân biệt thay thế cho vi mạch điện tử bị mất"
     ],
-    "correct": "Báo cáo ngay bằng văn bản cho Cơ quan Kiểm lâm sở tại trong thời hạn 03 ngày làm việc để phối hợp với thú y kiểm tra, lập biên bản và tiến hành cấy lại vi mạch mới",
-    "explanation": "Căn cứ Điều 14 Thông tư số 26/2025/TT-BNNMT: Khi phát hiện rơi chíp hoặc chíp hỏng, chủ cơ sở phải thông báo cơ quan Kiểm lâm sở tại để phối hợp kiểm tra, cấy lại vi mạch và cập nhật vào hồ sơ quản lý, tránh tình trạng gian lận, tráo đổi cá thể."
+    "correct": "Cơ sở tự thực hiện việc gắn chíp/đeo vòng nhận dạng hoặc đánh dấu theo quy định; trong thời hạn 01 ngày làm việc kể từ khi hoàn thành việc đánh dấu phải ghi vào Sổ theo dõi đánh dấu mẫu vật (Mẫu số 13) và gửi Thông báo đánh dấu mẫu vật (Mẫu số 14) đến cơ quan Kiểm lâm sở tại",
+    "explanation": "Căn cứ Khoản 2 Điều 14 Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT): Trong thời hạn 01 ngày làm việc kể từ khi hoàn thành việc đánh dấu, đánh dấu lại mẫu vật, chủ mẫu vật ghi đầy đủ các thông tin vào Sổ theo dõi đánh dấu mẫu vật theo Mẫu số 13 tại Phụ lục II và gửi Thông báo đánh dấu mẫu vật theo Mẫu số 14 tại Phụ lục II kèm theo Thông tư này đến cơ quan Kiểm lâm sở tại để theo dõi, quản lý."
   },
   {
     "id": "DVR_010",
@@ -122,7 +121,7 @@ const question_DVR = [
       "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo; nếu có hành vi tàng trữ, buôn bán thật sẽ bị xử lý tương ứng",
       "Chỉ bị nhắc nhở bằng tin nhắn và không bị phạt tiền",
       "Phạt tiền từ 50.000.000 đồng đến 100.000.000 đồng đối với mọi bài đăng",
-      "Bị tịch thu điện thoại di động và cấm sử dụng mạng internet vĩnh viễn"
+      "Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng và tịch thu phương tiện phát sóng quảng cáo"
     ],
     "correct": "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo; nếu có hành vi tàng trữ, buôn bán thật sẽ bị xử lý tương ứng",
     "explanation": "Căn cứ Điểm c Khoản 4 và Điểm đ Khoản 9 Điều 19 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi quảng cáo để kinh doanh thực vật rừng, động vật rừng và sản phẩm của chúng không có nguồn gốc hợp pháp; biện pháp khắc phục hậu quả là buộc gỡ bỏ, xóa nội dung quảng cáo."
@@ -134,7 +133,7 @@ const question_DVR = [
       "Bị truy cứu trách nhiệm hình sự về tội vô ý làm chết người hoặc vi phạm quy định an toàn lao động (phạt tù nhiều năm) và bồi thường toàn bộ thiệt hại dân sự",
       "Chỉ phải chịu phạt vi phạm hành chính số tiền 5.000.000 đồng và xin lỗi gia đình nạn nhân",
       "Không phải chịu trách nhiệm nếu nạn nhân là người làm công ăn lương trong trang trại",
-      "Chỉ bị buộc bán thanh lý toàn bộ đàn thú cho vườn thú nhà nước"
+      "Bị xử phạt vi phạm hành chính mức tối đa 100.000.000 đồng và buộc chuyển giao toàn bộ đàn thú cho Trung tâm cứu hộ"
     ],
     "correct": "Bị truy cứu trách nhiệm hình sự về tội vô ý làm chết người hoặc vi phạm quy định an toàn lao động (phạt tù nhiều năm) và bồi thường toàn bộ thiệt hại dân sự",
     "explanation": "Căn cứ Điều 128 Bộ luật Hình sự năm 2015 và Điều 603 Bộ luật Dân sự năm 2015: Chủ nuôi động vật dữ tợn không bảo đảm an toàn để thú cắn chết người bị truy cứu trách nhiệm hình sự về tội vô ý làm chết người và bồi thường toàn bộ thiệt hại."
@@ -145,7 +144,7 @@ const question_DVR = [
     "options": [
       "Trị giá tang vật từ 150.000.000 đồng đến dưới 500.000.000 đồng (hoặc thu lợi bất chính từ 50.000.000 đồng đến dưới 200.000.000 đồng)",
       "Trị giá tang vật từ 10.000.000 đồng trở lên trong mọi trường hợp",
-      "Trị giá tang vật từ 1.000.000.000 đồng trở lên mới cấu thành tội phạm",
+      "Trị giá tang vật từ 300.000.000 đồng đến dưới 700.000.000 đồng (hoặc thu lợi bất chính từ 100.000.000 đồng trở lên)",
       "Động vật Nhóm IIB không bao giờ bị xử lý hình sự bất kể giá trị bao nhiêu"
     ],
     "correct": "Trị giá tang vật từ 150.000.000 đồng đến dưới 500.000.000 đồng (hoặc thu lợi bất chính từ 50.000.000 đồng đến dưới 200.000.000 đồng)",
@@ -158,7 +157,7 @@ const question_DVR = [
       "Bị truy cứu trách nhiệm hình sự do tái phạm hành vi đã từng bị xử phạt vi phạm hành chính",
       "Chỉ bị xử phạt vi phạm hành chính với mức tiền phạt gấp đôi lần đầu",
       "Chỉ bị tịch thu con khỉ mà không bị phạt tiền hay phạt tù",
-      "Được trả lại con khỉ nếu làm đơn cam kết chuyển sang nuôi thỏ"
+      "Từ 10 cá thể lớp thú, 15 cá thể lớp chim, bò sát hoặc 20 cá thể lớp khác trở lên"
     ],
     "correct": "Bị truy cứu trách nhiệm hình sự do tái phạm hành vi đã từng bị xử phạt vi phạm hành chính",
     "explanation": "Căn cứ Điều 234 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung 2017): Người đã bị xử phạt vi phạm hành chính về hành vi bảo vệ động vật hoang dã mà còn vi phạm thì bị truy cứu trách nhiệm hình sự bất kể giá trị tang vật."
@@ -170,7 +169,7 @@ const question_DVR = [
       "Mỗi Giấy phép CITES chỉ có giá trị sử dụng một lần duy nhất cho 01 lô hàng",
       "Được sử dụng nhiều lần trong năm cho đến khi hết hạn ngạch số lượng",
       "Có giá trị sử dụng không thời hạn cho đến khi chủ cơ sở giải thể",
-      "Được sử dụng chung cho nhiều chủ cơ sở nuôi khác nhau trên cùng địa bàn tỉnh"
+      "Phạt tiền từ 50.000.000 đồng đến 100.000.000 đồng hoặc phạt cải tạo không giam giữ đến 02 năm"
     ],
     "correct": "Mỗi Giấy phép CITES chỉ có giá trị sử dụng một lần duy nhất cho 01 lô hàng",
     "explanation": "Căn cứ Khoản 3 Điều 28 Thông tư số 85/2025/TT-BNNMT: Giấy phép CITES được cấp 01 bản chính hoặc bản điện tử và được sử dụng một lần."
@@ -182,7 +181,7 @@ const question_DVR = [
       "Phạt tiền từ 1.000.000 đồng đến 500.000.000 đồng; tịch thu toàn bộ lưới tàng hình, loa phát âm thanh, ắc quy và buộc thả chim còn sống về tự nhiên",
       "Được phép tự do bẫy bắt vào ban đêm vì chim di cư không có người quản lý",
       "Chỉ bị phạt nhắc nhở nếu chim bẫy được chỉ đem nướng ăn trong gia đình",
-      "Chỉ bị tịch thu chim đã chết, dụng cụ bẫy bắt được trả lại cho người vi phạm"
+      "Chỉ bị xử phạt vi phạm hành chính vì ngà voi là bộ phận tách rời, không phải cá thể sống"
     ],
     "correct": "Phạt tiền từ 1.000.000 đồng đến 500.000.000 đồng; tịch thu toàn bộ lưới tàng hình, loa phát âm thanh, ắc quy và buộc thả chim còn sống về tự nhiên",
     "explanation": "Chỉ thị 04/CT-TTg của Thủ tướng Chính phủ và Điều 24 Nghị định 146/2026/NĐ-CP nghiêm cấm bẫy bắt chim di cư, phạt nặng và tịch thu toàn bộ công cụ bẫy bắt."
@@ -193,7 +192,7 @@ const question_DVR = [
     "options": [
       "Bị xử phạt vi phạm hành chính về hành vi vi phạm quy định về quản lý hồ sơ lâm sản hợp pháp",
       "Tự động bị thu hồi toàn bộ trang trại và hủy bỏ giấy đăng ký kinh doanh",
-      "Bị xử lý hình sự về tội khai báo gian dối với cơ quan nhà nước",
+      "Từ 01 kilôgam (kg) sừng tê giác trở lên mới đủ yếu tố cấu thành tội phạm hình sự",
       "Không bị xử lý vì con non sinh ra thuộc quyền sở hữu tự nhiên của chủ trại"
     ],
     "correct": "Bị xử phạt vi phạm hành chính về hành vi vi phạm quy định về quản lý hồ sơ lâm sản hợp pháp",
@@ -205,7 +204,7 @@ const question_DVR = [
     "options": [
       "Phải bảo đảm khoảng cách an toàn, vệ sinh môi trường, an toàn cho người dân xung quanh và phải được cơ quan Kiểm lâm cấp tỉnh thẩm định, cấp mã số cơ sở nuôi",
       "Cấm tuyệt đối mọi hình thức nuôi động vật hoang dã tại các tỉnh phía Bắc",
-      "Được tự do nuôi trong phòng ngủ nếu đeo rọ mõm cho con vật",
+      "Từ 05 bộ xương hổ hoàn chỉnh trở lên mới bị truy cứu trách nhiệm hình sự ở khung tăng nặng",
       "Chỉ cần tổ dân phố đồng ý là được quyền nuôi hổ, báo trong nhà phố"
     ],
     "correct": "Phải bảo đảm khoảng cách an toàn, vệ sinh môi trường, an toàn cho người dân xung quanh và phải được cơ quan Kiểm lâm cấp tỉnh thẩm định, cấp mã số cơ sở nuôi",
@@ -218,7 +217,7 @@ const question_DVR = [
       "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi, nhốt động vật rừng trái quy định pháp luật và bị tịch thu",
       "Chủ cơ sở được phép tự ghi bổ sung vào sổ ngay trước mặt đoàn kiểm tra",
       "Được cơ quan Kiểm lâm tự động công nhận là số lượng con non mới đẻ",
-      "Chỉ cần nộp một khoản phí bổ sung 100.000 đồng cho mỗi cá thể dư thừa"
+      "Chủ cơ sở phải nộp phạt bổ sung và làm thủ tục hợp thức hóa trong thời hạn 30 ngày"
     ],
     "correct": "Số cá thể dư thừa không chứng minh được nguồn gốc hợp pháp sẽ bị lập biên bản tạm giữ, xử phạt về hành vi nuôi, nhốt động vật rừng trái quy định pháp luật và bị tịch thu",
     "explanation": "Căn cứ Điều 24 Nghị định số 146/2026/NĐ-CP: Số lượng cá thể động vật rừng nuôi nhốt không có hồ sơ chứng minh nguồn gốc hợp pháp bị coi là hành vi nuôi, nhốt động vật rừng trái quy định của pháp luật; người vi phạm bị phạt tiền và tịch thu toàn bộ số cá thể vi phạm."
@@ -230,10 +229,10 @@ const question_DVR = [
       "Lên đến 1.000.000.000 đồng (gấp đôi mức phạt tối đa đối với cá nhân)",
       "Lên đến 500.000.000 đồng",
       "Lên đến 200.000.000 đồng",
-      "Không giới hạn mức phạt tiền đối với doanh nghiệp"
+      "Lên đến 2.000.000.000 đồng đối với hành vi có tổ chức quy mô lớn"
     ],
     "correct": "Lên đến 1.000.000.000 đồng (gấp đôi mức phạt tối đa đối với cá nhân)",
-    "explanation": "Theo Điều 5 Nghị định 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với cá nhân là 500 triệu đồng; đối với tổ chức vi phạm gấp 02 lần (lên đến 1.000.000.000 đồng)."
+    "explanation": "Theo Điểm b, Điểm c Khoản 1 Điều 4 và Điều 21 Nghị định số 146/2026/NĐ-CP, ngoài hình thức xử phạt chính là phạt tiền, người vi phạm còn bị áp dụng hình thức xử phạt bổ sung tịch thu tang vật, công cụ, phương tiện vi phạm hành chính và biện pháp khắc phục hậu quả buộc thả động vật rừng còn sống khỏe mạnh trở lại môi trường tự nhiên hoặc chuyển giao cho trung tâm cứu hộ."
   },
   {
     "id": "DVR_020",
@@ -242,7 +241,7 @@ const question_DVR = [
       "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo; nếu đủ yếu tố cấu thành tội lừa dối khách hàng sẽ bị xử lý hình sự",
       "Không bị xử lý vì đây chỉ là chiêu trò quảng cáo bán hàng thông thường",
       "Chỉ bị nhắc nhở yêu cầu nộp thuế thu nhập cá nhân",
-      "Được cơ quan chức năng khuyến khích vì tạo thêm việc làm cho xã hội"
+      "Chỉ bị xử phạt vi phạm hành chính theo pháp luật về bảo vệ quyền lợi người tiêu dùng"
     ],
     "correct": "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng và buộc gỡ bỏ, xóa nội dung quảng cáo; nếu đủ yếu tố cấu thành tội lừa dối khách hàng sẽ bị xử lý hình sự",
     "explanation": "Căn cứ Điểm c Khoản 4 và Điểm đ Khoản 9 Điều 19 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi sử dụng thông tin, hình ảnh không có thực để quảng cáo, kinh doanh động vật rừng và sản phẩm của chúng; buộc gỡ bỏ nội dung quảng cáo; nếu gian dối gây hậu quả nghiêm trọng có thể bị truy cứu TNHS theo Điều 198 BLHS."
@@ -254,7 +253,7 @@ const question_DVR = [
       "Thả về tự nhiên -> Cứu hộ -> Chuyển giao cơ quan quản lý chuyên ngành -> Bán (trừ loài Nhóm I, Phụ lục I CITES) -> Tiêu hủy",
       "Bán đấu giá thu hồi vốn -> Tiêu hủy -> Cứu hộ -> Thả về tự nhiên",
       "Tiêu hủy toàn bộ 100% để phòng ngừa lây lan dịch bệnh",
-      "Chia đều cho các cán bộ tham gia bắt giữ làm thực phẩm bồi dưỡng"
+      "Ưu tiên chuyển giao cho các cơ sở nghiên cứu khoa học hoặc bảo tàng thiên nhiên trước khi thả về rừng"
     ],
     "correct": "Thả về tự nhiên -> Cứu hộ -> Chuyển giao cơ quan quản lý chuyên ngành -> Bán (trừ loài Nhóm I, Phụ lục I CITES) -> Tiêu hủy",
     "explanation": "Căn cứ Khoản 1, Khoản 2 Điều 25 Thông tư số 26/2025/TT-BNNMT: Các hình thức xử lý động vật thực hiện theo thứ tự ưu tiên: a) Thả động vật về môi trường tự nhiên; b) Cứu hộ động vật; c) Chuyển giao cho cơ quan quản lý chuyên ngành; d) Bán động vật rừng (trừ loài Nhóm I, Phụ lục I CITES); đ) Tiêu hủy động vật."
@@ -265,7 +264,7 @@ const question_DVR = [
     "options": [
       "Bảng kê lâm sản kèm hóa đơn (nếu có) và xác nhận của Cơ quan Kiểm lâm sở tại (đối với loài phải xác nhận)",
       "Chỉ cần giấy viết tay cam kết động vật khỏe mạnh không cắn người",
-      "Chỉ cần chụp ảnh con vật gửi qua mạng xã hội cho người mua",
+      "Chỉ cần Bảng kê lâm sản do chủ cơ sở tự lập kèm giấy chứng nhận tiêm phòng dịch",
       "Phiếu cân trọng lượng của thương lái thu mua"
     ],
     "correct": "Bảng kê lâm sản kèm hóa đơn (nếu có) và xác nhận của Cơ quan Kiểm lâm sở tại (đối với loài phải xác nhận)",
@@ -277,7 +276,7 @@ const question_DVR = [
     "options": [
       "Không quá 02 ngày làm việc kể từ ngày nhận được đề nghị hợp lệ; trường hợp cần kiểm tra thực tế không quá 03 ngày làm việc",
       "Thời hạn tối thiểu là 15 ngày làm việc",
-      "Thời hạn từ 20 đến 30 ngày làm việc",
+      "Không quá 05 ngày làm việc kể từ ngày nhận được đề nghị hợp lệ",
       "Chỉ được xác nhận vào ngày làm việc đầu tiên của mỗi tháng"
     ],
     "correct": "Không quá 02 ngày làm việc kể từ ngày nhận được đề nghị hợp lệ; trường hợp cần kiểm tra thực tế không quá 03 ngày làm việc",
@@ -290,7 +289,7 @@ const question_DVR = [
       "Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản (sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao, nhập khẩu, sau tịch thu) trong suốt quá trình hoạt động",
       "Chỉ cần lưu giữ hồ sơ bằng giấy trong thời hạn 01 năm, sau đó được tự ý tiêu hủy toàn bộ",
       "Chỉ cần lưu giữ bản scan trên điện thoại di động trong vòng 06 tháng kể từ khi bán hết con giống",
-      "Không bắt buộc phải lưu giữ bất kỳ loại hồ sơ, chứng từ nào sau khi đã được Kiểm lâm kiểm tra chuồng trại"
+      "Chỉ cần lưu giữ hồ sơ trong thời hạn 03 năm kể từ ngày xuất bán hết toàn bộ lô động vật"
     ],
     "correct": "Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản (sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao, nhập khẩu, sau tịch thu) trong suốt quá trình hoạt động",
     "explanation": "Căn cứ Điểm e Khoản 1 Điều 13 Thông tư số 26/2025/TT-BNNMT: Chủ lâm sản có trách nhiệm lưu giữ hồ sơ lâm sản tương ứng với từng giai đoạn của chuỗi cung ứng lâm sản, bao gồm: hồ sơ nguồn gốc lâm sản sau khai thác, vận chuyển, chế biến, sản xuất, mua bán, chuyển giao quyền sở hữu, nhập khẩu, lâm sản sau xử lý tịch thu theo quy định."
@@ -302,7 +301,7 @@ const question_DVR = [
       "Định kỳ hàng năm trước ngày 15 tháng 01 năm sau (hoặc báo cáo đột xuất khi có yêu cầu bằng văn bản)",
       "Báo cáo hàng tuần vào mỗi chiều thứ Sáu",
       "Báo cáo mỗi tháng một lần vào ngày đầu tháng",
-      "Chỉ cần báo cáo khi có đợt thanh tra liên ngành đến làm việc"
+      "Định kỳ 06 tháng một lần (trước ngày 15 tháng 7 và trước ngày 15 tháng 01 năm sau)"
     ],
     "correct": "Định kỳ hàng năm trước ngày 15 tháng 01 năm sau (hoặc báo cáo đột xuất khi có yêu cầu bằng văn bản)",
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT: Tổ chức, hộ kinh doanh nuôi động vật rừng lập sổ theo dõi và gửi Báo cáo định kỳ hàng năm theo Mẫu số 29 cho Kiểm lâm sở tại trước ngày 15 tháng 01 năm sau (trừ trường hợp đã cập nhật thường xuyên trên hệ thống điện tử)."
@@ -313,7 +312,7 @@ const question_DVR = [
     "options": [
       "Sử dụng mã số sai mục đích, gian lận nguồn gốc con giống, hoặc vi phạm nghiêm trọng quy định bảo vệ động vật hoang dã",
       "Tạm dừng việc phối giống trong mùa đông",
-      "Thay đổi nhân viên dọn dẹp vệ sinh chuồng trại",
+      "Không cập nhật số liệu vào sổ theo dõi định kỳ trong 02 tháng liên tiếp",
       "Thay đổi nhãn hiệu thức ăn chăn nuôi"
     ],
     "correct": "Sử dụng mã số sai mục đích, gian lận nguồn gốc con giống, hoặc vi phạm nghiêm trọng quy định bảo vệ động vật hoang dã",
@@ -326,7 +325,7 @@ const question_DVR = [
       "Làm thủ tục đề nghị điều chỉnh thông tin hoặc cấp đổi mã số cơ sở nuôi với Cơ quan Kiểm lâm quản lý",
       "Tự ý vận chuyển đàn thú đi ban đêm và giữ nguyên mã số cũ không báo ai",
       "Chỉ cần xin phép công an viên tại nơi chuyển đến",
-      "Bỏ mã số cũ và nuôi tự do không cần đăng ký lại"
+      "Chỉ cần thông báo bằng văn bản cho Ủy ban nhân dân cấp xã nơi chuyển đến trong vòng 10 ngày"
     ],
     "correct": "Làm thủ tục đề nghị điều chỉnh thông tin hoặc cấp đổi mã số cơ sở nuôi với Cơ quan Kiểm lâm quản lý",
     "explanation": "Căn cứ Khoản 1, Khoản 2 Điều 26 Thông tư số 85/2025/TT-BNNMT: Mã số cơ sở nuôi được cấp trước khi nuôi; khi thay đổi địa điểm chuồng nuôi, chủ cơ sở phải thực hiện thủ tục đề nghị điều chỉnh thông tin hoặc cấp đổi mã số cơ sở nuôi với Cơ quan Kiểm lâm cấp tỉnh nơi chuyển đến/quản lý."
@@ -337,7 +336,7 @@ const question_DVR = [
     "options": [
       "Tối đa 06 tháng kể từ ngày cấp (đối với giấy phép nhập khẩu là 12 tháng)",
       "Tối đa 01 tháng kể từ ngày cấp",
-      "Tối đa 24 tháng kể từ ngày cấp",
+      "Tối đa 03 tháng đối với giấy phép xuất khẩu và 06 tháng đối với giấy phép nhập khẩu",
       "Có giá trị vĩnh viễn không thời hạn"
     ],
     "correct": "Tối đa 06 tháng kể từ ngày cấp (đối với giấy phép nhập khẩu là 12 tháng)",
@@ -350,7 +349,7 @@ const question_DVR = [
       "Chủ cơ sở nuôi (chủ lâm sản)",
       "Tài xế nhận chở thuê chuyến hàng",
       "Người dân đi đường chứng kiến cảnh bốc hàng lên xe",
-      "Cơ quan dự báo khí tượng thủy văn"
+      "Cơ quan Kiểm lâm sở tại ký xác nhận trên Bảng kê lâm sản"
     ],
     "correct": "Chủ cơ sở nuôi (chủ lâm sản)",
     "explanation": "Căn cứ Khoản 2 Điều 5 Thông tư số 26/2025/TT-BNNMT: Chủ lâm sản (chủ cơ sở nuôi) chịu trách nhiệm trước pháp luật về tính hợp pháp và tính chính xác của những nội dung kê khai tại Bảng kê lâm sản khi xuất bán động vật rừng."
@@ -362,7 +361,7 @@ const question_DVR = [
       "Lập biên bản có sự chứng kiến/xác nhận của Kiểm lâm sở tại hoặc chính quyền xã; xử lý tiêu hủy hoặc bảo quản theo quy định",
       "Tự ý mổ thịt bán cho các quán ăn, nhà hàng đặc sản gần nhất",
       "Vứt xác động vật xuống sông suối để tránh ô nhiễm môi trường gia đình",
-      "Đóng gói gửi bưu điện sang tỉnh khác làm quà biếu"
+      "Báo cáo cơ quan Thú y địa phương tiến hành mổ khám nghiệm và tự tổ chức tiêu hủy tại chỗ"
     ],
     "correct": "Lập biên bản có sự chứng kiến/xác nhận của Kiểm lâm sở tại hoặc chính quyền xã; xử lý tiêu hủy hoặc bảo quản theo quy định",
     "explanation": "Căn cứ Khoản 5 Điều 15 Thông tư số 85/2025/TT-BNNMT và Điểm c Khoản 2 Điều 25, Điều 30 Thông tư số 26/2025/TT-BNNMT: Động vật chết trong quá trình nuôi, cứu hộ phải lập biên bản xác nhận có Kiểm lâm/chính quyền sở tại, chuyển giao làm mẫu vật nghiên cứu khoa học hoặc tiêu hủy an toàn, cấm tiêu thụ thương mại."
@@ -374,7 +373,7 @@ const question_DVR = [
       "Cả hai cơ sở đều có mã số hợp lệ phù hợp loài nuôi; có hồ sơ nguồn gốc và xác nhận của Kiểm lâm sở tại",
       "Chỉ cần hai bên chủ trại bắt tay thỏa thuận miệng bằng tiền mặt",
       "Chỉ cần quay clip đăng lên mạng làm bằng chứng giao dịch",
-      "Không cần điều kiện gì vì là tài sản cá nhân sở hữu"
+      "Chỉ cần có Hợp đồng tặng cho có công chứng chứng thực mà không cần xác nhận của cơ quan Kiểm lâm"
     ],
     "correct": "Cả hai cơ sở đều có mã số hợp lệ phù hợp loài nuôi; có hồ sơ nguồn gốc và xác nhận của Kiểm lâm sở tại",
     "explanation": "Căn cứ Điều 25, Điều 26 Thông tư số 85/2025/TT-BNNMT và Điều 5, Điều 11 Thông tư số 26/2025/TT-BNNMT: Việc chuyển nhượng, tặng cho động vật rừng nguy cấp quý hiếm yêu cầu cả hai cơ sở phải có mã số cơ sở nuôi hợp lệ, có hồ sơ chứng minh nguồn gốc hợp pháp và Bảng kê lâm sản có xác nhận của Kiểm lâm sở tại."
@@ -386,7 +385,7 @@ const question_DVR = [
       "Hóa đơn (nếu có), Bảng kê lâm sản có xác nhận của Kiểm lâm sở tại nơi xuất bán và Giấy chứng nhận kiểm dịch động vật",
       "Chỉ cần một bức ảnh chụp trang trại của người bán",
       "Phiếu thu tiền gửi ngân hàng",
-      "Giấy cam đoan không gây ồn ào của người mua"
+      "Bảng kê lâm sản do chủ trại tự lập kèm Giấy kiểm dịch động vật của cơ quan Thú y"
     ],
     "correct": "Hóa đơn (nếu có), Bảng kê lâm sản có xác nhận của Kiểm lâm sở tại nơi xuất bán và Giấy chứng nhận kiểm dịch động vật",
     "explanation": "Căn cứ Điểm d Khoản 3 Điều 5 và Khoản 1 Điều 11 Thông tư số 26/2025/TT-BNNMT: Vận chuyển con giống động vật rừng thông thường từ tỉnh khác về nuôi phải có Bảng kê lâm sản có xác nhận của Cơ quan Kiểm lâm sở tại nơi xuất bán kèm hóa đơn (nếu có) và Giấy chứng nhận kiểm dịch động vật."
@@ -398,7 +397,7 @@ const question_DVR = [
       "Bảo đảm an toàn tuyệt đối cho con người, ngăn ngừa nguy cơ sổng chuồng thoát ra môi trường tự nhiên",
       "Bảo đảm trang trí đẹp mắt và mở cửa đón khách du lịch tự do",
       "Bảo đảm không gian rộng như một cánh rừng nguyên sinh hàng trăm héc-ta",
-      "Bảo đảm xây bằng kính trong suốt không có rào sắt"
+      "Bảo đảm quy chuẩn cách ly tiếng ồn và mùi hôi theo tiêu chuẩn chăn nuôi trang trại gia súc"
     ],
     "correct": "Bảo đảm an toàn tuyệt đối cho con người, ngăn ngừa nguy cơ sổng chuồng thoát ra môi trường tự nhiên",
     "explanation": "Căn cứ Khoản 3 Điều 25 và Điều 24 Thông tư số 85/2025/TT-BNNMT: Chuồng trại nuôi động vật rừng (đặc biệt là loài hung dữ) phải bảo đảm an toàn tuyệt đối cho con người, tuân thủ các quy định về môi trường, thú y và ngăn ngừa nguy cơ sổng chuồng thoát ra môi trường tự nhiên."
@@ -410,7 +409,7 @@ const question_DVR = [
       "Cấy chíp điện tử (vi mạch) có mã số định danh hoặc bấm thẻ tai, gắn vòng chân chuyên dụng",
       "Dùng sơn đỏ vẽ chữ lên lưng con vật",
       "Cắt một phần tai hoặc móng vuốt để phân biệt",
-      "Khắc tên chủ nuôi lên răng nanh con vật"
+      "Chụp ảnh nhận dạng vân hoa, sọc vằn và lưu trữ hồ sơ điện tử đối với từng cá thể"
     ],
     "correct": "Cấy chíp điện tử (vi mạch) có mã số định danh hoặc bấm thẻ tai, gắn vòng chân chuyên dụng",
     "explanation": "Căn cứ Điểm a Khoản 2 Điều 14 Thông tư số 26/2025/TT-BNNMT: Động vật sống được đánh dấu bằng chip, vòng hoặc thẻ hoặc máy phát tín hiệu; đảm bảo nhận biết rõ ràng và phục vụ công tác quản lý của cơ quan chức năng."
@@ -421,7 +420,7 @@ const question_DVR = [
     "options": [
       "Là mã số định danh duy nhất để đối chiếu với hồ sơ nguồn gốc, theo dõi quá trình quản lý và ngăn chặn tráo đổi cá thể",
       "Để kích điện khi con vật hung dữ không nghe lời người nuôi",
-      "Để tự động sạc pin năng lượng mặt trời cho con vật",
+      "Là cơ sở để cấp hạn ngạch tiêu thụ thịt thương phẩm ra thị trường hàng năm",
       "Để theo dõi tọa độ con vật qua vệ tinh viễn thám quốc tế"
     ],
     "correct": "Là mã số định danh duy nhất để đối chiếu với hồ sơ nguồn gốc, theo dõi quá trình quản lý và ngăn chặn tráo đổi cá thể",
@@ -434,7 +433,7 @@ const question_DVR = [
       "Cách ly theo dõi kiểm dịch theo hướng dẫn của cơ quan chuyên môn thú y",
       "Cho nhốt chung ngay vào chuồng đàn cũ để làm quen",
       "Cho ăn thật no và thả ra sân chơi chung",
-      "Bôi dầu thơm lên cơ thể để khử mùi hôi động vật"
+      "Được phép bán đấu giá ngay cho các nhà hàng ẩm thực trên địa bàn xã để thu ngân sách"
     ],
     "correct": "Cách ly theo dõi kiểm dịch theo hướng dẫn của cơ quan chuyên môn thú y",
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 24 và Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT: Cơ sở nuôi phải tuân thủ nghiêm ngặt các quy định pháp luật về thú y, thực hiện cách ly kiểm dịch theo dõi sức khỏe động vật mới nhập đàn nhằm phòng ngừa lây lan dịch bệnh."
@@ -446,7 +445,7 @@ const question_DVR = [
       "Có hệ thống thu gom, xử lý chất thải, nước thải bảo đảm vệ sinh môi trường, không phát tán mùi hôi ảnh hưởng khu dân cư",
       "Được phép xả thẳng phân và nước tiểu ra cống thoát nước chung của khu dân cư",
       "Đào hố chôn chất thải sát giếng nước của hộ gia đình liền kề",
-      "Đốt chất thải lông da cao su công khai vào ban đêm"
+      "Giao lại cho chính người vi phạm tiếp tục nuôi giữ tại nhà và nộp tiền bảo lãnh"
     ],
     "correct": "Có hệ thống thu gom, xử lý chất thải, nước thải bảo đảm vệ sinh môi trường, không phát tán mùi hôi ảnh hưởng khu dân cư",
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 24 và Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT: Cơ sở nuôi động vật hoang dã có trách nhiệm tuân thủ quy định pháp luật về bảo vệ môi trường, có hệ thống thu gom, xử lý chất thải, nước thải không làm phát tán mùi hôi ảnh hưởng khu dân cư."
@@ -457,7 +456,7 @@ const question_DVR = [
     "options": [
       "Áp dụng các biện pháp ngăn chặn, xua đuổi, hạn chế gây tổn thương đến động vật, đồng thời thông tin ngay đến Sở Nông nghiệp và Môi trường hoặc UBND cấp xã gần nhất để phối hợp xử lý",
       "Chủ cơ sở được quyền dùng súng quân dụng bắn chết ngay lập tức mà không cần báo cho cơ quan nào",
-      "Bỏ mặc không thực hiện bất kỳ biện pháp nào vì động vật đã thoát ra ngoài chuồng nuôi",
+      "Chỉ cần gửi văn bản thông báo cho Chi cục Thú y cấp tỉnh trong thời hạn 05 ngày làm việc",
       "Thuê các thợ săn nghiệp dư mang bẫy kẹp vào khu dân cư để bắt giữ động vật"
     ],
     "correct": "Áp dụng các biện pháp ngăn chặn, xua đuổi, hạn chế gây tổn thương đến động vật, đồng thời thông tin ngay đến Sở Nông nghiệp và Môi trường hoặc UBND cấp xã gần nhất để phối hợp xử lý",
@@ -469,7 +468,7 @@ const question_DVR = [
     "options": [
       "Cơ quan Kiểm lâm, Cơ quan Thú y và Cơ quan Công an/Chính quyền địa phương theo thẩm quyền luật định",
       "Bất kỳ cá nhân nào đi ngang qua đường nhìn thấy chuồng trại",
-      "Các hộ kinh doanh bán đồ ăn dạo gần cổng trang trại",
+      "Phạt tiền từ 500.000 đồng đến 1.000.000 đồng và trả lại toàn bộ cá thể động vật rừng cho người vận chuyển",
       "Ban đại diện cha mẹ học sinh của trường học địa phương"
     ],
     "correct": "Cơ quan Kiểm lâm, Cơ quan Thú y và Cơ quan Công an/Chính quyền địa phương theo thẩm quyền luật định",
@@ -482,7 +481,7 @@ const question_DVR = [
       "Hệ thống cửa kép kiên cố, có khóa an toàn chắc chắn và vách ngăn điều khiển từ xa khi cho ăn, vệ sinh chuồng",
       "Cửa lưới nhựa buộc bằng dây thừng thông thường",
       "Cửa gỗ mỏng cài then tre đơn giản",
-      "Không cần cửa để con vật tự do đi lại ra ngoài trời"
+      "Chỉ bị phạt cảnh cáo nếu việc quảng cáo trên mạng xã hội chưa phát sinh giao dịch mua bán thực tế"
     ],
     "correct": "Hệ thống cửa kép kiên cố, có khóa an toàn chắc chắn và vách ngăn điều khiển từ xa khi cho ăn, vệ sinh chuồng",
     "explanation": "Căn cứ Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT: Chuồng trại nuôi động vật hung dữ (như gấu, hổ) phải được thiết kế bảo đảm an toàn tuyệt đối cho người chăm sóc và xung quanh, có cửa kép kiên cố, khóa an toàn và vách ngăn điều khiển phù hợp."
@@ -494,7 +493,7 @@ const question_DVR = [
       "Tiêu hủy bắt buộc dưới sự giám sát của Cơ quan Thú y và Kiểm lâm, nghiêm cấm tiêu thụ, làm thực phẩm",
       "Đem ra chợ bán rẻ thu hồi vốn con giống",
       "Chế biến làm thức ăn cho các loài động vật ăn thịt khác trong trại",
-      "Sấy khô làm đồ nhắm cho nhân viên cơ sở"
+      "Từ 50.000.000 đồng đến 100.000.000 đồng đối với mọi trường hợp vi phạm quy định về quản lý hồ sơ lâm sản"
     ],
     "correct": "Tiêu hủy bắt buộc dưới sự giám sát của Cơ quan Thú y và Kiểm lâm, nghiêm cấm tiêu thụ, làm thực phẩm",
     "explanation": "Căn cứ Điểm c Khoản 2 Điều 25, Điều 30 Thông tư số 26/2025/TT-BNNMT: Động vật rừng chết do mắc bệnh truyền nhiễm nguy hiểm bắt buộc phải tiến hành tiêu hủy theo quy định dưới sự giám sát của cơ quan Thú y và Kiểm lâm, nghiêm cấm tiêu thụ làm thực phẩm."
@@ -506,7 +505,7 @@ const question_DVR = [
       "Cán bộ thú y hoặc kỹ thuật viên có chuyên môn phối hợp cùng Cơ quan Kiểm lâm giám sát, lập biên bản ghi nhận",
       "Chủ cơ sở tự ý mua kim tiêm và tự bấm chíp không cần ai chứng kiến",
       "Thợ hàn sắt tại xưởng cơ khí địa phương",
-      "Bất kỳ lao động phổ thông nào trong cơ sở nuôi"
+      "Chủ tịch Ủy ban nhân dân cấp xã nơi đặt cơ sở nuôi có quyền quyết định thu hồi mã số trại nuôi Nhóm IB"
     ],
     "correct": "Cán bộ thú y hoặc kỹ thuật viên có chuyên môn phối hợp cùng Cơ quan Kiểm lâm giám sát, lập biên bản ghi nhận",
     "explanation": "Căn cứ Điểm a, Điểm d Khoản 2 Điều 14 Thông tư số 26/2025/TT-BNNMT: Việc đánh dấu mẫu vật (cấy vi mạch) do chủ cơ sở thực hiện với sự tham gia của kỹ thuật viên có chuyên môn, lập sổ theo dõi Mẫu 13 và thông báo cơ quan Kiểm lâm sở tại giám sát, quản lý."
@@ -517,7 +516,7 @@ const question_DVR = [
     "options": [
       "Không được tự ý nuôi giữ; phải báo ngay cho Cơ quan Kiểm lâm sở tại tiếp nhận xử lý cứu hộ theo quy định",
       "Được quyền giữ lại nuôi vĩnh viễn và không cần báo ai",
-      "Tự ý mổ thịt bồi dưỡng cho nhân viên trong cơ sở",
+      "Cơ sở được tự do mang cá thể động vật đó đi tiêu thụ trên thị trường mà không cần lập Bảng kê lâm sản",
       "Bán lại ngay cho thương lái buôn lậu để lấy tiền chữa bệnh"
     ],
     "correct": "Không được tự ý nuôi giữ; phải báo ngay cho Cơ quan Kiểm lâm sở tại tiếp nhận xử lý cứu hộ theo quy định",
@@ -530,7 +529,7 @@ const question_DVR = [
       "Phù hợp với đặc tính sinh học, tập tính sinh hoạt của loài và số lượng cá thể nuôi nhốt",
       "Càng chật hẹp càng tốt để động vật không vận động được",
       "Bắt buộc mọi loài thú đều phải có chuồng rộng tối thiểu 1.000m²",
-      "Không có bất kỳ quy định nào về diện tích chuồng nuôi"
+      "Chỉ kiểm tra khi có lệnh khám xét khẩn cấp của Viện Kiểm sát nhân dân cấp tỉnh"
     ],
     "correct": "Phù hợp với đặc tính sinh học, tập tính sinh hoạt của loài và số lượng cá thể nuôi nhốt",
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 24 và Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT: Chuồng trại nuôi động vật rừng phải phù hợp với đặc tính sinh học, tập tính sinh hoạt của từng loài và đáp ứng quy chuẩn kỹ thuật chuồng trại theo quy định."
@@ -541,7 +540,7 @@ const question_DVR = [
     "options": [
       "Ghi chép đầy đủ nhật ký phòng dịch, tên loại thuốc, ngày tiêm và lưu giữ hồ sơ thú y",
       "Vứt bỏ hết bao bì thuốc ra ngoài đường ngay sau khi tiêm",
-      "Tự pha trộn các loại hóa chất không rõ nhãn mác",
+      "Được phép tự ý thả toàn bộ động vật ngoại lai xâm hại ra rừng tự nhiên khi cơ sở ngừng hoạt động",
       "Không cần ghi chép gì nếu động vật không bị chết ngay sau tiêm"
     ],
     "correct": "Ghi chép đầy đủ nhật ký phòng dịch, tên loại thuốc, ngày tiêm và lưu giữ hồ sơ thú y",
@@ -554,7 +553,7 @@ const question_DVR = [
       "Lồng, thùng chứa thông thoáng, chắc chắn, bảo đảm an toàn cho người điều khiển và sức khỏe động vật trên đường",
       "Đóng kín trong bao tải dứa buộc chặt miệng nhét dưới cốp xe",
       "Buộc trói chân con vật treo ngược sau đuôi xe máy chạy đường dài",
-      "Nhồi nhét tối đa số lượng cá thể bất chấp động vật bị đè bẹp, ngạt thở"
+      "Bọc kín trong lồng sắt chuyên dụng nhưng không cần thông gió và không kèm nước uống"
     ],
     "correct": "Lồng, thùng chứa thông thoáng, chắc chắn, bảo đảm an toàn cho người điều khiển và sức khỏe động vật trên đường",
     "explanation": "Căn cứ Khoản 1 Điều 11 Thông tư số 26/2025/TT-BNNMT và Điều 14 Thông tư số 85/2025/TT-BNNMT: Vận chuyển động vật rừng sống phải sử dụng lồng, thùng chứa chuyên dụng thông thoáng, chắc chắn, bảo đảm an toàn cho người vận chuyển và bảo đảm sức khỏe động vật."
@@ -566,7 +565,7 @@ const question_DVR = [
       "Đăng bài viết, hình ảnh, video trên Facebook, Zalo, TikTok để rao bán động vật rừng nguy cấp, quý hiếm hoặc bộ phận của chúng",
       "Đăng thông tin về các biện pháp cứu hộ, bảo tồn động vật hoang dã",
       "Tuyên truyền kêu gọi người dân không ăn thịt thú rừng",
-      "Quảng cáo các loại thức ăn gia súc cho lợn, bò"
+      "Đăng tải video hướng dẫn cách phân biệt các loài chim quý hiếm ngoài tự nhiên"
     ],
     "correct": "Đăng bài viết, hình ảnh, video trên Facebook, Zalo, TikTok để rao bán động vật rừng nguy cấp, quý hiếm hoặc bộ phận của chúng",
     "explanation": "Căn cứ Điểm c Khoản 4 Điều 19 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm hành vi quảng cáo để kinh doanh thực vật rừng, động vật rừng và sản phẩm của chúng không có nguồn gốc hợp pháp (bao gồm cả quảng cáo trên mạng xã hội Facebook, Zalo, TikTok)."
@@ -578,7 +577,7 @@ const question_DVR = [
       "Hành vi nuôi, nhốt động vật rừng trái quy định của pháp luật",
       "Hành vi bảo tồn động vật rừng đáng được khen thưởng",
       "Hành vi giao dịch thương mại dân sự hợp pháp",
-      "Hoạt động từ thiện giúp động vật tránh bị giết hại"
+      "Giao dịch dân sự hợp pháp nếu có giấy viết tay chuyển nhượng quyền sở hữu giữa hai bên"
     ],
     "correct": "Hành vi nuôi, nhốt động vật rừng trái quy định của pháp luật",
     "explanation": "Căn cứ Điều 24 Nghị định số 146/2026/NĐ-CP: Mua động vật rừng còn sống từ người săn bắt trái phép về nuôi nhốt trong nhà làm cảnh mà không có nguồn gốc hợp pháp là hành vi nuôi nhốt động vật rừng trái quy định của pháp luật, bị phạt tiền và tịch thu tang vật."
@@ -590,7 +589,7 @@ const question_DVR = [
       "Hành vi tàng trữ lâm sản trái pháp luật",
       "Hành vi kinh doanh dịch vụ ăn uống đúng giấy phép",
       "Hành vi bảo quản thực phẩm thông thường",
-      "Hành vi ủng hộ tiêu thụ sản phẩm cho người dân miền núi"
+      "Hành vi vi phạm quy định về vệ sinh an toàn thực phẩm trong kinh doanh dịch vụ ăn uống"
     ],
     "correct": "Hành vi tàng trữ lâm sản trái pháp luật",
     "explanation": "Căn cứ Điều 25, Điều 26 Nghị định số 146/2026/NĐ-CP: Nhà hàng, quán ăn tàng trữ thịt thú rừng không có hóa đơn, Bảng kê lâm sản hợp pháp bị xử phạt vi phạm hành chính về hành vi tàng trữ lâm sản trái pháp luật và tịch thu toàn bộ tang vật."
@@ -602,7 +601,7 @@ const question_DVR = [
       "Mua thú rừng săn bắt lậu ngoài tự nhiên đưa vào chuồng rồi khai báo là thú non mới sinh sản để xin xác nhận Kiểm lâm",
       "Ghi chép chính xác số lượng con non mới đẻ vào Sổ theo dõi Mẫu 10",
       "Mời Kiểm lâm đến chứng kiến khi cá thể sinh sản",
-      "Tiêm phòng dịch đầy đủ cho đàn thú nuôi"
+      "Mua con giống hợp pháp từ tỉnh khác nhưng chậm làm thủ tục khai báo với Kiểm lâm địa bàn"
     ],
     "correct": "Mua thú rừng săn bắt lậu ngoài tự nhiên đưa vào chuồng rồi khai báo là thú non mới sinh sản để xin xác nhận Kiểm lâm",
     "explanation": "Căn cứ Khoản 2 Điều 5 Thông tư số 26/2025/TT-BNNMT và Điều 24, Điều 27 Nghị định số 146/2026/NĐ-CP: Chủ lâm sản chịu trách nhiệm toàn diện trước pháp luật về tính hợp pháp của lâm sản; hành vi hợp thức hóa thú rừng săn bắt lậu ngoài tự nhiên vào cơ sở nuôi là hành vi gian lận hồ sơ lâm sản bị xử phạt nghiêm minh."
@@ -614,7 +613,7 @@ const question_DVR = [
       "Bồi thường toàn bộ thiệt hại về sức khỏe/tính mạng nạn nhân và bị xử phạt VPHC hoặc xử lý hình sự",
       "Không phải chịu trách nhiệm nếu đã cắm biển 'Coi chừng thú dữ'",
       "Chỉ cần xin lỗi và tặng nạn nhân một con vật nuôi",
-      "Yêu cầu nạn nhân tự trả viện phí vì tò mò đến gần chuồng"
+      "Chỉ phải chịu trách nhiệm dân sự nếu cơ sở chưa được cơ quan chức năng thẩm định chuồng trại"
     ],
     "correct": "Bồi thường toàn bộ thiệt hại về sức khỏe/tính mạng nạn nhân và bị xử phạt VPHC hoặc xử lý hình sự",
     "explanation": "Căn cứ Khoản 3 Điều 25 Thông tư số 85/2025/TT-BNNMT và quy định pháp luật: Cơ sở nuôi không bảo đảm điều kiện an toàn chuồng trại để thú cắn người phải chịu trách nhiệm bồi thường thiệt hại dân sự và bị xử lý hành chính hoặc truy cứu TNHS theo Điều 128 BLHS nếu làm chết người."
@@ -626,7 +625,7 @@ const question_DVR = [
       "Hành vi gian lận hồ sơ lâm sản, vận chuyển lâm sản trái pháp luật",
       "Sự hỗ trợ lẫn nhau hợp pháp giữa các hộ nông dân",
       "Hình thức mượn giấy tờ dân sự được pháp luật khuyến khích",
-      "Biện pháp linh hoạt trong kinh tế thị trường"
+      "Hành vi mượn danh nghĩa kinh doanh theo quy định của pháp luật thương mại"
     ],
     "correct": "Hành vi gian lận hồ sơ lâm sản, vận chuyển lâm sản trái pháp luật",
     "explanation": "Căn cứ Điều 26 và Điều 27 Nghị định số 146/2026/NĐ-CP: Sử dụng giấy xác nhận lâm sản hoặc mã số cơ sở nuôi của hộ khác để vận chuyển động vật rừng là hành vi vi phạm về quản lý hồ sơ lâm sản và vận chuyển lâm sản trái pháp luật."
@@ -638,7 +637,7 @@ const question_DVR = [
       "Bị nghiêm cấm và bị xử phạt vi phạm hành chính, tịch thu toàn bộ tang vật, dụng cụ săn bắt",
       "Được khuyến khích vì tạo nguồn chim cho hoạt động phóng sinh tôn giáo",
       "Chỉ bị phạt nếu giăng lưới trên đất rừng đặc dụng",
-      "Được phép tự do hoạt động vào mùa chim di cư"
+      "Chỉ bị xử phạt nếu giăng bẫy bắt chim trong mùa sinh sản từ tháng 3 đến tháng 6"
     ],
     "correct": "Bị nghiêm cấm và bị xử phạt vi phạm hành chính, tịch thu toàn bộ tang vật, dụng cụ săn bắt",
     "explanation": "Căn cứ Điểm l Khoản 3, Điểm h Khoản 4 Điều 19 và Điều 24 Nghị định số 146/2026/NĐ-CP: Nghiêm cấm hành vi mang dụng cụ vào rừng để bẫy bắt động vật rừng, chim hoang dã; người vi phạm bị xử phạt tiền và tịch thu toàn bộ tang vật, công cụ bẫy bắt."
@@ -650,7 +649,7 @@ const question_DVR = [
       "Hành vi chế biến lâm sản trái pháp luật (có thể bị xử lý hình sự nghiêm khắc)",
       "Nghề sản xuất thuốc đông y gia truyền được nhà nước bảo tồn",
       "Hoạt động ẩm thực dân gian truyền thống không bị cấm",
-      "Kinh doanh hàng tiêu dùng nội địa hợp pháp"
+      "Hành vi vi phạm quy định về vệ sinh an toàn thực phẩm và dược liệu cổ truyền"
     ],
     "correct": "Hành vi chế biến lâm sản trái pháp luật (có thể bị xử lý hình sự nghiêm khắc)",
     "explanation": "Căn cứ Điều 244 Bộ luật Hình sự và Điều 25 Nghị định số 146/2026/NĐ-CP: Chế biến xương hổ, khỉ, vượn (động vật nguy cấp, quý, hiếm) thành cao để bán là hành vi chế biến lâm sản trái pháp luật, bị truy cứu trách nhiệm hình sự về tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm."
@@ -662,7 +661,7 @@ const question_DVR = [
       "Hành vi phát tán loài ngoại lai xâm hại bị pháp luật nghiêm cấm và bị xử phạt nặng",
       "Hành động phóng sinh tích đức bảo vệ muôn loài",
       "Biện pháp làm phong phú nguồn lợi thủy sản địa phương",
-      "Hoạt động bảo vệ động vật theo khuyến nghị quốc tế"
+      "Hành vi gây ô nhiễm môi trường nước mặt tự nhiên theo Luật Bảo vệ môi trường"
     ],
     "correct": "Hành vi phát tán loài ngoại lai xâm hại bị pháp luật nghiêm cấm và bị xử phạt nặng",
     "explanation": "Căn cứ Điểm d Khoản 4 và Điểm b Khoản 5 Điều 19 Nghị định số 146/2026/NĐ-CP: Hành vi thả các loài động vật ngoại lai xâm hại (như rùa tai đỏ, tôm càng đỏ) vào rừng bị xử phạt tiền từ 5.000.000 đồng đến 15.000.000 đồng; vi phạm pháp luật về đa dạng sinh học."
@@ -674,7 +673,7 @@ const question_DVR = [
       "Hành vi vi phạm quy định về quản lý hồ sơ nguồn gốc lâm sản",
       "Hành vi kinh doanh trốn thuế môn bài",
       "Hành vi chậm nộp báo cáo thống kê dân số",
-      "Không bị xử lý vì là động vật thông thường"
+      "Chỉ bị xử phạt nếu không xuất trình được hóa đơn giá trị gia tăng mua bán động vật"
     ],
     "correct": "Hành vi vi phạm quy định về quản lý hồ sơ nguồn gốc lâm sản",
     "explanation": "Căn cứ Điểm c Khoản 2 Điều 27 Nghị định số 146/2026/NĐ-CP: Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng đối với hành vi chủ cơ sở nuôi động vật rừng thông thường không lập sổ theo dõi nuôi, trồng hoặc lập sổ không đúng mẫu theo quy định; không thực hiện ghi chép hoặc ghi chép không đầy đủ, không đúng thực tế vào sổ theo dõi."
@@ -686,7 +685,7 @@ const question_DVR = [
       "Cấm tuyệt đối mọi hành vi tàng trữ, buôn bán, chế tác dưới bất kỳ hình thức nào",
       "Được phép bán nếu ghi rõ là hàng thủ công mỹ nghệ cổ truyền",
       "Được phép nếu mua bán trao tay giữa các cá nhân",
-      "Chỉ cấm ngà voi nguyên chiếc, không cấm vòng tay ngà voi nhỏ"
+      "Được phép buôn bán nếu có chứng thư giám định niên đại cổ vật từ trước năm 1990"
     ],
     "correct": "Cấm tuyệt đối mọi hành vi tàng trữ, buôn bán, chế tác dưới bất kỳ hình thức nào",
     "explanation": "Căn cứ Điều 244 Bộ luật Hình sự và Điều 24, Điều 26 Nghị định số 146/2026/NĐ-CP: Ngà voi, sừng tê giác, mai rùa biển là bộ phận/sản phẩm của các loài động vật nguy cấp, quý, hiếm được ưu tiên bảo vệ; pháp luật nghiêm cấm tuyệt đối mọi hành vi tàng trữ, buôn bán, chế tác dưới bất kỳ hình thức nào."
@@ -698,7 +697,7 @@ const question_DVR = [
       "Bị xử lý nghiêm như hành vi tàng trữ, săn bắt, buôn bán cá thể động vật hoang dã",
       "Được coi là hành vi nông nghiệp nhân đạo ươm giống",
       "Chỉ bị nhắc nhở vì trứng chưa nở thành con vật",
-      "Không thuộc phạm vi điều chỉnh của pháp luật lâm nghiệp"
+      "Chỉ bị xử phạt vi phạm hành chính về hành vi thu gom sản phẩm phụ từ rừng tự nhiên"
     ],
     "correct": "Bị xử lý nghiêm như hành vi tàng trữ, săn bắt, buôn bán cá thể động vật hoang dã",
     "explanation": "Căn cứ Khoản 7 Điều 3 Thông tư số 85/2025/TT-BNNMT và Điều 244 Bộ luật Hình sự: Mẫu vật bao gồm cá thể sống, đã chết, trứng, ấu trùng; hành vi mua bán trứng rùa biển hoặc chim quý hiếm bị xử lý nghiêm minh như hành vi tàng trữ, buôn bán cá thể động vật hoang dã trái pháp luật."
@@ -708,7 +707,7 @@ const question_DVR = [
     "question": "Mức phạt tiền thấp nhất đối với hành vi săn bắt, giết, nuôi, nhốt động vật rừng trái phép theo Nghị định 146/2026/NĐ-CP bắt đầu từ bao nhiêu?",
     "options": [
       "Phạt tiền từ 1.000.000 đồng",
-      "Phạt tiền từ 100.000 đồng",
+      "Phạt tiền từ 500.000 đồng",
       "Phạt tiền từ 20.000.000 đồng",
       "Phạt tiền từ 50.000.000 đồng"
     ],
@@ -720,12 +719,12 @@ const question_DVR = [
     "question": "Mức phạt tiền tối đa đối với một cá nhân vi phạm hành chính trong toàn bộ lĩnh vực lâm nghiệp (bao gồm các vi phạm về động vật rừng) theo Nghị định 146/2026/NĐ-CP là bao nhiêu?",
     "options": [
       "500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)",
-      "400.000.000 đồng (đối với tổ chức vi phạm là 800.000.000 đồng)",
+      "300.000.000 đồng (đối với tổ chức vi phạm là 600.000.000 đồng)",
       "200.000.000 đồng (đối với tổ chức vi phạm là 400.000.000 đồng)",
       "100.000.000 đồng (đối với tổ chức vi phạm là 200.000.000 đồng)"
     ],
     "correct": "500.000.000 đồng (đối với tổ chức vi phạm là 1.000.000.000 đồng)",
-    "explanation": "Căn cứ Điểm a, Điểm b Khoản 1 Điều 5 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền tối đa đối với một cá nhân vi phạm hành chính trong lĩnh vực lâm nghiệp là 500.000.000 đồng; đối với tổ chức có cùng hành vi vi phạm, mức phạt tiền bằng 02 lần mức phạt tiền đối với cá nhân (tối đa là 1.000.000.000 đồng). Tại Điều 24 (bảo vệ ĐVR), khung phạt tiền tối đa đối với cá nhân là 400.000.000 đồng."
+    "explanation": "Theo Điểm b, Điểm c Khoản 1 Điều 4 và các Điều 21, 22, 27 Nghị định số 146/2026/NĐ-CP, ngoài phạt tiền, cá nhân/tổ chức vi phạm còn bị áp dụng hình thức xử phạt bổ sung tịch thu tang vật, phương tiện vi phạm và buộc thực hiện biện pháp khắc phục hậu quả đối với động vật rừng."
   },
   {
     "id": "DVR_061",
@@ -734,7 +733,7 @@ const question_DVR = [
       "Tịch thu tang vật, dụng cụ, công cụ vi phạm; tịch thu phương tiện vi phạm hành chính (đối với khung vi phạm quy định)",
       "Tước quyền sử dụng giấy phép lái xe vĩnh viễn",
       "Buộc chuyển nhượng cơ sở chuồng trại cho cơ quan Kiểm lâm",
-      "Phạt lao động công ích quét dọn đường làng ngõ xóm trong 06 tháng"
+      "Đình chỉ hoạt động kinh doanh chuồng trại có thời hạn không quá 24 tháng"
     ],
     "correct": "Tịch thu tang vật, dụng cụ, công cụ vi phạm; tịch thu phương tiện vi phạm hành chính (đối với khung vi phạm quy định)",
     "explanation": "Căn cứ Khoản 16 Điều 24 Nghị định số 146/2026/NĐ-CP: Hình thức xử phạt bổ sung bao gồm: a) Tịch thu tang vật, dụng cụ, công cụ vi phạm hành chính đối với hành vi quy định tại các khoản 1 đến khoản 15 Điều này; b) Tịch thu phương tiện vi phạm hành chính đối với hành vi quy định tại các khoản 4 đến khoản 15 Điều này."
@@ -746,7 +745,7 @@ const question_DVR = [
       "Loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc loài nguy cấp, quý, hiếm; không thuộc Phụ lục CITES; không phải vật nuôi; không phải loài thủy sản; không thuộc Danh mục loài ngoại lai xâm hại",
       "Tất cả các loài gia súc, gia cầm được người dân chăn thả tự do trong các cánh rừng phòng hộ",
       "Tất cả các loài động vật hoang dã thuộc Nhóm IB và Phụ lục I CITES được sinh sản từ thế hệ F2 trở đi",
-      "Bất kỳ loài thú rừng nào do người dân tự đặt bẫy bắt được trong rẫy nương của gia đình"
+      "Các loài động vật hoang dã thuộc Nhóm IIB đã được nhân giống thành công trong các trang trại tư nhân"
     ],
     "correct": "Loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc loài nguy cấp, quý, hiếm; không thuộc Phụ lục CITES; không phải vật nuôi; không phải loài thủy sản; không thuộc Danh mục loài ngoại lai xâm hại",
     "explanation": "Căn cứ Khoản 10 Điều 3 Thông tư số 85/2025/TT-BNNMT: Động vật rừng thông thường là loài động vật thuộc lớp thú, chim, bò sát, lưỡng cư, côn trùng có môi trường sinh sống tự nhiên trong rừng và không thuộc: loài nguy cấp, quý, hiếm được ban hành kèm theo Thông tư này; Phụ lục CITES; động vật nuôi theo quy định của pháp luật về chăn nuôi; loài thủy sản theo quy định của pháp luật về thủy sản; Danh mục loài ngoại lai xâm hại."
@@ -758,10 +757,10 @@ const question_DVR = [
       "Từ 03 cá thể đến 07 cá thể lớp thú",
       "Chỉ từ 01 cá thể lớp thú",
       "Từ 10 cá thể lớp thú trở lên",
-      "Chỉ xử phạt vi phạm hành chính, không phân biệt số lượng cá thể"
+      "Từ 05 cá thể đến 10 cá thể lớp thú"
     ],
     "correct": "Từ 03 cá thể đến 07 cá thể lớp thú",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 244 Bộ luật Hình sự (sửa đổi, bổ sung năm 2017): Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục Nhóm IB (hoặc Phụ lục I CITES) mà không thuộc Danh mục loài ưu tiên bảo vệ thì đối với động vật có số lượng từ 03 cá thể đến 07 cá thể lớp thú bị phạt tiền từ 500 triệu đến 2 tỷ đồng hoặc phạt tù từ 01 năm đến 05 năm (trường hợp thuộc Danh mục loài ưu tiên bảo vệ thì mới áp dụng từ 01 cá thể theo Điểm a Khoản 1 Điều 244)."
+    "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Khoản 22 Điều 1 Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025), hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ hoặc Nhóm IB (dù chỉ 01 cá thể) bị truy cứu trách nhiệm hình sự với mức phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_064",
@@ -770,10 +769,10 @@ const question_DVR = [
       "Từ 02 kilôgam (kg) ngà voi trở lên là bị phạt tù từ 1 đến 5 năm",
       "Từ 50 kilôgam ngà voi trở lên mới bị xử lý",
       "Từ 100 kilôgam ngà voi trở lên mới bị khởi tố",
-      "Ngà voi không quy định trọng lượng khởi tố hình sự"
+      "Từ 01 kilôgam (kg) ngà voi trở lên"
     ],
     "correct": "Từ 02 kilôgam (kg) ngà voi trở lên là bị phạt tù từ 1 đến 5 năm",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Tàng trữ, vận chuyển, buôn bán trái phép ngà voi từ 02 kilôgam đến dưới 20 kilôgam bị phạt tiền từ 500 triệu đến 2 tỷ đồng hoặc phạt tù từ 01 năm đến 05 năm (từ 20 kg đến dưới 90 kg phạt tù từ 05 đến 10 năm theo Khoản 2)."
+    "explanation": "Căn cứ Điểm b Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (được sửa đổi, bổ sung năm 2017 và Khoản 22 Điều 1 Luật số 86/2025/QH15 có hiệu lực từ ngày 01/7/2025), tàng trữ, vận chuyển, buôn bán trái phép ngà voi có khối lượng từ 02 kilôgam đến dưới 20 kilôgam thì bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_065",
@@ -782,7 +781,7 @@ const question_DVR = [
       "Không bắt buộc đăng ký mã số cơ sở nuôi (vì nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại), nhưng phải có nguồn gốc hợp pháp, mở Sổ Mẫu 10 và gửi Thông báo Mẫu 11 cho Kiểm lâm sở tại",
       "Bắt buộc phải lập dự án đầu tư và xin cấp mã số cơ sở nuôi như trang trại thương mại lớn",
       "Bắt buộc phải chuyển giao toàn bộ 08 cá thể trên cho Trung tâm cứu hộ vì cá nhân tuyệt đối không được nuôi làm cảnh",
-      "Được tự do nuôi và không cần phải lưu giữ bất kỳ hồ sơ nguồn gốc hay sổ theo dõi nào"
+      "Từ 02 kilôgam (kg) trở lên"
     ],
     "correct": "Không bắt buộc đăng ký mã số cơ sở nuôi (vì nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại), nhưng phải có nguồn gốc hợp pháp, mở Sổ Mẫu 10 và gửi Thông báo Mẫu 11 cho Kiểm lâm sở tại",
     "explanation": "Căn cứ Điểm c Khoản 2, Khoản 3 và Khoản 5 Điều 25 Thông tư số 85/2025/TT-BNNMT: Trường hợp nuôi dưới 10 cá thể động vật không có nọc độc thuộc lớp chim, bò sát thuộc Phụ lục II, III CITES không vì mục đích thương mại thì không bắt buộc đăng ký mã số cơ sở nuôi; tuy nhiên phải bảo đảm nguồn gốc hợp pháp, gửi Thông báo Mẫu 11 trong 03 ngày làm việc và ghi Sổ theo dõi Mẫu 10."
@@ -794,7 +793,7 @@ const question_DVR = [
       "Thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ",
       "Tự ý mang về nhà làm thịt bồi dưỡng cho người thân trong gia đình",
       "Rao bán trên nhóm mạng xã hội để lấy tiền chữa vết thương cho con vật",
-      "Tự mua thuốc về điều trị tại nhà rồi bí mật nuôi nhốt làm cảnh vĩnh viễn"
+      "Từ 50 kilôgam (kg) trở lên"
     ],
     "correct": "Thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ",
     "explanation": "Căn cứ Điểm a Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT: Tổ chức, cá nhân khi phát hiện động vật bị lạc, bị thương, bị bệnh hoặc mất nơi sinh sống tự nhiên có trách nhiệm thông báo ngay cho Ủy ban nhân dân cấp xã nơi phát hiện để kịp thời tổ chức cứu hộ."
@@ -805,7 +804,7 @@ const question_DVR = [
     "options": [
       "Lên đến 15 năm tù giam",
       "Lên đến 3 năm tù giam",
-      "Lên đến 7 năm tù giam",
+      "Từ 500.000.000 đồng trở lên",
       "Chỉ phạt tù treo tối đa 2 năm"
     ],
     "correct": "Lên đến 15 năm tù giam",
@@ -818,7 +817,7 @@ const question_DVR = [
       "Trong thời hạn 90 ngày kể từ ngày Thông tư số 85/2025/TT-BNNMT có hiệu lực thi hành",
       "Trong thời hạn 30 ngày kể từ ngày Thông tư có hiệu lực",
       "Trong thời hạn 12 tháng kể từ ngày Thông tư có hiệu lực",
-      "Không phải mở sổ theo dõi mới mà được dùng sổ cũ không thời hạn"
+      "Từ 1.000.000.000 đồng trở lên"
     ],
     "correct": "Trong thời hạn 90 ngày kể từ ngày Thông tư số 85/2025/TT-BNNMT có hiệu lực thi hành",
     "explanation": "Căn cứ Khoản 1 Điều 38 Thông tư số 85/2025/TT-BNNMT: Các cơ sở nuôi, cơ sở trồng đã được cấp mã số thực hiện mở sổ theo dõi theo quy định tại Thông tư này trong thời hạn 90 ngày kể từ ngày Thông tư này có hiệu lực thi hành."
@@ -830,7 +829,7 @@ const question_DVR = [
       "Bị truy cứu trách nhiệm hình sự do tái phạm hành vi đã bị xử phạt vi phạm hành chính",
       "Chỉ bị phạt vi phạm hành chính với mức phạt bằng mức phạt lần đầu",
       "Được miễn xử phạt nếu nộp đơn cam kết không tái phạm",
-      "Chỉ bị nhắc nhở trên loa truyền thanh của xã"
+      "Từ 20 cá thể trở lên"
     ],
     "correct": "Bị truy cứu trách nhiệm hình sự do tái phạm hành vi đã bị xử phạt vi phạm hành chính",
     "explanation": "Căn cứ Khoản 1 Điều 234 Bộ luật Hình sự năm 2015: Người đã bị xử phạt vi phạm hành chính về hành vi này hoặc đã bị kết án chưa được xóa án tích mà còn vi phạm thì bị truy cứu trách nhiệm hình sự."
@@ -842,7 +841,7 @@ const question_DVR = [
       "Phạt tiền lên đến 15.000.000.000 đồng hoặc đình chỉ hoạt động vĩnh viễn",
       "Phạt tiền tối đa 500.000.000 đồng",
       "Phạt tiền tối đa 1.000.000.000 đồng",
-      "Pháp nhân không bị xử phạt hình sự, chỉ phạt cá nhân giám đốc"
+      "Phạt tù từ 01 năm đến 03 năm"
     ],
     "correct": "Phạt tiền lên đến 15.000.000.000 đồng hoặc đình chỉ hoạt động vĩnh viễn",
     "explanation": "Căn cứ Khoản 5 Điều 244 Bộ luật Hình sự: Pháp nhân thương mại phạm tội quy định tại Điều này bị phạt tiền từ 1 tỷ đến 5 tỷ đồng (Khoản 1); từ 5 tỷ đến 10 tỷ đồng (Khoản 2); từ 10 tỷ đến 15 tỷ đồng hoặc đình chỉ hoạt động có thời hạn từ 06 tháng đến 03 năm (Khoản 3); đình chỉ hoạt động vĩnh viễn theo quy định tại Điểm d."
@@ -854,7 +853,7 @@ const question_DVR = [
       "Có nguồn gốc hợp pháp theo quy định quản lý lâm sản; bảo đảm an toàn cho con người; tuân thủ các quy định của pháp luật về môi trường và thú y",
       "Chỉ cần có diện tích chuồng trại rộng trên 500m² và có bằng đại học chuyên ngành chăn nuôi",
       "Phải được Bộ Công an cấp giấy phép an ninh trật tự đặc biệt",
-      "Không cần đáp ứng điều kiện gì nếu chỉ nuôi trong lồng treo trước hiên nhà"
+      "Phạt tù từ 02 năm đến 07 năm"
     ],
     "correct": "Có nguồn gốc hợp pháp theo quy định quản lý lâm sản; bảo đảm an toàn cho con người; tuân thủ các quy định của pháp luật về môi trường và thú y",
     "explanation": "Căn cứ Khoản 1 Điều 24 Thông tư số 85/2025/TT-BNNMT quy định 2 điều kiện cốt lõi nuôi ĐVR thông thường: có nguồn gốc hợp pháp và bảo đảm an toàn con người, thú y, môi trường."
@@ -866,7 +865,7 @@ const question_DVR = [
       "Trong thời hạn tối đa 03 ngày làm việc kể từ ngày đưa động vật về cơ sở nuôi",
       "Trong thời hạn 30 ngày làm việc kể từ ngày đưa động vật về cơ sở nuôi",
       "Chỉ cần gửi thông báo vào dịp kiểm kê cuối năm âm lịch",
-      "Không phải thông báo nếu số lượng nuôi dưới 20 cá thể"
+      "Chỉ áp dụng đối với cá nhân, không quy định trách nhiệm hình sự đối với pháp nhân thương mại"
     ],
     "correct": "Trong thời hạn tối đa 03 ngày làm việc kể từ ngày đưa động vật về cơ sở nuôi",
     "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT: Trong thời hạn tối đa 03 ngày làm việc kể từ ngày đưa động vật về nuôi, phải gửi thông báo đến Kiểm lâm sở tại."
@@ -878,7 +877,7 @@ const question_DVR = [
       "Thông báo theo Mẫu số 11 Phụ lục II (kèm theo bản sao hồ sơ chứng minh nguồn gốc động vật)",
       "Đơn khiếu nại hành chính theo Luật Khiếu nại",
       "Tờ khai đăng ký tạm trú của Công an phường/xã",
-      "Bản cam kết tự nguyện hiến tặng tài sản cho nhà nước"
+      "Từ 1.000.000.000 đồng trở lên"
     ],
     "correct": "Thông báo theo Mẫu số 11 Phụ lục II (kèm theo bản sao hồ sơ chứng minh nguồn gốc động vật)",
     "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT: Gửi Thông báo theo Mẫu số 11 Phụ lục II kèm bản sao hồ sơ chứng minh nguồn gốc đến Cơ quan Kiểm lâm sở tại."
@@ -890,7 +889,7 @@ const question_DVR = [
       "Lập và ghi chép sổ theo dõi hoạt động nuôi theo Mẫu số 10 Phụ lục II",
       "Sổ ghi chép công nợ bán lẻ của tiệm tạp hóa",
       "Sổ khám bệnh định kỳ của cơ sở y tế",
-      "Không cần lập sổ nếu chủ nuôi có trí nhớ tốt"
+      "Được miễn trách nhiệm hình sự nếu người mua chỉ dùng để ngâm rượu phục vụ nhu cầu cá nhân"
     ],
     "correct": "Lập và ghi chép sổ theo dõi hoạt động nuôi theo Mẫu số 10 Phụ lục II",
     "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT: Chủ cơ sở nuôi động vật rừng thông thường phải lập và ghi chép Sổ theo dõi theo Mẫu số 10 Phụ lục II."
@@ -902,7 +901,7 @@ const question_DVR = [
       "Cơ quan Kiểm lâm sở tại (Hạt Kiểm lâm hoặc Chi cục Kiểm lâm ở những địa phương không có Hạt Kiểm lâm)",
       "Đội Quản lý thị trường khu vực",
       "Trạm Cảnh sát giao thông đường bộ",
-      "Hội Sinh vật cảnh cấp tỉnh"
+      "Phạt tù từ 06 tháng đến 03 năm"
     ],
     "correct": "Cơ quan Kiểm lâm sở tại (Hạt Kiểm lâm hoặc Chi cục Kiểm lâm ở những địa phương không có Hạt Kiểm lâm)",
     "explanation": "Căn cứ Khoản 5 Điều 5 Thông tư số 26/2025/TT-BNNMT: Cơ quan Kiểm lâm sở tại (Hạt Kiểm lâm hoặc Chi cục Kiểm lâm nơi không có Hạt) là cơ quan tiếp nhận quản lý và xác nhận."
@@ -914,7 +913,7 @@ const question_DVR = [
       "Tại Cơ quan Kiểm lâm sở tại hoặc Bộ phận Một cửa / Trung tâm Phục vụ hành chính công địa phương",
       "Nộp tại quầy vé bến xe khách liên tỉnh",
       "Gửi qua hòm thư khiếu nại của đài truyền hình",
-      "Chỉ được nộp trực tiếp tại trụ sở Bộ Nông nghiệp và Môi trường tại Hà Nội"
+      "Từ 15 cá thể trở lên"
     ],
     "correct": "Tại Cơ quan Kiểm lâm sở tại hoặc Bộ phận Một cửa / Trung tâm Phục vụ hành chính công địa phương",
     "explanation": "Căn cứ Điểm a Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT: Hồ sơ nộp tại Cơ quan Kiểm lâm sở tại hoặc Bộ phận Một cửa / Trung tâm Phục vụ hành chính công địa phương."
@@ -926,7 +925,7 @@ const question_DVR = [
       "Không phải nộp phí, lệ phí (thủ tục xác nhận Bảng kê lâm sản không thuộc danh mục phí, lệ phí theo pháp luật về phí, lệ phí)",
       "Phải nộp 500.000 đồng cho mỗi lần thẩm định xác nhận Bảng kê lâm sản",
       "Phải nộp 10% giá trị lô lâm sản ghi trên Bảng kê",
-      "Phải nộp lệ phí 50.000 đồng/cá thể động vật được xác nhận"
+      "Chỉ bị phạt hành chính tối đa 50.000.000 đồng vì sử dụng công cụ bẫy thủ công"
     ],
     "correct": "Không phải nộp phí, lệ phí (thủ tục xác nhận Bảng kê lâm sản không thuộc danh mục phí, lệ phí theo pháp luật về phí, lệ phí)",
     "explanation": "Căn cứ Điều 5 Thông tư số 26/2025/TT-BNNMT và Luật Phí và lệ phí: Thủ tục xác nhận Bảng kê lâm sản của cơ quan Kiểm lâm sở tại là thủ tục hành chính không quy định thu phí, lệ phí; tổ chức, cá nhân nộp hồ sơ được giải quyết miễn phí theo quy định."
@@ -938,7 +937,7 @@ const question_DVR = [
       "Khuyến khích chủ cơ sở nuôi tự ban hành và áp dụng tiêu chuẩn cơ sở hoặc áp dụng tiêu chuẩn quốc tế và tự chịu trách nhiệm trước pháp luật về việc áp dụng các tiêu chuẩn đó",
       "Bắt buộc phải dừng ngay việc nuôi và tiêu hủy toàn bộ đàn vật nuôi",
       "Phải chờ khi nào Bộ Nông nghiệp và Môi trường ban hành quy chuẩn mới được nuôi",
-      "Tự do nuôi thả rông trong khu dân cư mà không cần chuồng trại"
+      "Chỉ cần có đơn đề nghị gửi Hạt Kiểm lâm và được cấp phép sau 30 ngày"
     ],
     "correct": "Khuyến khích chủ cơ sở nuôi tự ban hành và áp dụng tiêu chuẩn cơ sở hoặc áp dụng tiêu chuẩn quốc tế và tự chịu trách nhiệm trước pháp luật về việc áp dụng các tiêu chuẩn đó",
     "explanation": "Căn cứ Điểm b Khoản 1 Điều 24 Thông tư số 85/2025/TT-BNNMT: Chưa có quy chuẩn nhà nước thì chủ cơ sở tự ban hành áp dụng tiêu chuẩn cơ sở/quốc tế và tự chịu trách nhiệm pháp lý."
@@ -950,7 +949,7 @@ const question_DVR = [
       "Lập Sổ theo Mẫu số 04 và báo cáo hàng năm cho Kiểm lâm sở tại theo Mẫu số 29 trước ngày 15 tháng 01 năm sau",
       "Lập Sổ tay cá nhân và báo cáo vào ngày 30 tháng 6 hàng năm",
       "Chỉ cần báo cáo miệng khi có đoàn thanh tra đến hỏi thăm",
-      "Không phải báo cáo nếu doanh thu bán chim cảnh dưới 100 triệu đồng"
+      "Lập Sổ theo Mẫu số 04 và báo cáo định kỳ 06 tháng một lần trước ngày 15 tháng 7"
     ],
     "correct": "Lập Sổ theo Mẫu số 04 và báo cáo hàng năm cho Kiểm lâm sở tại theo Mẫu số 29 trước ngày 15 tháng 01 năm sau",
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT: Tổ chức, hộ kinh doanh lập Sổ Mẫu số 04 và gửi Báo cáo Mẫu số 29 định kỳ hàng năm trước ngày 15 tháng 01."
@@ -962,7 +961,7 @@ const question_DVR = [
       "Được tính từ ngày 15 tháng 12 năm trước kỳ báo cáo đến ngày 14 tháng 12 của kỳ báo cáo",
       "Được tính từ ngày 01 tháng 01 đến ngày 31 tháng 12 của năm dương lịch",
       "Được tính từ ngày mùng 1 Tết âm lịch đến ngày 30 Tết âm lịch",
-      "Do chủ doanh nghiệp tự lựa chọn khoảng thời gian có lợi nhất cho mình"
+      "Được tính từ ngày 01 tháng 01 đến ngày 31 tháng 12 của năm thực hiện báo cáo"
     ],
     "correct": "Được tính từ ngày 15 tháng 12 năm trước kỳ báo cáo đến ngày 14 tháng 12 của kỳ báo cáo",
     "explanation": "Căn cứ Điểm c Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT: Thời gian chốt số liệu báo cáo tính từ ngày 15/12 năm trước kỳ báo cáo đến ngày 14/12 của kỳ báo cáo."
@@ -974,7 +973,7 @@ const question_DVR = [
       "Khi tổ chức, hộ kinh doanh đã cập nhật tình hình nhập, xuất lâm sản trên hệ thống quản lý, truy xuất nguồn gốc lâm sản điện tử",
       "Khi trang trại tạm ngừng bán hàng trong tháng Tết",
       "Khi có xác nhận là gia đình có công với cách mạng",
-      "Khi tổng số lượng chim sinh sản trong năm bị giảm sút"
+      "Khi cơ sở nuôi có quy mô dưới 50 cá thể chim sinh sản"
     ],
     "correct": "Khi tổ chức, hộ kinh doanh đã cập nhật tình hình nhập, xuất lâm sản trên hệ thống quản lý, truy xuất nguồn gốc lâm sản điện tử",
     "explanation": "Căn cứ Khoản 7 Điều 32 Thông tư số 26/2025/TT-BNNMT: Miễn nộp báo cáo giấy Mẫu 29 nếu đã cập nhật thường xuyên trên hệ thống phần mềm quản lý, truy xuất nguồn gốc lâm sản."
@@ -986,7 +985,7 @@ const question_DVR = [
       "Bị xử phạt vi phạm hành chính về hành vi nuôi nhốt động vật rừng không có nguồn gốc hợp pháp, bị tịch thu toàn bộ 30 con chim chào mào để thả về tự nhiên",
       "Được công nhận là hộ kinh doanh chim cảnh tiêu biểu của địa phương",
       "Chỉ bị phạt tiền 50.000 đồng và được giữ lại đàn chim để nuôi tiếp",
-      "Không bị xử lý vì chim chào mào không phải là động vật Nhóm IB nguy cấp"
+      "Chỉ bị xử phạt vi phạm hành chính về hành vi mua bán hàng hóa không có hóa đơn chứng từ"
     ],
     "correct": "Bị xử phạt vi phạm hành chính về hành vi nuôi nhốt động vật rừng không có nguồn gốc hợp pháp, bị tịch thu toàn bộ 30 con chim chào mào để thả về tự nhiên",
     "explanation": "Căn cứ Khoản 1 Điều 24 Thông tư số 85/2025/TT-BNNMT và Điều 24 Nghị định số 146/2026/NĐ-CP: Nuôi nhốt động vật rừng không có nguồn gốc hợp pháp bị phạt tiền và tịch thu tang vật."
@@ -998,7 +997,7 @@ const question_DVR = [
       "Có vi phạm: Quá thời hạn tối đa 03 ngày làm việc mà không gửi Thông báo Mẫu số 11 cho Cơ quan Kiểm lâm sở tại",
       "Không vi phạm vì nguồn gốc con giống ban đầu của chị B đã có hóa đơn hợp pháp",
       "Chỉ vi phạm nếu đàn chim cu gáy bị chết quá một nửa",
-      "Được gia hạn thời gian thông báo lên 6 tháng nếu chị B có con nhỏ"
+      "Được phép nộp Thông báo chậm trong thời hạn 15 ngày làm việc nếu có lý do chính đáng"
     ],
     "correct": "Có vi phạm: Quá thời hạn tối đa 03 ngày làm việc mà không gửi Thông báo Mẫu số 11 cho Cơ quan Kiểm lâm sở tại",
     "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT: Chậm gửi thông báo quá 03 ngày làm việc kể từ ngày đưa con giống về nuôi vi phạm thủ tục quản lý động vật rừng thông thường."
@@ -1010,7 +1009,7 @@ const question_DVR = [
       "Bị cơ quan chức năng điều tra, xử lý nghiêm về hành vi tuyên truyền, hướng dẫn, kích động hành vi săn bắt động vật hoang dã trái phép trên không gian mạng",
       "Được coi là diễn đàn khoa học kỹ thuật bảo tồn chim cảnh",
       "Không vi phạm pháp luật nếu các thành viên chỉ nhắn tin bằng hình ảnh",
-      "Được khuyến khích phát triển để tạo sân chơi văn hóa cho giới trẻ"
+      "Chỉ bị xem xét trách nhiệm dân sự về hành vi phát tán thông tin chưa được kiểm duyệt"
     ],
     "correct": "Bị cơ quan chức năng điều tra, xử lý nghiêm về hành vi tuyên truyền, hướng dẫn, kích động hành vi săn bắt động vật hoang dã trái phép trên không gian mạng",
     "explanation": "Căn cứ Điều 8 Luật An ninh mạng năm 2018 và Chỉ thị số 04/CT-TTg: Nghiêm cấm tuyên truyền, kích động, hướng dẫn phương thức săn bắt tận diệt chim hoang dã trên mạng xã hội."
@@ -1020,12 +1019,12 @@ const question_DVR = [
     "question": "Người dân nuôi chim cu gáy, chào mào sinh sản trong lồng muốn bán chim non cho khách chơi chim thì cần lập chứng từ gì để người mua lưu thông hợp pháp?",
     "options": [
       "Trích lục Sổ theo dõi Mẫu số 10 của cơ sở, lập Bảng kê lâm sản theo quy định và đề nghị Kiểm lâm sở tại xác nhận (nếu người mua có nhu cầu xác nhận tự nguyện)",
-      "Chỉ cần quay một đoạn video chim mẹ đang mớm mồi gửi qua Zalo",
+      "Phải lập Bảng kê lâm sản trình cơ quan Kiểm lâm sở tại xác nhận trước khi xuất bán, vận chuyển và ghi chép đầy đủ biến động giảm đàn vào Sổ theo dõi nuôi động vật rừng (Mẫu số 16 Phụ lục II)",
       "Viết một tờ giấy biên nhận tiền mặt không ghi thông tin loài chim",
-      "Không cần bất kỳ giấy tờ gì vì chim non sinh ra trong nhà đương nhiên hợp pháp"
+      "Bản sao hóa đơn giá trị gia tăng kèm giấy chứng nhận nguồn gốc xuất xứ của trang trại"
     ],
-    "correct": "Trích lục Sổ theo dõi Mẫu số 10 của cơ sở, lập Bảng kê lâm sản theo quy định và đề nghị Kiểm lâm sở tại xác nhận (nếu người mua có nhu cầu xác nhận tự nguyện)",
-    "explanation": "Căn cứ Điều 5 Thông tư số 26/2025/TT-BNNMT: Xuất bán chim sinh sản tại cơ sở cần trích xuất Sổ theo dõi Mẫu 10, lập Bảng kê lâm sản để chứng minh nguồn gốc hợp pháp."
+    "correct": "Phải lập Bảng kê lâm sản trình cơ quan Kiểm lâm sở tại xác nhận trước khi xuất bán, vận chuyển và ghi chép đầy đủ biến động giảm đàn vào Sổ theo dõi nuôi động vật rừng (Mẫu số 16 Phụ lục II)",
+    "explanation": "Căn cứ Điểm d Khoản 3 Điều 5, Khoản 1 Điều 11 và Điểm e Khoản 3 Điều 22 Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT): Động vật và sản phẩm của chúng thuộc Danh mục động vật rừng thông thường là đối tượng bắt buộc phải có xác nhận Bảng kê lâm sản của cơ quan Kiểm lâm sở tại khi bán, chuyển giao quyền sở hữu, vận chuyển; đồng thời chủ cơ sở nuôi phải cập nhật đầy đủ biến động vào Sổ theo dõi nuôi động vật rừng (Mẫu số 16 Phụ lục II)."
   }
 ];
 

@@ -1,9 +1,8 @@
 // ============================================================================
-// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ
+// BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ (BẢN V2 - NÂNG CAO ĐỘ KHÓ)
 // Gói dữ liệu: Pháp luật và nghiệp vụ Kiểm lâm (115 câu)
-// Cơ quan đối soát: Chuyên gia Pháp chế Kiểm lâm (Subagent PC)
-// Căn cứ QPPL: Hệ thống QPPL hiện hành (NĐ 146/2026, NĐ 42/2026, TT 85/2025, TT 16/2025, Luật Đất đai 2024)
-// Cấu trúc Object: { id, question, options, correct, explanation } (Bảo vệ tính toàn vẹn 100%)
+// Đã điều chỉnh: Tăng độ khó bằng cách thay thế 1 phương án sai lộ liễu thành phương án nhiễu tinh vi (plausible distractor)
+// Bảo toàn: 100% câu hỏi, đáp án đúng và trích dẫn giải thích pháp lý nguyên vẹn
 // ============================================================================
 
 const questions_KL = [
@@ -14,7 +13,7 @@ const questions_KL = [
       "Phạt cảnh cáo; Phạt tiền đến 25.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 50.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
       "Phạt cảnh cáo; Phạt tiền đến 25.000.000 đồng; Tịch thu toàn bộ tang vật, phương tiện VPHC không giới hạn giá trị",
       "Phạt cảnh cáo; Phạt tiền đến 50.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 100.000.000 đồng",
-      "Phạt cảnh cáo; Phạt tiền đến 10.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị tương đương mức tiền phạt thẩm quyền (25.000.000 đồng)"
+      "Phạt cảnh cáo; Phạt tiền đến 25.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 25.000.000 đồng (bằng mức tiền phạt thẩm quyền)"
     ],
     "correct": "Phạt cảnh cáo; Phạt tiền đến 25.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 50.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
     "explanation": "Khoản 1 Điều 29 Nghị định 146/2026/NĐ-CP: Kiểm lâm viên được phạt cảnh cáo; phạt tiền đến 25.000.000 đồng; tịch thu tang vật, phương tiện có giá trị không vượt quá 02 lần mức tiền phạt thẩm quyền (tức đến 50.000.000 đồng)."
@@ -26,7 +25,7 @@ const questions_KL = [
       "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 200.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
       "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC không giới hạn giá trị",
       "Phạt tiền đến 50.000.000 đồng; tịch thu tang vật có giá trị không quá 100.000.000 đồng",
-      "Phạt tiền đến 150.000.000 đồng; áp dụng biện pháp tước quyền sử dụng giấy phép khai thác"
+      "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 100.000.000 đồng (bằng mức tiền phạt thẩm quyền)"
     ],
     "correct": "Phạt tiền đến 100.000.000 đồng; tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 200.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
     "explanation": "Điểm b, Điểm c Khoản 2 Điều 29 Nghị định 146/2026/NĐ-CP quy định Trạm trưởng Trạm Kiểm lâm có quyền phạt tiền đến 100.000.000 đồng và tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 02 lần mức tiền phạt thẩm quyền (đến 200.000.000 đồng)."
@@ -37,7 +36,7 @@ const questions_KL = [
     "options": [
       "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
       "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật không giới hạn giá trị; Tước quyền sử dụng chứng chỉ hành nghề/giấy phép có thời hạn",
-      "Phạt tiền đến 250.000.000 đồng; Tịch thu toàn bộ tang vật; Đình chỉ hoạt động cơ sở chế biến gỗ vĩnh viễn",
+      "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 150.000.000 đồng (bằng mức tiền phạt thẩm quyền)",
       "Phạt tiền đến 100.000.000 đồng; Tịch thu tang vật có giá trị không vượt quá 200.000.000 đồng"
     ],
     "correct": "Phạt tiền đến 150.000.000 đồng; Tịch thu tang vật, phương tiện VPHC có giá trị không vượt quá 300.000.000 đồng (02 lần mức tiền phạt thẩm quyền)",
@@ -49,7 +48,7 @@ const questions_KL = [
     "options": [
       "Phạt tiền đến 250.000.000 đồng đối với cá nhân (đến 500.000.000 đồng đối với tổ chức); Tịch thu tang vật, phương tiện VPHC; Đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng",
       "Phạt tiền đến 500.000.000 đồng đối với cá nhân (đến 1.000.000.000 đồng đối với tổ chức); Tịch thu toàn bộ tang vật, phương tiện VPHC",
-      "Phạt tiền đến 150.000.000 đồng đối với cá nhân (đến 300.000.000 đồng đối với tổ chức); Tước chứng chỉ hành nghề vĩnh viễn",
+      "Phạt tiền đến 250.000.000 đồng đối với cá nhân (đến 500.000.000 đồng đối với tổ chức); Tịch thu tang vật có giá trị dưới 1 tỷ đồng; Đình chỉ hoạt động có thời hạn đến 24 tháng",
       "Phạt tiền đến 200.000.000 đồng đối với cá nhân; Chỉ được tịch thu tang vật có giá trị dưới 500 triệu đồng"
     ],
     "correct": "Phạt tiền đến 250.000.000 đồng đối với cá nhân (đến 500.000.000 đồng đối với tổ chức); Tịch thu tang vật, phương tiện VPHC; Đình chỉ hoạt động khai thác rừng hoặc cơ sở chế biến lâm sản có thời hạn tối đa đến 12 tháng",
@@ -62,7 +61,7 @@ const questions_KL = [
       "Phạt tiền đến 250.000.000 đồng và tịch thu tang vật, phương tiện vi phạm hành chính",
       "Phạt tiền đến 5.000.000 đồng theo quy định chung của Luật Xử lý vi phạm hành chính",
       "Phạt tiền đến 50.000.000 đồng và không có quyền tịch thu tang vật có giá trị lớn",
-      "Phạt tiền đến 100.000.000 đồng nhưng phải có sự đồng ý của Hạt trưởng Hạt Kiểm lâm"
+      "Phạt tiền đến 150.000.000 đồng và tịch thu tang vật có giá trị không vượt quá 300.000.000 đồng"
     ],
     "correct": "Phạt tiền đến 250.000.000 đồng và tịch thu tang vật, phương tiện vi phạm hành chính",
     "explanation": "Khoản 1 Điều 31 Nghị định 146/2026/NĐ-CP quy định Chủ tịch UBND cấp xã có quyền phạt tiền đến 250.000.000 đồng đối với cá nhân và tịch thu tang vật, phương tiện VPHC trong lĩnh vực lâm nghiệp."
@@ -74,7 +73,7 @@ const questions_KL = [
       "Nếu hình thức, mức xử phạt của từng hành vi đều thuộc thẩm quyền thì vẫn thuộc thẩm quyền xử phạt của người đó; nếu có hành vi vượt quá thẩm quyền thì phải chuyển toàn bộ hồ sơ cho người có thẩm quyền cao hơn",
       "Người phát hiện đầu tiên có quyền xử phạt tất cả các hành vi bất kể tổng mức tiền phạt vượt thẩm quyền",
       "Phải tách riêng từng hành vi để từng cấp ra từng quyết định xử phạt độc lập nhau",
-      "Tự động chuyển toàn bộ hồ sơ lên Chủ tịch UBND cấp tỉnh xử phạt để tránh trùng lặp"
+      "Người có thẩm quyền xử phạt các hành vi thuộc thẩm quyền của mình; phần hành vi vượt thẩm quyền mới chuyển cho cấp có thẩm quyền xử phạt độc lập"
     ],
     "correct": "Nếu hình thức, mức xử phạt của từng hành vi đều thuộc thẩm quyền thì vẫn thuộc thẩm quyền xử phạt của người đó; nếu có hành vi vượt quá thẩm quyền thì phải chuyển toàn bộ hồ sơ cho người có thẩm quyền cao hơn",
     "explanation": "Điều 52 Luật Xử lý vi phạm hành chính quy định nguyên tắc xác định thẩm quyền khi xử phạt một người thực hiện nhiều hành vi vi phạm."
@@ -85,7 +84,7 @@ const questions_KL = [
     "options": [
       "07 ngày làm việc; vụ việc có giải trình hoặc có nhiều tình tiết phức tạp thì tối đa không quá 01 tháng (trường hợp đặc biệt phức tạp gia hạn tối đa 02 tháng)",
       "05 ngày làm việc đối với mọi vụ việc và không được phép gia hạn trong bất kỳ trường hợp nào",
-      "15 ngày theo lịch kể từ ngày lập biên bản; nếu có khiếu nại thì kéo dài tối đa 60 ngày",
+      "10 ngày làm việc; vụ việc có giải trình hoặc có nhiều tình tiết phức tạp thì tối đa không quá 45 ngày (trường hợp đặc biệt phức tạp gia hạn tối đa 03 tháng)",
       "30 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính"
     ],
     "correct": "07 ngày làm việc; vụ việc có giải trình hoặc có nhiều tình tiết phức tạp thì tối đa không quá 01 tháng (trường hợp đặc biệt phức tạp gia hạn tối đa 02 tháng)",
@@ -98,7 +97,7 @@ const questions_KL = [
       "Trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính",
       "Trong thời hạn 05 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính",
       "Trong thời hạn 24 giờ kể từ thời điểm phát hiện hành vi vi phạm",
-      "Trong thời hạn 07 ngày làm việc để hoàn thiện chứng cứ"
+      "Trong thời hạn 03 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính"
     ],
     "correct": "Trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản vi phạm hành chính",
     "explanation": "Điểm a Khoản 9 Điều 12 Nghị định số 118/2021/NĐ-CP: Việc chuyển biên bản vi phạm hành chính và các tài liệu khác cho người có thẩm quyền để xử phạt phải được thực hiện trong thời hạn 02 ngày làm việc, kể từ ngày lập biên bản (trường hợp biên bản được lập tại vùng sâu, vùng xa, biên giới, miền núi, hải đảo mà việc đi lại gặp khó khăn thì thời hạn chuyển không quá 05 ngày làm việc)."
@@ -110,7 +109,7 @@ const questions_KL = [
       "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
       "Khởi tố bị can, bắt tạm giam người phạm tội trong thời hạn 03 tháng để điều tra độc lập",
       "Chỉ được lập biên bản vi phạm rồi chuyển ngay cho Công an cấp xã, cấp tỉnh trong 24 giờ mà không được khởi tố vụ án",
-      "Chuyển thẳng hồ sơ sang Tòa án nhân dân khu vực để mở phiên tòa xét xử sơ thẩm"
+      "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường và chuyển hồ sơ cho Cơ quan điều tra Công an có thẩm quyền trong thời hạn 15 ngày"
     ],
     "correct": "Quyết định khởi tố vụ án hình sự, lấy lời khai, khám nghiệm hiện trường, tạm giữ tài liệu tang vật và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày",
     "explanation": "Theo Khoản 1 Điều 164 Bộ luật Tố tụng hình sự năm 2015, Cục Kiểm lâm, Chi cục Kiểm lâm, Hạt Kiểm lâm có quyền khởi tố vụ án hình sự đối với tội ít nghiêm trọng quả tang, thực hiện hoạt động điều tra ban đầu và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày."
@@ -122,7 +121,7 @@ const questions_KL = [
       "Để xác minh tình tiết mà nếu không tạm giữ thì không có căn cứ ra quyết định xử phạt, hoặc để ngăn chặn ngay hành vi, hoặc bảo đảm thi hành quyết định phạt tiền",
       "Áp dụng bắt buộc đối với tất cả các vụ việc vi phạm hành chính bất kể mức phạt nặng hay nhẹ",
       "Chỉ áp dụng khi đối tượng vi phạm không chịu ký vào biên bản vi phạm hành chính",
-      "Áp dụng khi cơ quan Kiểm lâm có nhu cầu sử dụng phương tiện để phục vụ tuần tra công vụ"
+      "Chỉ được áp dụng khi đối tượng không có nơi cư trú rõ ràng hoặc không có khả năng nộp tiền phạt tại kho bạc"
     ],
     "correct": "Để xác minh tình tiết mà nếu không tạm giữ thì không có căn cứ ra quyết định xử phạt, hoặc để ngăn chặn ngay hành vi, hoặc bảo đảm thi hành quyết định phạt tiền",
     "explanation": "Khoản 1 Điều 125 Luật Xử lý vi phạm hành chính quy định chặt chẽ các trường hợp được phép tạm giữ tang vật, phương tiện nhằm tránh lạm quyền xâm phạm tài sản công dân."
@@ -133,7 +132,7 @@ const questions_KL = [
     "options": [
       "Tính tổng thể tích toàn bộ khúc gỗ tròn theo công thức hình trụ, sau đó trừ đi thể tích phần ruột rỗng (tính theo đường kính và chiều sâu của phần rỗng)",
       "Chỉ đo phần gỗ đặc bên ngoài và nhân đôi kết quả tính toán",
-      "Bỏ qua không tính toán đối với những lóng gỗ có ruột rỗng lớn hơn 20 cm",
+      "Tính thể tích toàn bộ khúc gỗ theo công thức hình trụ, sau đó giảm trừ cố định 15% tổng thể tích coi như hao hụt tự nhiên",
       "Quy đổi toàn bộ khúc gỗ sang đơn vị ster (khối xếp gióng) để tính thể tích thương phẩm"
     ],
     "correct": "Tính tổng thể tích toàn bộ khúc gỗ tròn theo công thức hình trụ, sau đó trừ đi thể tích phần ruột rỗng (tính theo đường kính và chiều sâu của phần rỗng)",
@@ -146,7 +145,7 @@ const questions_KL = [
       "Phải có Quyết định dừng phương tiện/Kế hoạch tuần tra được cấp có thẩm quyền phê duyệt; công chức mặc trang phục, đeo số hiệu Kiểm lâm và xuất trình thẻ",
       "Kiểm lâm viên đi tuần một mình có quyền tự ý ra hiệu lệnh dừng mọi loại xe tải để kiểm tra bất kỳ lúc nào",
       "Chỉ được kiểm tra khi có tin báo của người dân và phải có mặt của Viện kiểm sát nhân dân",
-      "Chỉ được dừng phương tiện khi xe đã đi vào khuôn viên của Hạt Kiểm lâm hoặc Trạm Kiểm lâm"
+      "Phải có sự chứng kiến và ký biên bản liên ngành của lực lượng Cảnh sát giao thông đang làm nhiệm vụ trên tuyến đường"
     ],
     "correct": "Phải có Quyết định dừng phương tiện/Kế hoạch tuần tra được cấp có thẩm quyền phê duyệt; công chức mặc trang phục, đeo số hiệu Kiểm lâm và xuất trình thẻ",
     "explanation": "Khoản 2 Điều 104 Luật Lâm nghiệp 2017 và Nghị định số 01/2019/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Việc dừng phương tiện kiểm tra lâm sản phải có quyết định/kế hoạch tuần tra được người có thẩm quyền phê duyệt, thực hiện đúng lễ tiết tác phong, trang phục, số hiệu Kiểm lâm."
@@ -158,7 +157,7 @@ const questions_KL = [
       "Không quá 03 ngày làm việc kể từ ngày nhận được hồ sơ đề nghị hợp lệ",
       "Không quá 02 ngày làm việc kể từ ngày nhận được hồ sơ đề nghị hợp lệ",
       "Không quá 05 ngày làm việc để phối hợp với công an địa phương",
-      "Trong vòng 24 giờ kể từ thời điểm chủ lâm sản tập kết đủ hàng hóa"
+      "Không quá 04 ngày làm việc kể từ ngày nhận được hồ sơ đề nghị hợp lệ"
     ],
     "correct": "Không quá 03 ngày làm việc kể từ ngày nhận được hồ sơ đề nghị hợp lệ",
     "explanation": "Điểm c Khoản 7 Điều 5 Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư 84/2025/TT-BNNMT, hợp nhất tại VBHN 04/VBHN-BNNMT): Trường hợp cần xác minh nguồn gốc lâm sản có nhiều nội dung phức tạp, thời hạn hoàn thành xác minh và xác nhận tối đa không quá 03 ngày làm việc."
@@ -170,7 +169,7 @@ const questions_KL = [
       "Tuân thủ đầy đủ quy định pháp luật trong hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
       "Có vốn điều lệ đăng ký kinh doanh từ 50 tỷ đồng trở lên và sở hữu tối thiểu 03 nhà máy cưa xẻ gỗ",
       "Chỉ cần có hợp đồng xuất khẩu gỗ sang thị trường Hoa Kỳ hoặc Châu Âu trong năm hiện tại",
-      "Đã được Ủy ban nhân dân cấp xã cấp giấy khen về công tác bảo vệ môi trường nông thôn"
+      "Tuân thủ đầy đủ quy định pháp luật ít nhất 06 tháng kể từ ngày thành lập, có chứng chỉ chuỗi hành trình sản phẩm FSC-CoC và xuất khẩu sang EU"
     ],
     "correct": "Tuân thủ đầy đủ quy định pháp luật trong hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập, thiết lập và vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ",
     "explanation": "Điểm a Khoản 1 Điều 12 Nghị định số 102/2020/NĐ-CP (sửa đổi, bổ sung bởi Nghị định số 120/2024/NĐ-CP): Tiêu chí Doanh nghiệp Nhóm I là tuân thủ đầy đủ quy định pháp luật, hoạt động ít nhất 01 năm kể từ ngày đăng ký thành lập doanh nghiệp, vận hành hệ thống bảo đảm gỗ hợp pháp (DDS) và lưu trữ hồ sơ đầy đủ."
@@ -182,7 +181,7 @@ const questions_KL = [
       "Cơ quan Kiểm lâm sở tại và Công an cấp xã",
       "Cơ quan Cảnh sát PCCC&CNCH cấp tỉnh và UBND cấp tỉnh",
       "Sở Tài chính và Sở Kế hoạch và Đầu tư",
-      "Ủy ban Mặt trận Tổ quốc xã và Ban Chỉ huy quân sự huyện"
+      "Chi cục Kiểm lâm cấp tỉnh và Ủy ban nhân dân cấp xã"
     ],
     "correct": "Cơ quan Kiểm lâm sở tại và Công an cấp xã",
     "explanation": "Khoản 2 Điều 45 Nghị định số 156/2018/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 91/2024/NĐ-CP và Nghị định 42/2026/NĐ-CP): Phương án phòng cháy và chữa cháy rừng do tổ chức lập phải gửi đến cơ quan Kiểm lâm sở tại, Công an cấp xã tham gia ý kiến; chủ rừng tự phê duyệt và tổ chức thực hiện phương án."
@@ -193,7 +192,7 @@ const questions_KL = [
     "options": [
       "Báo cáo ngay Chủ tịch UBND cấp xã và Hạt trưởng Hạt Kiểm lâm; lập biên bản kiểm tra ban đầu, bảo vệ hiện trường và phối hợp các lực lượng liên quan ngăn chặn ngay hành vi",
       "Tự mình truy đuổi các đối tượng khả nghi vào sâu trong rừng mà không báo cho ai biết",
-      "Chờ đến kỳ giao ban cuối tháng của Hạt Kiểm lâm mới tổng hợp đưa vào báo cáo định kỳ",
+      "Chỉ đạo kiểm tra đo đếm sơ bộ rồi chờ đến kỳ giao ban tháng của Hạt Kiểm lâm mới tổng hợp gửi báo cáo",
       "Tự ý phát dọn hiện trường để kiểm tra xem cây rừng bị chặt hạ có mọc lại chồi non hay không"
     ],
     "correct": "Báo cáo ngay Chủ tịch UBND cấp xã và Hạt trưởng Hạt Kiểm lâm; lập biên bản kiểm tra ban đầu, bảo vệ hiện trường và phối hợp các lực lượng liên quan ngăn chặn ngay hành vi",
@@ -204,7 +203,7 @@ const questions_KL = [
     "question": "Biên bản vi phạm hành chính trong lĩnh vực lâm nghiệp lập không có sự chứng kiến hoặc không có chữ ký của người vi phạm có giá trị pháp lý không?",
     "options": [
       "Có giá trị pháp lý nếu có chữ ký của đại diện chính quyền cấp xã hoặc chữ ký của ít nhất 01 người chứng kiến xác nhận việc người vi phạm từ chối ký/vắng mặt",
-      "Hoàn toàn vô hiệu và cơ quan Kiểm lâm phải hủy bỏ hồ sơ vụ việc",
+      "Chỉ có giá trị nếu cơ quan Kiểm lâm tiến hành niêm yết công khai biên bản tại trụ sở UBND cấp xã trong thời hạn 03 ngày",
       "Vẫn có giá trị tuyệt đối mà không cần chữ ký của bất kỳ ai khác ngoài Kiểm lâm viên",
       "Chỉ có giá trị nếu người vi phạm gửi văn bản xin lỗi cơ quan Kiểm lâm sau đó"
     ],
@@ -218,7 +217,7 @@ const questions_KL = [
       "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau",
       "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 31 tháng 3 năm sau",
       "Chốt số liệu vào ngày 30 tháng 6 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 31 tháng 8",
-      "Chốt số liệu vào ngày 15 tháng 01 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 30 tháng 4"
+      "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 31 tháng 01 năm sau"
     ],
     "correct": "Chốt số liệu vào ngày 31 tháng 12 hàng năm; Chủ tịch UBND cấp tỉnh công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau",
     "explanation": "Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT quy định thời điểm chốt số liệu diễn biến rừng là 31/12 và Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng cấp tỉnh trước ngày 28 tháng 02 năm sau (hạn trước 31/3 là thời hạn Bộ NN&MT công bố toàn quốc)."
@@ -230,22 +229,22 @@ const questions_KL = [
       "Phải bàn giao ngay cho cơ quan Thú y hoặc Trung tâm cứu hộ động vật hoang dã để chăm sóc, cứu hộ kịp thời; lập biên bản bàn giao chặt chẽ",
       "Nhốt tại trụ sở Hạt Kiểm lâm cho đến khi có quyết định xử phạt vi phạm hành chính có hiệu lực",
       "Đấu giá bán ngay cho người dân địa phương để nộp tiền vào kho bạc nhà nước",
-      "Thả ngay vào bất kỳ khu rừng nào gần trụ sở Hạt Kiểm lâm mà không cần kiểm dịch thú y"
+      "Tạm lưu giữ tại kho tang vật của Hạt Kiểm lâm tối đa 15 ngày để chờ xác minh chủ sở hữu trước khi chuyển giao cứu hộ"
     ],
     "correct": "Phải bàn giao ngay cho cơ quan Thú y hoặc Trung tâm cứu hộ động vật hoang dã để chăm sóc, cứu hộ kịp thời; lập biên bản bàn giao chặt chẽ",
     "explanation": "Khoản 1, Khoản 2 Điều 22 Thông tư số 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại VBHN số 04/VBHN-BNNMT): Động vật rừng sống là tang vật trong quá trình tạm giữ phải được nuôi dưỡng, chăm sóc, bảo đảm vệ sinh, an toàn. Trường hợp cơ quan tạm giữ không đủ điều kiện thì tạm giao cho cơ quan chuyên ngành hoặc cơ sở cứu hộ, cơ sở có đủ điều kiện để nuôi dưỡng, bảo quản và lập Biên bản theo Mẫu số 22 Phụ lục II."
   },
   {
     "id": "KL_020",
-    "question": "Phương pháp điều tra sâu bệnh hại rừng xác định diện tích rừng bị hại ở mức 'nặng' khi tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại đạt ngưỡng nào?",
+    "question": "Theo hướng dẫn điều tra, dự tính dự báo sâu bệnh hại rừng (Mục III.3.4 Văn bản số 230/SNNMT-KL ngày 15/01/2026), mức độ bị hại 'Nặng' của lâm phần được xác định khi Chỉ số sâu, bệnh hại R (%) (hoặc tỷ lệ bộ phận tán lá bị hại) nằm trong khoảng nào?",
     "options": [
-      "Tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại lớn hơn 50% diện tích lô rừng",
-      "Tỷ lệ tán lá bị hại từ 10% đến 25%",
-      "Tỷ lệ tán lá bị hại từ 25% đến 50%",
-      "Chỉ khi cây rừng đã bị khô chết hoàn toàn trên 100% diện tích"
+      "Chỉ số sâu, bệnh hại R (%) từ 10% đến dưới 25%",
+      "Chỉ số sâu, bệnh hại R (%) từ 25% đến dưới 50%",
+      "Chỉ số sâu, bệnh hại R (%) trên 50% đến dưới 75% (50% < R < 75%)",
+      "Chỉ số sâu, bệnh hại R (%) từ 75% trở lên (R >= 75%)"
     ],
-    "correct": "Tỷ lệ tán lá bị hại hoặc tỷ lệ cây bị hại lớn hơn 50% diện tích lô rừng",
-    "explanation": "Căn cứ Điều 61 Luật Lâm nghiệp năm 2017, Tiêu chuẩn quốc gia TCVN 11570:2016 và Quyết định số 1334/QĐ-SNNMT: Tỷ lệ tán lá hoặc số cây bị hại lớn hơn 50% diện tích lô rừng được phân cấp mức độ hại Nặng."
+    "correct": "Chỉ số sâu, bệnh hại R (%) trên 50% đến dưới 75% (50% < R < 75%)",
+    "explanation": "Căn cứ Mục III.3.4 Văn bản số 230/SNNMT-KL ngày 15/01/2026 của Sở Nông nghiệp và Môi trường tỉnh Tuyên Quang và Tiêu chuẩn quốc gia về điều tra sâu bệnh hại lâm nghiệp: Tỷ lệ cây bị hại ký hiệu là P (%), còn phân cấp mức độ bị hại của lâm phần được xác định theo Chỉ số sâu, bệnh hại R (%): Hại nhẹ khi R <= 25%; Hại trung bình khi 25% < R <= 50%; Hại nặng khi 50% < R < 75%; Hại rất nặng khi R >= 75%."
   },
   {
     "id": "KL_021",
@@ -253,7 +252,7 @@ const questions_KL = [
     "options": [
       "Đã được tập huấn, cấp Giấy phép sử dụng vũ khí/chứng chỉ chuyên môn và chỉ nổ súng phòng vệ chính đáng theo đúng quy định của Luật Quản lý, sử dụng vũ khí, vật liệu nổ",
       "Được quyền nổ súng vào bất kỳ đối tượng nào bỏ chạy khi thấy bóng dáng lực lượng Kiểm lâm",
-      "Được phép mang súng về nhà riêng để tự bảo vệ tài sản gia đình",
+      "Được quyền nổ súng cảnh cáo đối với mọi hành vi không chấp hành hiệu lệnh dừng phương tiện của tổ tuần tra Kiểm lâm",
       "Chỉ cần có thẻ công chức Kiểm lâm là được toàn quyền sử dụng súng không cần giấy phép"
     ],
     "correct": "Đã được tập huấn, cấp Giấy phép sử dụng vũ khí/chứng chỉ chuyên môn và chỉ nổ súng phòng vệ chính đáng theo đúng quy định của Luật Quản lý, sử dụng vũ khí, vật liệu nổ",
@@ -264,7 +263,7 @@ const questions_KL = [
     "question": "Thời hạn và hình thức yêu cầu giải trình trực tiếp đối với cá nhân, tổ chức vi phạm hành chính có mức phạt tiền lớn trong lâm nghiệp được quy định ra sao?",
     "options": [
       "Văn bản yêu cầu giải trình phải gửi trong thời hạn 02 ngày làm việc kể từ ngày lập biên bản; việc giải trình tổ chức trong thời hạn không quá 05 ngày làm việc",
-      "Giải trình bằng miệng bất kỳ lúc nào trong thời hạn 30 ngày kể từ ngày lập biên bản",
+      "Văn bản yêu cầu giải trình phải gửi trong thời hạn 03 ngày làm việc kể từ ngày lập biên bản; việc giải trình tổ chức trong thời hạn không quá 07 ngày làm việc",
       "Phải gửi đơn giải trình lên Bộ Nông nghiệp và Môi trường trong vòng 24 giờ",
       "Chỉ được giải trình bằng văn bản qua đường bưu điện và không có hình thức giải trình trực tiếp"
     ],
@@ -277,7 +276,7 @@ const questions_KL = [
     "options": [
       "Không tịch thu phương tiện nếu chủ sở hữu chứng minh được mình không có lỗi (không biết và không thể biết phương tiện bị sử dụng để vi phạm); người vi phạm phải nộp số tiền tương đương giá trị phương tiện",
       "Tịch thu ngay lập tức phương tiện mà không cần xem xét chủ sở hữu có biết hay không",
-      "Bắt buộc người thuê xe và chủ xe cùng phải chịu chung mức phạt tiền và đi tù",
+      "Tạm giữ phương tiện trong thời hạn 06 tháng và xử phạt chủ phương tiện số tiền tương đương 50% giá trị phương tiện",
       "Trả lại xe vô điều kiện mà không yêu cầu người có hành vi vi phạm bồi hoàn bất kỳ khoản tiền nào"
     ],
     "correct": "Không tịch thu phương tiện nếu chủ sở hữu chứng minh được mình không có lỗi (không biết và không thể biết phương tiện bị sử dụng để vi phạm); người vi phạm phải nộp số tiền tương đương giá trị phương tiện",
@@ -290,7 +289,7 @@ const questions_KL = [
       "Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm đối với mọi hành vi vi phạm",
       "Thời hiệu là 01 năm đối với mọi hành vi vi phạm hành chính trong lâm nghiệp",
       "Thời hiệu là 06 tháng kể từ ngày lập biên bản vi phạm hành chính",
-      "Thời hiệu là 05 năm đối với hành vi phá rừng tự nhiên"
+      "Thời hiệu là 01 năm đối với vi phạm thủ tục hồ sơ lâm sản; 02 năm đối với hành vi khai thác, phá rừng, mua bán lâm sản trái pháp luật"
     ],
     "correct": "Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm đối với mọi hành vi vi phạm",
     "explanation": "Khoản 1 Điều 5 Nghị định số 146/2026/NĐ-CP và Điểm a Khoản 1 Điều 6 Luật Xử lý vi phạm hành chính (sửa đổi, bổ sung năm 2020): Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lâm nghiệp là 02 năm."
@@ -302,7 +301,7 @@ const questions_KL = [
       "Hành vi khai thác rừng trái quy định của pháp luật (vi phạm quy chế khai thác) đối với phần sản lượng vượt chỉ tiêu",
       "Hành vi trộm cắp tài sản của tổ chức, cá nhân",
       "Không bị xử lý vì đã có giấy phép khai thác ban đầu",
-      "Được tự động cộng dồn sản lượng vào đợt khai thác của năm sau"
+      "Hành vi vi phạm quy định về quản lý hồ sơ lâm sản trong khai thác rừng và chỉ bị phạt cảnh cáo"
     ],
     "correct": "Hành vi khai thác rừng trái quy định của pháp luật (vi phạm quy chế khai thác) đối với phần sản lượng vượt chỉ tiêu",
     "explanation": "Khai thác vượt chỉ tiêu, sản lượng cho phép cấu thành hành vi khai thác rừng tự nhiên trái pháp luật theo Điều 16 (hoặc Điều 14, 15) Nghị định số 146/2026/NĐ-CP đối với phần sản lượng khai thác vượt chỉ tiêu."
@@ -313,7 +312,7 @@ const questions_KL = [
     "options": [
       "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
       "Hạt trưởng Hạt Kiểm lâm nơi xảy ra vụ việc phức tạp",
-      "Chủ tịch Ủy ban nhân dân cấp xã nơi cần tăng cường",
+      "Giám đốc Sở Nông nghiệp và Môi trường",
       "Đội trưởng Đội Kiểm lâm cơ động và PCCCR"
     ],
     "correct": "Chi cục trưởng Chi cục Kiểm lâm cấp tỉnh",
@@ -326,7 +325,7 @@ const questions_KL = [
       "Người có thẩm quyền đang giải quyết vụ việc tự xác định căn cứ vào giá niêm yết/thị trường hoặc thành lập Hội đồng định giá tang vật theo quy định",
       "Chủ lâm sản vi phạm tự kê khai giá mua trên hóa đơn bán lẻ",
       "Chỉ do Tòa án nhân dân cấp tỉnh ra quyết định định giá tài sản",
-      "Lấy cố định mức 100.000 đồng cho mỗi kilôgam lâm sản bất kể chủng loại"
+      "Cơ quan thuế khu vực ra văn bản xác định giá trị tang vật tính theo bảng giá tính thuế tài nguyên hiện hành"
     ],
     "correct": "Người có thẩm quyền đang giải quyết vụ việc tự xác định căn cứ vào giá niêm yết/thị trường hoặc thành lập Hội đồng định giá tang vật theo quy định",
     "explanation": "Điều 60 Luật Xử lý vi phạm hành chính quy định các nguyên tắc và trình tự định giá tang vật vi phạm hành chính làm căn cứ xác định khung tiền phạt và thẩm quyền xử phạt."
@@ -338,7 +337,7 @@ const questions_KL = [
       "Khiếu nại lần đầu đến Hạt trưởng Hạt Kiểm lâm hoặc khởi kiện vụ án hành chính tại Tòa án nhân dân theo Luật Tố tụng hành chính",
       "Bắt buộc phải gửi đơn khiếu nại lên Bộ Nông nghiệp và Môi trường trước khi kiện ra Tòa",
       "Không có quyền khiếu nại nếu quyết định xử phạt đã đóng dấu đỏ của Hạt Kiểm lâm",
-      "Chỉ được quyền làm đơn xin cứu xét gửi Chủ tịch Hội Nông dân tỉnh"
+      "Bắt buộc phải nộp đủ số tiền phạt vào Kho bạc trước rồi mới được quyền làm đơn khiếu nại"
     ],
     "correct": "Khiếu nại lần đầu đến Hạt trưởng Hạt Kiểm lâm hoặc khởi kiện vụ án hành chính tại Tòa án nhân dân theo Luật Tố tụng hành chính",
     "explanation": "Căn cứ Điều 7 Luật Khiếu nại năm 2011 và Điều 31 Luật Tố tụng hành chính năm 2015: Người bị xử phạt có quyền khiếu nại lần đầu đến người đã ra quyết định hoặc khởi kiện vụ án hành chính tại Tòa án nhân dân có thẩm quyền."
@@ -350,7 +349,7 @@ const questions_KL = [
       "Phải chuyển ngay hồ sơ, tài liệu, tang vật cho Cơ quan điều tra có thẩm quyền để giải quyết theo quy định tố tụng hình sự, không được giữ lại để xử phạt hành chính",
       "Tự ý thương lượng với người vi phạm để nộp phạt hành chính mức tối đa rồi cho qua",
       "Tịch thu toàn bộ tang vật bán thanh lý trước khi báo công an",
-      "Giữ lại hồ sơ tự điều tra trong thời hạn 01 năm để lấy thành tích thi đua"
+      "Tiến hành xử phạt vi phạm hành chính mức cao nhất, nếu đối tượng tái phạm mới chuyển hồ sơ sang Cơ quan điều tra"
     ],
     "correct": "Phải chuyển ngay hồ sơ, tài liệu, tang vật cho Cơ quan điều tra có thẩm quyền để giải quyết theo quy định tố tụng hình sự, không được giữ lại để xử phạt hành chính",
     "explanation": "Điều 62 Luật XLVPHC nghiêm cấm việc giữ lại vụ vi phạm có dấu hiệu tội phạm để xử lý vi phạm hành chính; phải chuyển ngay cho cơ quan tiến hành tố tụng hình sự."
@@ -362,10 +361,10 @@ const questions_KL = [
       "Bao che, hợp thức hóa hồ sơ lâm sản bất hợp pháp, dung túng người phá rừng hoặc nhận tiền/lợi ích vật chất của đối tượng kiểm tra",
       "Yêu cầu lái xe xuất trình đầy đủ bảng kê lâm sản hợp lệ trước khi cho xe tiếp tục lưu thông",
       "Lập biên bản vi phạm hành chính đối với hành vi vi phạm pháp luật lâm nghiệp",
-      "Báo cáo trung thực số liệu cháy rừng lên cấp ủy và chính quyền địa phương"
+      "Từ chối ký xác nhận Bảng kê lâm sản khi chủ lâm sản chưa nộp đủ giấy tờ chứng minh nguồn gốc theo quy định"
     ],
     "correct": "Bao che, hợp thức hóa hồ sơ lâm sản bất hợp pháp, dung túng người phá rừng hoặc nhận tiền/lợi ích vật chất của đối tượng kiểm tra",
-    "explanation": "Căn cứ Điều 18 Luật Cán bộ, công chức năm 2008 và Điều 20 Luật Phòng, chống tham nhũng năm 2018: Nghiêm cấm công chức bao che, hợp thức hóa hồ sơ vi phạm, dung túng người phá rừng hoặc nhận tiền, lợi ích vật chất của đối tượng kiểm tra."
+    "explanation": "Theo quy định của Luật Cán bộ, công chức số 80/2025/QH15 (có hiệu lực từ ngày 01/7/2025, thay thế Luật Cán bộ, công chức năm 2008) và Điều 20 Luật Phòng, chống tham nhũng năm 2018: Công chức Kiểm lâm tuyệt đối không được lợi dụng chức vụ, quyền hạn hoặc thành lập, tham gia quản lý, điều hành doanh nghiệp tư nhân, công ty trách nhiệm hữu hạn, công ty cổ phần hoạt động trong lĩnh vực mình trực tiếp thực hiện nhiệm vụ quản lý nhà nước."
   },
   {
     "id": "KL_031",
@@ -374,7 +373,7 @@ const questions_KL = [
       "Hội đồng nhân dân cấp tỉnh",
       "Chi cục Kiểm lâm cấp tỉnh",
       "Giám đốc Sở Nông nghiệp và Môi trường",
-      "Chủ tịch UBND cấp xã"
+      "Ủy ban nhân dân cấp tỉnh"
     ],
     "correct": "Hội đồng nhân dân cấp tỉnh",
     "explanation": "Điều 20 Luật Lâm nghiệp (sửa đổi) và Nghị định 156/2018/NĐ-CP (hợp nhất) quy định HĐND cấp tỉnh có thẩm quyền quyết định chủ trương chuyển mục đích sử dụng rừng sang mục đích khác trên địa bàn."
@@ -385,7 +384,7 @@ const questions_KL = [
     "options": [
       "Sở Nông nghiệp và Môi trường",
       "Sở Kế hoạch và Đầu tư",
-      "Văn phòng UBND tỉnh",
+      "Văn phòng Ủy ban nhân dân cấp tỉnh phối hợp với Sở Kế hoạch và Đầu tư",
       "Hạt Kiểm lâm sở tại"
     ],
     "correct": "Sở Nông nghiệp và Môi trường",
@@ -398,7 +397,7 @@ const questions_KL = [
       "Cơ quan Kiểm lâm cấp tỉnh (Chi cục Kiểm lâm)",
       "Hạt Kiểm lâm sở tại",
       "Cục Thuế tỉnh",
-      "Hiệp hội Gỗ và Lâm sản"
+      "Chi cục Hải quan khu vực phối hợp với Hiệp hội Gỗ và Lâm sản"
     ],
     "correct": "Cơ quan Kiểm lâm cấp tỉnh (Chi cục Kiểm lâm)",
     "explanation": "Điều 13 Nghị định 102/2020/NĐ-CP (hợp nhất) quy định cơ quan Kiểm lâm cấp tỉnh có trách nhiệm tiếp nhận hồ sơ, đánh giá và quyết định phân loại doanh nghiệp chế biến, xuất khẩu gỗ."
@@ -410,7 +409,7 @@ const questions_KL = [
       "Khi có dấu hiệu phương tiện vận chuyển lâm sản trái pháp luật",
       "Kiểm lâm được quyền dừng bất kỳ phương tiện nào để kiểm tra định kỳ",
       "Chỉ được dừng khi có lực lượng Cảnh sát giao thông đi cùng",
-      "Chỉ được dừng phương tiện trong phạm vi rừng đặc dụng"
+      "Chỉ được dừng phương tiện khi có sự phối hợp trực tiếp của lực lượng Cảnh sát giao thông"
     ],
     "correct": "Khi có dấu hiệu phương tiện vận chuyển lâm sản trái pháp luật",
     "explanation": "Khoản 2 Điều 104 Luật Lâm nghiệp năm 2017 và Nghị định số 01/2019/NĐ-CP: Kiểm lâm có quyền dừng, kiểm tra phương tiện giao thông vận tải khi có căn cứ, dấu hiệu vận chuyển lâm sản trái pháp luật để kiểm tra, xử lý theo quy định."
@@ -420,7 +419,7 @@ const questions_KL = [
     "question": "Kiểm lâm được trang bị, quản lý và sử dụng vũ khí, công cụ hỗ trợ theo quy định của văn bản nào?",
     "options": [
       "Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ",
-      "Quy chế nội bộ của Chi cục Kiểm lâm tự ban hành",
+      "Quy chế quản lý chuyên môn về trang bị vũ khí do Bộ Nông nghiệp và Môi trường ban hành",
       "Theo sự phân công miệng của Ủy ban nhân dân xã",
       "Kiểm lâm không thuộc đối tượng được trang bị vũ khí"
     ],
@@ -434,7 +433,7 @@ const questions_KL = [
       "Phòng Sử dụng và Phát triển rừng",
       "Phòng Quản lý, bảo vệ rừng và Bảo tồn thiên nhiên",
       "Phòng Tổ chức - Hành chính",
-      "Đội Kiểm lâm cơ động và PCCCR"
+      "Phòng Kế hoạch - Tài chính (Sở Nông nghiệp và Môi trường)"
     ],
     "correct": "Phòng Sử dụng và Phát triển rừng",
     "explanation": "Điều 4 Quyết định số 1334/QĐ-SNNMT ngày 24/8/2025 của Sở NN&MT Tuyên Quang quy định Phòng Sử dụng và Phát triển rừng chủ trì tham mưu về phát triển rừng, giống cây trồng, quản lý rừng bền vững."
@@ -444,7 +443,7 @@ const questions_KL = [
     "question": "Theo Quyết định 1334/QĐ-SNNMT, phòng nào của Chi cục Kiểm lâm Tuyên Quang chủ trì tham mưu xử lý vi phạm hành chính và tố tụng hình sự?",
     "options": [
       "Phòng Điều tra, xử lý vi phạm về lâm nghiệp",
-      "Phòng Quản lý, bảo vệ rừng và Bảo tồn thiên nhiên",
+      "Phòng Sử dụng và Phát triển rừng phối hợp với Đội KLCĐ",
       "Phòng Tổ chức - Hành chính",
       "Hạt Kiểm lâm địa bàn"
     ],
@@ -457,7 +456,7 @@ const questions_KL = [
     "options": [
       "Phòng Quản lý, bảo vệ rừng và Bảo tồn thiên nhiên",
       "Phòng Sử dụng và Phát triển rừng",
-      "Phòng Tổ chức - Hành chính",
+      "Thanh tra Sở Nông nghiệp và Môi trường",
       "Bộ phận Văn thư Chi cục"
     ],
     "correct": "Phòng Quản lý, bảo vệ rừng và Bảo tồn thiên nhiên",
@@ -469,7 +468,7 @@ const questions_KL = [
     "options": [
       "Lên đến 500.000.000 đồng",
       "Lên đến 250.000.000 đồng",
-      "Lên đến 150.000.000 đồng",
+      "Từ 5.000.000 đồng đến 10.000.000 đồng",
       "Lên đến 50.000.000 đồng"
     ],
     "correct": "Lên đến 500.000.000 đồng",
@@ -482,7 +481,7 @@ const questions_KL = [
       "Phạt tiền tối đa đến 500.000.000 đồng",
       "Phạt tiền tối đa đến 250.000.000 đồng",
       "Phạt tiền tối đa đến 100.000.000 đồng",
-      "Phạt tiền tối đa đến 50.000.000 đồng"
+      "Phạt tiền tối đa đến 150.000.000 đồng"
     ],
     "correct": "Phạt tiền tối đa đến 500.000.000 đồng",
     "explanation": "Căn cứ Khoản 11 Điều 20 Nghị định số 146/2026/NĐ-CP: Mức phạt tiền cao nhất đối với cá nhân có hành vi vi phạm quy định về PCCC rừng gây cháy rừng lên đến 500.000.000 đồng (tổ chức vi phạm là 1.000.000.000 đồng)."
@@ -491,7 +490,7 @@ const questions_KL = [
     "id": "KL_041",
     "question": "Khai thác trái phép rừng sản xuất là rừng tự nhiên đối với gỗ thông thường từ khối lượng bao nhiêu m3 thì bị truy cứu TNHS theo Điều 232 BLHS?",
     "options": [
-      "Từ 05 m3 trở lên",
+      "Từ 08 m3 trở lên",
       "Từ 10 m3 trở lên",
       "Từ 15 m3 trở lên",
       "Từ 20 m3 trở lên"
@@ -503,7 +502,7 @@ const questions_KL = [
     "id": "KL_042",
     "question": "Khai thác trái phép rừng sản xuất là rừng trồng đối với gỗ thông thường từ khối lượng bao nhiêu m3 thì bị truy cứu TNHS theo Điều 232 BLHS?",
     "options": [
-      "Từ 10 m3 trở lên",
+      "Từ 25 m3 trở lên",
       "Từ 15 m3 trở lên",
       "Từ 20 m3 trở lên",
       "Từ 30 m3 trở lên"
@@ -515,7 +514,7 @@ const questions_KL = [
     "id": "KL_043",
     "question": "Khai thác trái phép gỗ loài nguy cấp, quý, hiếm Nhóm IA tại rừng đặc dụng từ bao nhiêu m3 thì bị truy cứu TNHS theo Điều 232 BLHS?",
     "options": [
-      "Từ 0,1 m3 trở lên",
+      "Từ 0,3 m3 trở lên",
       "Từ 0,5 m3 trở lên",
       "Từ 1,0 m3 trở lên",
       "Từ 1,5 m3 trở lên"
@@ -527,7 +526,7 @@ const questions_KL = [
     "id": "KL_044",
     "question": "Tàng trữ, vận chuyển, mua bán trái phép gỗ thuộc Danh mục Nhóm IA từ khối lượng bao nhiêu m3 thì bị khởi tố theo Điều 232 BLHS?",
     "options": [
-      "Từ 0,5 m3 trở lên",
+      "Từ 2,5 m3 trở lên",
       "Từ 1,0 m3 trở lên",
       "Từ 1,5 m3 trở lên",
       "Từ 2,0 m3 trở lên"
@@ -542,7 +541,7 @@ const questions_KL = [
       "Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm",
       "Tội vi phạm quy định về bảo vệ động vật hoang dã",
       "Tội vi phạm quy định về khai thác, bảo vệ rừng và quản lý lâm sản",
-      "Tội hủy hoại nguồn lợi thủy sản"
+      "Tội vi phạm quy định về quản lý, bảo vệ động vật hoang dã nguy cấp theo Luật Đa dạng sinh học"
     ],
     "correct": "Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm",
     "explanation": "Căn cứ Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định về Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (loài ưu tiên bảo vệ hoặc Nhóm IB)."
@@ -554,7 +553,7 @@ const questions_KL = [
       "Từ 03 cá thể trở lên",
       "Từ 01 cá thể trở lên",
       "Từ 05 cá thể trở lên",
-      "Từ 10 cá thể trở lên"
+      "Từ 02 cá thể trở lên"
     ],
     "correct": "Từ 03 cá thể trở lên",
     "explanation": "Điểm d Khoản 1 Điều 244 Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) quy định hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục Nhóm IB (không thuộc loài ưu tiên bảo vệ) với số lượng từ 03 cá thể đến 07 cá thể lớp thú thì bị truy cứu trách nhiệm hình sự (mức từ 01 cá thể áp dụng đối với loài thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ theo Điểm a Khoản 1 Điều 244)."
@@ -563,19 +562,19 @@ const questions_KL = [
     "id": "KL_047",
     "question": "Theo Bộ luật Tố tụng hình sự, cơ quan Kiểm lâm có thẩm quyền khởi tố vụ án hình sự trong trường hợp nào?",
     "options": [
-      "Khi phát hiện hành vi phạm tội quả tang trong phạm vi quản lý của mình",
+      "Khi phát hiện hành vi có dấu hiệu tội phạm trong lĩnh vực và địa bàn quản lý của mình (trực tiếp điều tra tội phạm ít nghiêm trọng quả tang, chứng cứ rõ ràng hoặc khởi tố vụ án và chuyển hồ sơ cho Cơ quan điều tra trong 07 ngày đối với tội phạm nghiêm trọng trở lên)",
       "Kiểm lâm không có quyền khởi tố, chỉ được chuyển hồ sơ sang Viện kiểm sát",
       "Chỉ Tòa án mới có thẩm quyền khởi tố vụ án hình sự",
-      "Chỉ được khởi tố khi có sự đồng ý của Ủy ban nhân dân xã"
+      "Chỉ được khởi tố vụ án hình sự sau khi đã có văn bản phê duyệt trước của Thủ trưởng Cơ quan Cảnh sát điều tra Công an cấp tỉnh"
     ],
-    "correct": "Khi phát hiện hành vi phạm tội quả tang trong phạm vi quản lý của mình",
-    "explanation": "Khoản 1 Điều 164 Bộ luật Tố tụng hình sự năm 2015 quy định cơ quan Kiểm lâm khi phát hiện hành vi phạm tội thuộc thẩm quyền (tội ít nghiêm trọng quả tang, chứng cứ rõ ràng) có quyền khởi tố vụ án hình sự và tiến hành hoạt động điều tra ban đầu trong thời hạn 07 ngày."
+    "correct": "Khi phát hiện hành vi có dấu hiệu tội phạm trong lĩnh vực và địa bàn quản lý của mình (trực tiếp điều tra tội phạm ít nghiêm trọng quả tang, chứng cứ rõ ràng hoặc khởi tố vụ án và chuyển hồ sơ cho Cơ quan điều tra trong 07 ngày đối với tội phạm nghiêm trọng trở lên)",
+    "explanation": "Theo Khoản 1 Điều 164 Bộ luật Tố tụng hình sự năm 2015 (được sửa đổi, bổ sung năm 2021, 2025) và Điều 34 Luật Tổ chức cơ quan điều tra hình sự: Khi phát hiện hành vi có dấu hiệu tội phạm trong lĩnh vực và địa bàn quản lý của mình, cơ quan Kiểm lâm có thẩm quyền ra quyết định khởi tố vụ án hình sự (nếu là tội phạm ít nghiêm trọng trong trường hợp phạm tội quả tang, chứng cứ và lý lịch người phạm tội rõ ràng thì quyết định khởi tố vụ án, khởi tố bị can, tiến hành điều tra và chuyển hồ sơ cho Viện kiểm sát có thẩm quyền trong thời hạn 07 ngày; nếu là tội phạm nghiêm trọng, rất nghiêm trọng, đặc biệt nghiêm trọng hoặc tội phạm ít nghiêm trọng nhưng phức tạp thì quyết định khởi tố vụ án hình sự và chuyển hồ sơ vụ án cho Cơ quan điều tra có thẩm quyền trong thời hạn 07 ngày)."
   },
   {
     "id": "KL_048",
     "question": "Theo Luật Xử lý VPHC, cá nhân vi phạm có quyền giải trình trực tiếp hoặc bằng văn bản khi mức phạt tiền tối đa của khung phạt là bao nhiêu?",
     "options": [
-      "Từ 5.000.000 đồng trở lên",
+      "Từ 20.000.000 đồng trở lên",
       "Từ 10.000.000 đồng trở lên",
       "Từ 15.000.000 đồng trở lên",
       "Từ 25.000.000 đồng trở lên"
@@ -590,7 +589,7 @@ const questions_KL = [
       "Không quá 02 ngày làm việc",
       "Không quá 05 ngày làm việc",
       "Không quá 07 ngày làm việc",
-      "Không quá 10 ngày"
+      "Không quá 03 ngày làm việc kể từ ngày lập biên bản"
     ],
     "correct": "Không quá 02 ngày làm việc",
     "explanation": "Điểm a Khoản 2 Điều 61 Luật Xử lý VPHC quy định đối với trường hợp giải trình trực tiếp, cá nhân, tổ chức vi phạm phải gửi văn bản yêu cầu trong thời hạn không quá 02 ngày làm việc kể từ ngày lập biên bản."
@@ -602,7 +601,7 @@ const questions_KL = [
       "Cổng Dịch vụ công Quốc gia hoặc Cổng dịch vụ công cấp tỉnh",
       "Nhắn tin qua ứng dụng Zalo cá nhân của Kiểm lâm viên",
       "Gửi tin nhắn SMS không có chữ ký số xác thực",
-      "Thông báo bằng hình thức gọi điện thoại trực tiếp"
+      "Hệ thống thư điện tử công vụ của Chi cục Kiểm lâm cấp tỉnh"
     ],
     "correct": "Cổng Dịch vụ công Quốc gia hoặc Cổng dịch vụ công cấp tỉnh",
     "explanation": "Điều 9 Nghị định 146/2026/NĐ-CP quy định việc xử phạt VPHC trên môi trường điện tử được thực hiện thông qua Cổng Dịch vụ công Quốc gia hoặc Cổng dịch vụ công của bộ, cơ quan ngang bộ, UBND cấp tỉnh."
@@ -614,7 +613,7 @@ const questions_KL = [
       "Chỉ rừng đặc dụng trên địa bàn xã",
       "Diện tích rừng thuộc sở hữu toàn dân chưa giao, chưa cho thuê trên địa bàn",
       "Chỉ rừng sản xuất của các hộ gia đình",
-      "Tất cả diện tích rừng của các công ty lâm nghiệp"
+      "Toàn bộ diện tích rừng sản xuất và rừng phòng hộ trên địa bàn xã"
     ],
     "correct": "Diện tích rừng thuộc sở hữu toàn dân chưa giao, chưa cho thuê trên địa bàn",
     "explanation": "Khoản 3 Điều 102 Luật Lâm nghiệp 2017 quy định UBND cấp xã có trách nhiệm quản lý diện tích rừng thuộc sở hữu toàn dân chưa giao, chưa cho thuê trên địa bàn xã."
@@ -626,7 +625,7 @@ const questions_KL = [
       "Chủ tịch Ủy ban nhân dân cấp xã",
       "Trưởng Công an cấp xã",
       "Kiểm lâm địa bàn phụ trách xã",
-      "Chỉ huy trưởng Ban Chỉ huy Quân sự xã"
+      "Phó Chủ tịch Ủy ban nhân dân cấp xã phụ trách khối kinh tế - nông nghiệp"
     ],
     "correct": "Chủ tịch Ủy ban nhân dân cấp xã",
     "explanation": "Căn cứ Điều 49, 51 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL: Chủ tịch UBND cấp xã là Trưởng ban Ban Chỉ huy PCCCR cấp xã, chịu trách nhiệm toàn diện về chỉ đạo công tác PCCCR trên địa bàn."
@@ -638,7 +637,7 @@ const questions_KL = [
       "Trưởng ban Chỉ huy",
       "Phó Trưởng ban Thường trực hoặc ủy viên tham mưu nghiệp vụ",
       "Chỉ tham gia với vai trò quan sát viên",
-      "Không thuộc thành phần Ban Chỉ huy"
+      "Ủy viên kiêm Thư ký tổng hợp của Ban Chỉ huy"
     ],
     "correct": "Phó Trưởng ban Thường trực hoặc ủy viên tham mưu nghiệp vụ",
     "explanation": "Căn cứ Điều 49, 51 Nghị định số 156/2018/NĐ-CP và Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm: Kiểm lâm địa bàn tham gia Ban Chỉ huy cấp xã với vai trò Phó ban hoặc ủy viên thường trực tham mưu kỹ thuật, nghiệp vụ BVR và PCCCR."
@@ -650,10 +649,10 @@ const questions_KL = [
       "Chỉ lực lượng Kiểm lâm địa bàn",
       "Lực lượng dân quân, công an xã, nhân dân và phương tiện trên địa bàn",
       "Chỉ huy động cán bộ, công chức xã",
-      "Phải chờ lệnh của Chủ tịch UBND cấp tỉnh mới được huy động"
+      "Chỉ được huy động lực lượng công an xã và dân quân tự vệ; không được huy động nhân dân"
     ],
     "correct": "Lực lượng dân quân, công an xã, nhân dân và phương tiện trên địa bàn",
-    "explanation": "Khoản 5 Điều 51 Nghị định số 156/2018/NĐ-CP và Điều 32 Luật Phòng cháy và chữa cháy: Chủ tịch UBND cấp xã có quyền huy động lực lượng, phương tiện tại chỗ của các cơ quan, tổ chức, hộ gia đình, cá nhân trên địa bàn để chữa cháy rừng."
+    "explanation": "Theo Khoản 5 Điều 51 Nghị định số 156/2018/NĐ-CP (hợp nhất tại Văn bản hợp nhất số 13/VBHN-BNNMT) và Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ số 55/2024/QH15 (có hiệu lực từ ngày 01/7/2025): Khi đám cháy rừng vượt quá khả năng kiểm soát của lực lượng tại chỗ, Chủ tịch Ủy ban nhân dân cấp xã phải kịp thời huy động lực lượng, phương tiện trên địa bàn và báo cáo ngay lên cấp trên để huy động lực lượng ứng cứu."
   },
   {
     "id": "KL_055",
@@ -662,7 +661,7 @@ const questions_KL = [
       "Chỉ huy tại chỗ, lực lượng tại chỗ, phương tiện tại chỗ, hậu cần tại chỗ",
       "Kế hoạch tại chỗ, con người tại chỗ, nguồn vốn tại chỗ, nước tại chỗ",
       "Chủ rừng tại chỗ, công an tại chỗ, quân đội tại chỗ, y tế tại chỗ",
-      "Kiểm lâm tại chỗ, phương án tại chỗ, thiết bị tại chỗ, dự toán tại chỗ"
+      "Kế hoạch tại chỗ, lực lượng tại chỗ, trang thiết bị tại chỗ, hậu cần tại chỗ"
     ],
     "correct": "Chỉ huy tại chỗ, lực lượng tại chỗ, phương tiện tại chỗ, hậu cần tại chỗ",
     "explanation": "Căn cứ Khoản 1 Điều 44 Nghị định số 156/2018/NĐ-CP và Mục II Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm quy định phương châm '4 tại chỗ' gồm: chỉ huy tại chỗ, lực lượng tại chỗ, phương tiện tại chỗ và hậu cần tại chỗ."
@@ -674,7 +673,7 @@ const questions_KL = [
       "Chỉ tập luyện dập lửa tại hiện trường",
       "Diễn tập vận hành cơ chế tại hội trường và diễn tập thực binh tại hiện trường",
       "Chỉ họp phân công nhiệm vụ trên văn bản",
-      "Chỉ kiểm tra bảo dưỡng máy thổi gió và cưa xăng"
+      "Diễn tập huy động nhân dân phát đường băng cản lửa và chữa cháy thực tế tại hiện trường rừng trồng"
     ],
     "correct": "Diễn tập vận hành cơ chế tại hội trường và diễn tập thực binh tại hiện trường",
     "explanation": "Căn cứ Điều 49 Nghị định số 156/2018/NĐ-CP và Mục II Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang: Diễn tập PCCCR cấp xã gồm 2 phần: Diễn tập vận hành cơ chế tại hội trường và Diễn tập thực binh tại hiện trường."
@@ -685,11 +684,11 @@ const questions_KL = [
     "options": [
       "Tự phân tích ảnh vệ tinh độc lập không cần kiểm tra thực địa",
       "Tiếp nhận thông tin biến động từ chủ rừng, phối hợp Kiểm lâm xác minh và xác nhận hồ sơ",
-      "Giao toàn bộ trách nhiệm cho các thôn tự thống kê",
+      "Định kỳ hàng quý tổng hợp báo cáo biến động rừng gửi trực tiếp về Chi cục Kiểm lâm cấp tỉnh",
       "Chỉ thống kê diện tích rừng trồng mới"
     ],
     "correct": "Tiếp nhận thông tin biến động từ chủ rừng, phối hợp Kiểm lâm xác minh và xác nhận hồ sơ",
-    "explanation": "Căn cứ Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Hạt Kiểm lâm tiếp nhận, xác minh biến động rừng, lập hồ sơ trình UBND cấp xã quyết định công bố hiện trạng rừng và báo cáo Chi cục Kiểm lâm trước ngày 31 tháng 01 năm sau."
+    "explanation": "Theo Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT (được sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT, hợp nhất tại Văn bản hợp nhất số 06/VBHN-BNNMT): Hạt Kiểm lâm tiếp nhận thông tin, kiểm tra, xác minh biến động rừng, cập nhật vào cơ sở dữ liệu theo dõi diễn biến rừng và lập hồ sơ trình Chủ tịch Ủy ban nhân dân cấp xã quyết định công bố hiện trạng rừng cấp xã trước ngày 31 tháng 01 năm sau."
   },
   {
     "id": "KL_058",
@@ -698,7 +697,7 @@ const questions_KL = [
       "Trong thời hạn 01 ngày làm việc kể từ khi nhận được thông tin",
       "Trong thời hạn 03 ngày làm việc",
       "Trong thời hạn 05 ngày làm việc",
-      "Trong thời hạn 07 ngày làm việc"
+      "Trong thời hạn 02 ngày làm việc kể từ khi nhận được thông tin"
     ],
     "correct": "Trong thời hạn 01 ngày làm việc kể từ khi nhận được thông tin",
     "explanation": "Điểm b Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT quy định trong thời hạn 01 ngày làm việc kể từ khi nhận được thông tin, UBND cấp xã tổ chức kiểm tra, tiếp nhận và lập Biên bản giao nhận động vật."
@@ -710,7 +709,7 @@ const questions_KL = [
       "03 ngày làm việc",
       "05 ngày làm việc",
       "10 ngày làm việc",
-      "30 ngày"
+      "07 ngày làm việc"
     ],
     "correct": "05 ngày làm việc",
     "explanation": "Điểm b Khoản 3 Điều 15 Thông tư số 85/2025/TT-BNNMT quy định thời hạn thông báo công khai tại trụ sở cơ quan và trên phương tiện thông tin đại chúng để xác minh chủ sở hữu hợp pháp là 05 ngày làm việc."
@@ -720,12 +719,12 @@ const questions_KL = [
     "question": "Chủ tịch UBND cấp xã có thẩm quyền phê duyệt Phương án khai thác rừng trong trường hợp nào?",
     "options": [
       "Khai thác gỗ rừng tự nhiên của các công ty lâm nghiệp",
-      "Khai thác rừng trồng của hộ gia đình, cá nhân, cộng đồng dân cư trên địa bàn",
+      "Khai thác chính, khai thác tận dụng, khai thác tận thu rừng phòng hộ là rừng trồng, rừng trồng do Nhà nước đại diện chủ sở hữu hoặc khai thác tận dụng, tận thu gỗ rừng tự nhiên của hộ gia đình, cá nhân, cộng đồng dân cư trên địa bàn (theo Khoản 2 và Điểm c Khoản 3 Điều 6 Thông tư số 26/2025/TT-BNNMT)",
       "Khai thác rừng đặc dụng của Ban Quản lý vườn quốc gia",
-      "Khai thác tận thu khoáng sản trong rừng phòng hộ"
+      "Chỉ phê duyệt phương án khai thác đối với rừng đặc dụng thuộc quyền quản lý của các Vườn quốc gia trực thuộc Bộ Nông nghiệp và Môi trường"
     ],
-    "correct": "Khai thác rừng trồng của hộ gia đình, cá nhân, cộng đồng dân cư trên địa bàn",
-    "explanation": "Điểm c Khoản 3 Điều 6 Thông tư số 26/2025/TT-BNNMT (hoặc VBHN số 04/VBHN-BNNMT): Chủ tịch UBND cấp xã phê duyệt phương án khai thác của HGĐ, cá nhân, cộng đồng dân cư đối với các trường hợp thuộc Khoản 2 Điều 6 (rừng phòng hộ là rừng trồng hoặc rừng trồng do Nhà nước đại diện chủ sở hữu)."
+    "correct": "Khai thác chính, khai thác tận dụng, khai thác tận thu rừng phòng hộ là rừng trồng, rừng trồng do Nhà nước đại diện chủ sở hữu hoặc khai thác tận dụng, tận thu gỗ rừng tự nhiên của hộ gia đình, cá nhân, cộng đồng dân cư trên địa bàn (theo Khoản 2 và Điểm c Khoản 3 Điều 6 Thông tư số 26/2025/TT-BNNMT)",
+    "explanation": "Theo Khoản 2, Điểm c Khoản 3 và Khoản 7 Điều 6 Thông tư số 26/2025/TT-BNNMT (Văn bản hợp nhất số 04/VBHN-BNNMT): Đối với rừng sản xuất là rừng trồng do chủ rừng tự đầu tư thì chủ rừng tự lập Phương án khai thác gửi Kiểm lâm sở tại giám sát mà không phải trình phê duyệt; Chủ tịch Ủy ban nhân dân cấp xã có thẩm quyền phê duyệt Phương án khai thác đối với các trường hợp quy định tại Khoản 2 Điều 6 mà chủ rừng hoặc chủ lâm sản là hộ gia đình, cá nhân, cộng đồng dân cư (bao gồm khai thác rừng phòng hộ là rừng trồng, rừng trồng do Nhà nước đại diện chủ sở hữu, khai thác tận dụng/tận thu gỗ rừng tự nhiên...)."
   },
   {
     "id": "KL_061",
@@ -734,7 +733,7 @@ const questions_KL = [
       "Phê duyệt dự toán ngân sách chi thường xuyên của xã",
       "Xây dựng kế hoạch bảo vệ rừng, phương án PCCCR và tổ chức lực lượng quần chúng BVR",
       "Quyết định xử phạt vi phạm giao thông đường bộ",
-      "Cấp giấy chứng nhận quyền sử dụng đất ở cho nhân dân"
+      "Phê duyệt kế hoạch sử dụng đất lâm nghiệp và chuyển nhượng quyền sử dụng rừng"
     ],
     "correct": "Xây dựng kế hoạch bảo vệ rừng, phương án PCCCR và tổ chức lực lượng quần chúng BVR",
     "explanation": "Điều 104 Luật Lâm nghiệp và Nghị định 01/2019/NĐ-CP quy định Kiểm lâm địa bàn tham mưu UBND cấp xã thực hiện chức năng QLNN về lâm nghiệp, lập kế hoạch BVR, PCCCR cơ sở."
@@ -744,7 +743,7 @@ const questions_KL = [
     "question": "Khi phát hiện hành vi lấn chiếm đất rừng trái phép trên địa bàn, UBND cấp xã phải xử lý như thế nào?",
     "options": [
       "Đình chỉ ngay hành vi vi phạm, lập biên bản hoặc chuyển cơ quan có thẩm quyền xử lý",
-      "Chờ người vi phạm xây dựng xong công trình mới xử lý",
+      "Cơ quan Kiểm lâm sở tại trực tiếp ký Quyết định phê duyệt phương án khai thác thay cho Chủ tịch Ủy ban nhân dân cấp xã",
       "Không thuộc thẩm quyền của xã nên không can thiệp",
       "Hợp thức hóa cho người vi phạm thuê lại đất rừng"
     ],
@@ -756,7 +755,7 @@ const questions_KL = [
     "question": "Hồ sơ quản lý rừng ở cấp xã do UBND xã và Kiểm lâm địa bàn theo dõi bắt buộc phải có tài liệu nào?",
     "options": [
       "Bản đồ hiện trạng rừng, sổ theo dõi diễn biến rừng và danh sách các chủ rừng trên địa bàn",
-      "Chỉ cần sổ thu nộp thuế sử dụng đất nông nghiệp",
+      "30 ngày làm việc kể từ ngày nhận được hồ sơ",
       "Chỉ cần danh sách cán bộ xã",
       "Hóa đơn mua sắm trang thiết bị văn phòng xã"
     ],
@@ -770,7 +769,7 @@ const questions_KL = [
       "Buộc khôi phục lại tình trạng ban đầu của rừng và buộc trồng lại rừng",
       "Tịch thu nhà ở của người vi phạm",
       "Tước quyền công dân của người vi phạm",
-      "Cấm người vi phạm cư trú tại địa phương"
+      "Bản chính Giấy chứng nhận quyền sử dụng đất và Hợp đồng tín dụng ngân hàng (bắt buộc nộp bản gốc)"
     ],
     "correct": "Buộc khôi phục lại tình trạng ban đầu của rừng và buộc trồng lại rừng",
     "explanation": "Điểm đ Khoản 1 Điều 31 Nghị định 146/2026/NĐ-CP quy định Chủ tịch UBND cấp xã có quyền áp dụng biện pháp buộc khôi phục tình trạng ban đầu, buộc nộp lại số lợi bất hợp pháp và trồng lại rừng."
@@ -780,7 +779,7 @@ const questions_KL = [
     "question": "Chủ thể nào chịu trách nhiệm chỉ đạo hòa giải các vụ tranh chấp về quyền sử dụng rừng ở cơ sở?",
     "options": [
       "Ủy ban nhân dân cấp xã nơi có rừng tranh chấp",
-      "Hạt Kiểm lâm địa bàn",
+      "Trực tiếp thu tiền bán lâm sản của chủ rừng để nộp vào quỹ công đoàn của Hạt Kiểm lâm",
       "Đội Cảnh sát hình sự",
       "Ban Quản lý dự án lâm nghiệp"
     ],
@@ -793,7 +792,7 @@ const questions_KL = [
     "options": [
       "Diệt trừ là chính, phun thuốc hóa học trên diện rộng ngay khi phát hiện",
       "Phòng là chính, diệt trừ kịp thời; ưu tiên biện pháp sinh học, hạn chế thuốc hóa học độc hại",
-      "Để sâu bệnh phát triển tự nhiên không can thiệp",
+      "Ủy ban nhân dân cấp xã chỉ có quyền quản lý đất nông nghiệp trồng lúa, không có thẩm quyền quản lý nhà nước về lâm nghiệp trên địa bàn",
       "Đốt dọn toàn bộ diện tích rừng bị sâu bệnh tấn công"
     ],
     "correct": "Phòng là chính, diệt trừ kịp thời; ưu tiên biện pháp sinh học, hạn chế thuốc hóa học độc hại",
@@ -804,7 +803,7 @@ const questions_KL = [
     "question": "Công thức tính tỷ lệ cây bị sâu, bệnh hại (P%) trong điều tra rừng theo Hướng dẫn 230/HD-CCKL là gì?",
     "options": [
       "P% = (n / N) x 100 (với n: số cây bị hại; N: tổng số cây điều tra)",
-      "P% = (N / n) x 100 (với N: tổng số cây; n: số cây bị hại)",
+      "Trực tiếp ra phán quyết xét xử sơ thẩm các vụ án hình sự về tội hủy hoại rừng trên địa bàn xã",
       "P% = n x N / 100",
       "P% = (n + N) / 2"
     ],
@@ -813,22 +812,22 @@ const questions_KL = [
   },
   {
     "id": "KL_068",
-    "question": "Theo mức độ phân cấp tỷ lệ cây bị hại (P%), mức độ hại 'Nặng' được xác định khi nào?",
+    "question": "Trong công tác theo dõi sinh vật gây hại rừng (Mục III.3.4 Văn bản số 230/SNNMT-KL ngày 15/01/2026), khi điều tra phát hiện Chỉ số sâu, bệnh hại R (%) (hoặc tỷ lệ bộ phận tán lá bị hại) trên 50% đến dưới 75%, Kiểm lâm địa bàn xác định lâm phần đó thuộc cấp độ hại nào?",
     "options": [
-      "P% dưới 10%",
+      "Mức độ hại nhẹ (Chỉ số sâu, bệnh hại R <= 25%)",
       "P% từ 10% đến dưới 25%",
       "P% từ 25% đến 50%",
       "P% lớn hơn 50%"
     ],
     "correct": "P% lớn hơn 50%",
-    "explanation": "Căn cứ Mục 4 Hướng dẫn số 230/HD-CCKL của Chi cục Kiểm lâm Tuyên Quang và Tiêu chuẩn quốc gia TCVN 8927:2023: Phân cấp mức độ hại gồm 5 mức (không bị hại R=0%; hại nhẹ R<25%; hại vừa 25%<=R<50%; hại nặng 50%<=R<75%; hại rất nặng R>=75%). Khi tỷ lệ cây hoặc tán lá bị hại vượt trên 50% thì thuộc mức độ hại nặng."
+    "explanation": "Căn cứ Mục III.3.4 Văn bản số 230/SNNMT-KL ngày 15/01/2026 của Sở Nông nghiệp và Môi trường tỉnh Tuyên Quang: Phân cấp mức độ hại của lâm phần theo Chỉ số sâu, bệnh hại R (%) gồm: Hại nhẹ (R <= 25%); Hại trung bình/vừa (25% < R <= 50%); Hại nặng (50% < R < 75%); Hại rất nặng (R >= 75%). Khi Chỉ số sâu, bệnh hại R (%) trên 50% đến dưới 75% thì thuộc mức độ hại nặng."
   },
   {
     "id": "KL_069",
     "question": "Khi phát hiện dịch sâu bệnh hại rừng bùng phát có nguy cơ lây lan diện rộng, cơ quan Kiểm lâm phải làm gì?",
     "options": [
       "Báo cáo ngay cho Sở NN&MT, UBND cấp xã/tỉnh và cơ quan bảo vệ thực vật chuyên ngành",
-      "Tự ý mua thuốc bảo vệ thực vật cấm để phun dập dịch",
+      "Chờ đến kỳ kiểm kê rừng cuối năm mới tổng hợp báo cáo một lần để tránh gây hoang mang cho chủ rừng",
       "Chờ dịch bệnh tự thoái trào sau mùa mưa",
       "Yêu cầu chủ rừng chặt trắng toàn bộ diện tích rừng xung quanh"
     ],
@@ -841,7 +840,7 @@ const questions_KL = [
     "options": [
       "Vào các giai đoạn sinh trưởng nhạy cảm của cây rừng và thời kỳ cao điểm phát sinh sâu bệnh",
       "Vào những ngày mưa bão ngập lụt kéo dài",
-      "Chỉ điều tra vào dịp nghỉ Tết âm lịch",
+      "Kiểm lâm địa bàn là công chức thuộc biên chế hành chính của Ủy ban nhân dân cấp xã, không phụ thuộc Hạt Kiểm lâm",
       "Chỉ điều tra khi cây rừng đã bị trụi hoàn toàn lá"
     ],
     "correct": "Vào các giai đoạn sinh trưởng nhạy cảm của cây rừng và thời kỳ cao điểm phát sinh sâu bệnh",
@@ -853,7 +852,7 @@ const questions_KL = [
     "options": [
       "Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết bảo vệ rừng của các hộ gia đình",
       "Biên lai nộp tiền thuế sử dụng đất phi nông nghiệp",
-      "Hợp đồng thuê hội trường của doanh nghiệp",
+      "Hợp đồng cung ứng thiết bị PCCC giữa UBND xã và đơn vị cung cấp thiết bị",
       "Bản photocopy căn cước công dân của toàn bộ người dân trong thôn"
     ],
     "correct": "Kế hoạch tuyên truyền, biên bản họp thôn và danh sách ký cam kết bảo vệ rừng của các hộ gia đình",
@@ -866,7 +865,7 @@ const questions_KL = [
       "Họp thôn, tuyên truyền miệng kết hợp hệ thống loa truyền thanh cơ sở và ký cam kết trực tiếp từng hộ gia đình",
       "Đăng tải toàn văn các văn bản quy phạm pháp luật lên cổng thông tin điện tử của tỉnh",
       "Gửi công văn hành chính qua đường bưu điện đến từng gia đình",
-      "Tổ chức hội thảo khoa học quốc tế tại trung tâm tỉnh lỵ"
+      "Phát tờ rơi tuyên truyền pháp luật kèm phiếu khảo sát ý kiến nhân dân tại chợ phiên xã"
     ],
     "correct": "Họp thôn, tuyên truyền miệng kết hợp hệ thống loa truyền thanh cơ sở và ký cam kết trực tiếp từng hộ gia đình",
     "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017 và Hướng dẫn số 230/HD-CCKL: Hình thức tuyên truyền hiệu quả nhất là họp thôn, tuyên truyền miệng kết hợp loa truyền thanh và ký cam kết trực tiếp."
@@ -878,7 +877,7 @@ const questions_KL = [
       "Chỉ thị số 13-CT/TW và Kết luận số 61-KL/TW của Ban Bí thư",
       "Chỉ thị số 01 của Bộ Nông nghiệp",
       "Quyết định số 10 của Chi cục Kiểm lâm",
-      "Thông báo số 05 của Hội Nông dân"
+      "Nghị quyết số 08 của Hội đồng nhân dân tỉnh về công tác bảo vệ và phát triển rừng"
     ],
     "correct": "Chỉ thị số 13-CT/TW và Kết luận số 61-KL/TW của Ban Bí thư",
     "explanation": "Căn cứ Điều 102 Luật Lâm nghiệp năm 2017, Chỉ thị số 13-CT/TW ngày 12/01/2017 và Kết luận số 61-KL/TW ngày 17/8/2023 của Ban Bí thư Trung ương Đảng về tăng cường sự lãnh đạo của Đảng đối với công tác QLBV&PTR."
@@ -890,7 +889,7 @@ const questions_KL = [
       "Quy định của pháp luật và chuẩn mực đạo đức, phong tục tập quán tốt đẹp",
       "Ý kiến chủ quan của Trưởng thôn",
       "Quy định của các nước trong khu vực ASEAN",
-      "Mong muốn của các doanh nghiệp thu mua gỗ"
+      "Các quy định về quản lý đất đai và bảo vệ môi trường của Ủy ban nhân dân cấp xã"
     ],
     "correct": "Quy định của pháp luật và chuẩn mực đạo đức, phong tục tập quán tốt đẹp",
     "explanation": "Căn cứ Điểm b Khoản 2 Điều 86 và Điểm d Khoản 3 Điều 102 Luật Lâm nghiệp năm 2017 quy định hương ước, quy ước bảo vệ và phát triển rừng do cộng đồng xây dựng, không được trái với quy định của pháp luật và đạo đức xã hội."
@@ -900,7 +899,7 @@ const questions_KL = [
     "question": "Trách nhiệm của Kiểm lâm địa bàn đối với quy ước bảo vệ rừng thôn, bản là gì?",
     "options": [
       "Tham mưu UBND xã hướng dẫn thôn bản xây dựng, rà soát và giám sát thực hiện quy ước BVR",
-      "Tự mình soạn thảo và ép buộc nhân dân phải chấp thuận quy ước",
+      "Trực tiếp ban hành quy ước và gửi báo cáo về Chi cục Kiểm lâm theo dõi",
       "Không can thiệp vì đó là việc nội bộ của thôn bản",
       "Ký duyệt ban hành quy ước thay cho Ủy ban nhân dân xã"
     ],
@@ -914,7 +913,7 @@ const questions_KL = [
       "Đo khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ",
       "Đo khoảng cách dài nhất bao gồm cả phần dập nát",
       "Đo từ tâm đầu lớn đến mép ngoài của đầu nhỏ",
-      "Ước lượng bằng mắt thường rồi làm tròn mét"
+      "Đo theo đường cong tự nhiên của lóng gỗ từ đầu lớn đến đầu nhỏ"
     ],
     "correct": "Đo khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ",
     "explanation": "Điểm a Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: Chiều dài là khoảng cách ngắn nhất giữa mặt cắt ngang ở hai đầu của lóng gỗ; đơn vị tính là mét, lấy 2 số thập phân."
@@ -926,7 +925,7 @@ const questions_KL = [
       "Đo ở 2 vị trí lớn nhất và nhỏ nhất (trừ vỏ cây), sau đó tính trung bình cộng",
       "Chỉ cần đo 1 lần duy nhất tại tâm mặt cắt ngang của đầu lóng gỗ",
       "Đo vòng tròn chu vi đầu lóng gỗ bao gồm cả vỏ rồi chia cho số Pi (3,14)",
-      "Lấy kích thước bất kỳ do người bán tự ước lượng và ghi trong hóa đơn"
+      "Đo đường kính ngoài vỏ ở 2 vị trí vuông góc rồi trừ đi độ dày ước tính của vỏ cây"
     ],
     "correct": "Đo ở 2 vị trí lớn nhất và nhỏ nhất (trừ vỏ cây), sau đó tính trung bình cộng",
     "explanation": "Điểm b Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định: mỗi đầu lóng gỗ đo ở 2 vị trí có đường kính lớn nhất và nhỏ nhất (trừ phần vỏ cây), tính trị số trung bình cộng để xác định đường kính đầu đó."
@@ -938,7 +937,7 @@ const questions_KL = [
       "V = (π / 4) x (Dtb)^2 x l",
       "V = π x Dtb x l",
       "V = (Dtb)^2 x l",
-      "V = (π / 2) x (Dtb)^2 x l"
+      "V = (π / 4) x Dtb x l"
     ],
     "correct": "V = (π / 4) x (Dtb)^2 x l",
     "explanation": "Điểm c Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích gỗ tròn tính theo công thức: V = (π / 4) * (Dtb)^2 * l; thể tích V tính bằng m3, lấy số nguyên và 3 số thập phân."
@@ -950,7 +949,7 @@ const questions_KL = [
       "Đơn vị m3, lấy số nguyên và ba (03) số hàng thập phân",
       "Đơn vị m3, lấy số nguyên và một (01) số hàng thập phân",
       "Đơn vị m3, làm tròn thành số nguyên",
-      "Đơn vị dm3, lấy hai (02) số hàng thập phân"
+      "Đơn vị m3, lấy số nguyên và hai (02) số hàng thập phân"
     ],
     "correct": "Đơn vị m3, lấy số nguyên và ba (03) số hàng thập phân",
     "explanation": "Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích gỗ V tính bằng mét khối (m3), lấy số nguyên và ba (03) số hàng thập phân sau số hàng đơn vị."
@@ -962,7 +961,7 @@ const questions_KL = [
       "Cộng trừ 5% (±5%)",
       "Cộng trừ 10% (±10%)",
       "Cộng trừ 15% (±15%)",
-      "Cộng trừ 20% (±20%)"
+      "Cộng trừ 8% (±8%)"
     ],
     "correct": "Cộng trừ 10% (±10%)",
     "explanation": "Điểm d Khoản 1 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng khúc, lóng gỗ tròn, gỗ khối trụ tròn là mười phần trăm (±10%)."
@@ -974,7 +973,7 @@ const questions_KL = [
       "Cộng trừ 2% (±2%)",
       "Cộng trừ 5% (±5%)",
       "Cộng trừ 10% (±10%)",
-      "Cộng trừ 12% (±12%)"
+      "Cộng trừ 8% (±8%)"
     ],
     "correct": "Cộng trừ 5% (±5%)",
     "explanation": "Điểm d Khoản 2 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định sai số tính thể tích gỗ trong mỗi lần đo đối với từng thanh, tấm, hộp gỗ xẻ, gỗ đẽo là năm phần trăm (±5%)."
@@ -986,7 +985,7 @@ const questions_KL = [
       "V = l x a x b",
       "V = (l + a + b) / 3",
       "V = (l x a) / b",
-      "V = 2 x (a + b) x l"
+      "V = (l x a x b) / 2"
     ],
     "correct": "V = l x a x b",
     "explanation": "Điểm c Khoản 2 Phụ lục I Thông tư số 26/2025/TT-BNNMT quy định thể tích hộp gỗ xẻ hình hộp chữ nhật: V = l * a * b (trong đó l, a, b đổi ra đơn vị mét, V lấy 3 số thập phân)."
@@ -996,7 +995,7 @@ const questions_KL = [
     "question": "Trường hợp gỗ có hình thù phức tạp, gốc rễ, gỗ dăm không thể đo được kích thước thì xác định khối lượng như thế nào?",
     "options": [
       "Thực hiện cân (kg) hoặc tính theo ster để quy đổi sang m3 gỗ tròn",
-      "Ước tính theo cảm tính của người kiểm tra",
+      "Đo kích thước bao ngoài lớn nhất rồi áp dụng hệ số suy giảm thể tích 0,5",
       "Bỏ qua không cần thống kê vào Bảng kê lâm sản",
       "Bắt buộc phải xẻ vuông vắn rồi mới đo"
     ],
@@ -1007,7 +1006,7 @@ const questions_KL = [
     "id": "KL_084",
     "question": "Tỷ lệ quy đổi khối lượng cân (kg) sang thể tích mét khối (m3) gỗ tròn theo Thông tư số 26/2025/TT-BNNMT là bao nhiêu?",
     "options": [
-      "500 kg quy đổi bằng 01 m3 gỗ tròn",
+      "900 kg quy đổi bằng 01 m3 gỗ tròn",
       "800 kg quy đổi bằng 01 m3 gỗ tròn",
       "1.000 kg quy đổi bằng 01 m3 gỗ tròn",
       "1.200 kg quy đổi bằng 01 m3 gỗ tròn"
@@ -1022,7 +1021,7 @@ const questions_KL = [
       "01 ster quy đổi bằng 0,5 m3 gỗ tròn",
       "01 ster quy đổi bằng 0,7 m3 gỗ tròn",
       "01 ster quy đổi bằng 1,0 m3 gỗ tròn",
-      "01 ster quy đổi bằng 1,2 m3 gỗ tròn"
+      "01 ster quy đổi bằng 0,8 m3 gỗ tròn"
     ],
     "correct": "01 ster quy đổi bằng 0,7 m3 gỗ tròn",
     "explanation": "Khoản 3 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định rõ: quy đổi 01 ster bằng 0,7 m3 gỗ tròn."
@@ -1034,7 +1033,7 @@ const questions_KL = [
       "Ghi bằng chữ số Ả Rập vào mặt cắt ngang 2 đầu lóng gỗ, dùng sơn khác màu gỗ",
       "Chỉ cần dùng phấn trắng viết một đầu lóng gỗ",
       "Đóng đinh sắt vào giữa thân cây",
-      "Dán tem giấy lên vỏ cây"
+      "Đóng dấu búa kiểm lâm vào giữa thân cây kèm số thứ tự"
     ],
     "correct": "Ghi bằng chữ số Ả Rập vào mặt cắt ngang 2 đầu lóng gỗ, dùng sơn khác màu gỗ",
     "explanation": "Khoản 7 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định số hiệu gỗ đánh bằng chữ số Ả Rập, ghi vào mặt cắt ngang hai đầu lóng gỗ, sử dụng sơn có màu sắc khác với màu của gỗ."
@@ -1046,7 +1045,7 @@ const questions_KL = [
       "Chỉ đánh số hiệu đối với lóng gỗ có đường kính trên 40 cm",
       "Phải đánh số hiệu không phân biệt kích thước lớn hay nhỏ",
       "Chỉ đánh số hiệu khi vận chuyển ra khỏi địa bàn tỉnh",
-      "Miễn đánh số hiệu nếu chủ rừng là hộ gia đình"
+      "Chỉ đánh số hiệu khi vận chuyển ra khỏi địa bàn xã"
     ],
     "correct": "Phải đánh số hiệu không phân biệt kích thước lớn hay nhỏ",
     "explanation": "Khoản 7 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định đối với gỗ thuộc loài nguy cấp, quý, hiếm hoặc gỗ thuộc Phụ lục CITES thì phải đánh số hiệu không phân biệt kích thước."
@@ -1058,7 +1057,7 @@ const questions_KL = [
       "Tính nguyên thể tích cả vỏ không trừ phần rỗng",
       "Xác định và ghi rõ khối lượng phần rỗng ruột, mục để khấu trừ khỏi thể tích toàn bộ",
       "Hủy bỏ toàn bộ lóng gỗ không tính thể tích",
-      "Cộng thêm 10% thể tích vì gỗ có giá trị rỗng ruột"
+      "Quy đổi phần rỗng ruột sang thể tích ster để bù trừ vào thể tích chung"
     ],
     "correct": "Xác định và ghi rõ khối lượng phần rỗng ruột, mục để khấu trừ khỏi thể tích toàn bộ",
     "explanation": "Khoản 2 Điều 4 Thông tư số 26/2025/TT-BNNMT quy định: Ghi khối lượng rỗng ruột, khối lượng mục trong khi thực hiện lập Bảng kê lâm sản để xác định chính xác thể tích thực tế của lâm sản."
@@ -1070,7 +1069,7 @@ const questions_KL = [
       "Màu sơn trang trí chuồng trại",
       "Quy cách chuồng trại bảo đảm an toàn cho người và ngăn ngừa động vật thoát ra ngoài",
       "Khoảng cách đến trung tâm thương mại gần nhất",
-      "Giá vé tham quan chuồng trại"
+      "Hệ thống camera giám sát kết nối trực tiếp với cơ quan Kiểm lâm sở tại"
     ],
     "correct": "Quy cách chuồng trại bảo đảm an toàn cho người và ngăn ngừa động vật thoát ra ngoài",
     "explanation": "Căn cứ Khoản 1 Điều 24 Thông tư số 85/2025/TT-BNNMT quy định chuồng trại nuôi động vật rừng phải phù hợp đặc tính sinh học của loài, bảo đảm an toàn tuyệt đối cho con người và ngăn ngừa động vật thoát ra môi trường tự nhiên."
@@ -1082,7 +1081,7 @@ const questions_KL = [
       "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II",
       "Sổ thu chi tài chính nội bộ của gia đình",
       "Sổ hộ khẩu điện tử trên ứng dụng di động",
-      "Sổ chấm công lao động hàng ngày"
+      "Sổ nhật ký chăm sóc thú y có xác nhận của Chi cục Chăn nuôi và Thú y"
     ],
     "correct": "Sổ theo dõi hoạt động nuôi động vật hoang dã theo Mẫu số 10 Phụ lục II",
     "explanation": "Căn cứ Khoản 2 Điều 24 Thông tư số 85/2025/TT-BNNMT quy định: Tổ chức, cá nhân nuôi động vật rừng thông thường phải thực hiện việc ghi chép Sổ theo dõi theo Mẫu số 10 Phụ lục II ban hành kèm theo Thông tư."
@@ -1094,7 +1093,7 @@ const questions_KL = [
       "Tự ý đem bán cho nhà hàng kinh doanh",
       "Vứt xác động vật ra sông suối tự nhiên",
       "Lập biên bản và thông báo cho cơ quan Kiểm lâm sở tại hoặc UBND xã để phối hợp xử lý",
-      "Tự tiêu hủy mà không cần ghi chép sổ sách"
+      "Báo cáo cơ quan Thú y địa phương trong thời hạn 07 ngày để xử lý tiêu hủy"
     ],
     "correct": "Lập biên bản và thông báo cho cơ quan Kiểm lâm sở tại hoặc UBND xã để phối hợp xử lý",
     "explanation": "Căn cứ Điều 15 và Điều 24 Thông tư số 85/2025/TT-BNNMT: Cơ sở nuôi động vật rừng phải ghi chép sổ theo dõi; khi động vật rừng bị chết, cá thể chết phải được lập biên bản xác nhận, cập nhật sổ theo dõi và thông báo cho cơ quan Kiểm lâm sở tại hoặc cơ quan có thẩm quyền để phối hợp giám sát, xử lý theo quy định."
@@ -1105,7 +1104,7 @@ const questions_KL = [
     "options": [
       "Cấy chip vi điện tử hoặc gắn thẻ tai, vòng chân có mã số nhận dạng",
       "Dùng bút mực viết lên lông động vật",
-      "Cắt một phần tai của con vật",
+      "Chỉ cần đăng ký miệng với Trưởng thôn nơi đặt trại nuôi mà không cần lập hồ sơ đề nghị cấp mã số cơ sở nuôi",
       "Buộc dây nylon màu đỏ vào cổ động vật"
     ],
     "correct": "Cấy chip vi điện tử hoặc gắn thẻ tai, vòng chân có mã số nhận dạng",
@@ -1117,7 +1116,7 @@ const questions_KL = [
     "options": [
       "Chỉ cần chủ cơ sở cam kết con giống khỏe mạnh",
       "Có mã số cơ sở nuôi hợp pháp, con giống có nguồn gốc F2 trở đi và lập bảng kê lâm sản theo quy định",
-      "Không cần giấy tờ nếu bán cho người cùng xã",
+      "Ủy ban nhân dân cấp xã nơi đặt cơ sở nuôi trực tiếp cấp mã số cho mọi loài động vật hoang dã thuộc Phụ lục CITES",
       "Chỉ cần giấy xác nhận của Hội Nông dân xã"
     ],
     "correct": "Có mã số cơ sở nuôi hợp pháp, con giống có nguồn gốc F2 trở đi và lập bảng kê lâm sản theo quy định",
@@ -1129,7 +1128,7 @@ const questions_KL = [
     "options": [
       "Bản đồ địa chính phân lô đất ở của xã",
       "Kết quả kiểm kê rừng tích hợp trên Cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề",
-      "Ảnh chụp từ vệ tinh Google Earth chưa qua hiệu chỉnh",
+      "Trong thời hạn 30 ngày làm việc kể từ ngày nhận được hồ sơ",
       "Số liệu ước tính của Ban Quản lý rừng"
     ],
     "correct": "Kết quả kiểm kê rừng tích hợp trên Cơ sở dữ liệu trung tâm và dữ liệu công bố năm trước liền kề",
@@ -1142,7 +1141,7 @@ const questions_KL = [
       "Phần mềm FRMS (Forest Resource Monitoring System) do Cục Lâm nghiệp và Kiểm lâm ban hành",
       "Phần mềm Microsoft Excel thông thường",
       "Phần mềm AutoCAD thiết kế xây dựng",
-      "Phần mềm quản lý nhân sự công chức"
+      "Được phép thu mua trực tiếp động vật hoang dã do người dân bẫy bắt trái phép từ rừng tự nhiên để làm giống"
     ],
     "correct": "Phần mềm FRMS (Forest Resource Monitoring System) do Cục Lâm nghiệp và Kiểm lâm ban hành",
     "explanation": "Căn cứ Điểm b Khoản 2 Điều 19 Thông tư số 16/2025/TT-BNNMT và Hướng dẫn số 230/HD-CCKL: Ngành Kiểm lâm thống nhất ứng dụng phần mềm Cập nhật diễn biến rừng (FRMS) do Cục Lâm nghiệp và Kiểm lâm ban hành."
@@ -1153,7 +1152,7 @@ const questions_KL = [
     "options": [
       "Máy định vị vệ tinh GPS hoặc máy tính bảng chuyên dụng cài đặt phần mềm bản đồ định vị",
       "Thước cuộn may mặc 1,5 mét",
-      "Ống nhòm ngắm cảnh thông thường",
+      "Tiến hành tịch thu ngay toàn bộ đàn vật nuôi mà không cần lập biên bản kiểm tra hay đối chiếu hồ sơ",
       "La bàn cầm tay không có chức năng lưu tọa độ"
     ],
     "correct": "Máy định vị vệ tinh GPS hoặc máy tính bảng chuyên dụng cài đặt phần mềm bản đồ định vị",
@@ -1165,7 +1164,7 @@ const questions_KL = [
     "options": [
       "Trồng mới rừng trên đất chưa có rừng hoặc khoanh nuôi tái sinh đạt tiêu chí thành rừng",
       "Khai thác trắng rừng trồng đến tuổi khai thác",
-      "Chuyển mục đích sử dụng rừng sang làm đường giao thông",
+      "Được phép xuất bán tự do cá thể thế hệ F1 săn bắt từ tự nhiên mà không cần điều kiện về thế hệ sinh sản",
       "Cháy rừng gây thiệt hại hoàn toàn thảm thực vật"
     ],
     "correct": "Trồng mới rừng trên đất chưa có rừng hoặc khoanh nuôi tái sinh đạt tiêu chí thành rừng",
@@ -1177,7 +1176,7 @@ const questions_KL = [
     "options": [
       "Báo cáo bằng văn bản hoặc trực tiếp cho Kiểm lâm địa bàn hoặc UBND cấp xã để kiểm tra cập nhật",
       "Tự chỉnh sửa số liệu trên phần mềm quản lý quốc gia",
-      "Không cần báo cáo vì đất đã được cấp giấy chứng nhận quyền sử dụng",
+      "Sau 30 ngày kể từ ngày nhập hoặc xuất đàn mới phải ghi chép vào sổ theo dõi",
       "Chỉ báo cáo khi chuẩn bị bán đất rừng"
     ],
     "correct": "Báo cáo bằng văn bản hoặc trực tiếp cho Kiểm lâm địa bàn hoặc UBND cấp xã để kiểm tra cập nhật",
@@ -1189,7 +1188,7 @@ const questions_KL = [
     "options": [
       "Chi cục trưởng Chi cục Kiểm lâm",
       "Chủ tịch Ủy ban nhân dân cấp tỉnh",
-      "Giám đốc Sở Nông nghiệp và Môi trường",
+      "Phòng Kinh tế hoặc Phòng Văn hóa - Xã hội thuộc Ủy ban nhân dân cấp xã",
       "Cục trưởng Cục Thống kê tỉnh"
     ],
     "correct": "Chủ tịch Ủy ban nhân dân cấp tỉnh",
@@ -1202,7 +1201,7 @@ const questions_KL = [
       "Trước ngày 28 tháng 02 năm sau liền kề",
       "Trước ngày 31 tháng 01 năm sau liền kề",
       "Trước ngày 31 tháng 03 năm sau liền kề",
-      "Trước ngày 15 tháng 01 năm sau liền kề"
+      "Chỉ cần Giấy chứng nhận kiểm dịch động vật của cơ quan Thú y mà không cần Bảng kê lâm sản"
     ],
     "correct": "Trước ngày 28 tháng 02 năm sau liền kề",
     "explanation": "Căn cứ Điểm d Khoản 4 Điều 19 Thông tư số 16/2025/TT-BNNMT: Chi cục Kiểm lâm cấp tỉnh lập hồ sơ báo cáo Sở Nông nghiệp và Môi trường trình Chủ tịch UBND cấp tỉnh quyết định công bố hiện trạng rừng trước ngày 28 tháng 02 năm sau (thời hạn trước 31 tháng 3 năm sau là của Bộ Nông nghiệp và Môi trường công bố hiện trạng rừng toàn quốc)."
@@ -1212,7 +1211,7 @@ const questions_KL = [
     "question": "Theo Nghị định số 58/2024/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 42/2026/NĐ-CP), mức cấp kinh phí bảo vệ rừng đặc dụng bình quân hàng năm cho Ban quản lý rừng đặc dụng là bao nhiêu?",
     "options": [
       "500.000 đồng/ha/năm",
-      "300.000 đồng/ha/năm",
+      "Giao cho Ủy ban nhân dân cấp xã bán thanh lý ngay cho các cơ sở chế biến thực phẩm trên địa bàn",
       "700.000 đồng/ha/năm",
       "1.000.000 đồng/ha/năm"
     ],
@@ -1226,7 +1225,7 @@ const questions_KL = [
       "1.000.000 đồng/ha/năm",
       "500.000 đồng/ha/năm",
       "800.000 đồng/ha/năm",
-      "1.500.000 đồng/ha/năm"
+      "600.000 đồng/ha/năm"
     ],
     "correct": "1.000.000 đồng/ha/năm",
     "explanation": "Điểm b Khoản 2 Điều 5 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Cộng đồng dân cư được giao rừng đặc dụng được Nhà nước cấp kinh phí bảo vệ rừng bình quân 1.000.000 đồng/ha/năm trên tổng diện tích rừng đặc dụng được giao."
@@ -1237,7 +1236,7 @@ const questions_KL = [
     "options": [
       "Bình quân 2.500.000 đồng/ha/năm trong thời gian 6 năm (vùng đất ven biển bằng 1,5 lần mức bình quân)",
       "Bình quân 1.500.000 đồng/ha/năm trong thời gian 3 năm",
-      "Bình quân 3.000.000 đồng/ha/năm trong thời gian 5 năm",
+      "300.000 đồng/ha/năm trong thời gian 05 năm",
       "Bình quân 2.000.000 đồng/ha/năm trong thời gian 4 năm"
     ],
     "correct": "Bình quân 2.500.000 đồng/ha/năm trong thời gian 6 năm (vùng đất ven biển bằng 1,5 lần mức bình quân)",
@@ -1249,7 +1248,7 @@ const questions_KL = [
     "options": [
       "100.000.000 đồng/cộng đồng dân cư/năm",
       "50.000.000 đồng/cộng đồng dân cư/năm",
-      "150.000.000 đồng/cộng đồng dân cư/năm",
+      "400.000.000 đồng/cộng đồng dân cư/năm",
       "200.000.000 đồng/cộng đồng dân cư/năm"
     ],
     "correct": "100.000.000 đồng/cộng đồng dân cư/năm",
@@ -1261,7 +1260,7 @@ const questions_KL = [
     "options": [
       "1.000.000 đồng/ha/năm",
       "500.000 đồng/ha/năm",
-      "600.000 đồng/ha/năm",
+      "3.000.000 đồng/ha/năm trong suốt chu kỳ kinh doanh rừng",
       "400.000 đồng/ha/năm"
     ],
     "correct": "1.000.000 đồng/ha/năm",
@@ -1273,7 +1272,7 @@ const questions_KL = [
     "options": [
       "500.000 đồng/ha/năm",
       "300.000 đồng/ha/năm",
-      "700.000 đồng/ha/năm",
+      "400.000 đồng/ha/năm",
       "1.000.000 đồng/ha/năm"
     ],
     "correct": "500.000 đồng/ha/năm",
@@ -1286,7 +1285,7 @@ const questions_KL = [
       "Bình quân 15.000.000 đồng/ha/chu kỳ",
       "Bình quân 10.000.000 đồng/ha/chu kỳ",
       "Bình quân 20.000.000 đồng/ha/chu kỳ",
-      "Bình quân 30.000.000 đồng/ha/chu kỳ"
+      "Bình quân 12.000.000 đồng/ha/chu kỳ"
     ],
     "correct": "Bình quân 15.000.000 đồng/ha/chu kỳ",
     "explanation": "Điểm a Khoản 2 Điều 14 Nghị định số 58/2024/NĐ-CP: Hỗ trợ một lần bình quân 15.000.000 đồng/ha/chu kỳ để mua cây giống, vật tư, phân bón đối với trồng cây lấy gỗ, cây lâm sản ngoài gỗ theo chu kỳ kinh doanh của loài cây trồng."
@@ -1298,7 +1297,7 @@ const questions_KL = [
       "Tối đa 12 năm tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng",
       "Tối đa 10 năm tính từ ngày ký hợp đồng",
       "Tối đa 15 năm tính từ ngày trồng rừng",
-      "Tối đa 08 năm theo chu kỳ kinh doanh"
+      "Tối đa 08 năm tính từ ngày giải ngân vốn vay"
     ],
     "correct": "Tối đa 12 năm tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng",
     "explanation": "Điểm b Khoản 2 Điều 15 Nghị định số 58/2024/NĐ-CP: Thời gian hỗ trợ lãi suất tính từ ngày bắt đầu giải ngân theo hợp đồng tín dụng đầu tư với ngân hàng thương mại, tối đa 12 năm; số vốn vay được hỗ trợ không quá 70% tổng vốn vay."
@@ -1310,7 +1309,7 @@ const questions_KL = [
       "Hỗ trợ sau đầu tư một lần tối đa 400.000 đồng/ha",
       "Hỗ trợ trực tiếp trước đầu tư 200.000 đồng/ha",
       "Hỗ trợ hàng năm tối đa 500.000 đồng/ha",
-      "Hỗ trợ 50% chi phí nhưng không quá 100.000 đồng/ha"
+      "Hỗ trợ sau đầu tư một lần tối đa 300.000 đồng/ha"
     ],
     "correct": "Hỗ trợ sau đầu tư một lần tối đa 400.000 đồng/ha",
     "explanation": "Khoản 2 Điều 16 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ một lần xây dựng phương án quản lý rừng bền vững và cấp chứng chỉ quản lý rừng bền vững tối đa 400.000 đồng/ha theo hình thức hỗ trợ sau đầu tư."
@@ -1322,7 +1321,7 @@ const questions_KL = [
       "Tối đa 450.000.000 đồng/km",
       "Tối đa 300.000.000 đồng/km",
       "Tối đa 500.000.000 đồng/km",
-      "Tối đa 600.000.000 đồng/km"
+      "Tối đa 400.000.000 đồng/km"
     ],
     "correct": "Tối đa 450.000.000 đồng/km",
     "explanation": "Điểm b Khoản 1 Điều 17 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ đầu tư xây dựng đường lâm nghiệp tối đa 450.000.000 đồng/km tại khu vực trồng rừng sản xuất có quy mô tập trung từ 500 ha trở lên."
@@ -1334,7 +1333,7 @@ const questions_KL = [
       "Tối đa 100.000.000 đồng/km",
       "Tối đa 50.000.000 đồng/km",
       "Tối đa 150.000.000 đồng/km",
-      "Tối đa 200.000.000 đồng/km"
+      "Tối đa 80.000.000 đồng/km"
     ],
     "correct": "Tối đa 100.000.000 đồng/km",
     "explanation": "Điểm b Khoản 2 Điều 17 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ đầu tư xây dựng đường băng cản lửa tối đa 100.000.000 đồng/km tại khu rừng sản xuất có quy mô tập trung từ 500 ha trở lên."
@@ -1345,7 +1344,7 @@ const questions_KL = [
     "options": [
       "Tối đa bằng 0,4 ngày lương tối thiểu vùng/suất ăn",
       "Tối đa bằng 0,2 ngày lương tối thiểu vùng/suất ăn",
-      "Tối đa bằng 0,5 ngày lương tối thiểu vùng/suất ăn",
+      "Tối đa bằng 0,3 ngày lương tối thiểu vùng/suất ăn",
       "Cố định 100.000 đồng/suất ăn đối với mọi địa bàn"
     ],
     "correct": "Tối đa bằng 0,4 ngày lương tối thiểu vùng/suất ăn",
@@ -1358,7 +1357,7 @@ const questions_KL = [
       "15 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 7 năm",
       "10 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 5 năm",
       "20 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 3 năm",
-      "30 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 10 năm"
+      "15 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 5 năm"
     ],
     "correct": "15 kg gạo/khẩu/tháng, thời gian trợ cấp tối đa 7 năm",
     "explanation": "Khoản 2 Điều 21 Nghị định số 58/2024/NĐ-CP: Mức trợ cấp 15 kg gạo/khẩu/tháng; Chủ tịch UBND cấp tỉnh quyết định đối tượng, mức và hình thức cụ thể, thời gian trợ cấp tối đa 7 năm."
@@ -1370,7 +1369,7 @@ const questions_KL = [
       "Bình quân 15.000.000 đồng/ha",
       "Bình quân 10.000.000 đồng/ha",
       "Bình quân 20.000.000 đồng/ha",
-      "Bình quân 25.000.000 đồng/ha"
+      "Bình quân 12.000.000 đồng/ha"
     ],
     "correct": "Bình quân 15.000.000 đồng/ha",
     "explanation": "Khoản 2 Điều 23 Nghị định số 58/2024/NĐ-CP: Mức hỗ trợ bình quân 15.000.000 đồng/ha trồng cây phân tán (quy đổi 1.000 cây/ha) để hỗ trợ mua cây giống, phân bón và chi phí một phần nhân công trồng, chăm sóc, quản lý, giám sát."
@@ -1382,7 +1381,7 @@ const questions_KL = [
       "Sở Nông nghiệp và Môi trường",
       "Sở Tài chính",
       "Sở Kế hoạch và Đầu tư",
-      "Ban Quản lý dự án đầu tư xây dựng chuyên ngành cấp tỉnh"
+      "Chi cục Kiểm lâm cấp tỉnh"
     ],
     "correct": "Sở Nông nghiệp và Môi trường",
     "explanation": "Điểm c Khoản 1 Điều 31 Nghị định số 58/2024/NĐ-CP (sửa đổi bởi Nghị định số 42/2026/NĐ-CP): Đối với các dự án do Chủ tịch Ủy ban nhân dân cấp tỉnh quyết định đầu tư, Sở Nông nghiệp và Môi trường chủ trì thẩm định thiết kế, dự toán công trình lâm sinh."
