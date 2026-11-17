@@ -8,7 +8,7 @@
 const question_CBLS = [
   {
     "id": "CBLS_001",
-    "question": "Theo Thông tư 26/2025/TT-BNNMT (hợp nhất TT 84/2025/TT-BNNMT), trường hợp nào sau đây chủ lâm sản KHÔNG BẮT BUỘC phải đề nghị cơ quan Kiểm lâm xác nhận Bảng kê lâm sản khi xuất bán?",
+    "question": "Theo Thông tư 26/2025/TT-BNNMT (sửa đổi, bổ sung bởi Thông tư số 84/2025/TT-BNNMT), trường hợp nào sau đây chủ lâm sản KHÔNG BẮT BUỘC phải đề nghị cơ quan Kiểm lâm xác nhận Bảng kê lâm sản khi xuất bán?",
     "options": [
       "Doanh nghiệp chế biến gỗ được phân loại Nhóm I xuất bán sản phẩm gỗ hoặc gỗ rừng trồng hợp pháp trong nước; lâm sản là sản phẩm gỗ hoàn chỉnh",
       "Xuất bán gỗ tròn khai thác từ rừng tự nhiên trong nước",
