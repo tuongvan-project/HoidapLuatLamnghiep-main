@@ -2,10 +2,11 @@
 // BỘ CÂU HỎI TRẮC NGHIỆM ĐÃ RÀ SOÁT, ĐỐI CHIẾU VÀ CHUẨN HÓA PHÁP LÝ (BẢN V2 - NÂNG CAO ĐỘ KHÓ)
 // Gói dữ liệu: Quyền, nghĩa vụ chủ rừng và chính sách lâm nghiệp (130 câu)
 // Đã điều chỉnh: Tăng độ khó bằng cách thay thế 1 phương án sai lộ liễu thành phương án nhiễu tinh vi (plausible distractor)
-// Đã rà soát đối chiếu nguyên văn QPPL ngày 17/11/2026
+// Đã rà soát đối chiếu nguyên văn QPPL ngày 21/11/2026 (BLHS 135/VBHN-VPQH)
 // ============================================================================
 
-const question_ChuRung = [
+const question_ChuRung = 
+[
     {
         "id": "ChuRung_001",
         "question": "Một khu đất trồng cây lâm nghiệp trên đồi, núi đất hoặc đồng bằng được xác định đạt tiêu chí rừng trồng khi đồng thời đáp ứng đủ cả 3 điều kiện nào sau đây?",
@@ -76,7 +77,7 @@ const question_ChuRung = [
             "Chỉ bị xử lý hình sự khi chặt hạ các cây gỗ có đường kính trên 01 mét"
         ],
         "correct": "Từ 5.000 m² đến dưới 10.000 m², hoặc dưới 5.000 m² nhưng đã bị xử phạt VPHC về hành vi tại Điều 243 hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm",
-        "explanation": "Căn cứ Điểm b và Điểm g Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi đốt, phá rừng trái phép hoặc có hành vi khác hủy hoại rừng sản xuất có diện tích từ 5.000 m² đến dưới 10.000 m² (hoặc dưới mức này nhưng đã bị xử phạt vi phạm hành chính về một trong các hành vi quy định tại Điều này hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm) bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+        "explanation": "Căn cứ Điểm b và Điểm g Khoản 1 Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt, phá rừng trái phép hoặc có hành vi khác hủy hoại rừng sản xuất có diện tích từ 5.000 m² đến dưới 10.000 m² (hoặc dưới mức này nhưng đã bị xử phạt vi phạm hành chính về một trong các hành vi quy định tại Điều này hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm) bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
     },
     {
         "id": "ChuRung_007",
@@ -88,7 +89,7 @@ const question_ChuRung = [
             "Rừng đặc dụng không quy định định lượng diện tích hình sự mà chỉ phạt tiền"
         ],
         "correct": "Diện tích từ 1.000 m² trở lên (khung cơ bản từ 1.000 m² đến dưới 3.000 m²)",
-        "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² đã cấu thành Tội hủy hoại rừng, bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+        "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng đặc dụng có diện tích từ 1.000 m² đến dưới 3.000 m² đã cấu thành Tội hủy hoại rừng, bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
     },
     {
         "id": "ChuRung_008",
@@ -172,7 +173,7 @@ const question_ChuRung = [
             "Thỏa thuận thu tiền cho qua đường đối với nhóm người mang cưa xăng vào rừng"
         ],
         "correct": "Thông báo kịp thời cho cơ quan nhà nước có thẩm quyền (Kiểm lâm, UBND cấp xã, Công an) hoặc chủ rừng về hành vi vi phạm để ngăn chặn, xử lý",
-        "explanation": "Căn cứ Khoản 2 Điều 43 và Điều 102 Luật Lâm nghiệp: Tổ chức, hộ gia đình, cá nhân, cộng đồng dân cư có trách nhiệm thông báo kịp thời cho cơ quan nhà nước có thẩm quyền hoặc chủ rừng về cháy rừng, sinh vật gây hại rừng và hành vi vi phạm quy định về quản lý, bảo vệ rừng."
+        "explanation": "Căn cứ Khoản 2 Điều 43 Luật Lâm nghiệp (VBHN số 68/VBHN-VPQH): Tổ chức, hộ gia đình, cá nhân, cộng đồng dân cư có trách nhiệm thông báo kịp thời cho cơ quan nhà nước có thẩm quyền hoặc chủ rừng về cháy rừng, sinh vật gây hại rừng và hành vi vi phạm quy định về quản lý, bảo vệ rừng."
     },
     {
         "id": "ChuRung_015",
@@ -551,12 +552,12 @@ const question_ChuRung = [
         "question": "Hành vi đốt nương rẫy bất cẩn vi phạm quy định PCCCR làm cháy lan vào rừng gây thiệt hại rừng thì người gây cháy bị xử lý như thế nào?",
         "options": [
             "Chỉ cần xin lỗi chủ rừng là xong",
-            "Bị xử phạt vi phạm hành chính, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu trách nhiệm hình sự nếu đủ định lượng hủy hoại rừng",
+            "Bị xử phạt vi phạm hành chính, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu trách nhiệm hình sự về Tội vi phạm quy định về phòng cháy, chữa cháy nếu đủ yếu tố cấu thành tội phạm",
             "Chỉ phải nộp phạt tiền hành chính nếu diện tích rừng bị cháy lan dưới 01 héc-ta",
             "Được Nhà nước thưởng tiền vì giúp dọn sạch thực bì"
         ],
-        "correct": "Bị xử phạt vi phạm hành chính, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu trách nhiệm hình sự nếu đủ định lượng hủy hoại rừng",
-        "explanation": "Căn cứ Điều 13 Luật Xử lý vi phạm hành chính (VBHN số 90/VBHN-VPQH), Điều 20 Nghị định số 146/2026/NĐ-CP và Điều 243 Bộ luật Hình sự: Người vi phạm quy định PCCCR gây cháy rừng bị xử phạt hành chính (và buộc trồng lại rừng, khắc phục ô nhiễm môi trường), phải bồi thường thiệt hại theo pháp luật dân sự, hoặc bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng nếu đạt ngưỡng diện tích/trị giá tại Điều 243 BLHS."
+        "correct": "Bị xử phạt vi phạm hành chính, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu trách nhiệm hình sự về Tội vi phạm quy định về phòng cháy, chữa cháy nếu đủ yếu tố cấu thành tội phạm",
+        "explanation": "Căn cứ Điều 13 Luật Xử lý vi phạm hành chính (VBHN số 90/VBHN-VPQH), Điều 20 Nghị định số 146/2026/NĐ-CP và Điều 313 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Người đốt nương rẫy bất cẩn (vô ý) vi phạm quy định PCCCR gây cháy rừng bị xử phạt vi phạm hành chính theo Điều 20 Nghị định số 146/2026/NĐ-CP (và buộc trồng lại rừng, khắc phục ô nhiễm môi trường, lây lan dịch bệnh), phải bồi thường thiệt hại theo pháp luật dân sự, hoặc bị truy cứu trách nhiệm hình sự về Tội vi phạm quy định về phòng cháy, chữa cháy theo Điều 313 Bộ luật Hình sự nếu gây thiệt hại đạt mức truy cứu trách nhiệm hình sự (như thiệt hại tài sản từ 100.000.000 đồng trở lên hoặc làm chết người, gây thương tích nặng)."
     },
     {
         "id": "ChuRung_047",
@@ -635,12 +636,12 @@ const question_ChuRung = [
         "question": "Hành vi đốt lửa, sử dụng lửa để lấy mật ong trong rừng làm lửa bùng phát gây cháy rừng bị xử lý như thế nào?",
         "options": [
             "Được miễn trách nhiệm nếu giao nộp lại toàn bộ mật ong thu được",
-            "Bị xử phạt VPHC, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu TNHS về Tội hủy hoại rừng nếu đủ định lượng",
+            "Bị xử phạt VPHC, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy nếu đủ yếu tố cấu thành tội phạm",
             "Chỉ bị phạt tiền mức 500.000 đồng nếu người lấy mật ong tự khắc phục hậu quả ban đầu",
             "Không bị xử lý nếu lấy mật ong để làm thuốc chữa bệnh cho gia đình"
         ],
-        "correct": "Bị xử phạt VPHC, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu TNHS về Tội hủy hoại rừng nếu đủ định lượng",
-        "explanation": "Căn cứ Điểm i Khoản 3, Khoản 10 Điều 19 và Điều 20 Nghị định số 146/2026/NĐ-CP, Điều 13 Luật Xử lý vi phạm hành chính và Điều 243 Bộ luật Hình sự: Riêng hành vi đốt lửa, sử dụng lửa để lấy mật ong rừng bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu gây cháy rừng thì bị xử phạt theo Điều 20 Nghị định 146/2026/NĐ-CP (và buộc trồng lại rừng), phải bồi thường thiệt hại theo pháp luật dân sự hoặc truy cứu TNHS về Tội hủy hoại rừng nếu đủ định lượng tại Điều 243 BLHS."
+        "correct": "Bị xử phạt VPHC, buộc trồng lại rừng, bồi thường thiệt hại hoặc bị truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy nếu đủ yếu tố cấu thành tội phạm",
+        "explanation": "Căn cứ Điểm i Khoản 3, Khoản 10 Điều 19 và Điều 20 Nghị định số 146/2026/NĐ-CP, Điều 13 Luật Xử lý vi phạm hành chính (VBHN số 90/VBHN-VPQH) và Điều 313 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Riêng hành vi đốt lửa, sử dụng lửa để lấy mật ong rừng bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu gây cháy rừng do bất cẩn (vô ý) thì bị xử phạt theo Điều 20 Nghị định số 146/2026/NĐ-CP (và buộc trồng lại rừng), phải bồi thường thiệt hại theo pháp luật dân sự hoặc truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy theo Điều 313 BLHS nếu gây thiệt hại đạt mức truy cứu trách nhiệm hình sự (như thiệt hại tài sản từ 100.000.000 đồng trở lên hoặc làm chết người, gây thương tích nặng)."
     },
     {
         "id": "ChuRung_054",
@@ -800,15 +801,15 @@ const question_ChuRung = [
     },
     {
         "id": "ChuRung_067",
-        "question": "Theo Luật Lâm nghiệp và Nghị định số 156/2018/NĐ-CP, Nhà nước hỗ trợ thâm canh rừng trồng cung cấp gỗ lớn, trồng cây bản địa nhằm mục tiêu gì?",
+        "question": "Theo Điểm a Khoản 1 Điều 88 Nghị định số 156/2018/NĐ-CP (VBHN số 13/VBHN-BNNMT) và Khoản 4 Điều 4 Luật Lâm nghiệp, hoạt động nào sau đây về trồng rừng gỗ lớn, trồng cây bản địa thuộc nội dung được Nhà nước hỗ trợ đầu tư?",
         "options": [
-            "Chỉ để lấy lá xanh làm phân bón ruộng",
-            "Góp phần bảo vệ và phát triển rừng sản xuất theo chuỗi giá trị, nâng cao giá trị kinh tế và bảo vệ môi trường bền vững",
-            "Để rút ngắn chu kỳ khai thác xuống còn 01 năm lấy gỗ non bán dăm",
-            "Chỉ nhằm mục đích chặt làm củi đun cho hộ gia đình"
+            "Hỗ trợ chi phí chặt bỏ toàn bộ rừng trồng gỗ lớn để chuyển sang trồng cây nông nghiệp hằng năm",
+            "Ứng dụng công nghệ cao, công nghệ tiên tiến, công nghệ mới trong thâm canh rừng trồng cung cấp gỗ lớn, trồng cây bản địa, trồng rừng hỗn loài; trồng rừng gỗ lớn và chuyển hóa rừng trồng gỗ nhỏ sang rừng trồng gỗ lớn",
+            "Chỉ hỗ trợ xây dựng nhà máy chế biến dăm gỗ non từ rừng trồng chu kỳ ngắn dưới 02 năm của hộ gia đình",
+            "Hỗ trợ toàn bộ chi phí chuyển mục đích sử dụng rừng tự nhiên sang làm đất ở đô thị"
         ],
-        "correct": "Góp phần bảo vệ và phát triển rừng sản xuất theo chuỗi giá trị, nâng cao giá trị kinh tế và bảo vệ môi trường bền vững",
-        "explanation": "Căn cứ Khoản 4 Điều 4 Luật Lâm nghiệp và Điểm a Khoản 1 Điều 88 Nghị định số 156/2018/NĐ-CP (VBHN số 13/VBHN-BNNMT): Nhà nước tổ chức, hỗ trợ phát triển rừng sản xuất, trồng rừng gỗ lớn, chuyển hóa rừng trồng gỗ nhỏ sang rừng trồng gỗ lớn, trồng cây bản địa, trồng rừng hỗn loài nhằm nâng cao giá trị kinh tế, quản lý rừng bền vững và bảo vệ môi trường."
+        "correct": "Ứng dụng công nghệ cao, công nghệ tiên tiến, công nghệ mới trong thâm canh rừng trồng cung cấp gỗ lớn, trồng cây bản địa, trồng rừng hỗn loài; trồng rừng gỗ lớn và chuyển hóa rừng trồng gỗ nhỏ sang rừng trồng gỗ lớn",
+        "explanation": "Căn cứ Khoản 4 Điều 4 Luật Lâm nghiệp (VBHN số 68/VBHN-VPQH) và Điểm a Khoản 1 Điều 88 Nghị định số 156/2018/NĐ-CP (VBHN số 13/VBHN-BNNMT): Nhà nước tổ chức, hỗ trợ trồng rừng gỗ lớn, chuyển hóa rừng trồng gỗ nhỏ sang rừng trồng gỗ lớn; đồng thời ngân sách nhà nước hỗ trợ đầu tư ứng dụng công nghệ cao, công nghệ tiên tiến, công nghệ mới trong thâm canh rừng trồng cung cấp gỗ lớn, trồng cây bản địa, trồng rừng hỗn loài."
     },
     {
         "id": "ChuRung_068",
@@ -964,7 +965,7 @@ const question_ChuRung = [
             "Phá bao nhiêu cũng chỉ bị phạt tiền hành chính, không bị xử lý hình sự"
         ],
         "correct": "Từ 5.000 m² (0,5 ha) trở lên đã cấu thành tội phạm hình sự",
-        "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng sản xuất có diện tích từ 5.000 m² (0,5 ha) đến dưới 10.000 m² là cấu thành cơ bản của Tội hủy hoại rừng (bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
+        "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng sản xuất có diện tích từ 5.000 m² (0,5 ha) đến dưới 10.000 m² là cấu thành cơ bản của Tội hủy hoại rừng (bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
     },
     {
         "id": "ChuRung_081",
@@ -976,7 +977,7 @@ const question_ChuRung = [
             "Từ 10.000 m² trở lên"
         ],
         "correct": "Từ 3.000 m² trở lên đã đủ yếu tố cấu thành tội phạm hình sự",
-        "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng phòng hộ có diện tích từ 3.000 m² (0,3 ha) đến dưới 7.000 m² đủ yếu tố cấu thành Tội hủy hoại rừng (bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
+        "explanation": "Căn cứ Điểm c Khoản 1 Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng phòng hộ có diện tích từ 3.000 m² (0,3 ha) đến dưới 7.000 m² đủ yếu tố cấu thành Tội hủy hoại rừng (bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
     },
     {
         "id": "ChuRung_082",
@@ -988,7 +989,7 @@ const question_ChuRung = [
             "Từ 5.000 m² trở lên"
         ],
         "correct": "Từ 1.000 m² trở lên đã bị truy cứu trách nhiệm hình sự",
-        "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự: Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng đặc dụng có diện tích từ 1.000 m² (0,1 ha) đến dưới 3.000 m² đã đủ yếu tố cấu thành Tội hủy hoại rừng (bị phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
+        "explanation": "Căn cứ Điểm d Khoản 1 Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng đặc dụng có diện tích từ 1.000 m² (0,1 ha) đến dưới 3.000 m² đã đủ yếu tố cấu thành Tội hủy hoại rừng (bị phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm)."
     },
     {
         "id": "ChuRung_083",
@@ -1030,13 +1031,13 @@ const question_ChuRung = [
         "id": "ChuRung_086",
         "question": "Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép cá thể động vật thuộc Danh mục loài nguy cấp, quý, hiếm ĐƯỢC ƯU TIÊN BẢO VỆ bị xử lý thế nào theo Khoản 1 Điều 244 Bộ luật Hình sự?",
         "options": [
-            "Chỉ cần 01 cá thể đã bị truy cứu trách nhiệm hình sự, bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
+            "Chỉ cần 01 cá thể đã bị truy cứu trách nhiệm hình sự, bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
             "Nuôi 01 cá thể làm cảnh trong nhà thì không bị truy cứu trách nhiệm hình sự",
             "Chỉ bị xử phạt vi phạm hành chính từ 10.000.000 đồng đến 20.000.000 đồng nếu vi phạm lần đầu",
             "Được phép tự do nuôi nhốt nếu xây dựng chuồng sắt kiên cố"
         ],
-        "correct": "Chỉ cần 01 cá thể đã bị truy cứu trách nhiệm hình sự, bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
-        "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự: Người nào săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ (không phân biệt số lượng, từ 01 cá thể) thì bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
+        "correct": "Chỉ cần 01 cá thể đã bị truy cứu trách nhiệm hình sự, bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm",
+        "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Người nào săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ (không phân biệt số lượng, từ 01 cá thể) thì bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
     },
     {
         "id": "ChuRung_087",
@@ -1112,15 +1113,15 @@ const question_ChuRung = [
     },
     {
         "id": "ChuRung_093",
-        "question": "Đốt lửa trong rừng bất cẩn làm cháy hủy hoại từ 5.000 m² đến dưới 10.000 m² rừng sản xuất thì người gây cháy bị xử lý hình sự về tội gì theo Điều 243 Bộ luật Hình sự?",
+        "question": "Người đốt lửa trong rừng bất cẩn (lỗi vô ý) vi phạm quy định về phòng cháy, chữa cháy rừng làm cháy rừng gây thiệt hại về tài sản từ 100.000.000 đồng đến dưới 500.000.000 đồng thì bị truy cứu trách nhiệm hình sự về tội gì theo Bộ luật Hình sự?",
         "options": [
-            "Chỉ bị nhắc nhở rút kinh nghiệm vì thời tiết mùa đông hanh khô",
-            "Bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng (phạt tiền 50 - 500 triệu đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù 01 - 05 năm)",
-            "Chỉ bị xử phạt vi phạm hành chính mà không bị truy cứu trách nhiệm hình sự",
-            "Được cơ quan chức năng hỗ trợ chi phí khắc phục hậu quả"
+            "Chỉ bị xử phạt vi phạm hành chính theo Nghị định số 146/2026/NĐ-CP và không bao giờ bị truy cứu trách nhiệm hình sự vì không có lỗi cố ý",
+            "Tội vi phạm quy định về phòng cháy, chữa cháy (Điều 313 BLHS, bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm; có thể bị phạt bổ sung từ 10.000.000 đồng đến 50.000.000 đồng) và bồi thường thiệt hại",
+            "Tội hủy hoại rừng theo Điều 243 Bộ luật Hình sự với khung phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng",
+            "Chỉ bị nhắc nhở rút kinh nghiệm và không phải bồi thường thiệt hại vì cháy lan do thời tiết hanh khô"
         ],
-        "correct": "Bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng (phạt tiền 50 - 500 triệu đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù 01 - 05 năm)",
-        "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự: Người nào đốt, phá rừng trái phép hoặc có hành vi khác hủy hoại rừng sản xuất có diện tích từ 5.000 m² đến dưới 10.000 m² thì bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng, với mức phạt tiền từ 50.000.000 đồng đến 500.000.000 đồng, phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm."
+        "correct": "Tội vi phạm quy định về phòng cháy, chữa cháy (Điều 313 BLHS, bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm; có thể bị phạt bổ sung từ 10.000.000 đồng đến 50.000.000 đồng) và bồi thường thiệt hại",
+        "explanation": "Căn cứ Điểm d Khoản 1 và Khoản 5 Điều 313 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Người nào vi phạm quy định về phòng cháy, chữa cháy (lỗi vô ý/bất cẩn) gây thiệt hại về tài sản từ 100.000.000 đồng đến dưới 500.000.000 đồng thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm (còn có thể bị phạt tiền từ 10.000.000 đồng đến 50.000.000 đồng, cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc nhất định từ 01 năm đến 05 năm), đồng thời phải bồi thường thiệt hại theo pháp luật dân sự (Điều 13 Luật Xử lý vi phạm hành chính). Nếu chưa đến mức truy cứu trách nhiệm hình sự, hành vi vi phạm quy định PCCCR gây cháy rừng bị xử phạt vi phạm hành chính theo Điều 20 Nghị định số 146/2026/NĐ-CP và buộc bồi thường thiệt hại."
     },
     {
         "id": "ChuRung_094",
@@ -1228,7 +1229,7 @@ const question_ChuRung = [
             "Ưu tiên thả các loài động vật ăn thịt ngoại lai để tăng đa dạng loài"
         ],
         "correct": "Chỉ thả loài động vật bản địa khỏe mạnh, không có bệnh và có phân bố tự nhiên phù hợp; nghiêm cấm thả loài ngoại lai xâm hại",
-        "explanation": "Căn cứ Điểm c, Điểm d Khoản 2 Điều 11 Nghị định số 156/2018/NĐ-CP (VBHN số 13/VBHN-BNNMT), Khoản 7 Điều 7 Luật Đa dạng sinh học và Điểm d Khoản 4, Điểm b Khoản 5 Điều 19 Nghị định số 146/2026/NĐ-CP: Được thả những loài động vật bản địa khỏe mạnh, không có bệnh và đã có phân bố trong khu rừng đặc dụng; không thả loài không có phân bố tự nhiên; hành vi thả động vật ngoại lai xâm hại vào rừng tự nhiên, rừng phòng hộ, rừng đặc dụng bị phạt tiền từ 5.000.000 đồng đến 15.000.000 đồng."
+        "explanation": "Căn cứ Điểm c, Điểm d Khoản 2 Điều 11 Nghị định số 156/2018/NĐ-CP (VBHN số 13/VBHN-BNNMT), Khoản 7 Điều 7 Luật Đa dạng sinh học (VBHN số 73/VBHN-VPQH) và Điểm d Khoản 4, Điểm b Khoản 5 Điều 19 Nghị định số 146/2026/NĐ-CP: Được thả những loài động vật bản địa khỏe mạnh, không có bệnh và đã có phân bố trong khu rừng đặc dụng; không thả loài không có phân bố tự nhiên. Hành vi thả các loài động vật ngoại lai xâm hại vào rừng sản xuất là rừng tự nhiên, rừng phòng hộ bị phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng (Điểm d Khoản 4 Điều 19 NĐ 146); thả vào rừng đặc dụng bị phạt tiền từ 10.000.000 đồng đến 15.000.000 đồng (Điểm b Khoản 5 Điều 19 NĐ 146)."
     },
     {
         "id": "ChuRung_103",
@@ -1388,15 +1389,15 @@ const question_ChuRung = [
     },
     {
         "id": "ChuRung_116",
-        "question": "Tình huống: Ông C đốt thực bì bất cẩn gặp gió to cháy lan vào rừng trồng keo sản xuất gây thiệt hại 5.000 m² (0,5 ha) rừng sản xuất. Ông C có thể bị xử lý như thế nào theo Bộ luật Hình sự?",
+        "question": "Tình huống: Ông C đốt thực bì bất cẩn (lỗi vô ý), vi phạm quy định về phòng cháy, chữa cháy rừng gặp gió to cháy lan vào rừng trồng keo sản xuất của người khác gây thiệt hại về tài sản từ 100.000.000 đồng đến dưới 500.000.000 đồng. Ông C bị xử lý như thế nào?",
         "options": [
-            "Có thể bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng (Điều 243 BLHS, khung phạt tiền 50 - 500 triệu đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù 01 - 05 năm) và phải bồi thường thiệt hại",
+            "Bị truy cứu trách nhiệm hình sự về Tội vi phạm quy định về phòng cháy, chữa cháy (Điểm d Khoản 1 Điều 313 BLHS: cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm; có thể phạt tiền bổ sung 10.000.000 - 50.000.000 đồng) và phải bồi thường thiệt hại",
             "Không bị xử lý vì việc đốt dọn thực bì là tập quán canh tác lâu đời",
-            "Chỉ phải trồng bù tượng trưng 10 cây keo con là hoàn thành trách nhiệm",
-            "Được Nhà nước hỗ trợ kinh phí bồi thường thay cho chủ rừng keo"
+            "Bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng theo Điều 243 Bộ luật Hình sự (phạt tiền từ 100.000.000 đồng đến 1.000.000.000 đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù 01 - 05 năm)",
+            "Chỉ bị nhắc nhở tại thôn và được miễn trách nhiệm bồi thường vì lửa lan do gió to"
         ],
-        "correct": "Có thể bị truy cứu trách nhiệm hình sự về Tội hủy hoại rừng (Điều 243 BLHS, khung phạt tiền 50 - 500 triệu đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù 01 - 05 năm) và phải bồi thường thiệt hại",
-        "explanation": "Căn cứ Điểm b Khoản 1 Điều 243 Bộ luật Hình sự (và Điều 20 Nghị định số 146/2026/NĐ-CP nếu dưới ngưỡng hình sự; Điều 13 Luật Xử lý vi phạm hành chính về bồi thường thiệt hại): Hành vi đốt, phá rừng trái phép hoặc hủy hoại rừng sản xuất có diện tích từ 5.000 m² (0,5 ha) đến dưới 10.000 m² cấu thành Tội hủy hoại rừng (phạt tiền 50.000.000 đồng đến 500.000.000 đồng, cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 01 năm đến 05 năm), đồng thời phải bồi thường thiệt hại dân sự."
+        "correct": "Bị truy cứu trách nhiệm hình sự về Tội vi phạm quy định về phòng cháy, chữa cháy (Điểm d Khoản 1 Điều 313 BLHS: cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm; có thể phạt tiền bổ sung 10.000.000 - 50.000.000 đồng) và phải bồi thường thiệt hại",
+        "explanation": "Căn cứ Điểm d Khoản 1 và Khoản 5 Điều 313 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt thực bì bất cẩn vi phạm quy định về phòng cháy, chữa cháy gây cháy lan, thiệt hại về tài sản cho người khác từ 100.000.000 đồng đến dưới 500.000.000 đồng cấu thành Tội vi phạm quy định về phòng cháy, chữa cháy (phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 02 năm đến 05 năm; còn có thể bị phạt tiền từ 10.000.000 đồng đến 50.000.000 đồng) và phải bồi thường thiệt hại dân sự. Trường hợp chưa đến mức truy cứu trách nhiệm hình sự thì bị xử phạt vi phạm hành chính về hành vi vi phạm quy định PCCCR gây cháy rừng theo Điều 20 Nghị định số 146/2026/NĐ-CP (buộc trồng lại rừng, khắc phục ô nhiễm môi trường) và bồi thường thiệt hại theo Điều 13 Luật Xử lý vi phạm hành chính."
     },
     {
         "id": "ChuRung_117",
@@ -1468,7 +1469,7 @@ const question_ChuRung = [
             "Tên gọi theo màu sắc hoa và hình dáng lá của cây"
         ],
         "correct": "Tên khoa học của loài; tên tiếng Việt chỉ có giá trị tham khảo",
-        "explanation": "Căn cứ Ghi chú cuối Phụ lục I Thông tư số 85/2025/TT-BNNMT: 'Trong Danh mục này, tên gọi chính thức của loài là tên khoa học, tên tiếng Việt chỉ có giá trị tham khảo.' (Quy định tương tự cũng được áp dụng trong các biểu mẫu Bảng kê lâm sản tại Phụ lục II Thông tư số 26/2025/TT-BNNMT)."
+        "explanation": "Căn cứ Ghi chú cuối Phụ lục I Thông tư số 85/2025/TT-BNNMT: 'Trong Danh mục này, tên gọi chính thức của loài là tên khoa học, tên tiếng Việt chỉ có giá trị tham khảo.'"
     },
     {
         "id": "ChuRung_123",
@@ -1486,13 +1487,13 @@ const question_ChuRung = [
         "id": "ChuRung_124",
         "question": "Hành vi đốt lửa, sử dụng lửa để lấy mật ong trong rừng vào mùa khô hanh dẫn đến hậu quả pháp lý nào sau đây?",
         "options": [
-            "Bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu gây cháy rừng thì bị xử phạt theo Điều 20 NĐ 146 (hoặc truy cứu TNHS về Tội hủy hoại rừng) và phải bồi thường thiệt hại",
+            "Bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu bất cẩn gây cháy rừng thì bị xử phạt theo Điều 20 NĐ 146/2026/NĐ-CP (hoặc truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy theo Điều 313 BLHS) và phải bồi thường thiệt hại",
             "Được khuyến khích vì giúp người dân tăng thu nhập từ mật ong rừng",
             "Chỉ bị xử phạt nếu người lấy mật ong không phải là chủ rừng nơi có tổ ong",
             "Không bị xử phạt vì khói lửa không làm hại đến cây rừng"
         ],
-        "correct": "Bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu gây cháy rừng thì bị xử phạt theo Điều 20 NĐ 146 (hoặc truy cứu TNHS về Tội hủy hoại rừng) và phải bồi thường thiệt hại",
-        "explanation": "Căn cứ Điểm i Khoản 3, Khoản 10 Điều 19 và Điều 20 Nghị định số 146/2026/NĐ-CP; Điều 13 Luật Xử lý vi phạm hành chính; Điều 243 Bộ luật Hình sự: Hành vi đốt lửa, sử dụng lửa để lấy mật ong bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu gây thiệt hại đến rừng thì xử phạt về hành vi gây cháy rừng theo Điều 20 NĐ 146/2026/NĐ-CP (hoặc truy cứu TNHS theo Điều 243 BLHS) và buộc bồi thường thiệt hại."
+        "correct": "Bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu bất cẩn gây cháy rừng thì bị xử phạt theo Điều 20 NĐ 146/2026/NĐ-CP (hoặc truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy theo Điều 313 BLHS) và phải bồi thường thiệt hại",
+        "explanation": "Căn cứ Điểm i Khoản 3, Khoản 10 Điều 19 và Điều 20 Nghị định số 146/2026/NĐ-CP; Điều 13 Luật Xử lý vi phạm hành chính (VBHN số 90/VBHN-VPQH); Điều 313 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi đốt lửa, sử dụng lửa để lấy mật ong bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng; nếu bất cẩn (vô ý) gây cháy rừng thì xử phạt theo Điều 20 Nghị định số 146/2026/NĐ-CP (hoặc truy cứu TNHS về Tội vi phạm quy định về phòng cháy, chữa cháy theo Điều 313 BLHS nếu đủ mức thiệt hại) và buộc bồi thường thiệt hại."
     },
     {
         "id": "ChuRung_125",
@@ -1528,7 +1529,7 @@ const question_ChuRung = [
             "Chỉ bị tịch thu hoa lan, hành vi đốn hạ cây gỗ không bị xem xét"
         ],
         "correct": "Hành vi khai thác rừng và thực vật rừng trái pháp luật; bị xử phạt VPHC, tịch thu tang vật, phương tiện hoặc xử lý hình sự tùy theo mức độ thiệt hại",
-        "explanation": "Căn cứ Điều 16 và Điều 23 Nghị định số 146/2026/NĐ-CP: Hành vi chặt hạ cây gỗ rừng tự nhiên để lấy phong lan cấu thành hành vi Khai thác rừng tự nhiên trái pháp luật (Điều 16) và Phá rừng (Điều 23); người vi phạm bị phạt tiền, tịch thu tang vật, phương tiện và có thể bị truy cứu trách nhiệm hình sự theo Điều 232 hoặc Điều 243 Bộ luật Hình sự."
+        "explanation": "Căn cứ Điều 16 hoặc Điều 23 Nghị định số 146/2026/NĐ-CP: Tùy bản chất, mức độ hành vi, việc chặt hạ cây gỗ rừng tự nhiên trái phép để lấy phong lan bị xử phạt về hành vi Khai thác rừng tự nhiên trái pháp luật (Điều 16) hoặc hành vi Phá rừng (Điều 23 — Điều 23 chỉ áp dụng đối với trường hợp không thuộc hành vi quy định tại Điều 15, Điều 16 Nghị định này); người vi phạm bị phạt tiền, tịch thu tang vật, phương tiện và có thể bị truy cứu trách nhiệm hình sự theo Điều 232 hoặc Điều 243 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH)."
     },
     {
         "id": "ChuRung_128",

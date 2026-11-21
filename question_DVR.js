@@ -1,10 +1,11 @@
 // ============================================================================
 // BỘ CÂU HỎI TRẮC NGHIỆM PHÁP LUẬT LÂM NGHIỆP
 // Gói dữ liệu: Quản lý động vật rừng và bảo tồn thiên nhiên (85 câu)
-// Đã rà soát đối chiếu nguyên văn QPPL ngày 21/11/2026
+// Đã rà soát đối chiếu nguyên văn QPPL ngày 21/11/2026 (BLHS 135/VBHN-VPQH)
 // ============================================================================
 
-const question_DVR = [
+const question_DVR = 
+[
   {
     "id": "DVR_001",
     "question": "Theo Thông tư số 85/2025/TT-BNNMT, điều kiện bắt buộc để xuất khẩu mẫu vật động vật thuộc Phụ lục I CITES vì mục đích thương mại từ cơ sở nuôi là gì?",
@@ -51,7 +52,7 @@ const question_DVR = [
       "Từ 50 gam (0,05 kilôgam) đến dưới 01 kilôgam sừng tê giác"
     ],
     "correct": "Từ 50 gam (0,05 kilôgam) đến dưới 01 kilôgam sừng tê giác",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi tàng trữ, vận chuyển, buôn bán trái phép sừng tê giác có khối lượng từ 50 gam đến dưới 01 kilôgam thì bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi tàng trữ, vận chuyển, buôn bán trái phép sừng tê giác có khối lượng từ 50 gam đến dưới 01 kilôgam thì bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_005",
@@ -63,7 +64,7 @@ const question_DVR = [
       "Từ 03 cá thể trở lên đối với chim, bò sát; từ 01 cá thể đối với lớp thú"
     ],
     "correct": "Chỉ từ 01 cá thể bất kể là lớp thú, chim, bò sát hay lưỡng cư",
-    "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ chỉ cần từ 01 cá thể (không quy định ngưỡng tối thiểu theo lớp thú, chim, bò sát hay lớp khác) đã cấu thành tội phạm theo Khoản 1, bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm a Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ chỉ cần từ 01 cá thể (không quy định ngưỡng tối thiểu theo lớp thú, chim, bò sát hay lớp khác) đã cấu thành tội phạm theo Khoản 1, bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_006",
@@ -75,7 +76,7 @@ const question_DVR = [
       "Phải từ 50 kilôgam vảy tê tê trở lên mới cấu thành tội phạm"
     ],
     "correct": "Bị truy cứu trách nhiệm hình sự về tội vi phạm quy định về bảo vệ động vật nguy cấp, quý, hiếm (Khoản 1 Điều 244)",
-    "explanation": "Căn cứ Phụ lục I Thông tư số 85/2025/TT-BNNMT (Tê tê java và Tê tê vàng thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ và Nhóm IB) và Điểm a, Điểm b Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi tàng trữ, vận chuyển, buôn bán trái phép cá thể, bộ phận cơ thể không thể tách rời sự sống hoặc sản phẩm của động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự (phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm tại Khoản 1)."
+    "explanation": "Căn cứ Phụ lục I Thông tư số 85/2025/TT-BNNMT (Tê tê java và Tê tê vàng thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ và Nhóm IB) và Điểm a, Điểm b Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi tàng trữ, vận chuyển, buôn bán trái phép cá thể, bộ phận cơ thể không thể tách rời sự sống hoặc sản phẩm của động vật thuộc Danh mục loài nguy cấp, quý, hiếm được ưu tiên bảo vệ bị truy cứu trách nhiệm hình sự (phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm tại Khoản 1)."
   },
   {
     "id": "DVR_007",
@@ -759,7 +760,7 @@ const question_DVR = [
       "Từ 05 cá thể đến 10 cá thể lớp thú"
     ],
     "correct": "Từ 03 cá thể đến 07 cá thể lớp thú",
-    "explanation": "Căn cứ Điểm d Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục thực vật rừng, động vật rừng nguy cấp, quý, hiếm Nhóm IB hoặc Phụ lục I CITES mà không thuộc loài ưu tiên bảo vệ với số lượng từ 03 cá thể đến 07 cá thể lớp thú (hoặc từ 07 đến 10 cá thể lớp chim, bò sát; từ 10 đến 15 cá thể động vật lớp khác) bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
+    "explanation": "Căn cứ Điểm d Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi săn bắt, giết, nuôi, nhốt, vận chuyển, buôn bán trái phép động vật thuộc Danh mục thực vật rừng, động vật rừng nguy cấp, quý, hiếm Nhóm IB hoặc Phụ lục I CITES mà không thuộc loài ưu tiên bảo vệ với số lượng từ 03 cá thể đến 07 cá thể lớp thú (hoặc từ 07 đến 10 cá thể lớp chim, bò sát; từ 10 đến 15 cá thể động vật lớp khác) bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm."
   },
   {
     "id": "DVR_064",
@@ -771,7 +772,7 @@ const question_DVR = [
       "Từ 02 kilôgam đến dưới 20 kilôgam ngà voi"
     ],
     "correct": "Từ 02 kilôgam đến dưới 20 kilôgam ngà voi",
-    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự: Hành vi tàng trữ, vận chuyển, buôn bán trái phép ngà voi có khối lượng từ 02 kilôgam đến dưới 20 kilôgam bị phạt tiền từ 500.000.000 đồng đến 2.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm (từ 20 kilôgam đến dưới 90 kilôgam áp dụng khung Khoản 2 phạt tù từ 05 năm đến 10 năm)."
+    "explanation": "Căn cứ Điểm c Khoản 1 Điều 244 Bộ luật Hình sự (VBHN số 135/VBHN-VPQH): Hành vi tàng trữ, vận chuyển, buôn bán trái phép ngà voi có khối lượng từ 02 kilôgam đến dưới 20 kilôgam bị phạt tiền từ 1.000.000.000 đồng đến 4.000.000.000 đồng hoặc phạt tù từ 01 năm đến 05 năm (từ 20 kilôgam đến dưới 90 kilôgam áp dụng khung Khoản 2 phạt tù từ 05 năm đến 10 năm)."
   },
   {
     "id": "DVR_065",
