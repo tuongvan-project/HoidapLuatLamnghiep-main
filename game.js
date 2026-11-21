@@ -104,7 +104,7 @@ function switchGameBackground(bgIndex, smooth = true) {
 }
 
 const themeMusic = new Audio('Theme.mp3');
-const clickSound = new Audio('click.mp3');
+const clickSound = new Audio('Click.mp3');
 const rightSound = new Audio('Right.mp3');
 const falseSound = new Audio('False.mp3');
 const tenSecondsSound = new Audio('10s.mp3');
@@ -163,6 +163,10 @@ let timerDeadline = 0;
 let timerWarningPlayed = false;
 let typeWriterToken = 0;
 let activeTypewriterTimeout = null;
+let answerRevealTimeout = null;
+let overlayFallbackTimeout = null;
+let activeOverlayAnimationHandler = null;
+let nextQuestionTimeout = null;
 let selectedMode = 'dan_tonghop';
 
 const MODE_NAMES = {
@@ -262,10 +266,53 @@ function closeConfirmModal() {
     }
 }
 
+function clearPendingQuestionTransitions() {
+    if (answerRevealTimeout !== null) {
+        clearTimeout(answerRevealTimeout);
+        answerRevealTimeout = null;
+    }
+    if (overlayFallbackTimeout !== null) {
+        clearTimeout(overlayFallbackTimeout);
+        overlayFallbackTimeout = null;
+    }
+    if (nextQuestionTimeout !== null) {
+        clearTimeout(nextQuestionTimeout);
+        nextQuestionTimeout = null;
+    }
+    if (activeOverlayAnimationHandler && overlayAnswer) {
+        overlayAnswer.removeEventListener('animationend', activeOverlayAnimationHandler);
+        activeOverlayAnimationHandler = null;
+    }
+    if (dimOverlay) {
+        dimOverlay.classList.remove('active');
+    }
+    if (overlayAnswer) {
+        overlayAnswer.classList.remove('active', 'ans-short', 'ans-medium', 'ans-long', 'ans-extra-long');
+        overlayAnswer.style.display = 'none';
+    }
+    if (overlayText) {
+        overlayText.style.opacity = '0';
+        overlayText.textContent = '';
+    }
+    if (overlayExplanation) {
+        overlayExplanation.style.opacity = '0';
+        overlayExplanation.textContent = '';
+    }
+    if (nextBtn) {
+        nextBtn.style.display = 'none';
+    }
+    const quizWrapper = document.querySelector('.quiz-wrapper');
+    if (quizWrapper) {
+        quizWrapper.classList.remove('fade-out');
+        quizWrapper.style.opacity = '1';
+    }
+}
+
 function startQuiz(mode = selectedMode) {
     selectedMode = mode;
     stopTimer();
     cancelTypeWriterEffects();
+    clearPendingQuestionTransitions();
     endScreenOverlay.classList.remove('active');
     endScreenOverlay.style.display = 'none';
 
@@ -284,10 +331,6 @@ function startQuiz(mode = selectedMode) {
     exitButton.style.display = 'block';
     replayButton.style.display = 'block';
     chibiAssistant.style.display = 'block';
-    nextBtn.style.display = 'none';
-    overlayAnswer.style.display = 'none';
-    overlayText.style.opacity = '0';
-    overlayExplanation.style.opacity = '0';
     scoreBoard.classList.add('active');
     updateScoreBoard();
 
@@ -304,6 +347,7 @@ function startQuiz(mode = selectedMode) {
 function showNextQuestion() {
     stopTimer();
     cancelTypeWriterEffects();
+    clearPendingQuestionTransitions();
 
     // Chuyển background êm ái sau mỗi 5 câu (câu 1-5, câu 6-10, câu 11-15, câu 16-20)
     const targetBgIndex = Math.floor(currentQuestionIndex / 5) % GAME_BACKGROUNDS.length;
@@ -362,9 +406,11 @@ function createAndShowAnswers(answersElement, options, correctAnswerText) {
     const correctOption = indexedOptions.find(option => option.text === correctAnswerText);
 
     answersElement.dataset.correctAnswerId = correctOption ? correctOption.id : '';
-    answersElement.innerHTML = shuffledOptions.map((option, index) => `
-        <button class="answer-btn" data-answer-id="${option.id}">${answerLabels[index]}. ${option.text}</button>
-    `).join('');
+    answersElement.innerHTML = shuffledOptions.map((option, index) => {
+        const len = (option.text || '').length;
+        const lenClass = len > 180 ? ' opt-extra-long' : (len > 105 ? ' opt-long' : '');
+        return `<button class="answer-btn${lenClass}" data-answer-id="${option.id}">${answerLabels[index]}. ${option.text}</button>`;
+    }).join('');
 
     answersElement.classList.add('visible');
     const answerButtons = Array.from(answersElement.children);
@@ -485,7 +531,12 @@ function handleAnswer(event) {
             }
         });
 
-        setTimeout(() => {
+        if (answerRevealTimeout !== null) {
+            clearTimeout(answerRevealTimeout);
+            answerRevealTimeout = null;
+        }
+        answerRevealTimeout = setTimeout(() => {
+            answerRevealTimeout = null;
             showCorrectAnswerOverlay(shuffledQuestions[currentQuestionIndex].correct);
         }, GAME_CONFIG.answerRevealDelay);
     }
@@ -515,6 +566,15 @@ function handleAnswerTimeout() {
 
 function showCorrectAnswerOverlay(correctAnswerText) {
     cancelTypeWriterEffects();
+    if (overlayFallbackTimeout !== null) {
+        clearTimeout(overlayFallbackTimeout);
+        overlayFallbackTimeout = null;
+    }
+    if (activeOverlayAnimationHandler) {
+        overlayAnswer.removeEventListener('animationend', activeOverlayAnimationHandler);
+        activeOverlayAnimationHandler = null;
+    }
+
     dimOverlay.classList.add('active');
     safePlaySound(latGiaySound);
 
@@ -548,8 +608,20 @@ function showCorrectAnswerOverlay(correctAnswerText) {
     void overlayAnswer.offsetWidth;
     overlayAnswer.classList.add('active');
 
-    const handleUnrollEnd = () => {
-        overlayAnswer.removeEventListener('animationend', handleUnrollEnd);
+    let hasRevealed = false;
+    const revealOverlayText = () => {
+        if (hasRevealed) return;
+        hasRevealed = true;
+        if (overlayFallbackTimeout !== null) {
+            clearTimeout(overlayFallbackTimeout);
+            overlayFallbackTimeout = null;
+        }
+        if (activeOverlayAnimationHandler) {
+            overlayAnswer.removeEventListener('animationend', activeOverlayAnimationHandler);
+            activeOverlayAnimationHandler = null;
+        }
+        if (!overlayAnswer.classList.contains('active')) return;
+
         overlayText.style.opacity = '1';
         typeWriterEffect(overlayText, `Đáp án đúng là:\n${correctAnswerText}`, () => {
             if (explanationText) {
@@ -563,7 +635,13 @@ function showCorrectAnswerOverlay(correctAnswerText) {
         }, GAME_CONFIG.answerTypingSpeed);
     };
 
-    overlayAnswer.addEventListener('animationend', handleUnrollEnd);
+    activeOverlayAnimationHandler = (e) => {
+        if (e.target !== overlayAnswer) return;
+        revealOverlayText();
+    };
+
+    overlayAnswer.addEventListener('animationend', activeOverlayAnimationHandler);
+    overlayFallbackTimeout = setTimeout(revealOverlayText, 1200);
 }
 
 function showResults() {
@@ -645,6 +723,7 @@ function resetGame() {
     pauseChibiVideos();
     stopTimer();
     cancelTypeWriterEffects();
+    clearPendingQuestionTransitions();
     stopChibiBlinkLoop();
     hideChibiSpeechBubble(true);
     modeSelectScreen.classList.remove('active');
@@ -750,6 +829,12 @@ window.addEventListener('resize', setRealVh);
 window.addEventListener('orientationchange', setRealVh);
 
 startButton.addEventListener('click', () => {
+    if (aboutMeOverlay && aboutMeOverlay.classList.contains('active')) {
+        closeAboutMeOverlay(false);
+    }
+    if (menuTray) {
+        menuTray.classList.remove('active');
+    }
     safePlaySound(clickSound);
     startScreen.classList.add('hidden');
     modeSelectScreen.style.display = 'flex';
@@ -1156,10 +1241,10 @@ function notifyChibiSpeechChar(ch) {
 function initChibiRigAssets() {
     const animeMouthCanvas = buildAnimeMouthSheet();
     const sources = [
-        { key: 'base', src: 'chibi_rig_base.png?v=26' },
-        { key: 'arms', src: 'chibi_rig_arms.png?v=26' },
-        { key: 'faces', src: 'chibi_rig_faces.png?v=26' },
-        { key: 'mouths', src: 'chibi_rig_mouths.png?v=26' }
+        { key: 'base', src: 'chibi_rig_base.png?v=27' },
+        { key: 'arms', src: 'chibi_rig_arms.png?v=27' },
+        { key: 'faces', src: 'chibi_rig_faces.png?v=27' },
+        { key: 'mouths', src: 'chibi_rig_mouths.png?v=27' }
     ];
 
     sources.forEach(({ key, src }) => {
@@ -1559,58 +1644,75 @@ function updateBubbleSize(text) {
     if (!chibiSpeechBubble) return;
     const len = text ? text.length : 0;
     const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const isShortLandscape = vh <= 520 && vw > vh;
 
     let targetW, targetH, targetFontSize, targetLineHeight;
 
-    if (vw <= 580) {
-        // Mobile portrait
-        targetW = Math.min(Math.round(vw * 0.94), 350);
+    if (isShortLandscape) {
+        // Mobile landscape (e.g. 812x375): nằm gọn bên phải, không che bảng chọn bên trái
+        targetW = Math.min(Math.round(vw * 0.44), 355);
+        targetH = Math.min(Math.round(vh * 0.56), 215);
         if (len <= 190) {
-            targetH = 230;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.28';
+            targetFontSize = '0.72rem';
+            targetLineHeight = '1.22';
         } else if (len <= 260) {
-            targetH = 265;
-            targetFontSize = '0.74rem';
-            targetLineHeight = '1.25';
+            targetFontSize = '0.68rem';
+            targetLineHeight = '1.20';
         } else {
-            targetH = 310;
+            targetFontSize = '0.65rem';
+            targetLineHeight = '1.18';
+        }
+    } else if (vw <= 580) {
+        // Mobile portrait: giữ trong nửa dưới màn hình, không che biển/thẻ ở nửa trên
+        targetW = Math.min(Math.round(vw * 0.92), 346);
+        if (len <= 190) {
+            targetH = 185;
+            targetFontSize = '0.75rem';
+            targetLineHeight = '1.24';
+        } else if (len <= 260) {
+            targetH = 205;
             targetFontSize = '0.71rem';
-            targetLineHeight = '1.23';
+            targetLineHeight = '1.22';
+        } else {
+            targetH = 225;
+            targetFontSize = '0.68rem';
+            targetLineHeight = '1.20';
         }
     } else if (vw <= 850) {
         // Tablet
-        targetW = Math.min(Math.round(vw * 0.54), 430);
+        targetW = Math.min(Math.round(vw * 0.48), 390);
         if (len <= 190) {
-            targetH = 255;
-            targetFontSize = '0.82rem';
-            targetLineHeight = '1.30';
+            targetH = 240;
+            targetFontSize = '0.80rem';
+            targetLineHeight = '1.28';
         } else if (len <= 260) {
-            targetH = 295;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.27';
-        } else {
-            targetH = 350;
-            targetFontSize = '0.75rem';
+            targetH = 275;
+            targetFontSize = '0.76rem';
             targetLineHeight = '1.25';
+        } else {
+            targetH = 320;
+            targetFontSize = '0.73rem';
+            targetLineHeight = '1.23';
         }
     } else {
-        // Desktop (> 850px)
+        // Desktop (> 850px): giới hạn bề ngang theo màn hình để không đè cột trái
+        const maxDeskW = Math.round(vw * 0.44);
         if (len <= 190) {
-            targetW = 440;
-            targetH = 275;
-            targetFontSize = '0.85rem';
-            targetLineHeight = '1.32';
+            targetW = Math.min(430, maxDeskW);
+            targetH = 270;
+            targetFontSize = '0.84rem';
+            targetLineHeight = '1.30';
         } else if (len <= 260) {
-            targetW = 480;
-            targetH = 320;
-            targetFontSize = '0.81rem';
-            targetLineHeight = '1.28';
+            targetW = Math.min(460, maxDeskW);
+            targetH = 310;
+            targetFontSize = '0.80rem';
+            targetLineHeight = '1.27';
         } else {
-            targetW = 510;
-            targetH = 370;
-            targetFontSize = '0.78rem';
-            targetLineHeight = '1.26';
+            targetW = Math.min(490, maxDeskW);
+            targetH = 355;
+            targetFontSize = '0.76rem';
+            targetLineHeight = '1.24';
         }
     }
 
@@ -1622,11 +1724,18 @@ function updateBubbleSize(text) {
 
 function ensureBubbleFitsText() {
     if (!chibiSpeechBubble || !speechText) return;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const isShortLandscape = vh <= 520 && vw > vh;
+    const maxAllowedH = isShortLandscape
+        ? Math.round(vh * 0.60)
+        : (vw <= 580 ? 235 : Math.round(vh * 0.72));
+
     if (speechText.scrollHeight > speechText.clientHeight + 2) {
         const overflowDiff = speechText.scrollHeight - speechText.clientHeight;
-        const currentH = parseInt(chibiSpeechBubble.style.getPropertyValue('--bubble-h')) || 280;
-        const neededExpansion = Math.round(overflowDiff * 1.7) + 12;
-        const newH = Math.min(currentH + neededExpansion, Math.round(window.innerHeight * 0.74));
+        const currentH = parseInt(chibiSpeechBubble.style.getPropertyValue('--bubble-h')) || 220;
+        const neededExpansion = Math.round(overflowDiff * 1.45) + 10;
+        const newH = Math.min(currentH + neededExpansion, maxAllowedH);
         chibiSpeechBubble.style.setProperty('--bubble-h', newH + 'px');
     }
 }
@@ -2007,7 +2116,12 @@ nextBtn.addEventListener('click', () => {
     const quizWrapper = document.querySelector('.quiz-wrapper');
     quizWrapper.classList.add('fade-out');
 
-    setTimeout(() => {
+    if (nextQuestionTimeout !== null) {
+        clearTimeout(nextQuestionTimeout);
+        nextQuestionTimeout = null;
+    }
+    nextQuestionTimeout = setTimeout(() => {
+        nextQuestionTimeout = null;
         quizWrapper.classList.remove('fade-out');
         quizWrapper.style.opacity = '1';
         currentQuestionIndex++;
@@ -2033,16 +2147,28 @@ endExitBtn.addEventListener('click', () => {
     }, 1000);
 });
 
+function closeAboutMeOverlay(playSound = false) {
+    if (!aboutMeOverlay) return;
+    const contentContainer = aboutMeOverlay.querySelector('#about-me-content');
+    const titleElement = aboutMeOverlay.querySelector('.letter-title');
+    const bodyParagraphs = contentContainer ? contentContainer.querySelectorAll('.letter-body p') : [];
+
+    cancelTypeWriterEffects();
+    aboutMeOverlay.classList.remove('active');
+    aboutMeOverlay.style.animation = 'none';
+    if (startScreen) startScreen.classList.remove('about-open');
+    if (contentContainer) contentContainer.style.opacity = '0';
+    if (titleElement) titleElement.textContent = '';
+    bodyParagraphs.forEach(p => { p.textContent = ''; });
+    if (playSound) safePlaySound(latGiaySound);
+}
+
 menuButton.addEventListener('click', () => {
     safePlaySound(clickSound);
     menuTray.classList.toggle('active');
     if (!menuTray.classList.contains('active')) {
         if (aboutMeOverlay.classList.contains('active')) {
-            aboutMeOverlay.classList.remove('active');
-            aboutMeOverlay.style.animation = 'none';
-            cancelTypeWriterEffects();
-            const contentContainer = aboutMeOverlay.querySelector('#about-me-content');
-            if (contentContainer) contentContainer.style.opacity = '0';
+            closeAboutMeOverlay(false);
         }
     }
 });
@@ -2065,16 +2191,10 @@ infoButton.addEventListener('click', () => {
     const titleElement = aboutMeOverlay.querySelector('.letter-title');
     const bodyParagraphs = contentContainer.querySelectorAll('.letter-body p');
 
-    cancelTypeWriterEffects();
-
     if (isAlreadyActive) {
-        aboutMeOverlay.classList.remove('active');
-        aboutMeOverlay.style.animation = 'none';
-        contentContainer.style.opacity = '0';
-        titleElement.textContent = '';
-        bodyParagraphs.forEach(p => { p.textContent = ''; });
-        safePlaySound(latGiaySound);
+        closeAboutMeOverlay(true);
     } else {
+        cancelTypeWriterEffects();
         titleElement.textContent = '';
         bodyParagraphs.forEach(p => { p.textContent = ''; });
 
@@ -2091,6 +2211,7 @@ infoButton.addEventListener('click', () => {
         void aboutMeOverlay.offsetWidth;
         aboutMeOverlay.style.animation = '';
         aboutMeOverlay.classList.add('active');
+        if (startScreen) startScreen.classList.add('about-open');
         safePlaySound(latGiaySound);
 
         const onAnimationEnd = (e) => {
@@ -2109,6 +2230,26 @@ infoButton.addEventListener('click', () => {
         };
 
         aboutMeOverlay.addEventListener('animationend', onAnimationEnd);
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!aboutMeOverlay || !aboutMeOverlay.classList.contains('active')) return;
+    if (infoButton && infoButton.contains(e.target)) return;
+    if (menuButton && menuButton.contains(e.target)) return;
+    if (startButton && startButton.contains(e.target)) return;
+
+    if (!aboutMeOverlay.contains(e.target)) {
+        closeAboutMeOverlay(true);
+        return;
+    }
+
+    // Nếu bấm vào vùng viền trong suốt bên ngoài lá thư trong Aboutme.webp thì cũng đóng
+    const rect = aboutMeOverlay.getBoundingClientRect();
+    const xPct = (e.clientX - rect.left) / Math.max(1, rect.width);
+    const yPct = (e.clientY - rect.top) / Math.max(1, rect.height);
+    if (xPct < 0.11 || xPct > 0.89 || yPct < 0.065 || yPct > 0.91) {
+        closeAboutMeOverlay(true);
     }
 });
 
