@@ -351,6 +351,11 @@ function startQuiz(mode = selectedMode) {
     }
 
     const pool = getQuestionsForMode(selectedMode);
+    if (pool.length === 0 && document.readyState === 'loading') {
+        // Bộ câu hỏi tải kiểu "defer" (không chặn hiển thị); mạng rất chậm thì chờ tải xong rồi bắt đầu.
+        document.addEventListener('DOMContentLoaded', () => startQuiz(mode), { once: true });
+        return;
+    }
     shuffledQuestions = shuffle([...pool]).slice(0, Math.min(totalQuestions, pool.length));
     if (window.HDTK) window.HDTK.start(selectedMode, shuffledQuestions.length);
     warmUpChibiClips();
