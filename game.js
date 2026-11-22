@@ -1279,10 +1279,10 @@ function notifyChibiSpeechChar(ch) {
 function initChibiRigAssets() {
     const animeMouthCanvas = buildAnimeMouthSheet();
     const sources = [
-        { key: 'base', src: 'chibi_rig_base.webp?v=30' },
-        { key: 'arms', src: 'chibi_rig_arms.webp?v=30' },
-        { key: 'faces', src: 'chibi_rig_faces.webp?v=30' },
-        { key: 'mouths', src: 'chibi_rig_mouths.webp?v=30' }
+        { key: 'base', src: 'chibi_rig_base.webp?v=31' },
+        { key: 'arms', src: 'chibi_rig_arms.webp?v=31' },
+        { key: 'faces', src: 'chibi_rig_faces.webp?v=31' },
+        { key: 'mouths', src: 'chibi_rig_mouths.webp?v=31' }
     ];
 
     sources.forEach(({ key, src }) => {

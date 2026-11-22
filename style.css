@@ -2201,8 +2201,8 @@ body {
 
 /* ===== Chế độ ứng dụng (ungdung.js) ===== */
 .ud-toast {
-    position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 9999;
-    transform: translate(-50%, 20px); opacity: 0; transition: opacity .35s ease, transform .35s ease;
+    position: fixed; left: 50%; top: calc(12px + env(safe-area-inset-top, 0px)); z-index: 9999;
+    transform: translate(-50%, -20px); opacity: 0; transition: opacity .35s ease, transform .35s ease;
     max-width: min(92vw, 460px); padding: 10px 16px; border-radius: 12px;
     background: rgba(20, 60, 24, 0.92); color: #fff; font: 600 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     text-align: center; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); pointer-events: none;

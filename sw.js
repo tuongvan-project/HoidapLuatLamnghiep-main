@@ -13,7 +13,7 @@ const MEDIA_CACHE = 'hoidap-media-v1';
 const FONT_CACHE = 'hoidap-fonts-v1';
 const KEEP = [CORE_CACHE, MEDIA_CACHE, FONT_CACHE];
 
-const ASSET_V = '30'; // khớp tham số ?v= của style.css, game.js, dem.js trong index.html
+const ASSET_V = '31'; // khớp tham số ?v= của style.css, game.js, dem.js trong index.html
 const CORE = [
   './',
   'style.css?v=' + ASSET_V, 'game.js?v=' + ASSET_V, 'dem.js?v=' + ASSET_V, 'ungdung.js?v=' + ASSET_V,

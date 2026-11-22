@@ -28,7 +28,7 @@ Số phiên bản đang chạy được khai ở `index.html` (`window.GAME_VERS
   - Nhạc nền chỉ tải khi phát.
   - Video nhân vật tải khi vào màn chơi.
 - Google Fonts tải không chặn hiển thị trang.
-- Tham số làm mới `?v=29` → `?v=30`.
+- Tham số làm mới `?v=29` → `?v=31`.
 ### Ghi chú bảo trì
 - Thêm, đổi tên tệp ảnh, phông, mã → cập nhật danh sách `CORE` trong `sw.js`, và `ASSET_V` nếu đổi tham số `?v=`.
 
