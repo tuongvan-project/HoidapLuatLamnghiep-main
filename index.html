@@ -92,7 +92,7 @@
             <p class="mode-select-subtitle">Chọn tấm biển để bắt đầu hành trình của bạn</p>
 
             <div class="mode-board">
-                <img src="2-modes.webp" alt="Bảng gỗ chọn chế độ chơi" class="mode-board-image">
+                <img src="2-modes.webp" alt="Bảng gỗ chọn chế độ chơi" class="mode-board-image" loading="lazy">
 
                 <button type="button" class="mode-option dan" data-mode="dan" aria-label="Chọn chế độ Nhân dân">
                     <span class="mode-option-title">NHÂN DÂN</span>
@@ -114,10 +114,10 @@
                 <div id="speech-text" class="speech-text"></div>
                 <div id="chibi-bubble-actions" class="chibi-bubble-actions" style="display: none;">
                     <button type="button" id="chibi-action-no" class="chibi-action-btn chibi-btn-no" aria-label="Bỏ qua, vào chơi luôn" title="Vào chơi luôn">
-                        <img src="X.webp" alt="Không">
+                        <img src="X.webp" alt="Không" loading="lazy">
                     </button>
                     <button type="button" id="chibi-action-yes" class="chibi-action-btn chibi-btn-yes" aria-label="Xem hướng dẫn cách chơi" title="Xem hướng dẫn">
-                        <img src="V.webp" alt="Có">
+                        <img src="V.webp" alt="Có" loading="lazy">
                     </button>
                 </div>
             </div>
@@ -126,10 +126,10 @@
             <div id="chibi-character" class="chibi-character mouth-smile" role="button" tabindex="0" title="Chạm vào em để nghe hướng dẫn lại nhé!">
                 <canvas id="chibi-canvas" class="chibi-canvas" width="408" height="612" aria-hidden="true"></canvas>
                 <!-- Fallback các layer ảnh tĩnh khi canvas đang nạp -->
-                <img src="guide_chibi.webp" alt="Trợ lý Kiểm lâm" class="chibi-sprite chibi-body-base">
-                <img src="guide_chibi_hair.webp" alt="Trợ lý Kiểm lâm vuốt tóc" class="chibi-sprite chibi-body-hair" aria-hidden="true">
-                <img src="chibi_eyes_closed.webp" alt="" class="chibi-sprite chibi-layer-eyes" aria-hidden="true">
-                <img src="chibi_mouth_smile.webp" alt="" class="chibi-sprite chibi-layer-mouth" aria-hidden="true">
+                <img src="guide_chibi.webp" alt="Trợ lý Kiểm lâm" class="chibi-sprite chibi-body-base" loading="lazy">
+                <img src="guide_chibi_hair.webp" alt="Trợ lý Kiểm lâm vuốt tóc" class="chibi-sprite chibi-body-hair" aria-hidden="true" loading="lazy">
+                <img src="chibi_eyes_closed.webp" alt="" class="chibi-sprite chibi-layer-eyes" aria-hidden="true" loading="lazy">
+                <img src="chibi_mouth_smile.webp" alt="" class="chibi-sprite chibi-layer-mouth" aria-hidden="true" loading="lazy">
             </div>
         </div>
     </section>
@@ -176,28 +176,28 @@
 
     <main class="container" style="display: none;">
         <div class="logo-container in-game-logo">
-            <img src="LogoKiemlam.webp" alt="Logo Kiem Lam">
+            <img src="LogoKiemlam.webp" alt="Logo Kiem Lam" loading="lazy">
             <p>CHI CỤC KIỂM LÂM</p>
             <p>TỈNH TUYÊN QUANG</p>
             <div id="active-mode-badge" class="active-mode-badge">Kiểm lâm</div>
         </div>
         
         <div id="clock-container">
-            <img src="Clock.webp" alt="Clock Frame" id="clock-frame">
+            <img src="Clock.webp" alt="Clock Frame" id="clock-frame" loading="lazy">
             <div id="timer-container">
                 <span id="timer"></span>
             </div>
         </div>
 
         <button id="exit-button" class="exit-btn" aria-label="Về trang chủ">
-            <img src="Home.webp" alt="Home Button">
+            <img src="Home.webp" alt="Home Button" loading="lazy">
         </button>
         <button id="replay-button" class="replay-btn" style="display: none;" aria-label="Chơi lại">
-            <img src="Replay.webp" alt="Replay Button">
+            <img src="Replay.webp" alt="Replay Button" loading="lazy">
         </button>
 
         <div id="score-board">
-            <img src="Hanging Wooden Board.webp" alt="Score Board" class="score-board-frame">
+            <img src="Hanging Wooden Board.webp" alt="Score Board" class="score-board-frame" loading="lazy">
             <div class="score-text-container">
                 <p id="correct-count">Đ 0/20</p>
                 <p id="incorrect-count">S 0/20</p>
@@ -232,7 +232,7 @@
         </div>
         
         <button id="next-button" class="next-btn" style="display: none;" aria-label="Câu tiếp theo">
-            <img src="Arrow.webp" alt="Next Question">
+            <img src="Arrow.webp" alt="Next Question" loading="lazy">
         </button>
     </main>
 
@@ -258,15 +258,15 @@
     <!-- Modal xác nhận dừng chơi / về Home / chơi lại -->
     <div id="confirm-modal-overlay" class="confirm-modal-overlay" style="display: none;">
         <div class="confirm-modal-box">
-            <img src="Dungchoi.webp" alt="Khung thông báo" class="confirm-board-img">
+            <img src="Dungchoi.webp" alt="Khung thông báo" class="confirm-board-img" loading="lazy">
             <div class="confirm-modal-content">
                 <p id="confirm-modal-message" class="confirm-modal-message"></p>
                 <div class="confirm-modal-actions">
                     <button type="button" id="confirm-no-btn" class="confirm-action-btn" aria-label="Không đồng ý">
-                        <img src="X.webp" alt="Không đồng ý">
+                        <img src="X.webp" alt="Không đồng ý" loading="lazy">
                     </button>
                     <button type="button" id="confirm-yes-btn" class="confirm-action-btn" aria-label="Đồng ý">
-                        <img src="V.webp" alt="Đồng ý">
+                        <img src="V.webp" alt="Đồng ý" loading="lazy">
                     </button>
                 </div>
             </div>
@@ -277,7 +277,7 @@
     <div id="instruction-modal-overlay" class="instruction-modal-overlay" style="display: none;">
         <div class="instruction-modal-backdrop"></div>
         <div class="instruction-modal-box">
-            <img src="instruction.webp" alt="Bảng hướng dẫn luật chơi" class="instruction-board-bg" draggable="false">
+            <img src="instruction.webp" alt="Bảng hướng dẫn luật chơi" class="instruction-board-bg" draggable="false" loading="lazy">
             <button type="button" id="instruction-close-btn" class="instruction-close-btn" aria-label="Đóng hướng dẫn">✕</button>
             <div class="instruction-content-wrapper">
                 <div class="instruction-scrollable">
@@ -317,7 +317,7 @@
 
                     <div class="instruction-action-row">
                         <button type="button" id="instruction-play-btn" class="instruction-play-btn">
-                            <img src="V.webp" alt="" class="btn-check-icon">
+                            <img src="V.webp" alt="" class="btn-check-icon" loading="lazy">
                             <span>VÀO CHƠI NGAY</span>
                         </button>
                     </div>
