@@ -135,9 +135,15 @@
     var u = navigator.userAgent || '';
     var os = /Android/.test(u) ? 'Android' : /iPhone|iPad|iPod/.test(u) ? 'iOS' : /Windows/.test(u) ? 'Windows'
       : /Mac OS X/.test(u) ? 'macOS' : /Linux/.test(u) ? 'Linux' : 'khác';
-    var m = u.match(/(Edg|OPR|SamsungBrowser|CocCoc|Zalo|FBAN|FBAV|Chrome|CriOS|Firefox|FxiOS|Version)\/(\d+)/);
-    var b = m ? m[1].replace('Version', 'Safari').replace('Edg', 'Edge').replace('CriOS', 'Chrome').replace('FxiOS', 'Firefox')
-      .replace(/FBAN|FBAV/, 'Facebook') + ' ' + m[2] : 'khác';
+    // Xét lần lượt theo ưu tiên (Edge, Cốc Cốc, Zalo… đều có chữ "Chrome" trong chuỗi nhận dạng)
+    var ds = [['Edg', 'Edge'], ['CocCoc', 'Cốc Cốc'], ['coc_coc_browser', 'Cốc Cốc'], ['Zalo', 'Zalo'], ['FBAV', 'Facebook'],
+      ['SamsungBrowser', 'Samsung'], ['OPR', 'Opera'], ['FxiOS', 'Firefox'], ['Firefox', 'Firefox'], ['CriOS', 'Chrome'],
+      ['Chrome', 'Chrome'], ['Version', 'Safari']];
+    var b = 'khác';
+    for (var k = 0; k < ds.length; k++) {
+      var m = u.match(new RegExp(ds[k][0] + '\\D{0,12}(\\d+)'));
+      if (m) { b = ds[k][1] + ' ' + m[1]; break; }
+    }
     return (b + ' / ' + os).slice(0, 60);
   }
   var reportError = safe(function (msg, src) {

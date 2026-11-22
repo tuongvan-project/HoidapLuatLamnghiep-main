@@ -2201,8 +2201,15 @@ function closeAboutMeOverlay(playSound = false) {
     if (playSound) safePlaySound(latGiaySound);
 }
 
+// Thư của tác giả chỉ hiển thị được ở màn hình bắt đầu. Ở màn chọn chế độ / màn chơi, bấm "i" từng
+// dừng chữ câu hỏi đang gõ mà không hiện gì → ván bị treo (phát hiện khi kiểm thử 1.3.0). Nay ẩn nút "i" ngoài màn hình bắt đầu.
+function isOnStartScreen() {
+    return !!startScreen && !startScreen.classList.contains('hidden') && getComputedStyle(startScreen).display !== 'none';
+}
+
 menuButton.addEventListener('click', () => {
     safePlaySound(clickSound);
+    if (infoButton) infoButton.style.display = isOnStartScreen() ? '' : 'none';
     menuTray.classList.toggle('active');
     if (!menuTray.classList.contains('active')) {
         if (aboutMeOverlay.classList.contains('active')) {
@@ -2225,6 +2232,7 @@ muteButton.addEventListener('click', () => {
 
 infoButton.addEventListener('click', () => {
     const isAlreadyActive = aboutMeOverlay.classList.contains('active');
+    if (!isAlreadyActive && !isOnStartScreen()) return; // chặn thêm một lớp (xem ghi chú ở isOnStartScreen)
     const contentContainer = aboutMeOverlay.querySelector('#about-me-content');
     const titleElement = aboutMeOverlay.querySelector('.letter-title');
     const bodyParagraphs = contentContainer.querySelectorAll('.letter-body p');

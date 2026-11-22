@@ -25,6 +25,10 @@ Số phiên bản đang chạy được khai ở `index.html` (`window.GAME_VERS
 - **Theo dõi trang hằng giờ** `.github/workflows/theo-doi.yml`: kiểm trang, mã, API, khóa thống kê; lỗi thì GitHub gửi thư.
 - **Công cụ phát hành** `kiemtra/phathanh.mjs`: đổi số phiên bản ở mọi chỗ, thêm mục nhật ký, chạy bộ tự kiểm.
 ### Sửa
+- **Ván chơi bị treo khi bấm Menu → "i"** (có từ trước; agent Game phát hiện khi kiểm thử độc lập):
+  - Ở màn chọn chế độ / màn chơi, nút "i" dừng chữ câu hỏi đang gõ, còn thư tác giả không hiện. Kết quả: không có đáp án, đồng hồ trống, ván treo.
+  - Nay nút "i" chỉ hiện ở màn hình bắt đầu, và mã có chặn thêm.
+- Nhận diện trình duyệt trong mục lỗi: Edge, Cốc Cốc, Zalo, Facebook không còn bị ghi nhầm thành Chrome.
 - **Âm thanh bấm nút không phát trên trang chính** (có từ 21/11): kho mã lưu tên `click.mp3`, game gọi `Click.mp3`. Máy chủ phân biệt hoa/thường nên trả trang chủ thay cho tệp. Đã đổi tên trong git.
 - Bộ lưu ngoại tuyến không còn cất trang chủ thay cho tệp ảnh/âm thanh khi máy chủ trả nhầm.
 - Gói số liệu gửi về được chia nhỏ (≤ 16 KB), máy chủ nhận tối đa 64 KB → không còn nguy cơ mất cả lô lượt chơi khi gửi bù nhiều lượt sau thời gian dài mất mạng.
