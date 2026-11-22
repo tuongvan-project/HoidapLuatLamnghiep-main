@@ -1,0 +1,20 @@
+# Bộ nhớ đệm trên Cloudflare Pages.
+# Trang, mã, bộ câu hỏi: luôn hỏi lại máy chủ (nhanh vì chỉ nhận 304 khi không đổi) để cập nhật ngay.
+# Ảnh, phông, âm thanh, video: cho phép trình duyệt giữ 7 ngày; đổi nội dung thì đổi tên tệp hoặc tham số ?v=.
+/*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.woff2
+  Cache-Control: public, max-age=2592000
+/*.mp3
+  Cache-Control: public, max-age=604800
+/*.mp4
+  Cache-Control: public, max-age=604800
+/sw.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

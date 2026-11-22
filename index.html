@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Hỏi đáp Pháp luật Lâm nghiệp</title>
-    <link rel="icon" type="image/png" href="LogoKiemlam.png">
+    <link rel="icon" type="image/png" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1b5e20">
+    <meta name="description" content="Trò chơi trắc nghiệm hỏi đáp pháp luật về lâm nghiệp của Chi cục Kiểm lâm tỉnh Tuyên Quang. Chơi miễn phí trên điện thoại, máy tính; chơi được cả khi mất mạng.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <link rel="preload" href="Viettay.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="ViettayBold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="End.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="Result.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="Background0.jpg" as="image">
-    <link rel="preload" href="Background.webp" as="image">
-    <link rel="preload" href="Backgroundv.png" as="image">
-        <link rel="preload" href="Hanging Wooden Board.webp" as="image">
-    <link rel="preload" href="bubblechat.webp" as="image">
-    <link rel="preload" href="Dungchoi.webp" as="image">
-    <link rel="preload" href="X.webp" as="image">
-    <link rel="preload" href="instruction.webp" as="image">
-    <link rel="preload" href="guide_chibi.png" as="image">
-    <link rel="preload" href="chibi_eyes_closed.png" as="image">
-    <link rel="preload" href="chibi_mouth_smile.png" as="image">
+    <link rel="prefetch" href="End.woff2">
+    <link rel="prefetch" href="Result.woff2">
+    <link rel="preload" href="Background0.webp" as="image">
+    <link rel="prefetch" href="Background.webp">
+    <link rel="prefetch" href="Backgroundv.webp">
+    <link rel="prefetch" href="Hanging Wooden Board.webp">
+    <link rel="prefetch" href="bubblechat.webp">
+    <link rel="prefetch" href="Dungchoi.webp">
+    <link rel="prefetch" href="X.webp">
+    <link rel="prefetch" href="instruction.webp">
+    <link rel="prefetch" href="guide_chibi.webp">
+    <link rel="prefetch" href="chibi_eyes_closed.webp">
+    <link rel="prefetch" href="chibi_mouth_smile.webp">
 
-    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="style.css?v=30">
     <script src="questions_KL.js"></script>
     <script src="question_ChuRung.js"></script>
     <script src="question_CBLS.js"></script>
@@ -59,11 +63,11 @@
 
     <div id="start-screen" class="start-screen">
         <div class="logo-container">
-            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <img src="LogoKiemlam.webp" alt="Logo Kiem Lam">
             <p>CHI CỤC KIỂM LÂM</p>
             <p>TỈNH TUYÊN QUANG</p>
         </div>
-        <img src="Gametitle.png" alt="HỎI ĐÁP PHÁP LUẬT LÂM NGHIỆP" class="game-title-img">
+        <img src="Gametitle.webp" alt="HỎI ĐÁP PHÁP LUẬT LÂM NGHIỆP" class="game-title-img">
         <button id="start-button" class="start-btn">START</button>
         <p class="author-info"><span class="version-info" id="version-info"></span><b>Game Design & Development by PTV</b></p>
         
@@ -122,10 +126,10 @@
             <div id="chibi-character" class="chibi-character mouth-smile" role="button" tabindex="0" title="Chạm vào em để nghe hướng dẫn lại nhé!">
                 <canvas id="chibi-canvas" class="chibi-canvas" width="408" height="612" aria-hidden="true"></canvas>
                 <!-- Fallback các layer ảnh tĩnh khi canvas đang nạp -->
-                <img src="guide_chibi.png" alt="Trợ lý Kiểm lâm" class="chibi-sprite chibi-body-base">
-                <img src="guide_chibi_hair.png" alt="Trợ lý Kiểm lâm vuốt tóc" class="chibi-sprite chibi-body-hair" aria-hidden="true">
-                <img src="chibi_eyes_closed.png" alt="" class="chibi-sprite chibi-layer-eyes" aria-hidden="true">
-                <img src="chibi_mouth_smile.png" alt="" class="chibi-sprite chibi-layer-mouth" aria-hidden="true">
+                <img src="guide_chibi.webp" alt="Trợ lý Kiểm lâm" class="chibi-sprite chibi-body-base">
+                <img src="guide_chibi_hair.webp" alt="Trợ lý Kiểm lâm vuốt tóc" class="chibi-sprite chibi-body-hair" aria-hidden="true">
+                <img src="chibi_eyes_closed.webp" alt="" class="chibi-sprite chibi-layer-eyes" aria-hidden="true">
+                <img src="chibi_mouth_smile.webp" alt="" class="chibi-sprite chibi-layer-mouth" aria-hidden="true">
             </div>
         </div>
     </section>
@@ -172,7 +176,7 @@
 
     <main class="container" style="display: none;">
         <div class="logo-container in-game-logo">
-            <img src="LogoKiemlam.png" alt="Logo Kiem Lam">
+            <img src="LogoKiemlam.webp" alt="Logo Kiem Lam">
             <p>CHI CỤC KIỂM LÂM</p>
             <p>TỈNH TUYÊN QUANG</p>
             <div id="active-mode-badge" class="active-mode-badge">Kiểm lâm</div>
@@ -208,11 +212,11 @@
         </div>
 
         <div id="chibi-assistant" class="chibi-assistant">
-            <video class="chibi-clip" id="chibi-ask" src="Ask.mp4" muted playsinline preload="auto"></video>
-            <video class="chibi-clip" id="chibi-wait" src="Wait.mp4" muted playsinline preload="auto" loop></video>
-            <video class="chibi-clip" id="chibi-true" src="True.mp4" muted playsinline preload="auto"></video>
-            <video class="chibi-clip" id="chibi-sad" src="Sad.mp4" muted playsinline preload="auto"></video>
-            <video class="chibi-clip" id="chibi-wait2" src="Wait2.mp4" muted playsinline preload="auto" loop></video>
+            <video class="chibi-clip" id="chibi-ask" src="Ask.mp4" muted playsinline preload="none"></video>
+            <video class="chibi-clip" id="chibi-wait" src="Wait.mp4" muted playsinline preload="none" loop></video>
+            <video class="chibi-clip" id="chibi-true" src="True.mp4" muted playsinline preload="none"></video>
+            <video class="chibi-clip" id="chibi-sad" src="Sad.mp4" muted playsinline preload="none"></video>
+            <video class="chibi-clip" id="chibi-wait2" src="Wait2.mp4" muted playsinline preload="none" loop></video>
         </div>
 
         <div class="overlay-answer" id="overlay-answer">
@@ -228,7 +232,7 @@
         </div>
         
         <button id="next-button" class="next-btn" style="display: none;" aria-label="Câu tiếp theo">
-            <img src="Arrow.png" alt="Next Question">
+            <img src="Arrow.webp" alt="Next Question">
         </button>
     </main>
 
@@ -322,9 +326,10 @@
         </div>
     </div>
 
-    <script>window.GAME_VERSION = '1.1.1';</script>
+    <script>window.GAME_VERSION = '1.2.0';</script>
     <script>(function(){var e=document.getElementById('version-info');if(e)e.textContent='Phiên bản '+window.GAME_VERSION+' · ';})();</script>
-    <script src="dem.js?v=29"></script>
-    <script src="game.js?v=29"></script>
+    <script src="ungdung.js?v=30"></script>
+    <script src="dem.js?v=30"></script>
+    <script src="game.js?v=30"></script>
 </body>
 </html>

@@ -7,6 +7,31 @@ Ghi theo dạng [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/); số p
 
 Số phiên bản đang chạy được khai ở `index.html` (`window.GAME_VERSION`), và gửi kèm mỗi bản ghi thống kê.
 
+## [1.2.0] — 22/11/2026 — Nhẹ hơn, chơi được khi mất mạng
+### Thêm
+- **Chơi khi mất mạng** (`sw.js`):
+  - Sau lần vào đầu, trò chơi được cất vào máy: mã, bộ câu hỏi, ảnh, phông, âm thanh hiệu ứng.
+  - Video nhân vật được cất khi đã phát một lần. Nhạc nền 3 MB không cất trước.
+  - Vào lại trên mạng yếu: trang lấy bản mới trong tối đa 5 giây, quá thì dùng bản đã cất.
+- **Cài như ứng dụng** (`manifest.webmanifest`, `ungdung.js`, biểu tượng `icon-192/512.png`, `apple-touch-icon.png`, `favicon-32.png`):
+  - Có nút "⬇ Cài vào máy" trên Android/Chrome/Edge.
+  - Có thông báo nhỏ khi đã lưu xong vào máy và khi mất mạng.
+- `_headers`: ảnh, âm thanh, video giữ trong bộ nhớ đệm 7 ngày; phông 30 ngày.
+### Đổi
+- **Ảnh** thu nhỏ về đúng cỡ hiển thị, chuyển sang WebP: tổng 4,6 MB → 1,5 MB.
+  - Ví dụ: đồng hồ 2675 px → 420 px; thư "Về tác giả" 4096 px → 1400 px; nền màn hình bắt đầu 3072 px → 1920 px.
+  - Ảnh khung nhân vật giữ nguyên kích thước điểm ảnh (vì mã vẽ dùng tọa độ).
+- **Phông chữ** lọc còn bảng chữ Latinh và tiếng Việt: 586 KB → 350 KB (đủ toàn bộ chữ tiếng Việt).
+- **Màn hình bắt đầu** chỉ tải những gì cần ngay. Ảnh các màn sau tải ngầm lúc rảnh.
+- **Nhạc, âm thanh**: không tải khi mới mở trang.
+  - Âm thanh hiệu ứng nạp ở lần chạm đầu tiên.
+  - Nhạc nền chỉ tải khi phát.
+  - Video nhân vật tải khi vào màn chơi.
+- Google Fonts tải không chặn hiển thị trang.
+- Tham số làm mới `?v=29` → `?v=30`.
+### Ghi chú bảo trì
+- Thêm, đổi tên tệp ảnh, phông, mã → cập nhật danh sách `CORE` trong `sw.js`, và `ASSET_V` nếu đổi tham số `?v=`.
+
 ## [1.1.1] — 22/11/2026
 ### Đổi
 - Hiện số phiên bản nho nhỏ ở cuối màn hình bắt đầu: "Phiên bản 1.1.1 · Game Design & Development by PTV". Chữ lấy tự động từ `window.GAME_VERSION`.

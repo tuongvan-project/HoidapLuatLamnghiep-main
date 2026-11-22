@@ -72,7 +72,7 @@ const avgTimeText = document.getElementById('avg-time-text');
 const endReplayBtn = document.getElementById('end-replay-btn');
 const endExitBtn = document.getElementById('end-exit-btn');
 
-const GAME_BACKGROUNDS = ['Background.webp', 'Backgroundv.png'];
+const GAME_BACKGROUNDS = ['Background.webp', 'Backgroundv.webp'];
 const gameBgContainer = document.getElementById('game-bg-container');
 const gameBgLayer1 = document.getElementById('game-bg-layer-1');
 const gameBgLayer2 = document.getElementById('game-bg-layer-2');
@@ -117,6 +117,17 @@ falseSound.volume = 0.2;
 tenSecondsSound.volume = 0.3;
 latGiaySound.volume = 0.5;
 clickSound.volume = 0.3;
+
+// Tiết kiệm dung lượng cho mạng yếu: chưa tải âm thanh khi mới mở trang.
+// Nhạc nền chỉ tải khi phát; hiệu ứng âm thanh được nạp sẵn ở lần chạm/bấm đầu tiên.
+[themeMusic, clickSound, rightSound, falseSound, tenSecondsSound, latGiaySound].forEach(a => { a.preload = 'none'; });
+function warmUpSounds() {
+    [clickSound, rightSound, falseSound, tenSecondsSound, latGiaySound].forEach(a => {
+        try { a.preload = 'auto'; a.load(); } catch (_) { }
+    });
+}
+window.addEventListener('pointerdown', warmUpSounds, { once: true, capture: true });
+window.addEventListener('keydown', warmUpSounds, { once: true, capture: true });
 
 window.addEventListener('unhandledrejection', function (event) {
     if (event.reason && (event.reason.name === 'NotSupportedError' || event.reason.name === 'NotAllowedError')) {
@@ -342,6 +353,7 @@ function startQuiz(mode = selectedMode) {
     const pool = getQuestionsForMode(selectedMode);
     shuffledQuestions = shuffle([...pool]).slice(0, Math.min(totalQuestions, pool.length));
     if (window.HDTK) window.HDTK.start(selectedMode, shuffledQuestions.length);
+    warmUpChibiClips();
     showNextQuestion();
 }
 
@@ -768,6 +780,16 @@ function pauseChibiVideos() {
     activeChibiClip = null;
 }
 
+// Video nhân vật chỉ tải khi vào màn chơi (không tải ở màn hình bắt đầu).
+let chibiClipsWarmed = false;
+function warmUpChibiClips() {
+    if (chibiClipsWarmed) return;
+    chibiClipsWarmed = true;
+    Object.values(chibiClips).forEach(clip => {
+        if (!clip) return;
+        try { clip.preload = 'auto'; clip.load(); } catch (_) { }
+    });
+}
 function playChibiVideo(videoSrc) {
     try {
         const nextClip = chibiClips[videoSrc];
@@ -1252,10 +1274,10 @@ function notifyChibiSpeechChar(ch) {
 function initChibiRigAssets() {
     const animeMouthCanvas = buildAnimeMouthSheet();
     const sources = [
-        { key: 'base', src: 'chibi_rig_base.png?v=27' },
-        { key: 'arms', src: 'chibi_rig_arms.png?v=27' },
-        { key: 'faces', src: 'chibi_rig_faces.png?v=27' },
-        { key: 'mouths', src: 'chibi_rig_mouths.png?v=27' }
+        { key: 'base', src: 'chibi_rig_base.webp?v=30' },
+        { key: 'arms', src: 'chibi_rig_arms.webp?v=30' },
+        { key: 'faces', src: 'chibi_rig_faces.webp?v=30' },
+        { key: 'mouths', src: 'chibi_rig_mouths.webp?v=30' }
     ];
 
     sources.forEach(({ key, src }) => {
