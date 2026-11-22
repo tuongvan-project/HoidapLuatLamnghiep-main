@@ -1,0 +1,49 @@
+# Theo dõi trang game hằng giờ. Có lỗi → lần chạy thất bại → GitHub gửi thư báo cho chủ kho mã.
+# Chỉ đọc trang bằng curl (không chạy mã game) nên KHÔNG làm sai lệch số liệu thống kê.
+# Lưu ý: GitHub tự tắt lịch chạy nếu kho mã không có thay đổi trong 60 ngày → vào tab Actions bấm "Enable workflow".
+name: Theo doi trang game
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # phút 17 mỗi giờ (giờ quốc tế)
+  workflow_dispatch: {}     # cho phép bấm chạy tay
+
+permissions:
+  contents: read
+
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE: https://hoidapluatlamnghiep.pages.dev
+    steps:
+      - name: Kiem tra trang, API, khoa thong ke (thu lai 3 lan de tranh bao nham)
+        run: |
+          set -u
+          kiem() {
+            # 1. Trang chính trả 200 và có số phiên bản
+            curl -fsS --max-time 20 "$SITE/" -o page.html || { echo "Trang chinh khong vao duoc"; return 1; }
+            V=$(grep -o "GAME_VERSION = '[0-9.]*'" page.html | grep -o "[0-9.]*" || true)
+            [ -n "$V" ] || { echo "Trang chinh khong co GAME_VERSION (co the tra trang loi)"; return 1; }
+            echo "Phien ban dang chay: $V"
+            # 2. Bộ câu hỏi và mã game tải được
+            for f in game.js questions_KL.js question_ChuRung.js question_CBLS.js question_DVR.js sw.js; do
+              CT=$(curl -fsS --max-time 20 -o /dev/null -w '%{content_type}' "$SITE/$f") || { echo "Khong tai duoc $f"; return 1; }
+              case "$CT" in *javascript*) ;; *) echo "$f tra ve sai loai: $CT"; return 1;; esac
+            done
+            # 3. API ghi sự kiện sống (gói rỗng → không ghi gì vào số liệu)
+            R=$(curl -fsS --max-time 20 -X POST "$SITE/api/su-kien" -H 'content-type: application/json' -d '{"events":[]}') || { echo "API ghi su kien loi"; return 1; }
+            echo "$R" | grep -q '"ok":true' || { echo "API ghi su kien tra ve: $R"; return 1; }
+            # 4. Trang thống kê PHẢI bị khóa
+            C=$(curl -s --max-time 20 -o /dev/null -w '%{http_code}' "$SITE/thongke")
+            case "$C" in 401|503) echo "Trang thong ke dang khoa ($C)";; *) echo "CANH BAO: trang thong ke KHONG bi khoa (ma $C)"; return 1;; esac
+            C=$(curl -s --max-time 20 -o /dev/null -w '%{http_code}' "$SITE/api/xuat?loai=ngay")
+            case "$C" in 401|503) ;; *) echo "CANH BAO: API xuat so lieu KHONG bi khoa (ma $C)"; return 1;; esac
+            return 0
+          }
+          for i in 1 2 3; do
+            if kiem; then echo "DAT"; exit 0; fi
+            echo "Lan $i chua dat, thu lai sau 60 giay"; sleep 60
+          done
+          echo "KHONG DAT sau 3 lan"; exit 1

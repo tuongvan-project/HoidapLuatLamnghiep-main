@@ -29,6 +29,19 @@ export async function ensureSchema(db) {
       shown INTEGER NOT NULL DEFAULT 0,
       wrong INTEGER NOT NULL DEFAULT 0
     )`),
+    // Lỗi JavaScript phát sinh trên máy người chơi (không có thông tin cá nhân).
+    db.prepare(`CREATE TABLE IF NOT EXISTS errors (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      ts INTEGER NOT NULL,
+      day TEXT NOT NULL,
+      msg TEXT,                     -- nội dung lỗi (cắt 300 ký tự)
+      src TEXT,                     -- tệp + dòng:cột
+      v TEXT,                       -- phiên bản game
+      device TEXT,
+      browser TEXT,                 -- tên trình duyệt + hệ điều hành rút gọn
+      cid TEXT
+    )`),
+    db.prepare(`CREATE INDEX IF NOT EXISTS idx_errors_day ON errors(day)`),
   ]);
   schemaReady = true;
 }

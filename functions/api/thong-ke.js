@@ -1,5 +1,5 @@
 // GET /api/thong-ke?tu=YYYY-MM-DD&den=YYYY-MM-DD — số liệu tổng hợp cho trang thongke.html.
-// Chỉ trả số liệu gộp, không có dữ liệu từng người.
+// Chỉ trả số liệu gộp, không có dữ liệu từng người. Được khóa bằng mật khẩu (functions/_middleware.js).
 import { ensureSchema, vnDay, json } from './_db.js';
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -17,7 +17,7 @@ export async function onRequestGet({ request, env }) {
   await ensureSchema(env.DB);
   const db = env.DB;
   const R = 'day BETWEEN ?1 AND ?2';
-  const [tong, theoNgay, theoCheDo, theoThietBi, theoVung, theoNguon, cauSai, toanBo] = await db.batch([
+  const [tong, theoNgay, theoCheDo, theoThietBi, theoVung, theoNguon, cauSai, toanBo, loi] = await db.batch([
     db.prepare(`SELECT
         SUM(kind='open') AS luot_mo,
         COUNT(DISTINCT CASE WHEN kind='open' THEN cid END) AS khach,
@@ -46,6 +46,9 @@ export async function onRequestGet({ request, env }) {
       FROM qstats WHERE shown >= 5 ORDER BY ti_le_sai DESC, shown DESC LIMIT 20`),
     db.prepare(`SELECT SUM(kind='open') AS luot_mo, SUM(kind='game') AS luot_choi,
         COUNT(DISTINCT cid) AS khach, MIN(day) AS tu_ngay FROM events`),
+    db.prepare(`SELECT msg, src, v, COUNT(*) AS so_lan, COUNT(DISTINCT cid) AS so_may,
+        MAX(ts) AS lan_cuoi, GROUP_CONCAT(DISTINCT browser) AS trinh_duyet
+      FROM errors WHERE ${R} GROUP BY msg, src, v ORDER BY lan_cuoi DESC LIMIT 30`).bind(tu, den),
   ]);
 
   return json({
@@ -54,5 +57,6 @@ export async function onRequestGet({ request, env }) {
     theo_ngay: theoNgay.results, theo_che_do: theoCheDo.results,
     theo_thiet_bi: theoThietBi.results, theo_vung: theoVung.results,
     theo_nguon: theoNguon.results, cau_hay_sai: cauSai.results,
-  }, 200, { 'cache-control': 'public, max-age=120' });
+    loi_gan_day: loi.results,
+  }, 200, { 'cache-control': 'private, no-store' });
 }

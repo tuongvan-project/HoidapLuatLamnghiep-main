@@ -57,7 +57,15 @@
     var q = readQueue();
     if (!q.length || sending) return;
     if (navigator.onLine === false) return;
-    var batch = q.slice(0, 50);
+    // Gói tối đa 50 sự kiện và ~16 KB (máy chủ nhận ≤ 64 KB; sendBeacon/keepalive giới hạn 64 KB),
+    // để không có gói nào bị từ chối vì quá lớn làm mất cả lô.
+    var batch = [];
+    var size = 40;
+    for (var i = 0; i < q.length && batch.length < 50; i++) {
+      var s = JSON.stringify(q[i]).length + 1;
+      if (batch.length && size + s > 16000) break;
+      batch.push(q[i]); size += s;
+    }
     var body = JSON.stringify({ cid: cid, events: batch });
     if (useBeacon && navigator.sendBeacon) {
       var blob = new Blob([body], { type: 'application/json' });
@@ -118,6 +126,41 @@
   safe(function () {
     push({ kind: 'open', ts: Date.now(), device: device(), ref: source(), v: VERSION });
   })();
+
+  // ---- Ghi lỗi JavaScript trên máy người chơi ----
+  // Chỉ lỗi mã (không ghi lỗi tải ảnh/âm thanh khi mất mạng); tối đa 5 lỗi khác nhau mỗi lần mở trang.
+  var errSeen = {};
+  var errCount = 0;
+  function browserName() {
+    var u = navigator.userAgent || '';
+    var os = /Android/.test(u) ? 'Android' : /iPhone|iPad|iPod/.test(u) ? 'iOS' : /Windows/.test(u) ? 'Windows'
+      : /Mac OS X/.test(u) ? 'macOS' : /Linux/.test(u) ? 'Linux' : 'khác';
+    var m = u.match(/(Edg|OPR|SamsungBrowser|CocCoc|Zalo|FBAN|FBAV|Chrome|CriOS|Firefox|FxiOS|Version)\/(\d+)/);
+    var b = m ? m[1].replace('Version', 'Safari').replace('Edg', 'Edge').replace('CriOS', 'Chrome').replace('FxiOS', 'Firefox')
+      .replace(/FBAN|FBAV/, 'Facebook') + ' ' + m[2] : 'khác';
+    return (b + ' / ' + os).slice(0, 60);
+  }
+  var reportError = safe(function (msg, src) {
+    msg = String(msg || '').slice(0, 300);
+    if (!msg) return;
+    var key = msg + '|' + src;
+    if (errSeen[key] || errCount >= 5) return;
+    errSeen[key] = 1; errCount++;
+    push({ kind: 'loi', ts: Date.now(), msg: msg, src: String(src || '').slice(0, 200), device: device(), browser: browserName(), v: VERSION });
+    setTimeout(flush, 2000);
+  });
+  window.addEventListener('error', function (e) {
+    if (!e || (e.target && e.target !== window)) return; // lỗi tải tài nguyên: bỏ qua
+    var file = (e.filename || '').split('/').pop().split('?')[0];
+    reportError(e.message || (e.error && e.error.message), file + ':' + (e.lineno || 0) + ':' + (e.colno || 0));
+  }, true);
+  window.addEventListener('unhandledrejection', function (e) {
+    var r = e && e.reason;
+    if (e.defaultPrevented) return; // game đã tự xử lý (vd trình duyệt chặn tự phát âm thanh)
+    if (r && (r.name === 'NotAllowedError' || r.name === 'NotSupportedError' || r.name === 'AbortError')) return;
+    reportError('Promise: ' + (r && (r.message || r.name) || String(r)), 'promise');
+  });
+  api.reportError = reportError;
 
   window.addEventListener('online', function () { flush(); });
   window.addEventListener('pagehide', function () { closeGame(false); flush(true); });

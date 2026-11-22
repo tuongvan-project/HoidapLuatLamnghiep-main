@@ -7,6 +7,31 @@ Ghi theo dạng [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/); số p
 
 Số phiên bản đang chạy được khai ở `index.html` (`window.GAME_VERSION`), và gửi kèm mỗi bản ghi thống kê.
 
+## [1.3.0] — 22/11/2026 — Vận hành chuyên nghiệp
+### Thêm
+- **Tự ghi lỗi trên máy người chơi** (`dem.js` → `/api/su-kien`, bảng `errors`):
+  - Chỉ ghi lỗi mã, không ghi lỗi tải ảnh khi mất mạng. Tối đa 5 lỗi khác nhau mỗi lần mở trang; máy chủ nhận tối đa 10 lỗi mỗi gói.
+  - Trang thống kê có mục "Lỗi phát sinh trên máy người chơi".
+- **Khóa trang thống kê bằng mật khẩu** (`functions/_middleware.js`): khóa `/thongke`, `/api/thong-ke`, `/api/xuat`.
+  - Mật khẩu là biến bí mật `THONGKE_MATKHAU` trên Cloudflare; chưa đặt thì luôn từ chối.
+  - Game và API ghi sự kiện không bị khóa.
+- **Tải toàn bộ số liệu dạng CSV** (`/api/xuat`): theo ngày, theo chế độ + tháng, theo khu vực + tháng, theo câu hỏi, lỗi, từng lượt của một tháng.
+  - Có chống Excel hiểu nhầm nội dung thành công thức.
+- **Bộ tự kiểm** `kiemtra/kiemtra.mjs`, chạy ở bước dựng Cloudflare; có lỗi thì không phát hành. Kiểm:
+  - cú pháp; bộ câu hỏi;
+  - tham chiếu tệp, so đúng hoa/thường theo git;
+  - danh sách lưu ngoại tuyến; phiên bản thống nhất; tệp nội bộ.
+- **Bộ thử phần máy chủ** `kiemtra/thu-may-chu.mjs`: 27 phép thử bằng kho số liệu giả.
+- **Theo dõi trang hằng giờ** `.github/workflows/theo-doi.yml`: kiểm trang, mã, API, khóa thống kê; lỗi thì GitHub gửi thư.
+- **Công cụ phát hành** `kiemtra/phathanh.mjs`: đổi số phiên bản ở mọi chỗ, thêm mục nhật ký, chạy bộ tự kiểm.
+### Sửa
+- **Âm thanh bấm nút không phát trên trang chính** (có từ 21/11): kho mã lưu tên `click.mp3`, game gọi `Click.mp3`. Máy chủ phân biệt hoa/thường nên trả trang chủ thay cho tệp. Đã đổi tên trong git.
+- Bộ lưu ngoại tuyến không còn cất trang chủ thay cho tệp ảnh/âm thanh khi máy chủ trả nhầm.
+- Gói số liệu gửi về được chia nhỏ (≤ 16 KB), máy chủ nhận tối đa 64 KB → không còn nguy cơ mất cả lô lượt chơi khi gửi bù nhiều lượt sau thời gian dài mất mạng.
+- API thống kê không còn cho lưu đệm công khai.
+### Đổi
+- Tham số làm mới `?v=31` → `?v=32`.
+
 ## [1.2.0] — 22/11/2026 — Nhẹ hơn, chơi được khi mất mạng
 ### Thêm
 - **Chơi khi mất mạng** (`sw.js`):

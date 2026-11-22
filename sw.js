@@ -13,7 +13,7 @@ const MEDIA_CACHE = 'hoidap-media-v1';
 const FONT_CACHE = 'hoidap-fonts-v1';
 const KEEP = [CORE_CACHE, MEDIA_CACHE, FONT_CACHE];
 
-const ASSET_V = '31'; // khớp tham số ?v= của style.css, game.js, dem.js trong index.html
+const ASSET_V = '32'; // khớp tham số ?v= của style.css, game.js, dem.js trong index.html
 const CORE = [
   './',
   'style.css?v=' + ASSET_V, 'game.js?v=' + ASSET_V, 'dem.js?v=' + ASSET_V, 'ungdung.js?v=' + ASSET_V,
@@ -40,7 +40,7 @@ self.addEventListener('install', (event) => {
     await Promise.all(CORE.map(async (u) => {
       try {
         const res = await fetch(u, { cache: 'no-cache' });
-        if (res.ok && !res.redirected) await cache.put(u, res);
+        if (res.ok && !res.redirected && (u === './' || !laTrangThay(u, res))) await cache.put(u, res);
       } catch (_) { /* thử lại ở lần sau */ }
     }));
     await self.skipWaiting();
@@ -97,7 +97,7 @@ async function staleWhileRevalidate(req, cacheName) {
   const cached = await cache.match(req, { ignoreVary: true }) ||
     (cacheName === CORE_CACHE ? await caches.match(req, { ignoreVary: true }) : undefined);
   const network = fetch(req).then((res) => {
-    if (res && (res.ok || res.type === 'opaque') && !res.redirected) cache.put(req, res.clone()).catch(() => { });
+    if (res && (res.ok || res.type === 'opaque') && !res.redirected && !laTrangThay(req.url, res)) cache.put(req, res.clone()).catch(() => { });
     return res;
   }).catch(() => undefined);
   if (cached) return cached;
@@ -119,6 +119,7 @@ async function media(req, url) {
   try {
     const res = await fetch(req);
     // Lưu lại nếu nhận được trọn tệp (200, hoặc 206 phủ từ đầu đến cuối).
+    if (laTrangThay(key, res)) return res; // máy chủ trả trang thay cho tệp: không cất
     if (res.status === 200) {
       cache.put(key, res.clone()).catch(() => { });
     } else if (res.status === 206) {
@@ -157,6 +158,12 @@ async function rangeFrom(res, range) {
       'accept-ranges': 'bytes'
     }
   });
+}
+
+// Máy chủ trả trang chủ (HTML) cho đường dẫn tệp không có (vd sai hoa/thường) → không được cất thay cho tệp thật.
+function laTrangThay(url, res) {
+  const ct = (res.headers && res.headers.get('content-type')) || '';
+  return ct.includes('text/html') && !/(\/|\.html?)(\?.*)?$/.test(String(url));
 }
 
 function withTimeout(p, ms) {

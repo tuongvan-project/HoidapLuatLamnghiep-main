@@ -97,6 +97,26 @@
     <table id="cauSai"></table>
     <p class="nho">Gợi ý nội dung cần tuyên truyền thêm.</p>
   </section>
+
+  <section>
+    <h2>Lỗi phát sinh trên máy người chơi (trong khoảng ngày đã chọn)</h2>
+    <table id="loi"></table>
+    <p class="nho">Ghi tự động khi trò chơi gặp lỗi trên điện thoại/máy tính của người chơi; không có thông tin cá nhân. Không có dòng nào là tốt.</p>
+  </section>
+
+  <section>
+    <h2>Tải toàn bộ số liệu (từ khi bắt đầu thống kê) — tệp CSV mở bằng Excel</h2>
+    <div class="loc" style="margin:0">
+      <button class="phu" data-xuat="ngay">Theo ngày</button>
+      <button class="phu" data-xuat="che-do">Theo chế độ, tháng</button>
+      <button class="phu" data-xuat="khu-vuc">Theo khu vực, tháng</button>
+      <button class="phu" data-xuat="cau-hoi">Theo câu hỏi</button>
+      <button class="phu" data-xuat="loi">Lỗi</button>
+      <label class="nho">Tháng <input type="month" id="thangXuat"></label>
+      <button class="phu" data-xuat="su-kien">Từng lượt (chi tiết) của tháng</button>
+    </div>
+    <p class="nho">Nên tải "Từng lượt (chi tiết)" của mỗi tháng vào đầu tháng sau để lưu hồ sơ.</p>
+  </section>
 </main>
 <footer id="chan"></footer>
 
@@ -180,6 +200,10 @@
     bangTiLe($('thietBi'), j.theo_thiet_bi || [], TEN_THIET_BI);
     bangTiLe($('vung'), j.theo_vung || []);
     bangTiLe($('nguon'), j.theo_nguon || []);
+    bang($('loi'), ['Lỗi', 'Phiên bản', 'Số lần', 'Số máy', 'Lần cuối'], (j.loi_gan_day || []).map(function (r) {
+      return ['<b>' + esc(r.msg) + '</b><div class="nho">' + esc(r.src || '') + ' · ' + esc(r.trinh_duyet || '') + '</div>',
+        esc(r.v || ''), so(r.so_lan), so(r.so_may), new Date(r.lan_cuoi).toLocaleString('vi-VN')];
+    }));
     bang($('cauSai'), ['Câu hỏi', 'Lượt gặp', 'Tỉ lệ sai'], (j.cau_hay_sai || []).map(function (r) {
       return ['<b>' + esc(r.qid) + '</b> ' + esc(cauHoi[r.qid] || ''), so(r.shown), String(r.ti_le_sai).replace('.', ',') + '%'];
     }));
@@ -194,12 +218,12 @@
       .then(function (r) { return r.json(); })
       .then(function (j) { if (!j.ok) throw new Error(j.error || 'lỗi'); hien(j); })
       .catch(function (e) {
-        $('bao').textContent = 'Không tải được số liệu (' + e.message + '). Kiểm tra kết nối mạng rồi thử lại.';
+        $('bao').textContent = 'Không tải được số liệu (' + e.message + '). Kiểm tra kết nối mạng hoặc đăng nhập lại (tải lại trang).';
         $('bao').style.display = 'block';
       });
   }
 
-  $('den').value = homNay(); $('tu').value = lui(homNay(), 29);
+  $('den').value = homNay(); $('tu').value = lui(homNay(), 29); $('thangXuat').value = homNay().slice(0, 7);
   $('xem').onclick = tai;
   $('nhanh').onchange = function () {
     var v = this.value, h = homNay();
@@ -209,11 +233,17 @@
     tai();
   };
   $('in').onclick = function () { window.print(); };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-xuat]'), function (b) {
+    b.onclick = function () {
+      var l = b.getAttribute('data-xuat');
+      location.href = '/api/xuat?loai=' + l + (l === 'su-kien' && $('thangXuat').value ? '&thang=' + $('thangXuat').value : '');
+    };
+  });
   $('csv').onclick = function () {
     if (!duLieu) return;
     var dong = [['Ngày', 'Lượt mở game', 'Người dùng', 'Lượt chơi', 'Chơi hết lượt']];
     (duLieu.theo_ngay || []).forEach(function (r) { dong.push([ngayVN(r.day), r.luot_mo, r.khach, r.luot_choi, r.hoan_thanh]); });
-    var csv = '﻿' + dong.map(function (r) { return r.join(','); }).join('\r\n');
+    var csv = '\ufeff' + dong.map(function (r) { return r.join(','); }).join('\r\n');
     var a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
     a.download = 'thong-ke-hoi-dap-' + duLieu.tu + '_' + duLieu.den + '.csv';

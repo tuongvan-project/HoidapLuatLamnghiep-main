@@ -1,7 +1,7 @@
 // POST /api/su-kien — nhận một gói sự kiện từ game (gửi theo lô, có thể gửi bù khi có mạng lại).
 import { ensureSchema, vnDay, json, str, int } from './_db.js';
 
-const MAX_BODY = 32 * 1024;
+const MAX_BODY = 64 * 1024;
 const MAX_EVENTS = 50;
 const QID = /^[A-Za-z]{1,10}_\d{1,4}$/;
 const MODES = new Set(['kiemlam', 'dan_tonghop', 'dan_churung', 'dan_cbls', 'dan_dvr']);
@@ -32,15 +32,28 @@ export async function onRequestPost({ request, env }) {
   await ensureSchema(env.DB);
   const stmts = [];
   const qCount = new Map(); // qid -> [shown, wrong]
+  let errCount = 0;
 
   for (const e of list) {
+    // Sự kiện gửi bù: chấp nhận thời điểm do máy gửi trong vòng 30 ngày, không nhận thời điểm tương lai.
+    let ts = int(e?.ts, 0, now);
+    if (!ts || ts < now - 30 * 86400000) ts = now;
+    const device = DEVICES.has(e?.device) ? e.device : null;
+
+    if (e?.kind === 'loi') {
+      // Lỗi trên máy người chơi: tối đa 10 lỗi mỗi gói để không bị gửi dồn.
+      if (++errCount > 10) continue;
+      const msg = str(e.msg, 300);
+      if (!msg) continue;
+      stmts.push(env.DB.prepare(
+        `INSERT INTO errors (ts, day, msg, src, v, device, browser, cid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+      ).bind(ts, vnDay(ts), msg, str(e.src, 200), str(e.v, 20), device, str(e.browser, 60), cid));
+      continue;
+    }
+
     const kind = e?.kind === 'game' ? 'game' : e?.kind === 'open' ? 'open' : null;
     if (!kind) continue;
-    // Sự kiện gửi bù: chấp nhận thời điểm do máy gửi trong vòng 30 ngày, không nhận thời điểm tương lai.
-    let ts = int(e.ts, 0, now);
-    if (!ts || ts < now - 30 * 86400000) ts = now;
     const mode = MODES.has(e.mode) ? e.mode : null;
-    const device = DEVICES.has(e.device) ? e.device : null;
     // Số câu trả lời / đúng: ưu tiên tự đếm từ danh sách câu trả lời.
     const answers = kind === 'game' && Array.isArray(e.answers) ? e.answers.slice(0, 100) : null;
     const answered = answers ? answers.length : int(e.answered, 0, 100);
