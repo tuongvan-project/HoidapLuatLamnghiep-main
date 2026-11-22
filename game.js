@@ -341,6 +341,7 @@ function startQuiz(mode = selectedMode) {
 
     const pool = getQuestionsForMode(selectedMode);
     shuffledQuestions = shuffle([...pool]).slice(0, Math.min(totalQuestions, pool.length));
+    if (window.HDTK) window.HDTK.start(selectedMode, shuffledQuestions.length);
     showNextQuestion();
 }
 
@@ -513,6 +514,10 @@ function handleAnswer(event) {
     });
 
     const selectedAnswerId = selectedBtn.dataset.answerId;
+    if (window.HDTK) {
+        const q = shuffledQuestions[currentQuestionIndex];
+        window.HDTK.answer(q && q.id, selectedAnswerId === correctAnswerId, timeSpent);
+    }
     if (selectedAnswerId === correctAnswerId) {
         selectedBtn.classList.add('correct');
         correctAnswers++;
@@ -550,6 +555,10 @@ function handleAnswerTimeout() {
 
     incorrectAnswers++;
     updateScoreBoard();
+    if (window.HDTK) {
+        const q = shuffledQuestions[currentQuestionIndex];
+        window.HDTK.answer(q && q.id, false, GAME_CONFIG.questionTime);
+    }
 
     const correctAnswerId = currentAnswers.dataset.correctAnswerId;
     const correctAnswerText = shuffledQuestions[currentQuestionIndex].correct;
@@ -645,6 +654,7 @@ function showCorrectAnswerOverlay(correctAnswerText) {
 }
 
 function showResults() {
+    if (window.HDTK) window.HDTK.finish(totalTimeSpent);
     pauseChibiVideos();
     questionCardContainer.innerHTML = '';
     answersContainer.innerHTML = '';
@@ -712,6 +722,7 @@ function displayAvgTime() {
 }
 
 function resetGame() {
+    if (window.HDTK) window.HDTK.abandon();
     if (instructionModalOverlay) {
         instructionModalOverlay.classList.remove('active');
         instructionModalOverlay.style.display = 'none';
