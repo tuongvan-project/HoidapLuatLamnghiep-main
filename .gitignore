@@ -13,3 +13,7 @@ tmp_*
 test_*
 .DS_Store
 Thumbs.db
+
+# Gói cài cho bộ thử trên trình duyệt (cài lại bằng npm install)
+node_modules/
+package-lock.json
