@@ -7,6 +7,12 @@ Ghi theo dạng [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/); số p
 
 Số phiên bản đang chạy được khai ở `index.html` (`window.GAME_VERSION`), và gửi kèm mỗi bản ghi thống kê.
 
+## [1.1.1] — 22/11/2026
+### Đổi
+- Hiện số phiên bản nho nhỏ ở cuối màn hình bắt đầu: "Phiên bản 1.1.1 · Game Design & Development by PTV". Chữ lấy tự động từ `window.GAME_VERSION`.
+- Bỏ dòng "Non-commercial & Education only © 2026 by PTV" trên màn chơi; xóa các quy tắc CSS không còn dùng.
+- Tham số làm mới bộ nhớ đệm `?v=28` → `?v=29`.
+
 ## [1.1.0] — 22/11/2026
 ### Thêm
 - **Thống kê lượt truy cập, lượt chơi** (ẩn danh, không thu thông tin cá nhân):

@@ -26,7 +26,7 @@
     <link rel="preload" href="chibi_eyes_closed.png" as="image">
     <link rel="preload" href="chibi_mouth_smile.png" as="image">
 
-    <link rel="stylesheet" href="style.css?v=28">
+    <link rel="stylesheet" href="style.css?v=29">
     <script src="questions_KL.js"></script>
     <script src="question_ChuRung.js"></script>
     <script src="question_CBLS.js"></script>
@@ -65,7 +65,7 @@
         </div>
         <img src="Gametitle.png" alt="HỎI ĐÁP PHÁP LUẬT LÂM NGHIỆP" class="game-title-img">
         <button id="start-button" class="start-btn">START</button>
-        <p class="author-info"><b>Game Design & Development by PTV</b></p>
+        <p class="author-info"><span class="version-info" id="version-info"></span><b>Game Design & Development by PTV</b></p>
         
         <div id="about-me-overlay">
             <div id="about-me-content">
@@ -177,7 +177,6 @@
             <p>TỈNH TUYÊN QUANG</p>
             <div id="active-mode-badge" class="active-mode-badge">Kiểm lâm</div>
         </div>
-        <p class="author-info"><b>Non-commercial & Education only © 2026 by PTV</b></p>
         
         <div id="clock-container">
             <img src="Clock.webp" alt="Clock Frame" id="clock-frame">
@@ -323,8 +322,9 @@
         </div>
     </div>
 
-    <script>window.GAME_VERSION = '1.1.0';</script>
-    <script src="dem.js?v=28"></script>
-    <script src="game.js?v=28"></script>
+    <script>window.GAME_VERSION = '1.1.1';</script>
+    <script>(function(){var e=document.getElementById('version-info');if(e)e.textContent='Phiên bản '+window.GAME_VERSION+' · ';})();</script>
+    <script src="dem.js?v=29"></script>
+    <script src="game.js?v=29"></script>
 </body>
 </html>

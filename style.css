@@ -146,6 +146,9 @@ body {
     font-size: clamp(0.6rem, 1.2vw, 0.9rem); font-weight: bold; color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); z-index: 35; white-space: nowrap;
 }
+
+/* Số phiên bản: đứng trước dòng tác giả, chữ mảnh và mờ hơn để không gây chú ý. */
+.version-info { font-weight: 600; opacity: 0.8; font-variant-numeric: tabular-nums; }
         
 .game-title-img {
     width: 90%; max-width: 600px; height: auto;
@@ -861,19 +864,7 @@ body {
         bottom: 10px;
         left: 106px;
         width: 40px;
-    }
-    .container .author-info {
-        bottom: 2px;
-        left: 150px;
-        right: 76px;
-        font-size: 0.46rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
-        pointer-events: none;
-        z-index: 5;
-    }
+    }
     #score-board {
         top: 0;
         right: 1vw;
@@ -1062,10 +1053,7 @@ body {
     }
     .chibi-assistant {
         display: none !important;
-    }
-    .container .author-info {
-        display: none;
-    }
+    }
     .container #menu-container {
         position: fixed;
         bottom: 8px;
